@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { guides } from "./data";
 
 const routes = [
   "",
@@ -12,11 +13,14 @@ const routes = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://flowertravel.studio";
+  const guideRoutes = guides.map((guide) => `/travel-guides/${guide.slug}`);
 
-  return routes.map((route) => ({
+  return [...routes, ...guideRoutes].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date("2026-07-14"),
-    changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1 : 0.8,
+    changeFrequency: route === "" || route.startsWith("/travel-guides/")
+      ? "weekly"
+      : "monthly",
+    priority: route === "" ? 1 : route.startsWith("/travel-guides/") ? 0.75 : 0.8,
   }));
 }

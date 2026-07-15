@@ -624,6 +624,171 @@ textarea:focus {
   border-radius: 6px;
 }
 
+.article-page {
+  padding-bottom: 30px;
+}
+
+.article-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 0.68fr);
+  align-items: end;
+  gap: 58px;
+  width: min(100% - 48px, var(--max));
+  margin: 0 auto;
+  padding: 76px 0 54px;
+}
+
+.article-back-link {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--clay);
+  color: var(--charcoal);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.article-hero h1 {
+  max-width: 820px;
+  margin-top: 16px;
+}
+
+.article-dek {
+  max-width: 720px;
+  margin-top: 22px;
+  font-size: 1.16rem;
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.article-meta span + span::before {
+  margin-right: 10px;
+  color: var(--rose);
+  content: "/";
+}
+
+.article-hero-image {
+  margin: 0;
+}
+
+.article-hero-image img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.article-layout {
+  display: grid;
+  grid-template-columns: minmax(230px, 0.34fr) minmax(0, 0.86fr);
+  gap: 58px;
+  width: min(100% - 48px, var(--max));
+  margin: 0 auto;
+  padding: 28px 0 72px;
+}
+
+.article-sidebar {
+  position: sticky;
+  top: calc(var(--header-height) + 28px);
+  display: grid;
+  align-self: start;
+  gap: 18px;
+}
+
+.article-panel {
+  padding: 22px;
+  border-top: 2px solid var(--clay);
+  background: rgba(255, 253, 249, 0.78);
+}
+
+.article-panel h2 {
+  margin-bottom: 14px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.article-panel ul,
+.article-body ul,
+.article-sources ul {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.article-panel li,
+.article-body li,
+.article-sources li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--soft-ink);
+  line-height: 1.6;
+}
+
+.article-panel li::before,
+.article-body li::before,
+.article-sources li::before {
+  position: absolute;
+  top: 0.68em;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  content: "";
+  background: var(--clay);
+}
+
+.article-body {
+  max-width: 760px;
+}
+
+.article-body section {
+  padding: 0 0 42px;
+  margin-bottom: 42px;
+  border-bottom: 1px solid var(--line);
+}
+
+.article-body section:last-child {
+  margin-bottom: 0;
+}
+
+.article-body h2 {
+  margin-bottom: 18px;
+  font-size: 2rem;
+}
+
+.article-body p + p,
+.article-body p + ul {
+  margin-top: 18px;
+}
+
+.article-body ul {
+  margin-top: 22px;
+}
+
+.article-sources {
+  padding: 28px !important;
+  background: var(--sea-glass);
+}
+
+.article-sources a {
+  border-bottom: 1px solid var(--clay);
+  color: var(--charcoal);
+  font-weight: 800;
+}
+
 .destination-detail {
   display: grid;
   grid-template-rows: auto 1fr;
@@ -962,6 +1127,8 @@ textarea:focus {
   .featured-destination-grid,
   .about-preview,
   .page-hero,
+  .article-hero,
+  .article-layout,
   .consultation-page-grid,
   .booking-form-section,
   .about-story,
@@ -971,6 +1138,11 @@ textarea:focus {
 
   .page-hero-copy {
     padding-bottom: 0;
+  }
+
+  .article-sidebar {
+    position: static;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .process-grid,
@@ -1036,6 +1208,10 @@ textarea:focus {
     font-size: 4.2rem;
   }
 
+  .article-hero h1 {
+    font-size: 3.2rem;
+  }
+
   .hero-content p:not(.eyebrow) {
     font-size: 1.02rem;
   }
@@ -1059,7 +1235,9 @@ textarea:focus {
   .process-section,
   .values-section,
   .booking-form-section,
-  .page-hero {
+  .page-hero,
+  .article-hero,
+  .article-layout {
     width: auto;
     max-width: var(--max);
     margin-right: 18px;
@@ -1086,6 +1264,18 @@ textarea:focus {
   .consultation-strip,
   .site-footer {
     grid-template-columns: 1fr;
+  }
+
+  .article-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .article-body h2 {
+    font-size: 1.7rem;
+  }
+
+  .article-sources {
+    padding: 22px !important;
   }
 
   .newsletter-band {

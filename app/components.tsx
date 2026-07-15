@@ -200,9 +200,9 @@ export function GuideCard({
         </div>
         <h3>{guide.title}</h3>
         <p>{guide.excerpt}</p>
-        <a className="text-link" href={`/travel-guides#${guide.slug}`}>
+        <Link className="text-link" href={`/travel-guides/${guide.slug}`}>
           Read the guide
-        </a>
+        </Link>
       </div>
     </article>
   );
