@@ -741,6 +741,57 @@ textarea:focus {
   border-radius: 6px;
 }
 
+.ocean-motion-frame {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 6px;
+  background: var(--warm-paper);
+}
+
+.ocean-motion-frame img {
+  border-radius: 0;
+  transform: scale(1.08);
+  animation: oceanDrift 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.ocean-motion-frame::after {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(180deg, rgba(255, 247, 246, 0) 42%, rgba(255, 247, 246, 0.2) 76%, rgba(255, 247, 246, 0.34)),
+    linear-gradient(120deg, rgba(199, 100, 130, 0.08), rgba(32, 54, 44, 0.08));
+}
+
+.wave-layer {
+  position: absolute;
+  right: 0;
+  bottom: 7%;
+  left: 0;
+  z-index: 2;
+  height: 32%;
+  pointer-events: none;
+  opacity: 0.42;
+  background:
+    radial-gradient(70px 28px at 50% 100%, rgba(255, 255, 255, 0.62) 0 38%, transparent 42%) 0 0 / 140px 42px repeat-x,
+    linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.22));
+  filter: blur(0.2px);
+  mask-image: linear-gradient(180deg, transparent, #000 32%, #000 78%, transparent);
+  animation: waveRoll 8s linear infinite;
+}
+
+.wave-two {
+  bottom: 18%;
+  opacity: 0.24;
+  background-size: 180px 52px, auto;
+  animation-duration: 12s;
+  animation-direction: reverse;
+}
+
 .article-page {
   padding-bottom: 30px;
 }
@@ -1227,6 +1278,35 @@ textarea:focus {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes oceanDrift {
+  from {
+    transform: scale(1.08) translate3d(-1.4%, -0.6%, 0);
+  }
+  to {
+    transform: scale(1.12) translate3d(1.4%, 0.8%, 0);
+  }
+}
+
+@keyframes waveRoll {
+  from {
+    background-position:
+      0 0,
+      0 0;
+  }
+  to {
+    background-position:
+      -140px 0,
+      0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ocean-motion-frame img,
+  .wave-layer {
+    animation: none;
   }
 }
 

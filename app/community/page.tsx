@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageHero, SectionHeading } from "../components";
+import { SectionHeading } from "../components";
 import { communityInterests, site } from "../data";
 
 export const metadata: Metadata = {
@@ -12,18 +12,27 @@ export const metadata: Metadata = {
 export default function CommunityPage() {
   return (
     <main>
-      <PageHero
-        eyebrow="Community"
-        title="A slower, more thoughtful way to belong to travel."
-        image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=84"
-        alt="Soft waves washing onto a pale beach"
-      >
-        <p>
-          Flower Travel is growing into a community for people who want
-          beautiful journeys, better research, independent places, and a more
-          positive footprint without losing the uniqueness of a trip.
-        </p>
-      </PageHero>
+      <section className="page-hero ocean-motion-hero">
+        <div className="page-hero-copy reveal">
+          <p className="eyebrow">Community</p>
+          <h1>A slower, more thoughtful way to belong to travel.</h1>
+          <div className="lede">
+            <p>
+              Flower Travel is growing into a community for people who want
+              beautiful journeys, better research, independent places, and a
+              more positive footprint without losing the uniqueness of a trip.
+            </p>
+          </div>
+        </div>
+        <figure className="page-hero-image ocean-motion-frame reveal delay-1">
+          <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=84"
+            alt="Soft waves washing onto a pale beach"
+          />
+          <span className="wave-layer wave-one" aria-hidden="true" />
+          <span className="wave-layer wave-two" aria-hidden="true" />
+        </figure>
+      </section>
 
       <section className="community-page section-shell">
         <div className="community-copy">
