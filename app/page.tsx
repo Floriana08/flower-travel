@@ -54,6 +54,8 @@ export default function Home() {
             src="https://images.unsplash.com/photo-1695199817779-4c879085a9a0?auto=format&fit=crop&w=2200&q=86"
             alt=""
           />
+          <span className="wave-layer wave-one" aria-hidden="true" />
+          <span className="wave-layer wave-two" aria-hidden="true" />
         </div>
         <div className="hero-content reveal">
           <p className="eyebrow">Portugal travel studio</p>
