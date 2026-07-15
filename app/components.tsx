@@ -23,7 +23,6 @@ export function SiteHeader() {
         <img className="brand-logo" src="/logo.svg" alt="" aria-hidden="true" />
         <span>
           <span className="brand-title">{site.name}</span>
-          <span className="brand-kicker">{site.strapline}</span>
         </span>
       </Link>
 
@@ -62,10 +61,14 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="footer-lead">
         <Link className="brand footer-brand" href="/">
-          <img className="brand-logo" src="/logo.svg" alt="" aria-hidden="true" />
+          <img
+            className="brand-logo"
+            src="/logo.svg"
+            alt=""
+            aria-hidden="true"
+          />
           <span>
             <span className="brand-title">{site.name}</span>
-            <span className="brand-kicker">{site.strapline}</span>
           </span>
         </Link>
         <p>
@@ -145,9 +148,12 @@ export function DestinationCard({
 }) {
   return (
     <article className={`destination-card card ${featured ? "featured" : ""}`}>
-      <a href={`/destinations#${destination.slug}`} aria-label={destination.title}>
+      <Link
+        href={`/destinations/${destination.slug}`}
+        aria-label={destination.title}
+      >
         <img src={destination.image} alt={destination.alt} loading="lazy" />
-      </a>
+      </Link>
       <div className="card-body">
         <div className="meta-line">
           <span>{destination.region}</span>
@@ -155,11 +161,17 @@ export function DestinationCard({
         </div>
         <h3>{destination.title}</h3>
         <p>{destination.excerpt}</p>
-        <ul className="inline-list" aria-label={`${destination.title} highlights`}>
+        <ul
+          className="inline-list"
+          aria-label={`${destination.title} highlights`}
+        >
           {destination.highlights.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
+        <Link className="text-link" href={`/destinations/${destination.slug}`}>
+          Read destination
+        </Link>
       </div>
     </article>
   );
@@ -273,7 +285,12 @@ export function NewsletterBand() {
       >
         <label>
           <span>Email address</span>
-          <input name="email" type="email" placeholder="you@example.com" required />
+          <input
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            required
+          />
         </label>
         <label className="consent-check">
           <input name="consent" type="checkbox" required />
@@ -295,7 +312,9 @@ export function ConsultationCta() {
     <section className="consultation-strip">
       <div>
         <p className="eyebrow">The future club</p>
-        <h2>A travel community for people who want to go beautifully and lightly.</h2>
+        <h2>
+          A travel community for people who want to go beautifully and lightly.
+        </h2>
         <p>
           Start with the free letter: Portugal notes, thoughtful destination
           essays, sustainable route ideas, and early invitations as Flower

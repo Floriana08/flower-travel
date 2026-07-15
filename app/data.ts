@@ -122,6 +122,317 @@ export const destinations = [
   },
 ];
 
+export const destinationBlogArticles = [
+  {
+    slug: "lisbon-neighborhood-first-edit",
+    destinationSlug: "lisbon",
+    title: "Lisbon Neighborhood First Edit",
+    category: "City Notes",
+    date: "July 15, 2026",
+    readTime: "5 min read",
+    excerpt:
+      "A gentle first edit for choosing where to stay, wander, eat, and slow down in Lisbon without overfilling the days.",
+    sections: [
+      {
+        heading: "Start with the base",
+        body: [
+          "Lisbon rewards a good base more than an ambitious checklist. For a first visit, the best area depends on whether you want flatter streets, nightlife, river light, design hotels, or old-city atmosphere.",
+          "Chiado, Baixa, Avenida da Liberdade, and Principe Real are the safest first filters. Alfama and Graca are more cinematic, but harder with luggage and late-night returns.",
+        ],
+      },
+      {
+        heading: "How to keep it beautiful",
+        body: [
+          "Build days around one neighborhood at a time: breakfast, a tiled walk, one museum or viewpoint, then a long lunch or early dinner. The city feels richer when you stop trying to cross it every two hours.",
+          "Lower-impact choices are simple here: use trams and metro when useful, walk slowly when the hills allow, and choose independent restaurants and local shops over generic central streets.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "lighter-lisbon-weekend",
+    destinationSlug: "lisbon",
+    title: "A Lighter Lisbon Weekend",
+    category: "Sustainable Travel",
+    date: "July 15, 2026",
+    readTime: "4 min read",
+    excerpt:
+      "A lower-pressure Lisbon weekend shaped around public transport, independent places, and fewer rushed transfers.",
+    sections: [
+      {
+        heading: "Choose less movement",
+        body: [
+          "A lighter Lisbon weekend does not need to be austere. It can mean choosing one central base, walking by neighborhood, using public transport when the hills get heavy, and giving each meal enough attention to matter.",
+        ],
+      },
+      {
+        heading: "Spend locally",
+        body: [
+          "Prioritize small restaurants, Portuguese wine bars, craft shops, and family-run bakeries. The trip still feels special, but more of the value stays connected to the place you came to see.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "madeira-base-and-weather-guide",
+    destinationSlug: "madeira",
+    title: "Madeira Bases and Weather-Flex Days",
+    category: "Island Planning",
+    date: "July 15, 2026",
+    readTime: "6 min read",
+    excerpt:
+      "How to choose a Madeira base when the island is small on the map but big in weather, roads, and elevation.",
+    sections: [
+      {
+        heading: "Funchal first, then contrast",
+        body: [
+          "Funchal is the easiest first base for restaurants, gardens, boat trips, taxis, and tour pickups. It makes sense if you want the island to feel beautiful without making every day a driving project.",
+          "For a second base, look west or north only when you want a quieter sea-view rhythm or a more dramatic nature focus.",
+        ],
+      },
+      {
+        heading: "Protect one flexible day",
+        body: [
+          "Madeira weather can change quickly between coast, forest, and mountain. A flexible day keeps the trip elegant: move a viewpoint, swap a hike for gardens, or save the ocean pools for the best conditions.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "madeira-soft-adventure-days",
+    destinationSlug: "madeira",
+    title: "Madeira Soft Adventure Days",
+    category: "Soft Adventure",
+    date: "July 15, 2026",
+    readTime: "5 min read",
+    excerpt:
+      "A softer way to plan levadas, mountain mornings, ocean pools, and comfort-first island days.",
+    sections: [
+      {
+        heading: "One anchor is enough",
+        body: [
+          "The island tempts you to stack viewpoints, hikes, drives, and dinners. A better rhythm is one strong anchor per day: a levada walk, a mountain sunrise, an ocean-pool afternoon, or a garden morning.",
+        ],
+      },
+      {
+        heading: "Comfort is part of the plan",
+        body: [
+          "Good shoes, a calm hotel, and reliable transfers are not luxuries here. They are what make a dramatic island feel generous instead of exhausting.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "paris-solo-gentle-weekend",
+    destinationSlug: "paris",
+    title: "A Solo Paris Weekend That Feels Gentle",
+    category: "Personal Story",
+    date: "July 15, 2026",
+    readTime: "5 min read",
+    excerpt:
+      "A solo Paris rhythm built around gardens, cafes, one museum, and the confidence of not rushing.",
+    sections: [
+      {
+        heading: "Choose a soft landing",
+        body: [
+          "A solo trip feels better when the first evening is already kind. Stay somewhere with easy food nearby, take one garden walk, and book a dinner that does not require crossing the city.",
+        ],
+      },
+      {
+        heading: "Let one museum be enough",
+        body: [
+          "Paris can overwhelm solo travelers who try to prove they used every hour. One museum, one good lunch, one cafe, and one neighborhood walk can make a day feel complete.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "paris-without-rushing-neighborhoods",
+    destinationSlug: "paris",
+    title: "Paris Without Rushing, by Neighborhood",
+    category: "City Notes",
+    date: "July 15, 2026",
+    readTime: "6 min read",
+    excerpt:
+      "How to cluster Paris days around the Left Bank, Marais, northern neighborhoods, and repeat favorites.",
+    sections: [
+      {
+        heading: "Cluster the city",
+        body: [
+          "Paris is easier when each day belongs to an area. Pair Saint-Germain with Luxembourg Garden, the Marais with small museums and design shops, and northern neighborhoods with slower cafe time.",
+        ],
+      },
+      {
+        heading: "Repeat something",
+        body: [
+          "A good Paris trip should include one return: the cafe you liked, the garden bench that felt calm, the street you wanted to see in different light. Repetition makes the city yours.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "rome-food-first-walk",
+    destinationSlug: "rome",
+    title: "Rome as a Food-First Walk",
+    category: "Food Guide",
+    date: "July 15, 2026",
+    readTime: "5 min read",
+    excerpt:
+      "A first Rome day shaped by espresso, markets, pasta, aperitivo, and enough walking to feel the city.",
+    sections: [
+      {
+        heading: "Let food set the pace",
+        body: [
+          "Rome makes more sense when coffee, lunch, and aperitivo structure the day. Start small, walk slowly, and make one serious meal the anchor instead of grazing until nothing feels memorable.",
+        ],
+      },
+      {
+        heading: "Keep the route compact",
+        body: [
+          "A food-first walk works best when it stays tight: historic center lanes, the Jewish Ghetto, Trastevere, or Testaccio. Too much distance turns appetite into logistics.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "rome-long-weekend-rhythm",
+    destinationSlug: "rome",
+    title: "The Rome Long Weekend Rhythm",
+    category: "Route Notes",
+    date: "July 15, 2026",
+    readTime: "5 min read",
+    excerpt:
+      "A classic Rome weekend with ruins, churches, trattorias, one garden moment, and room for aperitivo.",
+    sections: [
+      {
+        heading: "Stay central for a short trip",
+        body: [
+          "A slightly smaller central room can be better than a larger room far away. On a short Rome trip, every taxi and transit decision changes the tone of the day.",
+        ],
+      },
+      {
+        heading: "One ancient anchor",
+        body: [
+          "Choose one major ancient-Rome anchor and give it space. The city becomes more elegant when the rest of the day is lunch, shade, and slow wandering rather than a second major site.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "greek-islands-soft-honeymoon",
+    destinationSlug: "greek-islands",
+    title: "Greek Islands for a Soft Honeymoon",
+    category: "Future Planning",
+    date: "July 15, 2026",
+    readTime: "5 min read",
+    excerpt:
+      "How to think about ferries, coves, hotel rhythm, and island contrast without overplanning the romance.",
+    sections: [
+      {
+        heading: "Choose the mood before the islands",
+        body: [
+          "A Greek island route should begin with the feeling: quiet coves, polished hotels, food-led villages, design stays, or a more active sea-and-walk rhythm. The right islands follow from that.",
+        ],
+      },
+      {
+        heading: "Protect arrival ease",
+        body: [
+          "For a honeymoon, the first two nights should feel easy. Avoid a complicated ferry chain immediately after the wedding unless movement is truly part of the romance.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "greek-islands-ferry-rhythm",
+    destinationSlug: "greek-islands",
+    title: "The Greek Island Ferry Rhythm",
+    category: "Route Notes",
+    date: "July 15, 2026",
+    readTime: "4 min read",
+    excerpt:
+      "A simple framework for ferry days that feel scenic rather than stressful.",
+    sections: [
+      {
+        heading: "Ferries are travel days",
+        body: [
+          "Treat ferry days as part of the trip, not empty gaps. Plan lighter meals, fewer reservations, and a hotel arrival that still feels pleasant if the crossing takes longer than expected.",
+        ],
+      },
+      {
+        heading: "Do not chase too many islands",
+        body: [
+          "Two islands can feel richer than four when each one has time to settle. The point is not how much blue you collect; it is how well the route breathes.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "marrakech-first-riad-edit",
+    destinationSlug: "marrakech",
+    title: "Marrakech First Riad Edit",
+    category: "Hotel Notes",
+    date: "July 15, 2026",
+    readTime: "5 min read",
+    excerpt:
+      "What to consider before choosing a Marrakech riad: location, calm, courtyard rhythm, and sensory reset.",
+    sections: [
+      {
+        heading: "Choose calm intentionally",
+        body: [
+          "A riad can be the quiet center of a Marrakech trip. Look for the feeling you want at the end of the day: courtyard breakfast, a small pool, a roof terrace, or a more design-led retreat.",
+        ],
+      },
+      {
+        heading: "Location changes the trip",
+        body: [
+          "Being deep in the medina can feel atmospheric, but arrivals and evening returns need more care. A beautiful stay is not only the room; it is the whole path back to it.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "marrakech-souk-pacing",
+    destinationSlug: "marrakech",
+    title: "How to Pace Marrakech Souks",
+    category: "City Notes",
+    date: "July 15, 2026",
+    readTime: "4 min read",
+    excerpt:
+      "A slower way through Marrakech craft, color, gardens, and market energy without turning the day into overload.",
+    sections: [
+      {
+        heading: "Use short windows",
+        body: [
+          "The souks are better in shorter, more intentional windows. Pair one craft focus with one calm reset: a garden, courtyard lunch, rooftop tea, or an early return to the riad.",
+        ],
+      },
+      {
+        heading: "Leave space for sensory rest",
+        body: [
+          "Marrakech is vivid. The itinerary should include quiet by design, not as an afterthought. That is what lets the color and craft stay beautiful.",
+        ],
+      },
+    ],
+  },
+];
+
+export function getDestination(slug: string) {
+  return destinations.find((destination) => destination.slug === slug);
+}
+
+export function getDestinationArticles(destinationSlug: string) {
+  return destinationBlogArticles.filter(
+    (article) => article.destinationSlug === destinationSlug,
+  );
+}
+
+export function getDestinationArticle(destinationSlug: string, articleSlug: string) {
+  return destinationBlogArticles.find(
+    (article) =>
+      article.destinationSlug === destinationSlug && article.slug === articleSlug,
+  );
+}
+
 export const itineraries = [
   {
     slug: "portugal-by-train",

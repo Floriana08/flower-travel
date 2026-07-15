@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { DestinationCard, GuideCard, PageHero, SectionHeading } from "../components";
-import { destinations, guides } from "../data";
+import { DestinationCard, PageHero, SectionHeading } from "../components";
+import {
+  destinationBlogArticles,
+  destinations,
+  getDestinationArticles,
+} from "../data";
 
 export const metadata: Metadata = {
   title: "Destinations",
@@ -10,6 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default function DestinationsPage() {
+  const latestArticles = destinationBlogArticles.slice(0, 6);
   const continentOrder = [
     "Europe",
     "Africa",
@@ -39,27 +44,69 @@ export default function DestinationsPage() {
   return (
     <main>
       <PageHero
-        eyebrow="Destination atlas"
-        title="A global atlas for places with feeling."
+        eyebrow="Destination blog"
+        title="Stories, city notes, and destination edits."
         image="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1800&q=84"
         alt="A winding road through a dramatic mountain landscape"
       >
         <p>
-          Destination articles can grow around the world: continents first,
-          countries next, then city edits, hotel notes, routes, and stories from
-          places I know well enough to recommend with care.
+          Destinations now work like the blog layer of Flower Travel: each place
+          has its own page, and each destination page links to the articles,
+          route notes, hotel ideas, and stories connected to it.
         </p>
       </PageHero>
 
       <section className="section-shell">
         <SectionHeading
-          eyebrow="Browse by continent"
-          title="A travel atlas that can expand as the community grows."
+          eyebrow="Latest destination articles"
+          title="Start with the newest destination notes."
         >
           <p>
-            The current atlas starts with places already in the editorial
-            archive. New countries can be added as lived experience, research,
-            and reader demand make them worth publishing.
+            These posts are written to build the editorial archive before
+            Flower Travel becomes a fuller members' community.
+          </p>
+        </SectionHeading>
+        <div className="destination-article-grid">
+          {latestArticles.map((article) => {
+            const destination = destinations.find(
+              (item) => item.slug === article.destinationSlug,
+            );
+
+            if (!destination) {
+              return null;
+            }
+
+            return (
+              <article className="destination-article-card card" key={article.slug}>
+                <img src={destination.image} alt={destination.alt} loading="lazy" />
+                <div className="card-body">
+                  <div className="meta-line">
+                    <span>{destination.title}</span>
+                    <span>{article.category}</span>
+                  </div>
+                  <h3>{article.title}</h3>
+                  <p>{article.excerpt}</p>
+                  <Link
+                    className="text-link"
+                    href={`/destinations/${destination.slug}/articles/${article.slug}`}
+                  >
+                    Read article
+                  </Link>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="section-shell tinted">
+        <SectionHeading
+          eyebrow="Browse destinations"
+          title="Each destination now has its own blog page."
+        >
+          <p>
+            Browse by continent and open any destination to see the article
+            collection connected to that place.
           </p>
         </SectionHeading>
 
@@ -94,9 +141,20 @@ export default function DestinationsPage() {
                         >
                           <DestinationCard destination={destination} />
                           <div className="destination-notes">
-                            <p className="eyebrow">Best time</p>
-                            <h3>{destination.season}</h3>
+                            <p className="eyebrow">Destination blog</p>
+                            <h3>
+                              {getDestinationArticles(destination.slug).length}{" "}
+                              {getDestinationArticles(destination.slug).length === 1
+                                ? "article"
+                                : "articles"}
+                            </h3>
                             <p>{destination.bestFor}</p>
+                            <Link
+                              className="text-link"
+                              href={`/destinations/${destination.slug}`}
+                            >
+                              Open destination
+                            </Link>
                           </div>
                         </article>
                       ))}
@@ -105,24 +163,6 @@ export default function DestinationsPage() {
                 ))}
               </div>
             </details>
-          ))}
-        </div>
-      </section>
-
-      <section className="section-shell tinted">
-        <SectionHeading
-          eyebrow="Destination articles"
-          title="Global stories and city notes live here."
-        >
-          <p>
-            Portugal guides will become the shop. Wider destination articles can
-            keep building audience, search traffic, and trust across the places
-            Flower Travel may cover as a members' community.
-          </p>
-        </SectionHeading>
-        <div className="guide-grid wide">
-          {guides.map((guide) => (
-            <GuideCard key={guide.slug} guide={guide} ctaLabel="Read article" />
           ))}
         </div>
       </section>
@@ -137,8 +177,8 @@ export default function DestinationsPage() {
           notes, hotel shortlists, lower-impact route ideas, and member-only
           edits once the audience signals what they need.
         </p>
-        <Link className="button dark" href="/travel-guides">
-          Browse Portugal guides
+        <Link className="button dark" href="/community">
+          Join the community
         </Link>
       </section>
     </main>
