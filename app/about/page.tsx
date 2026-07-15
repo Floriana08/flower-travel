@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero, SectionHeading } from "../components";
-import { editorialPillars } from "../data";
+
+const studioPillars = [
+  "Portugal route notes",
+  "Coastal city edits",
+  "Beach and hotel mood boards",
+  "Slow travel essays",
+  "Planning consultations",
+];
 
 export const metadata: Metadata = {
   title: "About",
@@ -51,9 +58,9 @@ export default function AboutPage() {
       </section>
 
       <section className="values-section">
-        <SectionHeading eyebrow="Editorial pillars" title="What the site is built to publish." />
+        <SectionHeading eyebrow="Studio pillars" title="What the site is built to publish." />
         <div className="value-grid">
-          {editorialPillars.map((pillar) => (
+          {studioPillars.map((pillar) => (
             <article className="value-item" key={pillar}>
               <h3>{pillar}</h3>
               <p>

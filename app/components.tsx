@@ -13,9 +13,7 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <Link className="brand" href="/" aria-label={`${site.name} home`}>
-        <span className="brand-mark" aria-hidden="true">
-          FT
-        </span>
+        <img className="brand-logo" src="/logo.svg" alt="" aria-hidden="true" />
         <span>
           <span className="brand-title">{site.name}</span>
           <span className="brand-kicker">{site.strapline}</span>
@@ -58,9 +56,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="footer-lead">
         <Link className="brand footer-brand" href="/">
-          <span className="brand-mark" aria-hidden="true">
-            FT
-          </span>
+          <img className="brand-logo" src="/logo.svg" alt="" aria-hidden="true" />
           <span>
             <span className="brand-title">{site.name}</span>
             <span className="brand-kicker">{site.strapline}</span>

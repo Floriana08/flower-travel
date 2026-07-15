@@ -20,14 +20,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Flower Travel",
     description:
-      "Curated travel guides, detailed itineraries, personal stories, and one-to-one planning advice.",
+      "Portugal route notes, coastal inspiration, hotel thinking, and one-to-one planning advice.",
     type: "website",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=1600&q=84",
+        url: "https://images.unsplash.com/photo-1695199817779-4c879085a9a0?auto=format&fit=crop&w=1600&q=84",
         width: 1600,
         height: 1067,
-        alt: "A sunlit European village above the water",
+        alt: "A Portuguese beach and Atlantic cliffs",
       },
     ],
   },

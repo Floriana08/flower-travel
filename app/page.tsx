@@ -10,7 +10,6 @@ import {
 } from "./components";
 import {
   destinations,
-  editorialPillars,
   guides,
   itineraries,
   site,
@@ -52,16 +51,17 @@ export default function Home() {
       <section className="home-hero" id="home">
         <div className="hero-image" aria-hidden="true">
           <img
-            src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=2200&q=86"
+            src="https://images.unsplash.com/photo-1695199817779-4c879085a9a0?auto=format&fit=crop&w=2200&q=86"
             alt=""
           />
         </div>
         <div className="hero-content reveal">
-          <p className="eyebrow">Editorial travel studio</p>
+          <p className="eyebrow">Portugal travel studio</p>
           <h1>Flower Travel</h1>
           <p>
-            Curated travel guides, detailed itineraries, and personal advice for
-            travelers who want richer trips without buying a packaged holiday.
+            Sea-lit guides, colorful city notes, beach days, and personal
+            planning advice for travelers who want Portugal with more beauty,
+            ease, and local feeling.
           </p>
           <div className="hero-actions">
             <Link className="button light" href="/travel-guides">
@@ -71,11 +71,6 @@ export default function Home() {
               Book a consultation
             </Link>
           </div>
-        </div>
-        <div className="hero-index reveal delay-1" aria-label="Editorial pillars">
-          {editorialPillars.map((pillar) => (
-            <span key={pillar}>{pillar}</span>
-          ))}
         </div>
       </section>
 

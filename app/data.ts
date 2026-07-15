@@ -1,6 +1,6 @@
 export const site = {
   name: "Flower Travel",
-  strapline: "Europe, slowly",
+  strapline: "Portugal, by sea",
   studioLine:
     "An editorial travel studio for researched guides, graceful itineraries, and personal planning advice.",
   email: "hello@flowertravel.studio",
@@ -240,14 +240,6 @@ export const guides = [
     excerpt:
       "How to choose routes, avoid overambitious transfer days, and make rail travel feel part of the trip.",
   },
-];
-
-export const editorialPillars = [
-  "Curated travel guides",
-  "Detailed itineraries",
-  "Destination inspiration",
-  "Personal travel stories",
-  "One-to-one consultations",
 ];
 
 export const consultationTopics = [
