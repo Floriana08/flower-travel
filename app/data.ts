@@ -2,25 +2,24 @@ export const site = {
   name: "Flower Travel",
   strapline: "Portugal, by sea",
   studioLine:
-    "An editorial travel community for thoughtful guides, graceful routes, and lower-impact ways to see the world.",
+    "An editorial travel blog and community for thoughtful destination notes, graceful routes, and lower-impact ways to see the world.",
   email: "hello@flowertravel.studio",
 };
 
 export const navItems = [
   { href: "/destinations", label: "Destinations" },
-  { href: "/travel-guides", label: "Guides" },
   { href: "/community", label: "Community" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
 export const communityInterests = [
-  "Portugal guides",
+  "Destination articles",
+  "Portugal notes",
   "Sustainable travel ideas",
   "Food and hotel edits",
   "Future member events",
   "Honeymoon inspiration",
-  "Digital guide drops",
 ];
 
 export const destinations = [

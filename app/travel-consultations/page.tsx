@@ -123,9 +123,9 @@ export default function TravelConsultationsPage() {
         <p>
           Flower Travel is intentionally starting with content and
           consultations. Curated planning, honeymoon design, downloadable
-          guides, and packaged edits can grow from real reader behavior.
+          resources, and packaged edits can grow from real reader behavior.
         </p>
-        <Link className="button dark" href="/travel-guides">
+        <Link className="button dark" href="/destinations">
           Read the editorial work
         </Link>
       </section>

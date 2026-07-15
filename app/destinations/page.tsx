@@ -10,7 +10,7 @@ import {
 export const metadata: Metadata = {
   title: "Destinations",
   description:
-    "Explore curated Flower Travel destination guides for Portugal, France, Italy, Greece, Morocco, island escapes, city breaks, and future honeymoon routes.",
+    "Explore curated Flower Travel destination articles for Portugal, France, Italy, Greece, Morocco, island escapes, city breaks, and future honeymoon routes.",
 };
 
 export default function DestinationsPage() {

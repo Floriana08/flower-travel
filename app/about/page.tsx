@@ -13,7 +13,7 @@ const studioPillars = [
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Meet Flower Travel, a boutique editorial travel community for slow itineraries, destination guides, personal stories, and thoughtful travel ideas.",
+    "Meet Flower Travel, a boutique editorial travel community for slow itineraries, destination articles, personal stories, and thoughtful travel ideas.",
 };
 
 export default function AboutPage() {
@@ -77,7 +77,7 @@ export default function AboutPage() {
           <p className="eyebrow">Next chapter</p>
           <h2>A members' travel community can grow from the same taste level.</h2>
           <p>
-            The design leaves room for paid guides, members-only edits,
+            The design leaves room for paid downloads, members-only edits,
             sustainable hotel notes, local partnerships, honeymoon planning, and
             curated trips without changing the brand from editorial to
             sales-heavy.

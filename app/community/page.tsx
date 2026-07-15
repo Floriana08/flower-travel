@@ -6,7 +6,7 @@ import { communityInterests, site } from "../data";
 export const metadata: Metadata = {
   title: "Community",
   description:
-    "Join the Flower Travel community for Portugal guides, thoughtful destination notes, sustainable travel ideas, and future member-only edits.",
+    "Join the Flower Travel community for thoughtful destination notes, Portugal stories, sustainable travel ideas, and future member-only edits.",
 };
 
 export default function CommunityPage() {
@@ -32,10 +32,10 @@ export default function CommunityPage() {
             title="Start with the letter. Later, this can become the members' club."
           >
             <p>
-              For now, the community is the best place to share early guide
-              drops, Portugal notes, sustainable travel ideas, restaurant and
-              hotel edits, and the questions that should shape future paid
-              guides or member-only planning.
+              For now, the community is the best place to share new destination
+              articles, Portugal notes, sustainable travel ideas, restaurant
+              and hotel edits, and the questions that should shape future
+              paid products or member-only planning.
             </p>
           </SectionHeading>
 
@@ -43,7 +43,7 @@ export default function CommunityPage() {
             <article>
               <h3>Better research</h3>
               <p>
-                Thoughtful guides that help people travel with more confidence,
+                Thoughtful articles that help people travel with more confidence,
                 less noise, and fewer rushed decisions.
               </p>
             </article>
@@ -71,7 +71,7 @@ export default function CommunityPage() {
           <h2>Join the Flower Travel community</h2>
           <p>
             Tell me what you care about, and I will use the replies to shape
-            the next guides, essays, and member ideas.
+            the next articles, essays, and member ideas.
           </p>
 
           <form
@@ -90,7 +90,7 @@ export default function CommunityPage() {
             </label>
             <label>
               <span>Most interested in</span>
-              <select name="interest" defaultValue="Portugal guides">
+              <select name="interest" defaultValue="Destination articles">
                 {communityInterests.map((interest) => (
                   <option key={interest} value={interest}>
                     {interest}
@@ -137,8 +137,8 @@ export default function CommunityPage() {
           decisions, routes that respect time and place, and a community that
           rewards curiosity over overconsumption.
         </p>
-        <Link className="button dark" href="/travel-guides">
-          Explore the guides
+        <Link className="button dark" href="/destinations">
+          Read the blog
         </Link>
       </section>
     </main>

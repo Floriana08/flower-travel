@@ -6,7 +6,7 @@ import { site } from "../data";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Flower Travel for community notes, editorial collaborations, destination guide ideas, and future travel partnerships.",
+    "Contact Flower Travel for community notes, editorial collaborations, destination article ideas, and future travel partnerships.",
 };
 
 export default function ContactPage() {
@@ -19,7 +19,7 @@ export default function ContactPage() {
         alt="A traveler standing on a scenic road at golden hour"
       >
         <p>
-          For community notes, editorial collaborations, guide requests, or
+          For community notes, editorial collaborations, article ideas, or
           future travel partnerships, send a note with as much context as you
           have.
         </p>
@@ -30,13 +30,12 @@ export default function ContactPage() {
           <p className="eyebrow">Get in touch</p>
           <h2>{site.email}</h2>
           <p>
-            Use the form for reader questions, guide requests, partnership
+            Use the form for reader questions, article requests, partnership
             ideas, press, or destination suggestions.
           </p>
           <div className="contact-links">
             <Link href="/community">Join the community</Link>
-            <Link href="/travel-guides">Guide library</Link>
-            <Link href="/destinations">Destination atlas</Link>
+            <Link href="/destinations">Destination blog</Link>
           </div>
         </div>
 
@@ -58,7 +57,7 @@ export default function ContactPage() {
             <span>Reason</span>
             <select name="reason" defaultValue="community">
               <option value="community">Community note</option>
-              <option value="guide">Guide request</option>
+              <option value="article">Article request</option>
               <option value="collaboration">Editorial collaboration</option>
               <option value="press">Press or partnership</option>
             </select>
@@ -76,7 +75,7 @@ export default function ContactPage() {
       <section className="editorial-band light-band">
         <div>
           <p className="eyebrow">For readers</p>
-          <h2>Ask for the guide you wish existed.</h2>
+          <h2>Ask for the article you wish existed.</h2>
         </div>
         <p>
           The next stage of Flower Travel should be shaped by real reader
