@@ -185,7 +185,7 @@ export function ItineraryCard({
   return (
     <article className="itinerary-card card">
       <Link href={`/routes/${itinerary.slug}`} aria-label={itinerary.title}>
-        <img src={itinerary.image} alt={itinerary.alt} loading="lazy" />
+        <img src={itinerary.image} alt={itinerary.alt} loading="eager" />
       </Link>
       <div className="card-body">
         <div className="meta-line">

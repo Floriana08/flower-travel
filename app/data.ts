@@ -440,8 +440,8 @@ export const itineraries = [
     region: "Porto, Coimbra, Lisbon, Cascais",
     pace: "Slow rail route",
     image:
-      "https://images.unsplash.com/photo-1504198458649-3128b932f49b?auto=format&fit=crop&w=1600&q=84",
-    alt: "A train passing through a warm European landscape",
+      "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1600&q=84",
+    alt: "A train moving through a scenic railway landscape",
     summary:
       "A polished north-to-south route with tiled stations, river views, one beach day, and spacious city bases.",
     route: ["Porto", "Coimbra", "Lisbon", "Cascais"],
@@ -790,8 +790,8 @@ export const guideProducts = [
     price: "€22",
     destination: "Portugal",
     image:
-      "https://images.unsplash.com/photo-1504198458649-3128b932f49b?auto=format&fit=crop&w=1600&q=84",
-    alt: "A train passing through a warm European landscape",
+      "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1600&q=84",
+    alt: "A train moving through a scenic railway landscape",
     excerpt:
       "A north-to-south rail route with realistic transfer days, city bases, beach pauses, station notes, and lower-impact travel choices.",
     includes: ["10-day route", "Train notes", "Hotel criteria"],

@@ -32,7 +32,11 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    linear-gradient(180deg, rgba(231, 239, 228, 0.94), rgba(255, 247, 246, 0) 520px),
+    linear-gradient(
+      180deg,
+      rgba(231, 239, 228, 0.94),
+      rgba(255, 247, 246, 0) 520px
+    ),
     var(--paper);
   color: var(--ink);
 }
@@ -120,8 +124,6 @@ p {
   width: 48px;
   height: 48px;
   flex: 0 0 48px;
-  border-radius: 8px;
-  box-shadow: 0 10px 24px rgba(36, 69, 51, 0.12);
 }
 
 .brand-title,
@@ -263,8 +265,18 @@ p {
   z-index: -1;
   content: "";
   background:
-    linear-gradient(90deg, rgba(28, 54, 39, 0.72), rgba(28, 54, 39, 0.16) 56%, rgba(199, 100, 130, 0.3)),
-    linear-gradient(0deg, rgba(28, 54, 39, 0.52), rgba(28, 54, 39, 0.08) 48%, rgba(28, 54, 39, 0) 72%);
+    linear-gradient(
+      90deg,
+      rgba(28, 54, 39, 0.72),
+      rgba(28, 54, 39, 0.16) 56%,
+      rgba(199, 100, 130, 0.3)
+    ),
+    linear-gradient(
+      0deg,
+      rgba(28, 54, 39, 0.52),
+      rgba(28, 54, 39, 0.08) 48%,
+      rgba(28, 54, 39, 0) 72%
+    );
 }
 
 .hero-content {
@@ -367,13 +379,13 @@ p {
 
 .featured-destination-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.16fr) minmax(320px, 0.84fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
   gap: 22px;
 }
 
 .stacked-cards {
-  display: grid;
-  gap: 22px;
+  display: contents;
 }
 
 .destination-grid,
@@ -412,7 +424,7 @@ p {
 }
 
 .destination-card.featured img {
-  aspect-ratio: 1 / 1.08;
+  aspect-ratio: 4 / 3;
 }
 
 .card-body {
@@ -611,8 +623,12 @@ p {
   gap: 28px;
   padding: 72px max(24px, calc((100% - var(--max)) / 2));
   color: var(--porcelain);
-  background:
-    linear-gradient(135deg, rgba(36, 69, 51, 0.98), rgba(120, 150, 109, 0.96) 58%, rgba(199, 100, 130, 0.86) 160%);
+  background: linear-gradient(
+    135deg,
+    rgba(36, 69, 51, 0.98),
+    rgba(120, 150, 109, 0.96) 58%,
+    rgba(199, 100, 130, 0.86) 160%
+  );
 }
 
 .consultation-strip h2,
@@ -755,10 +771,21 @@ textarea:focus {
   pointer-events: none;
   opacity: 0.42;
   background:
-    radial-gradient(70px 28px at 50% 100%, rgba(255, 255, 255, 0.62) 0 38%, transparent 42%) 0 0 / 140px 42px repeat-x,
+    radial-gradient(
+        70px 28px at 50% 100%,
+        rgba(255, 255, 255, 0.62) 0 38%,
+        transparent 42%
+      )
+      0 0 / 140px 42px repeat-x,
     linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.22));
   filter: blur(0.2px);
-  mask-image: linear-gradient(180deg, transparent, #000 32%, #000 78%, transparent);
+  mask-image: linear-gradient(
+    180deg,
+    transparent,
+    #000 32%,
+    #000 78%,
+    transparent
+  );
   animation: waveRoll 8s linear infinite;
 }
 
@@ -771,7 +798,9 @@ textarea:focus {
 .wave-two {
   bottom: 18%;
   opacity: 0.24;
-  background-size: 180px 52px, auto;
+  background-size:
+    180px 52px,
+    auto;
   animation-duration: 12s;
   animation-direction: reverse;
 }
@@ -1467,7 +1496,6 @@ textarea:focus {
     border-bottom: 0;
   }
 
-  .featured-destination-grid,
   .about-preview,
   .page-hero,
   .article-hero,
@@ -1479,6 +1507,10 @@ textarea:focus {
   .about-story,
   .contact-page {
     grid-template-columns: 1fr;
+  }
+
+  .featured-destination-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .page-hero-copy {
@@ -1607,6 +1639,7 @@ textarea:focus {
   }
 
   .destination-grid,
+  .featured-destination-grid,
   .guide-grid,
   .guide-product-grid,
   .itinerary-grid,
