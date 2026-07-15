@@ -1,6 +1,13 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { destinations, guides, itineraries, navItems, site } from "./data";
+import {
+  destinations,
+  guideProducts,
+  guides,
+  itineraries,
+  navItems,
+  site,
+} from "./data";
 
 type SectionHeadingProps = {
   eyebrow: string;
@@ -186,9 +193,11 @@ export function ItineraryCard({
 export function GuideCard({
   guide,
   compact = false,
+  ctaLabel = "Read the guide",
 }: {
   guide: (typeof guides)[number];
   compact?: boolean;
+  ctaLabel?: string;
 }) {
   return (
     <article className={`guide-card card ${compact ? "compact" : ""}`}>
@@ -201,8 +210,39 @@ export function GuideCard({
         <h3>{guide.title}</h3>
         <p>{guide.excerpt}</p>
         <Link className="text-link" href={`/travel-guides/${guide.slug}`}>
-          Read the guide
+          {ctaLabel}
         </Link>
+      </div>
+    </article>
+  );
+}
+
+export function GuideProductCard({
+  product,
+}: {
+  product: (typeof guideProducts)[number];
+}) {
+  return (
+    <article className="guide-product-card card">
+      <img src={product.image} alt={product.alt} loading="lazy" />
+      <div className="card-body">
+        <div className="meta-line">
+          <span>{product.format}</span>
+          <span>{product.status}</span>
+        </div>
+        <h3>{product.title}</h3>
+        <p>{product.excerpt}</p>
+        <ul className="inline-list" aria-label={`${product.title} includes`}>
+          {product.includes.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+        <div className="product-card-footer">
+          <span>{product.price}</span>
+          <Link className="button dark" href={product.href}>
+            {product.cta}
+          </Link>
+        </div>
       </div>
     </article>
   );

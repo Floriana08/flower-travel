@@ -8,7 +8,7 @@ export const site = {
 
 export const navItems = [
   { href: "/destinations", label: "Destinations" },
-  { href: "/itineraries", label: "Itineraries" },
+  { href: "/itineraries", label: "Routes" },
   { href: "/travel-guides", label: "Guides" },
   { href: "/#newsletter", label: "Community" },
   { href: "/about", label: "About" },
@@ -19,6 +19,8 @@ export const destinations = [
   {
     slug: "lisbon",
     title: "Lisbon, Portugal",
+    continent: "Europe",
+    country: "Portugal",
     region: "Portugal",
     mood: "Golden city break",
     season: "March to June, September to November",
@@ -33,6 +35,8 @@ export const destinations = [
   {
     slug: "madeira",
     title: "Madeira, Portugal",
+    continent: "Europe",
+    country: "Portugal",
     region: "Atlantic Islands",
     mood: "Soft adventure",
     season: "April to October",
@@ -47,6 +51,8 @@ export const destinations = [
   {
     slug: "paris",
     title: "Paris, France",
+    continent: "Europe",
+    country: "France",
     region: "France",
     mood: "Solo reset",
     season: "April to June, October",
@@ -61,6 +67,8 @@ export const destinations = [
   {
     slug: "rome",
     title: "Rome, Italy",
+    continent: "Europe",
+    country: "Italy",
     region: "Italy",
     mood: "Food and ruins",
     season: "April to June, September to October",
@@ -75,6 +83,8 @@ export const destinations = [
   {
     slug: "greek-islands",
     title: "Greek Island Light",
+    continent: "Europe",
+    country: "Greece",
     region: "Greece",
     mood: "Romantic island route",
     season: "May to June, September",
@@ -89,6 +99,8 @@ export const destinations = [
   {
     slug: "marrakech",
     title: "Marrakech, Morocco",
+    continent: "Africa",
+    country: "Morocco",
     region: "Morocco",
     mood: "Color and craft",
     season: "February to May, October to November",
@@ -239,6 +251,73 @@ export const guides = [
     alt: "A train moving through a scenic European landscape",
     excerpt:
       "How to choose routes, avoid overambitious transfer days, and make rail travel feel part of the trip.",
+  },
+];
+
+export const guideProducts = [
+  {
+    slug: "lisbon-food-neighborhoods",
+    title: "Lisbon: Where to Eat, Stay, and Wander",
+    format: "Digital city guide",
+    status: "Waitlist open",
+    price: "€18",
+    destination: "Lisbon",
+    image:
+      "https://images.unsplash.com/photo-1513735492246-483525079686?auto=format&fit=crop&w=1600&q=84",
+    alt: "A quiet Lisbon street with tiled facades and balconies",
+    excerpt:
+      "A polished Lisbon edit for neighborhood bases, tabernas, seafood lunches, wine bars, tiled walks, and day trips that do not feel rushed.",
+    includes: ["Where to eat", "Best bases", "Slow weekend map"],
+    href: "/travel-guides/where-to-stay-lisbon",
+    cta: "Preview the guide",
+  },
+  {
+    slug: "madeira-first-timer-field-guide",
+    title: "Madeira First-Timer Field Guide",
+    format: "Island planning guide",
+    status: "Waitlist open",
+    price: "€16",
+    destination: "Madeira",
+    image:
+      "https://images.unsplash.com/photo-1579005995445-1c0a9c9b5c42?auto=format&fit=crop&w=1600&q=84",
+    alt: "A dramatic green coastline on Madeira",
+    excerpt:
+      "A clear Madeira planning companion for bases, levada pacing, weather-flex days, ocean pools, scenic drives, and comfort-first logistics.",
+    includes: ["Base chooser", "Soft adventure days", "Driver notes"],
+    href: "/travel-guides/madeira-first-timers",
+    cta: "Preview the guide",
+  },
+  {
+    slug: "portugal-by-train-route-pack",
+    title: "Portugal by Train Route Pack",
+    format: "Route pack",
+    status: "In research",
+    price: "€22",
+    destination: "Portugal",
+    image:
+      "https://images.unsplash.com/photo-1504198458649-3128b932f49b?auto=format&fit=crop&w=1600&q=84",
+    alt: "A train passing through a warm European landscape",
+    excerpt:
+      "A north-to-south rail route with realistic transfer days, city bases, beach pauses, station notes, and lower-impact travel choices.",
+    includes: ["10-day route", "Train notes", "Hotel criteria"],
+    href: "/#newsletter",
+    cta: "Join the waitlist",
+  },
+  {
+    slug: "sustainable-lisbon-weekend",
+    title: "The Lighter Lisbon Weekend",
+    format: "Mini guide",
+    status: "In research",
+    price: "Free preview",
+    destination: "Lisbon",
+    image:
+      "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1600&q=84",
+    alt: "Lisbon rooftops and tiled buildings in warm evening light",
+    excerpt:
+      "A low-pressure Lisbon weekend built around public transport, independent restaurants, local craft, fewer transfers, and better neighborhood pacing.",
+    includes: ["Low-impact route", "Independent places", "Transit tips"],
+    href: "/#newsletter",
+    cta: "Join the waitlist",
   },
 ];
 

@@ -4,16 +4,16 @@ import { ItineraryCard, PageHero, SectionHeading } from "../components";
 import { itineraries } from "../data";
 
 export const metadata: Metadata = {
-  title: "Itineraries",
+  title: "Routes",
   description:
-    "Browse detailed Flower Travel itineraries with realistic pacing, thoughtful bases, beautiful detours, and practical planning notes.",
+    "Browse Flower Travel route ideas with realistic pacing, thoughtful bases, beautiful detours, and practical planning notes.",
 };
 
 export default function ItinerariesPage() {
   return (
     <main>
       <PageHero
-        eyebrow="Detailed itineraries"
+        eyebrow="Route ideas"
         title="Routes designed for days that feel spacious."
         image="https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1800&q=84"
         alt="A train traveling through a mountain valley"
@@ -21,7 +21,7 @@ export default function ItinerariesPage() {
         <p>
           These are not packaged holidays. They are carefully researched route
           frameworks: where to begin, how many nights to stay, when to slow
-          down, and what deserves a reservation.
+          down, and what might later become a member edit or paid route pack.
         </p>
       </PageHero>
 
@@ -31,9 +31,9 @@ export default function ItinerariesPage() {
           title="Built around pacing, not pressure."
         >
           <p>
-            Itineraries can later expand into downloadable guides, private
-            planning templates, honeymoon editions, and affiliate hotel edits
-            without changing the site architecture.
+            Routes can later expand into downloadable guide packs, private
+            member edits, honeymoon editions, and affiliate hotel notes without
+            changing the site architecture.
           </p>
         </SectionHeading>
         <div className="itinerary-grid wide">

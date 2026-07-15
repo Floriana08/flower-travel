@@ -1,69 +1,101 @@
 import type { Metadata } from "next";
-import { GuideCard, PageHero, SectionHeading } from "../components";
-import { guides } from "../data";
+import {
+  GuideCard,
+  GuideProductCard,
+  NewsletterBand,
+  PageHero,
+  SectionHeading,
+} from "../components";
+import { guideProducts, guides } from "../data";
 
 export const metadata: Metadata = {
-  title: "Travel Guides",
+  title: "Portugal Travel Guides",
   description:
-    "Read Flower Travel destination guides, hotel notes, food walks, planning frameworks, and personal stories for more thoughtful trips.",
+    "Browse Flower Travel's Portugal guide shop for Lisbon, Madeira, train routes, sustainable travel notes, and future downloadable guides.",
 };
 
 export default function TravelGuidesPage() {
-  const categories = Array.from(new Set(guides.map((guide) => guide.category)));
+  const portugalArticles = guides.filter((guide) =>
+    ["Lisbon", "Madeira", "Portugal"].includes(guide.destination),
+  );
 
   return (
     <main>
       <PageHero
-        eyebrow="Travel guides"
-        title="Useful, elegant research for travelers with taste."
-        image="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1800&q=84"
-        alt="A notebook, camera, and travel objects on a table"
+        eyebrow="Portugal guide shop"
+        title="Collectible guides for traveling Portugal beautifully."
+        image="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1800&q=84"
+        alt="Lisbon rooftops and tiled buildings in warm evening light"
       >
         <p>
-          Guides combine personal travel notes with practical planning: where to
-          stay, how to move, what to reserve, and which details turn a trip from
-          functional into memorable.
+          The guide library starts with Portugal: Lisbon food notes, Madeira
+          planning, train routes, lower-impact weekends, and future downloadable
+          editions for readers who want more than a generic itinerary.
         </p>
       </PageHero>
 
       <section className="section-shell">
         <div className="guide-category-row" aria-label="Guide categories">
-          {categories.map((category) => (
+          {[
+            "Lisbon",
+            "Madeira",
+            "Portugal by train",
+            "Sustainable travel",
+            "Downloadable guides",
+          ].map((category) => (
             <span key={category}>{category}</span>
           ))}
         </div>
 
         <SectionHeading
-          eyebrow="Latest research"
-          title="Destination notes, planning essays, and stories with receipts."
+          eyebrow="Guide shop"
+          title="Portugal-first products, with previews while the shop grows."
         >
           <p>
-            The content is structured for organic traffic now and future
-            monetization later: guide clusters, affiliate-ready hotel thinking,
-            downloadable formats, and community pathways.
+            For now, every product points to a free preview or the community
+            waitlist. Later this can connect to checkout, member pricing,
+            downloadable PDFs, affiliate hotel edits, and private city maps.
           </p>
         </SectionHeading>
 
+        <div className="guide-product-grid">
+          {guideProducts.map((product) => (
+            <GuideProductCard key={product.slug} product={product} />
+          ))}
+        </div>
+      </section>
+
+      <section className="section-shell tinted">
+        <SectionHeading
+          eyebrow="Free previews"
+          title="Portugal articles that can become paid guide chapters."
+        >
+          <p>
+            The free layer builds trust and search traffic. The paid layer can
+            later package deeper maps, restaurant notes, hotel criteria, transit
+            details, and seasonal updates.
+          </p>
+        </SectionHeading>
         <div className="guide-grid wide">
-          {guides.map((guide) => (
-            <div id={guide.slug} key={guide.slug}>
-              <GuideCard guide={guide} />
-            </div>
+          {portugalArticles.map((guide) => (
+            <GuideCard key={guide.slug} guide={guide} ctaLabel="Read preview" />
           ))}
         </div>
       </section>
 
       <section className="editorial-band light-band">
         <div>
-          <p className="eyebrow">Editorial standard</p>
-          <h2>Every guide should answer the questions readers are actually searching.</h2>
+          <p className="eyebrow">Commerce later</p>
+          <h2>The shop can start as a waitlist, then become a guide library.</h2>
         </div>
         <p>
-          When to go, where to stay, what to book early, how to avoid rushed
-          days, what is worth the money, and how the trip feels once the
-          logistics meet real life.
+          This keeps the site sustainable: build audience first, learn what
+          people want, then sell useful digital guides instead of pushing
+          packaged holidays before the community exists.
         </p>
       </section>
+
+      <NewsletterBand />
     </main>
   );
 }

@@ -3,14 +3,14 @@ import Link from "next/link";
 import {
   ConsultationCta,
   DestinationCard,
-  GuideCard,
+  GuideProductCard,
   ItineraryCard,
   NewsletterBand,
   SectionHeading,
 } from "./components";
 import {
   destinations,
-  guides,
+  guideProducts,
   itineraries,
   site,
 } from "./data";
@@ -39,7 +39,7 @@ const structuredData = {
 export default function Home() {
   const featuredDestination = destinations[0];
   const secondaryDestinations = destinations.slice(1, 4);
-  const latestGuides = guides.slice(0, 3);
+  const featuredGuideProducts = guideProducts.slice(0, 3);
 
   return (
     <main>
@@ -97,13 +97,14 @@ export default function Home() {
 
       <section className="section-shell tinted">
         <SectionHeading
-          eyebrow="Featured itineraries"
+          eyebrow="Route ideas"
           title="Routes with enough structure to relax into the journey."
         >
           <p>
             Each itinerary is designed around good bases, realistic transfer
             days, meaningful meals, and room for the unscheduled moments that
-            make travel feel alive.
+            make travel feel alive. Over time, the best routes can become guide
+            packs or member-only edits.
           </p>
         </SectionHeading>
         <div className="itinerary-grid">
@@ -148,18 +149,18 @@ export default function Home() {
 
       <section className="section-shell">
         <SectionHeading
-          eyebrow="Latest guides"
-          title="Fresh research for better trips."
+          eyebrow="Portugal guide shop"
+          title="The first guide drops are Portugal-focused."
         >
           <p>
-            Practical, personal, and edited down to what matters: destination
-            notes, route ideas, hotel thinking, and travel stories with useful
-            takeaways.
+            Lisbon, Madeira, rail routes, and lower-impact weekends are the
+            first layer of a future guide library: useful now, easier to turn
+            into paid downloads later.
           </p>
         </SectionHeading>
-        <div className="guide-grid">
-          {latestGuides.map((guide) => (
-            <GuideCard key={guide.slug} guide={guide} />
+        <div className="guide-product-grid compact">
+          {featuredGuideProducts.map((product) => (
+            <GuideProductCard key={product.slug} product={product} />
           ))}
         </div>
       </section>
