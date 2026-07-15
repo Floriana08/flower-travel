@@ -8,7 +8,7 @@ export const site = {
 
 export const navItems = [
   { href: "/destinations", label: "Destinations" },
-  { href: "/itineraries", label: "Routes" },
+  { href: "/routes", label: "Routes" },
   { href: "/travel-guides", label: "Guides" },
   { href: "/#newsletter", label: "Community" },
   { href: "/about", label: "About" },
@@ -170,6 +170,183 @@ export const itineraries = [
       "A compact route for espresso counters, art, aperitivo, market mornings, and one garden escape.",
     route: ["Centro Storico", "Trastevere", "Testaccio", "Tivoli"],
     bestFor: "Food travelers, short breaks, first Rome trip",
+  },
+];
+
+export const routeDetails = [
+  {
+    slug: "portugal-by-train",
+    intro:
+      "A north-to-south Portugal route for travelers who want city texture, rail movement, and one gentle coastal reset without renting a car.",
+    rhythm: "Porto 2 nights, Coimbra 1 night, Lisbon 4 nights, Cascais 2 nights",
+    footprint:
+      "Designed around rail-first movement, fewer hotel changes, and a beach finish reachable by public transport.",
+    days: [
+      {
+        label: "Days 1-2",
+        place: "Porto",
+        plan:
+          "Arrive slowly, stay central, walk the riverfront, build one proper lunch around the Douro, and leave room for tiled station moments instead of overbooking tastings.",
+      },
+      {
+        label: "Day 3",
+        place: "Coimbra",
+        plan:
+          "Use Coimbra as a soft cultural pause between the two big cities: university views, old streets, and a lighter evening before Lisbon.",
+      },
+      {
+        label: "Days 4-7",
+        place: "Lisbon",
+        plan:
+          "Base around Chiado, Baixa, Príncipe Real, or Avenida da Liberdade, then divide days by neighborhood rather than chasing every viewpoint at once.",
+      },
+      {
+        label: "Days 8-10",
+        place: "Cascais",
+        plan:
+          "Finish with beach walks, seafood lunches, a calmer hotel rhythm, and an easy train connection back toward Lisbon.",
+      },
+    ],
+    notes: [
+      "Book hotels close enough to stations that transfer days do not eat the whole morning.",
+      "Keep luggage light; Portugal's stations and old streets are not always kind to heavy bags.",
+      "Use this as a template: add Porto wine country or Sintra only if you have more days.",
+    ],
+  },
+  {
+    slug: "paris-without-rushing",
+    intro:
+      "A five-day Paris route for readers who want museums, cafes, gardens, and beautiful neighborhoods without turning the city into a checklist.",
+    rhythm: "One base, five slow days, one main anchor per day",
+    footprint:
+      "Designed around walking, buses, metro links, and neighborhood clustering rather than car transfers.",
+    days: [
+      {
+        label: "Day 1",
+        place: "Arrival and Left Bank",
+        plan:
+          "Check in, stay close to the hotel, take a garden walk, and book a first-night dinner that does not require crossing the city.",
+      },
+      {
+        label: "Day 2",
+        place: "Saint-Germain and museums",
+        plan:
+          "Choose one museum or exhibition, then let lunch, bookshops, and cafe time fill the rest of the day.",
+      },
+      {
+        label: "Day 3",
+        place: "Marais",
+        plan:
+          "Use the Marais for design shops, small museums, falafel or bistro lunch, and an easy evening walk.",
+      },
+      {
+        label: "Day 4",
+        place: "Canal Saint-Martin or Montmartre",
+        plan:
+          "Pick one northern neighborhood, not both. Keep it unhurried and use transit back before you are tired.",
+      },
+      {
+        label: "Day 5",
+        place: "A favorite return",
+        plan:
+          "Repeat the cafe, garden, street, or museum you loved most instead of forcing a final attraction.",
+      },
+    ],
+    notes: [
+      "Reserve the museum that matters most, but leave secondary plans flexible.",
+      "Choose a hotel by evening comfort, not only distance to monuments.",
+      "This route works especially well for solo travelers and couples who prefer atmosphere over lists.",
+    ],
+  },
+  {
+    slug: "madeira-soft-adventure",
+    intro:
+      "A Madeira route for people who want levadas, viewpoints, ocean pools, and island drama without losing comfort or weather flexibility.",
+    rhythm: "Funchal base, west-coast day, mountain morning, one flexible reset day",
+    footprint:
+      "Designed around fewer hotel moves, shared tours or drivers where useful, and realistic pacing for mountain weather.",
+    days: [
+      {
+        label: "Day 1",
+        place: "Funchal arrival",
+        plan:
+          "Settle into Funchal, keep dinner simple, and use the first evening to understand the city before committing to early starts.",
+      },
+      {
+        label: "Day 2",
+        place: "Funchal and Monte",
+        plan:
+          "Pair the market, gardens, cable car or Monte area, and a waterfront dinner without treating the day as a race.",
+      },
+      {
+        label: "Day 3",
+        place: "Levada walk",
+        plan:
+          "Choose a walk that matches the group's real fitness and comfort with exposure, then keep the afternoon quiet.",
+      },
+      {
+        label: "Day 4",
+        place: "Pico do Arieiro",
+        plan:
+          "Make this the mountain day, ideally with a driver or tour if sunrise timing, parking, or weather decisions feel stressful.",
+      },
+      {
+        label: "Day 5",
+        place: "Porto Moniz and the north coast",
+        plan:
+          "Use the ocean pools, viewpoints, and a scenic lunch as the day; do not add a major hike on top.",
+      },
+      {
+        label: "Days 6-7",
+        place: "Ponta do Sol or Funchal",
+        plan:
+          "Keep one day flexible for weather, tired legs, or a second garden, then end with a calm sea-view meal.",
+      },
+    ],
+    notes: [
+      "Madeira looks small, but roads, elevation, and weather make days feel bigger.",
+      "Comfort hotels are worth it here because weather can change your plan.",
+      "Do not stack sunrise, long hike, and north-coast drive into one heroic day.",
+    ],
+  },
+  {
+    slug: "italian-long-weekend",
+    intro:
+      "A compact Rome route for food, ruins, aperitivo, and one garden escape, built for travelers who want a classic weekend without overfilling it.",
+    rhythm: "Three Rome days plus a Tivoli or garden add-on",
+    footprint:
+      "Designed as a walking-first city break with one optional train or driver-supported escape.",
+    days: [
+      {
+        label: "Day 1",
+        place: "Centro Storico",
+        plan:
+          "Arrive, stay central, walk toward the Pantheon and Piazza Navona, and keep dinner close to the hotel.",
+      },
+      {
+        label: "Day 2",
+        place: "Markets and Testaccio",
+        plan:
+          "Start with coffee, build the day around a market or food walk, then make lunch the main event in Testaccio.",
+      },
+      {
+        label: "Day 3",
+        place: "Ancient Rome and Trastevere",
+        plan:
+          "Choose ruins or churches in the morning, then cross toward Trastevere for a softer late afternoon and aperitivo.",
+      },
+      {
+        label: "Day 4",
+        place: "Tivoli or a slow city finish",
+        plan:
+          "Add Tivoli only if you have enough energy. Otherwise, repeat the best cafe, garden, or neighborhood from the weekend.",
+      },
+    ],
+    notes: [
+      "The route works best when lunch is planned and dinners stay flexible.",
+      "Stay central for a short trip; transit time matters more than a slightly bigger room.",
+      "Reserve one anchor experience per day and let Rome fill in the rest.",
+    ],
   },
 ];
 

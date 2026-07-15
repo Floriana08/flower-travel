@@ -476,6 +476,32 @@ p {
   content: "";
 }
 
+.route-line.large {
+  gap: 12px;
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.route-day-list {
+  display: grid;
+  gap: 18px;
+}
+
+.route-day {
+  padding: 22px;
+  border-top: 2px solid var(--clay);
+  background: rgba(255, 253, 249, 0.78);
+}
+
+.route-day h3 {
+  margin: 8px 0 10px;
+}
+
+.article-panel p {
+  font-size: 0.96rem;
+  line-height: 1.58;
+}
+
 .text-link {
   display: inline-flex;
   width: fit-content;

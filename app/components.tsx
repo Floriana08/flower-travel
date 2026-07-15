@@ -172,7 +172,9 @@ export function ItineraryCard({
 }) {
   return (
     <article className="itinerary-card card">
-      <img src={itinerary.image} alt={itinerary.alt} loading="lazy" />
+      <Link href={`/routes/${itinerary.slug}`} aria-label={itinerary.title}>
+        <img src={itinerary.image} alt={itinerary.alt} loading="lazy" />
+      </Link>
       <div className="card-body">
         <div className="meta-line">
           <span>{itinerary.days}</span>
@@ -185,6 +187,9 @@ export function ItineraryCard({
             <span key={stop}>{stop}</span>
           ))}
         </div>
+        <Link className="text-link" href={`/routes/${itinerary.slug}`}>
+          View route
+        </Link>
       </div>
     </article>
   );
