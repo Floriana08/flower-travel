@@ -65,15 +65,16 @@ export default function ItinerariesPage() {
 
       <section className="consultation-strip">
         <div>
-          <p className="eyebrow">Itinerary review</p>
-          <h2>Already have a route? Make it better before you book.</h2>
+          <p className="eyebrow">Community first</p>
+          <h2>Want better routes without the packaged-holiday feeling?</h2>
           <p>
-            A consultation can pressure-test pacing, bases, hotel choices, day
-            trips, and the moments worth saving your budget for.
+            Join the letter for route ideas, Portugal notes, sustainable travel
+            thinking, and early access as Flower Travel grows into a members'
+            community.
           </p>
         </div>
-        <Link className="button light" href="/travel-consultations">
-          Review my trip
+        <Link className="button light" href="/#newsletter">
+          Join the community
         </Link>
       </section>
     </main>

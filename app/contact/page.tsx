@@ -6,7 +6,7 @@ import { site } from "../data";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Flower Travel for travel consultations, editorial collaborations, destination guide ideas, and future planning services.",
+    "Contact Flower Travel for community notes, editorial collaborations, destination guide ideas, and future travel partnerships.",
 };
 
 export default function ContactPage() {
@@ -19,8 +19,9 @@ export default function ContactPage() {
         alt="A traveler standing on a scenic road at golden hour"
       >
         <p>
-          For consultations, editorial collaborations, guide requests, or future
-          planning services, send a note with as much context as you have.
+          For community notes, editorial collaborations, guide requests, or
+          future travel partnerships, send a note with as much context as you
+          have.
         </p>
       </PageHero>
 
@@ -29,11 +30,11 @@ export default function ContactPage() {
           <p className="eyebrow">Get in touch</p>
           <h2>{site.email}</h2>
           <p>
-            Use the form for trip questions, consultation requests, partnership
+            Use the form for reader questions, guide requests, partnership
             ideas, press, or destination suggestions.
           </p>
           <div className="contact-links">
-            <Link href="/travel-consultations">Travel consultations</Link>
+            <Link href="/#newsletter">Join the community</Link>
             <Link href="/travel-guides">Guide library</Link>
             <Link href="/destinations">Destination atlas</Link>
           </div>
@@ -55,8 +56,8 @@ export default function ContactPage() {
           </label>
           <label>
             <span>Reason</span>
-            <select name="reason" defaultValue="consultation">
-              <option value="consultation">Travel consultation</option>
+            <select name="reason" defaultValue="community">
+              <option value="community">Community note</option>
               <option value="guide">Guide request</option>
               <option value="collaboration">Editorial collaboration</option>
               <option value="press">Press or partnership</option>
@@ -79,8 +80,9 @@ export default function ContactPage() {
         </div>
         <p>
           The next stage of Flower Travel should be shaped by real reader
-          questions: destination dilemmas, route ideas, honeymoon worries, hotel
-          criteria, and the planning details that are hard to find elsewhere.
+          questions: Portugal dilemmas, route ideas, sustainable travel worries,
+          hotel criteria, and the planning details that are hard to find
+          elsewhere.
         </p>
       </section>
     </main>

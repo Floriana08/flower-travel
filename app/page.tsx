@@ -17,7 +17,7 @@ import {
 
 export const metadata: Metadata = {
   description:
-    "Flower Travel helps readers travel better through curated guides, detailed itineraries, destination inspiration, personal stories, and thoughtful travel consultations.",
+    "Flower Travel is an editorial travel community for Portugal guides, global destination inspiration, thoughtful routes, and lower-impact ways to travel beautifully.",
 };
 
 const structuredData = {
@@ -59,16 +59,16 @@ export default function Home() {
           <p className="eyebrow">Portugal travel studio</p>
           <h1>Flower Travel</h1>
           <p>
-            Sea-lit guides, colorful city notes, beach days, and personal
-            planning advice for travelers who want Portugal with more beauty,
-            ease, and local feeling.
+            Sea-lit guides, colorful city notes, beach days, and a growing
+            community for travelers who want Portugal with more beauty, ease,
+            local feeling, and a lighter footprint.
           </p>
           <div className="hero-actions">
             <Link className="button light" href="/travel-guides">
               Explore guides
             </Link>
-            <Link className="button ghost-on-dark" href="/travel-consultations">
-              Book a consultation
+            <Link className="button ghost-on-dark" href="/#newsletter">
+              Join the community
             </Link>
           </div>
         </div>

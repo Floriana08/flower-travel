@@ -40,7 +40,7 @@ export default function TravelGuidesPage() {
           <p>
             The content is structured for organic traffic now and future
             monetization later: guide clusters, affiliate-ready hotel thinking,
-            downloadable formats, and consultation pathways.
+            downloadable formats, and community pathways.
           </p>
         </SectionHeading>
 

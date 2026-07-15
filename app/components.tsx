@@ -28,8 +28,8 @@ export function SiteHeader() {
         ))}
       </nav>
 
-      <Link className="header-action" href="/travel-consultations">
-        Book a consult
+      <Link className="header-action" href="/#newsletter">
+        Join the community
       </Link>
 
       <details className="mobile-menu">
@@ -44,7 +44,7 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <Link href="/travel-consultations">Book a consult</Link>
+          <Link href="/#newsletter">Join the community</Link>
         </nav>
       </details>
     </header>
@@ -64,7 +64,7 @@ export function SiteFooter() {
         </Link>
         <p>
           Researched routes, honest notes, and editorial planning for travelers
-          who want more than a packaged holiday.
+          who want community, taste, and a lighter footprint.
         </p>
       </div>
 
@@ -213,10 +213,11 @@ export function NewsletterBand() {
     <section className="newsletter-band" id="newsletter">
       <div>
         <p className="eyebrow">The postcard list</p>
-        <h2>Seasonal routes, hotel notes, and beautiful reasons to go.</h2>
+        <h2>Join the community before it becomes a members' club.</h2>
         <p>
-          A calm monthly letter with destination ideas, planning frameworks, and
-          the newest guides before they are published elsewhere.
+          A thoughtful letter for travelers who care about beautiful places,
+          better research, independent hotels, local culture, and lower-impact
+          ways to move through the world.
         </p>
       </div>
       <form className="newsletter-form" action="/contact" method="get">
@@ -225,7 +226,7 @@ export function NewsletterBand() {
           <input name="email" type="email" placeholder="you@example.com" required />
         </label>
         <button className="button dark" type="submit">
-          Join the list
+          Join the community
         </button>
       </form>
     </section>
@@ -236,16 +237,16 @@ export function ConsultationCta() {
   return (
     <section className="consultation-strip">
       <div>
-        <p className="eyebrow">Travel consultations</p>
-        <h2>Need a sharper plan before you book?</h2>
+        <p className="eyebrow">The future club</p>
+        <h2>A travel community for people who want to go beautifully and lightly.</h2>
         <p>
-          Bring your dates, destination ideas, hotel shortlist, or half-built
-          route. Leave with clearer choices, better pacing, and next steps that
-          feel personal rather than packaged.
+          Start with the free letter: Portugal notes, thoughtful destination
+          essays, sustainable route ideas, and early invitations as Flower
+          Travel grows toward a members' community.
         </p>
       </div>
-      <Link className="button light" href="/travel-consultations">
-        Book a consultation
+      <Link className="button light" href="/#newsletter">
+        Join the community
       </Link>
     </section>
   );

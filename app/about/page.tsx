@@ -7,13 +7,13 @@ const studioPillars = [
   "Coastal city edits",
   "Beach and hotel mood boards",
   "Slow travel essays",
-  "Planning consultations",
+  "Community-first travel ideas",
 ];
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Meet Flower Travel, a boutique editorial travel studio for slow itineraries, destination guides, personal stories, and thoughtful travel advice.",
+    "Meet Flower Travel, a boutique editorial travel community for slow itineraries, destination guides, personal stories, and thoughtful travel ideas.",
 };
 
 export default function AboutPage() {
@@ -75,15 +75,16 @@ export default function AboutPage() {
       <section className="consultation-strip">
         <div>
           <p className="eyebrow">Next chapter</p>
-          <h2>Luxury and honeymoon planning can grow from the same taste level.</h2>
+          <h2>A members' travel community can grow from the same taste level.</h2>
           <p>
-            The design leaves room for paid planning, honeymoon edits,
-            downloadable guides, affiliate hotel content, and curated package
-            pages without changing the brand from editorial to sales-heavy.
+            The design leaves room for paid guides, members-only edits,
+            sustainable hotel notes, local partnerships, honeymoon planning, and
+            curated trips without changing the brand from editorial to
+            sales-heavy.
           </p>
         </div>
-        <Link className="button light" href="/travel-consultations">
-          See consultations
+        <Link className="button light" href="/#newsletter">
+          Join the community
         </Link>
       </section>
     </main>

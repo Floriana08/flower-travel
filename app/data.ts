@@ -2,7 +2,7 @@ export const site = {
   name: "Flower Travel",
   strapline: "Portugal, by sea",
   studioLine:
-    "An editorial travel studio for researched guides, graceful itineraries, and personal planning advice.",
+    "An editorial travel community for thoughtful guides, graceful routes, and lower-impact ways to see the world.",
   email: "hello@flowertravel.studio",
 };
 
@@ -10,7 +10,7 @@ export const navItems = [
   { href: "/destinations", label: "Destinations" },
   { href: "/itineraries", label: "Itineraries" },
   { href: "/travel-guides", label: "Guides" },
-  { href: "/travel-consultations", label: "Consultations" },
+  { href: "/#newsletter", label: "Community" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
