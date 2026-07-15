@@ -5,7 +5,7 @@ const routes = [
   "",
   "/destinations",
   "/routes",
-  "/community",
+  "/club",
   "/travel-consultations",
   "/about",
   "/contact",

@@ -34,8 +34,8 @@ export function SiteHeader() {
         ))}
       </nav>
 
-      <Link className="header-action" href="/community">
-        Join the community
+      <Link className="header-action" href="/club">
+        Join the Club
       </Link>
 
       <details className="mobile-menu">
@@ -73,7 +73,7 @@ export function SiteFooter() {
         </Link>
         <p>
           Researched routes, honest notes, and editorial planning for travelers
-          who want community, taste, and a lighter footprint.
+          who want taste, local feeling, and a lighter footprint.
         </p>
       </div>
 
@@ -269,12 +269,12 @@ export function NewsletterBand() {
   return (
     <section className="newsletter-band" id="newsletter">
       <div>
-        <p className="eyebrow">The postcard list</p>
-        <h2>Join the community before it becomes a members' club.</h2>
+        <p className="eyebrow">The Club letter</p>
+        <h2>Join the Flower Travel Club while the journal is still a pilot.</h2>
         <p>
-          A thoughtful letter for travelers who care about beautiful places,
-          better research, independent hotels, local culture, and lower-impact
-          ways to move through the world.
+          A thoughtful letter for travelers who care about Italy, Spain,
+          Portugal, independent places, local culture, and lower-impact ways to
+          move through the world.
         </p>
       </div>
       <form
@@ -300,7 +300,7 @@ export function NewsletterBand() {
           </span>
         </label>
         <button className="button dark" type="submit">
-          Join the community
+          Join the Club
         </button>
       </form>
     </section>
@@ -311,18 +311,18 @@ export function ConsultationCta() {
   return (
     <section className="consultation-strip">
       <div>
-        <p className="eyebrow">The future club</p>
+        <p className="eyebrow">The Club</p>
         <h2>
-          A travel community for people who want to go beautifully and lightly.
+          A travel club for people who want to go beautifully and lightly.
         </h2>
         <p>
-          Start with the free letter: Portugal notes, thoughtful destination
-          essays, sustainable route ideas, and early invitations as Flower
-          Travel grows toward a members' community.
+          Start with the free letter: Italy, Spain, and Portugal notes,
+          thoughtful destination essays, sustainable route ideas, and early
+          signals as Flower Travel learns what readers want.
         </p>
       </div>
-      <Link className="button light" href="/community">
-        Join the community
+      <Link className="button light" href="/club">
+        Join the Club
       </Link>
     </section>
   );

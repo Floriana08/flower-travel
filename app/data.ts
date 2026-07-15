@@ -1,14 +1,14 @@
 export const site = {
   name: "Flower Travel",
-  strapline: "Portugal, by sea",
+  strapline: "Southern Europe, beautifully",
   studioLine:
-    "An editorial travel blog and community for thoughtful destination notes, graceful routes, and lower-impact ways to see the world.",
+    "An editorial travel blog and club for thoughtful destination notes, graceful routes, local experiences, and lower-impact ways to see Southern Europe.",
   email: "hello@flowertravel.studio",
 };
 
 export const navItems = [
   { href: "/destinations", label: "Destinations" },
-  { href: "/community", label: "Community" },
+  { href: "/club", label: "Club" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -16,9 +16,10 @@ export const navItems = [
 export const communityInterests = [
   "Destination articles",
   "Portugal notes",
-  "Sustainable travel ideas",
+  "Italy and Spain ideas",
+  "Positive-footprint travel",
   "Food and hotel edits",
-  "Future member events",
+  "Local experiences",
   "Honeymoon inspiration",
 ];
 
@@ -88,6 +89,22 @@ export const destinations = [
     highlights: ["Food walk route", "First-timer base", "Reservation notes"],
   },
   {
+    slug: "andalusia",
+    title: "Andalusia, Spain",
+    continent: "Europe",
+    country: "Spain",
+    region: "Spain",
+    mood: "Orange trees and rail days",
+    season: "March to June, September to November",
+    bestFor: "British and American travelers, rail-first routes, food, craft, architecture, shoulder-season sun",
+    image:
+      "https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1600&q=84",
+    alt: "A warm Spanish street with historic architecture and Mediterranean light",
+    excerpt:
+      "Seville patios, Cordoba courtyards, Granada evenings, slow rail links, tapas counters, and white-village detours.",
+    highlights: ["Seville base", "Rail route", "Local craft notes"],
+  },
+  {
     slug: "greek-islands",
     title: "Greek Island Light",
     continent: "Europe",
@@ -122,6 +139,55 @@ export const destinations = [
 ];
 
 export const destinationBlogArticles = [
+  {
+    slug: "andalusia-slow-rail-edit",
+    destinationSlug: "andalusia",
+    title: "Andalusia by Rail, Without Rushing",
+    category: "Route Notes",
+    date: "July 16, 2026",
+    readTime: "6 min read",
+    excerpt:
+      "A first editorial route through Seville, Cordoba, Granada, and the coast for travelers who want warmth, culture, and fewer car days.",
+    sections: [
+      {
+        heading: "Build the route around bases",
+        body: [
+          "Andalusia works best when the trip is not treated as a race across southern Spain. Seville can hold the first chapter: patios, tapas counters, orange trees, and slow evenings when the heat drops.",
+          "Cordoba is a natural pause rather than a rushed tick-box. Granada deserves a gentler pace because the Alhambra, Albaicin, and evening views lose their magic when they are squeezed into a single tired afternoon.",
+        ],
+      },
+      {
+        heading: "Choose rail where it gives ease",
+        body: [
+          "For British and American travelers who do not want to drive abroad, the rail links between major Andalusian cities make the route feel more relaxed and lower-impact. Keep one car or driver-supported day only for villages, olive country, or a coast detour.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "seville-local-experiences-first",
+    destinationSlug: "andalusia",
+    title: "Seville, First Local Experiences to Save",
+    category: "Local Experiences",
+    date: "July 16, 2026",
+    readTime: "5 min read",
+    excerpt:
+      "A starting list for Seville built around patios, craft, food rituals, and moments that feel rooted instead of generic.",
+    sections: [
+      {
+        heading: "Let the day follow the city",
+        body: [
+          "Seville is better when the itinerary respects its rhythm. Mornings can hold architecture and markets, afternoons need shade and rest, and evenings are for long walks, small plates, and streets that suddenly feel theatrical.",
+        ],
+      },
+      {
+        heading: "Look for rooted experiences",
+        body: [
+          "The best early notes are not about doing more. They are about choosing better: a ceramics workshop in Triana, an independent hotel with a courtyard, a food walk that explains the local rhythm, or a flamenco evening that feels intimate rather than staged for volume.",
+        ],
+      },
+    ],
+  },
   {
     slug: "lisbon-neighborhood-first-edit",
     destinationSlug: "lisbon",
@@ -448,6 +514,20 @@ export const itineraries = [
     bestFor: "First Portugal trip, rail lovers, design hotels",
   },
   {
+    slug: "andalusia-slow-route",
+    title: "Andalusia Slow Route",
+    days: "8 days",
+    region: "Seville, Cordoba, Granada, Malaga",
+    pace: "Rail and local experiences",
+    image:
+      "https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1600&q=84",
+    alt: "Historic Spanish architecture in warm Andalusian light",
+    summary:
+      "A warm southern Spain route built around orange-tree courtyards, rail links, food rituals, craft, and one unhurried coast finish.",
+    route: ["Seville", "Cordoba", "Granada", "Malaga"],
+    bestFor: "UK and US travelers, shoulder-season sun, food and architecture",
+  },
+  {
     slug: "paris-without-rushing",
     title: "Paris Without Rushing",
     days: "5 days",
@@ -529,6 +609,45 @@ export const routeDetails = [
       "Book hotels close enough to stations that transfer days do not eat the whole morning.",
       "Keep luggage light; Portugal's stations and old streets are not always kind to heavy bags.",
       "Use this as a template: add Porto wine country or Sintra only if you have more days.",
+    ],
+  },
+  {
+    slug: "andalusia-slow-route",
+    intro:
+      "A southern Spain route for travelers who want Seville atmosphere, Cordoba texture, Granada drama, and a soft coast finish without turning the trip into a checklist.",
+    rhythm: "Seville 3 nights, Cordoba 1 night, Granada 2 nights, Malaga or the coast 2 nights",
+    footprint:
+      "Designed around rail between the main cities, walkable bases, independent restaurants, and one carefully chosen driver-supported village or olive-country day.",
+    days: [
+      {
+        label: "Days 1-3",
+        place: "Seville",
+        plan:
+          "Start with a hotel or guesthouse that gives you shade, a courtyard, or a calm morning rhythm. Keep the first days for patios, tapas counters, Triana craft, and one evening performance chosen for intimacy rather than scale.",
+      },
+      {
+        label: "Day 4",
+        place: "Cordoba",
+        plan:
+          "Use Cordoba as a slower cultural pause: the Mezquita-Cathedral, quiet lanes, courtyard details, and a dinner that lets the city feel lived-in after day visitors leave.",
+      },
+      {
+        label: "Days 5-6",
+        place: "Granada",
+        plan:
+          "Give Granada two nights so the Alhambra does not swallow the whole experience. Leave space for Albaicin views, tea houses, and a simple evening walk.",
+      },
+      {
+        label: "Days 7-8",
+        place: "Malaga or the coast",
+        plan:
+          "Finish with sea air, museums, seafood, or a gentler hotel rhythm before flying home or linking onward through Spain.",
+      },
+    ],
+    notes: [
+      "Book the Alhambra around the rhythm of the whole trip, not as an isolated ticket.",
+      "Use rail for the major city links and save car time for experiences that genuinely need it.",
+      "For UK and US travelers, spring and autumn usually give the best balance of warmth, atmosphere, and comfort.",
     ],
   },
   {
@@ -795,7 +914,7 @@ export const guideProducts = [
     excerpt:
       "A north-to-south rail route with realistic transfer days, city bases, beach pauses, station notes, and lower-impact travel choices.",
     includes: ["10-day route", "Train notes", "Hotel criteria"],
-    href: "/community",
+    href: "/club",
     cta: "Join the waitlist",
   },
   {
@@ -811,7 +930,7 @@ export const guideProducts = [
     excerpt:
       "A low-pressure Lisbon weekend built around public transport, independent restaurants, local craft, fewer transfers, and better neighborhood pacing.",
     includes: ["Low-impact route", "Independent places", "Transit tips"],
-    href: "/community",
+    href: "/club",
     cta: "Join the waitlist",
   },
 ];

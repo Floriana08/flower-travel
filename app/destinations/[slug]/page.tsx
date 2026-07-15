@@ -117,7 +117,7 @@ export default async function DestinationDetailPage({ params }: PageProps) {
             <p>
               Use this page as the editorial hub for the destination: city
               notes, story-led posts, route ideas, hotel thoughts, and future
-              member-only edits can all live here.
+              Club-only edits can all live here.
             </p>
           </SectionHeading>
 

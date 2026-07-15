@@ -10,7 +10,7 @@ import {
 export const metadata: Metadata = {
   title: "Destinations",
   description:
-    "Explore curated Flower Travel destination articles for Portugal, France, Italy, Greece, Morocco, island escapes, city breaks, and future honeymoon routes.",
+    "Explore curated Flower Travel destination articles for Italy, Spain, Portugal, local experiences, positive-footprint routes, island escapes, city breaks, and future honeymoon routes.",
 };
 
 export default function DestinationsPage() {
@@ -63,7 +63,7 @@ export default function DestinationsPage() {
         >
           <p>
             These posts are written to build the editorial archive before
-            Flower Travel becomes a fuller members' community.
+            Flower Travel becomes a fuller travel club.
           </p>
         </SectionHeading>
         <div className="destination-article-grid">
@@ -170,15 +170,15 @@ export default function DestinationsPage() {
       <section className="editorial-band">
         <div>
           <p className="eyebrow">Coming next</p>
-          <h2>Destinations can become the community atlas.</h2>
+          <h2>Destinations can become the Club atlas.</h2>
         </div>
         <p>
           The structure is ready for country pages, city articles, neighborhood
-          notes, hotel shortlists, lower-impact route ideas, and member-only
+          notes, hotel shortlists, lower-impact route ideas, and Club-only
           edits once the audience signals what they need.
         </p>
-        <Link className="button dark" href="/community">
-          Join the community
+        <Link className="button dark" href="/club">
+          Join the Club
         </Link>
       </section>
     </main>

@@ -4,17 +4,19 @@ import { SiteFooter, SiteHeader } from "./components";
 
 export const metadata: Metadata = {
   title: {
-    default: "Flower Travel | Editorial Travel Blog and Community",
+    default: "Flower Travel | Editorial Travel Blog and Club",
     template: "%s | Flower Travel",
   },
   description:
-    "Flower Travel is an editorial travel blog and community for destination inspiration, Portugal notes, graceful routes, and lower-impact ways to travel beautifully.",
+    "Flower Travel is an editorial travel blog and club for destination inspiration, Italy, Spain, Portugal notes, graceful routes, and lower-impact ways to travel beautifully.",
   keywords: [
     "travel blog",
     "destination articles",
     "curated itineraries",
-    "travel community",
+    "travel club",
     "Portugal travel blog",
+    "Italy travel",
+    "Spain travel",
     "sustainable travel",
     "Europe travel",
     "boutique travel",
@@ -23,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Flower Travel",
     description:
-      "Thoughtful destination essays, Portugal notes, route ideas, and a future members' travel community.",
+      "Thoughtful destination essays, Italy, Spain, Portugal notes, route ideas, and a future travel club.",
     type: "website",
     images: [
       {

@@ -21,7 +21,8 @@ export default function RoutesPage() {
         <p>
           These are not packaged holidays. They are carefully researched route
           frameworks: where to begin, how many nights to stay, when to slow
-          down, and what might later become a member edit or paid route pack.
+          down, and what might later become a deeper Club edit or paid route
+          pack.
         </p>
       </PageHero>
 
@@ -32,7 +33,7 @@ export default function RoutesPage() {
         >
           <p>
             Click any route to see the stops, suggested rhythm, pacing notes,
-            and how it could become a future member-only edit or paid route
+            and how it could become a future Club-only edit or paid route
             pack.
           </p>
         </SectionHeading>
@@ -65,16 +66,16 @@ export default function RoutesPage() {
 
       <section className="consultation-strip">
         <div>
-          <p className="eyebrow">Community first</p>
+          <p className="eyebrow">Club first</p>
           <h2>Want better routes without the packaged-holiday feeling?</h2>
           <p>
-            Join the letter for route ideas, Portugal notes, sustainable travel
-            thinking, and early access as Flower Travel grows into a members'
-            community.
+            Join the letter for Italy, Spain, Portugal route ideas,
+            positive-footprint travel thinking, and early signals while Flower
+            Travel learns what readers want.
           </p>
         </div>
-        <Link className="button light" href="/community">
-          Join the community
+        <Link className="button light" href="/club">
+          Join the Club
         </Link>
       </section>
     </main>

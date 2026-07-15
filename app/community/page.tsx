@@ -4,38 +4,39 @@ import { PageHero, SectionHeading } from "../components";
 import { communityInterests, site } from "../data";
 
 export const metadata: Metadata = {
-  title: "Community",
+  title: "Club",
   description:
-    "Join the Flower Travel community for thoughtful destination notes, Portugal stories, sustainable travel ideas, and future member-only edits.",
+    "Join the Flower Travel Club for thoughtful destination notes, Italy, Spain, Portugal stories, positive-footprint travel ideas, and future editorial pilots.",
 };
 
 export default function CommunityPage() {
   return (
     <main>
       <PageHero
-        eyebrow="Community"
-        title="A slower, more thoughtful way to belong to travel."
+        eyebrow="Club"
+        title="The reader circle behind the travel journal."
         image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=84"
         alt="Soft waves washing onto a pale beach"
       >
         <p>
-          Flower Travel is growing into a community for people who want
-          beautiful journeys, better research, independent places, and a more
-          positive footprint without losing the uniqueness of a trip.
+          Flower Travel is starting as a pilot blog. The Club is the early
+          reader list for people who want beautiful journeys, better research,
+          independent places, and a more positive footprint without losing the
+          uniqueness of a trip.
         </p>
       </PageHero>
 
       <section className="community-page section-shell">
         <div className="community-copy">
           <SectionHeading
-            eyebrow="Join the list"
-            title="Start with the letter. Later, this can become the members' club."
+            eyebrow="Join the Club"
+            title="Start with the letter. Let the audience shape what comes next."
           >
             <p>
-              For now, the community is the best place to share new destination
-              articles, Portugal notes, sustainable travel ideas, restaurant
-              and hotel edits, and the questions that should shape future
-              paid products or member-only planning.
+              For now, the Club is the best place to share new destination
+              articles, Italy, Spain, and Portugal notes, positive-footprint
+              travel ideas, restaurant and hotel edits, and the questions that
+              should shape future guides or planning.
             </p>
           </SectionHeading>
 
@@ -68,10 +69,10 @@ export default function CommunityPage() {
 
         <aside className="community-form-panel" id="join">
           <p className="eyebrow">Early access</p>
-          <h2>Join the Flower Travel community</h2>
+          <h2>Join the Flower Travel Club</h2>
           <p>
             Tell me what you care about, and I will use the replies to shape
-            the next articles, essays, and member ideas.
+            the next articles, essays, and pilot ideas.
           </p>
 
           <form
@@ -103,7 +104,7 @@ export default function CommunityPage() {
               <textarea
                 name="message"
                 rows={4}
-                placeholder="Lisbon restaurants, train routes, sustainable hotels, honeymoon ideas..."
+                placeholder="Italy routes, Spanish food notes, Portugal by train, sustainable hotels..."
               />
             </label>
             <label className="consent-check">
@@ -114,7 +115,7 @@ export default function CommunityPage() {
               </span>
             </label>
             <button className="button dark" type="submit">
-              Join the community
+              Join the Club
             </button>
           </form>
 
@@ -134,8 +135,8 @@ export default function CommunityPage() {
         </div>
         <p>
           The editorial direction is simple: fewer generic lists, more useful
-          decisions, routes that respect time and place, and a community that
-          rewards curiosity over overconsumption.
+          decisions, routes that respect time and place, and a club that rewards
+          curiosity over overconsumption.
         </p>
         <Link className="button dark" href="/destinations">
           Read the blog

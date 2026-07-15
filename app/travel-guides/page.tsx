@@ -52,8 +52,8 @@ export default function TravelGuidesPage() {
           title="Portugal-first products, with previews while the shop grows."
         >
           <p>
-            For now, every product points to a free preview or the community
-            waitlist. Later this can connect to checkout, member pricing,
+            For now, every product points to a free preview or the Club
+            waitlist. Later this can connect to checkout, reader pricing,
             downloadable PDFs, affiliate hotel edits, and private city maps.
           </p>
         </SectionHeading>
@@ -91,7 +91,7 @@ export default function TravelGuidesPage() {
         <p>
           This keeps the site sustainable: build audience first, learn what
           people want, then sell useful digital guides instead of pushing
-          packaged holidays before the community exists.
+          packaged holidays before the Club has a clear point of view.
         </p>
       </section>
 

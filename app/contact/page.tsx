@@ -6,7 +6,7 @@ import { site } from "../data";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Flower Travel for community notes, editorial collaborations, destination article ideas, and future travel partnerships.",
+    "Contact Flower Travel for club notes, editorial collaborations, destination article ideas, and future travel partnerships.",
 };
 
 export default function ContactPage() {
@@ -19,7 +19,7 @@ export default function ContactPage() {
         alt="A traveler standing on a scenic road at golden hour"
       >
         <p>
-          For community notes, editorial collaborations, article ideas, or
+          For club notes, editorial collaborations, article ideas, or
           future travel partnerships, send a note with as much context as you
           have.
         </p>
@@ -34,7 +34,7 @@ export default function ContactPage() {
             ideas, press, or destination suggestions.
           </p>
           <div className="contact-links">
-            <Link href="/community">Join the community</Link>
+            <Link href="/club">Join the Club</Link>
             <Link href="/destinations">Destination blog</Link>
           </div>
         </div>
@@ -56,7 +56,7 @@ export default function ContactPage() {
           <label>
             <span>Reason</span>
             <select name="reason" defaultValue="community">
-              <option value="community">Community note</option>
+              <option value="community">Club note</option>
               <option value="article">Article request</option>
               <option value="collaboration">Editorial collaboration</option>
               <option value="press">Press or partnership</option>

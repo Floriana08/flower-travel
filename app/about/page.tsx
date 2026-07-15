@@ -3,17 +3,17 @@ import Link from "next/link";
 import { PageHero, SectionHeading } from "../components";
 
 const studioPillars = [
-  "Portugal route notes",
-  "Coastal city edits",
+  "Italy, Spain, Portugal routes",
+  "Local experience edits",
   "Beach and hotel mood boards",
   "Slow travel essays",
-  "Community-first travel ideas",
+  "Club-first reader signals",
 ];
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Meet Flower Travel, a boutique editorial travel community for slow itineraries, destination articles, personal stories, and thoughtful travel ideas.",
+    "Meet Flower Travel, a boutique editorial travel blog and club for slow itineraries, destination articles, personal stories, and thoughtful travel ideas.",
 };
 
 export default function AboutPage() {
@@ -75,16 +75,16 @@ export default function AboutPage() {
       <section className="consultation-strip">
         <div>
           <p className="eyebrow">Next chapter</p>
-          <h2>A members' travel community can grow from the same taste level.</h2>
+          <h2>A travel club can grow from the same editorial taste level.</h2>
           <p>
-            The design leaves room for paid downloads, members-only edits,
+            The design leaves room for paid downloads, club-only edits,
             sustainable hotel notes, local partnerships, honeymoon planning, and
             curated trips without changing the brand from editorial to
             sales-heavy.
           </p>
         </div>
-        <Link className="button light" href="/community">
-          Join the community
+        <Link className="button light" href="/club">
+          Join the Club
         </Link>
       </section>
     </main>
