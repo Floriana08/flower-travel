@@ -73,7 +73,7 @@ export default function RoutesPage() {
             community.
           </p>
         </div>
-        <Link className="button light" href="/#newsletter">
+        <Link className="button light" href="/community">
           Join the community
         </Link>
       </section>

@@ -83,7 +83,7 @@ export default function AboutPage() {
             sales-heavy.
           </p>
         </div>
-        <Link className="button light" href="/#newsletter">
+        <Link className="button light" href="/community">
           Join the community
         </Link>
       </section>

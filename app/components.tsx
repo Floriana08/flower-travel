@@ -35,7 +35,7 @@ export function SiteHeader() {
         ))}
       </nav>
 
-      <Link className="header-action" href="/#newsletter">
+      <Link className="header-action" href="/community">
         Join the community
       </Link>
 
@@ -51,7 +51,6 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <Link href="/#newsletter">Join the community</Link>
         </nav>
       </details>
     </header>
@@ -88,6 +87,7 @@ export function SiteFooter() {
         <h2>Studio</h2>
         <Link href="/about">About</Link>
         <Link href="/contact">Contact</Link>
+        <Link href="/privacy">Privacy</Link>
         <a href={`mailto:${site.email}`}>{site.email}</a>
       </div>
     </footer>
@@ -265,10 +265,22 @@ export function NewsletterBand() {
           ways to move through the world.
         </p>
       </div>
-      <form className="newsletter-form" action="/contact" method="get">
+      <form
+        className="newsletter-form"
+        action={`mailto:${site.email}`}
+        method="post"
+        encType="text/plain"
+      >
         <label>
           <span>Email address</span>
           <input name="email" type="email" placeholder="you@example.com" required />
+        </label>
+        <label className="consent-check">
+          <input name="consent" type="checkbox" required />
+          <span>
+            I agree to receive Flower Travel emails and understand I can
+            unsubscribe at any time.
+          </span>
         </label>
         <button className="button dark" type="submit">
           Join the community
@@ -290,7 +302,7 @@ export function ConsultationCta() {
           Travel grows toward a members' community.
         </p>
       </div>
-      <Link className="button light" href="/#newsletter">
+      <Link className="button light" href="/community">
         Join the community
       </Link>
     </section>

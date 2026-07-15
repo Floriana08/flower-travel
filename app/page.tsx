@@ -67,7 +67,7 @@ export default function Home() {
             <Link className="button light" href="/travel-guides">
               Explore guides
             </Link>
-            <Link className="button ghost-on-dark" href="/#newsletter">
+            <Link className="button ghost-on-dark" href="/community">
               Join the community
             </Link>
           </div>

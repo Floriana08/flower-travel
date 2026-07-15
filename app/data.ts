@@ -8,11 +8,19 @@ export const site = {
 
 export const navItems = [
   { href: "/destinations", label: "Destinations" },
-  { href: "/routes", label: "Routes" },
   { href: "/travel-guides", label: "Guides" },
-  { href: "/#newsletter", label: "Community" },
+  { href: "/community", label: "Community" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
+];
+
+export const communityInterests = [
+  "Portugal guides",
+  "Sustainable travel ideas",
+  "Food and hotel edits",
+  "Future member events",
+  "Honeymoon inspiration",
+  "Digital guide drops",
 ];
 
 export const destinations = [
@@ -477,7 +485,7 @@ export const guideProducts = [
     excerpt:
       "A north-to-south rail route with realistic transfer days, city bases, beach pauses, station notes, and lower-impact travel choices.",
     includes: ["10-day route", "Train notes", "Hotel criteria"],
-    href: "/#newsletter",
+    href: "/community",
     cta: "Join the waitlist",
   },
   {
@@ -493,7 +501,7 @@ export const guideProducts = [
     excerpt:
       "A low-pressure Lisbon weekend built around public transport, independent restaurants, local craft, fewer transfers, and better neighborhood pacing.",
     includes: ["Low-impact route", "Independent places", "Transit tips"],
-    href: "/#newsletter",
+    href: "/community",
     cta: "Join the waitlist",
   },
 ];
