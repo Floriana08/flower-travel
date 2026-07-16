@@ -19,10 +19,11 @@ export default function CommunityPage() {
         alt="Soft waves washing onto a pale beach"
       >
         <p>
-          Flower Travel is starting as a pilot blog. The Club is the early
-          reader list for people who want beautiful journeys, better research,
-          independent places, and a more positive footprint without losing the
-          uniqueness of a trip.
+          Flower Travel is more than a travel blog. It's an evolving journal for
+          people who want to travel with more intention, discovering beautiful
+          places, supporting local communities, and making choices that leave a
+          lighter footprint without sacrificing memorable experiences. The Club
+          is where that journey begins.
         </p>
       </PageHero>
 
@@ -44,8 +45,8 @@ export default function CommunityPage() {
             <article>
               <h3>Better research</h3>
               <p>
-                Thoughtful articles that help people travel with more confidence,
-                less noise, and fewer rushed decisions.
+                Thoughtful articles that help people travel with more
+                confidence, less noise, and fewer rushed decisions.
               </p>
             </article>
             <article>
@@ -71,15 +72,14 @@ export default function CommunityPage() {
           <p className="eyebrow">Early access</p>
           <h2>Join the Flower Travel Club</h2>
           <p>
-            Tell me what you care about, and I will use the replies to shape
-            the next articles, essays, and pilot ideas.
+            Tell me what you care about, and I will use the replies to shape the
+            next articles, essays, and pilot ideas.
           </p>
 
           <form
             className="contact-form"
             action={`mailto:${site.email}`}
             method="post"
-            encType="text/plain"
           >
             <label>
               <span>Name</span>
@@ -87,7 +87,12 @@ export default function CommunityPage() {
             </label>
             <label>
               <span>Email</span>
-              <input name="email" type="email" placeholder="you@example.com" required />
+              <input
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                required
+              />
             </label>
             <label>
               <span>Most interested in</span>
@@ -131,6 +136,7 @@ export default function CommunityPage() {
       <section className="editorial-band light-band">
         <div>
           <p className="eyebrow">Positive footprint</p>
+          <br />
           <h2>Travel better, not necessarily more.</h2>
         </div>
         <p>

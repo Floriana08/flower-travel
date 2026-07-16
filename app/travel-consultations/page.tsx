@@ -91,7 +91,6 @@ export default function TravelConsultationsPage() {
           className="contact-form"
           action={`mailto:${site.email}`}
           method="post"
-          encType="text/plain"
         >
           <label>
             <span>Name</span>

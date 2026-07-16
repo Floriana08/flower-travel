@@ -43,7 +43,6 @@ export default function ContactPage() {
           className="contact-form"
           action={`mailto:${site.email}`}
           method="post"
-          encType="text/plain"
         >
           <label>
             <span>Name</span>

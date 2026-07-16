@@ -569,6 +569,104 @@ export const itineraries = [
     route: ["Centro Storico", "Trastevere", "Testaccio", "Tivoli"],
     bestFor: "Food travelers, short breaks, first Rome trip",
   },
+  {
+    slug: "lisbon-food-tour",
+    title: "Best Food Tour of Lisbon",
+    days: "Half day",
+    region: "Alfama, Mouraria, Baixa",
+    pace: "Food walk",
+    image:
+      "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1600&q=84",
+    alt: "Traditional Portuguese pastel de nata and coffee on a cafe table",
+    summary:
+      "A walkable morning through markets, tascas, pastelarias, and the neighborhoods where Lisbon actually eats.",
+    route: ["Mercado da Ribeira", "Alfama", "Mouraria", "Chiado"],
+    bestFor: "First visit, food lovers, walkable mornings",
+  },
+  {
+    slug: "amalfi-coast-tours",
+    title: "Amalfi Coast Tours",
+    days: "Day trips",
+    region: "Positano, Ravello, Amalfi",
+    pace: "Coastal escapes",
+    image:
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=84",
+    alt: "Cliffside villages above blue Mediterranean water",
+    summary:
+      "How to choose between Positano, Ravello, and the Path of the Gods without turning a beautiful coast into a transfer marathon.",
+    route: ["Positano", "Ravello", "Path of the Gods", "Amalfi town"],
+    bestFor: "Couples, photographers, Sorrento or Naples bases",
+  },
+  {
+    slug: "rome-best-restaurants",
+    title: "10 Best Restaurants to Eat in Rome",
+    days: "10 picks",
+    region: "Testaccio, Trastevere, Centro",
+    pace: "Editorial restaurant list",
+    image:
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1600&q=84",
+    alt: "A Roman trattoria table set for dinner with wine and bread",
+    summary:
+      "Ten places worth planning around — from Testaccio trattorias to Monti wine bars and the reservations that actually matter.",
+    route: ["Testaccio", "Trastevere", "Monti", "Prati", "Esquilino"],
+    bestFor: "Food travelers, long weekends, repeat visitors",
+  },
+  {
+    slug: "center-of-italy-guide",
+    title: "A Guide Through the Center of Italy",
+    days: "12 days",
+    region: "Umbria, Tuscany, Le Marche",
+    pace: "Slow regional route",
+    image:
+      "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1600&q=84",
+    alt: "A hill town overlooking vineyards and cypress trees in central Italy",
+    summary:
+      "Perugia to Urbino by way of Assisi, Siena, and Orvieto — a second-Italy route built around hill towns, wine, and unhurried lunches.",
+    route: ["Perugia", "Assisi", "Siena", "Orvieto", "Urbino"],
+    bestFor: "Second Italy trip, hill towns, wine and art",
+  },
+  {
+    slug: "seville-tapas-trail",
+    title: "Best Tapas Evening in Seville",
+    days: "One evening",
+    region: "Triana, Santa Cruz, Arenal",
+    pace: "Bar crawl edit",
+    image:
+      "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1600&q=84",
+    alt: "Tapas and wine on a warm European street terrace",
+    summary:
+      "One unhurried evening across Triana, the riverfront, and the old quarter — stand-up bars, vermouth, and the stops worth repeating.",
+    route: ["Triana", "Arenal", "Santa Cruz", "Alameda"],
+    bestFor: "First Seville night, small groups, shoulder season",
+  },
+  {
+    slug: "porto-wine-day",
+    title: "Porto Wine Country Day",
+    days: "Day trip",
+    region: "Douro Valley from Porto",
+    pace: "Wine and river",
+    image:
+      "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=1600&q=84",
+    alt: "Green terraced hills in the Portuguese wine country",
+    summary:
+      "A calm day out from Porto: river views, one quinta lunch, and enough structure to enjoy the valley without a rental car.",
+    route: ["Porto", "Pinhão", "Quinta lunch", "River viewpoint"],
+    bestFor: "Wine curious, couples, no-car travelers",
+  },
+  {
+    slug: "sicily-coastal-route",
+    title: "Sicily Coastal Route",
+    days: "9 days",
+    region: "Taormina, Syracuse, Cefalù",
+    pace: "Island slow coast",
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=84",
+    alt: "Turquoise Mediterranean water along a Sicilian-style coastline",
+    summary:
+      "Taormina, Noto, Syracuse, and Cefalù — a shoulder-season island route with baroque towns, sea swims, and fewer hotel moves.",
+    route: ["Taormina", "Noto", "Syracuse", "Cefalù"],
+    bestFor: "Shoulder season, history lovers, sea and food",
+  },
 ];
 
 export const routeDetails = [
@@ -783,6 +881,279 @@ export const routeDetails = [
       "The route works best when lunch is planned and dinners stay flexible.",
       "Stay central for a short trip; transit time matters more than a slightly bigger room.",
       "Reserve one anchor experience per day and let Rome fill in the rest.",
+    ],
+  },
+  {
+    slug: "lisbon-food-tour",
+    intro:
+      "A half-day food walk through Lisbon for travelers who want markets, neighborhood tascas, and pastry stops without a rigid tour-group schedule.",
+    rhythm: "One morning, four neighborhoods, lunch as the finish line",
+    footprint:
+      "Built for walking, tram links where hills bite, and independent places rather than ticketed tasting rooms.",
+    days: [
+      {
+        label: "Stop 1",
+        place: "Mercado da Ribeira",
+        plan:
+          "Start with coffee and one market bite — enough to orient yourself without turning breakfast into a full meal.",
+      },
+      {
+        label: "Stop 2",
+        place: "Alfama",
+        plan:
+          "Walk uphill slowly for a pastelaria, a miradouro pause, and one traditional counter where locals still linger.",
+      },
+      {
+        label: "Stop 3",
+        place: "Mouraria",
+        plan:
+          "Use Mouraria for a more lived-in lunch: African-Portuguese flavors, small taverns, and fewer postcard crowds.",
+      },
+      {
+        label: "Stop 4",
+        place: "Chiado",
+        plan:
+          "Finish with gelado or a second coffee in Chiado, then decide whether the afternoon belongs to Belém or a hotel reset.",
+      },
+    ],
+    notes: [
+      "Go hungry but not starving — the best walks leave room for spontaneity.",
+      "Book nothing before 11am; Lisbon food culture starts later than northern Europe expects.",
+      "Wear shoes that handle cobblestones and hills without punishing your knees.",
+    ],
+  },
+  {
+    slug: "amalfi-coast-tours",
+    intro:
+      "A practical edit for Amalfi Coast day trips — Positano glamour, Ravello gardens, and the Path of the Gods without losing a whole day to buses.",
+    rhythm: "One base, one main coast day, one mountain or garden day",
+    footprint:
+      "Designed around ferries, shared boats, and early starts rather than summer traffic and impossible parking.",
+    days: [
+      {
+        label: "Option A",
+        place: "Positano and the coast",
+        plan:
+          "Arrive early, walk the vertical streets before heat and crowds, swim if the beach feels right, then ferry onward or return by boat.",
+      },
+      {
+        label: "Option B",
+        place: "Ravello",
+        plan:
+          "Make Ravello the slower day: villa gardens, terrace lunch, and views that reward staying put instead of hopping towns.",
+      },
+      {
+        label: "Option C",
+        place: "Path of the Gods",
+        plan:
+          "Choose a half-day hike with a clear start point, water, and a post-walk lunch plan — not a heroic trek before dinner.",
+      },
+      {
+        label: "Option D",
+        place: "Amalfi town",
+        plan:
+          "Use Amalfi as the practical hub day: cathedral, paper museum, ferry links, and a calmer rhythm between bigger excursions.",
+      },
+    ],
+    notes: [
+      "Pick two towns, not five — the coast punishes overambition in peak season.",
+      "Boats often beat buses for both views and sanity.",
+      "Stay in Sorrento or Salerno if Positano hotel prices feel disconnected from the experience.",
+    ],
+  },
+  {
+    slug: "rome-best-restaurants",
+    intro:
+      "Ten Rome restaurants worth building a trip around — trattorias, wine bars, and the reservations that separate a good visit from a great one.",
+    rhythm: "Spread across neighborhoods, one anchor meal per day",
+    footprint:
+      "Clustered by district so you are not crossing the city for every dinner.",
+    days: [
+      {
+        label: "Pick 1-2",
+        place: "Testaccio",
+        plan:
+          "Start here for Roman classics done properly: coda alla vaccinara, tripe if you are curious, and a market morning beforehand.",
+      },
+      {
+        label: "Pick 3-4",
+        place: "Trastevere",
+        plan:
+          "Choose one sit-down trattoria and one wine bar — Trastevere rewards repeat visits more than one mega dinner.",
+      },
+      {
+        label: "Pick 5-6",
+        place: "Monti and Centro",
+        plan:
+          "Use Monti for aperitivo and Centro for the splurge meal you actually planned ahead for.",
+      },
+      {
+        label: "Pick 7-10",
+        place: "Prati and Esquilino",
+        plan:
+          "Round out the list with Prati pizzerias and Esquilino spots where Rome feels less polished and more delicious.",
+      },
+    ],
+    notes: [
+      "Reserve the one dinner you care about most; keep the rest flexible.",
+      "Lunch can be the better meal in Rome — do not save all your appetite for 9pm.",
+      "Walk between courses when neighborhoods allow it; the city is part of the menu.",
+    ],
+  },
+  {
+    slug: "center-of-italy-guide",
+    intro:
+      "A twelve-day route through Umbria, Tuscany, and Le Marche for travelers who want hill towns, art, wine, and a second-Italy pace.",
+    rhythm: "Three bases, short drives, long lunches",
+    footprint:
+      "Built around fewer hotel changes, regional trains where possible, and one rental-car block for the hill-town days.",
+    days: [
+      {
+        label: "Days 1-3",
+        place: "Perugia and Assisi",
+        plan:
+          "Use Perugia as your Umbrian base, then day-trip to Assisi for basilica calm and olive-country views.",
+      },
+      {
+        label: "Days 4-6",
+        place: "Siena and the Crete",
+        plan:
+          "Move into Tuscany for Siena's contrade, country drives, and a winery lunch that does not require a marathon tasting.",
+      },
+      {
+        label: "Days 7-9",
+        place: "Orvieto",
+        plan:
+          "Pause in Orvieto for cathedral drama, white wine, and a slower rhythm before the final push east.",
+      },
+      {
+        label: "Days 10-12",
+        place: "Urbino and Le Marche",
+        plan:
+          "Finish in Urbino for Renaissance intimacy, Marche trattorias, and a softer Adriatic-side mood.",
+      },
+    ],
+    notes: [
+      "This route shines in spring and autumn when hill-town heat and crowds ease.",
+      "Book one agriturismo stay if you want the trip to feel grounded, not hotel-hoppy.",
+      "Leave a flex day — central Italy rewards weather and mood more than schedules.",
+    ],
+  },
+  {
+    slug: "seville-tapas-trail",
+    intro:
+      "One Seville evening mapped as a tapas trail — stand-up bars, sherry, and the neighborhoods where the city loosens up after dark.",
+    rhythm: "Four stops, two hours, one slow finale",
+    footprint:
+      "Walking distance only; no taxis needed if you start in Triana and drift back across the river.",
+    days: [
+      {
+        label: "Stop 1",
+        place: "Triana",
+        plan:
+          "Begin across the river with vermouth and one small plate — Triana sets a local tone before the old quarter pulls you in.",
+      },
+      {
+        label: "Stop 2",
+        place: "Arenal",
+        plan:
+          "Cross back for a classic bar near the cathedral area, but keep portions small; the night is long.",
+      },
+      {
+        label: "Stop 3",
+        place: "Santa Cruz",
+        plan:
+          "Drift into the old quarter for jamón, montaditos, and the kind of bar where regulars still outnumber tourists.",
+      },
+      {
+        label: "Stop 4",
+        place: "Alameda",
+        plan:
+          "Finish around Alameda de Hércules if you want a looser, younger energy — or sit down properly if stand-up bars have done their job.",
+      },
+    ],
+    notes: [
+      "Eat a little everywhere; order one or two dishes per stop, not a full meal at each.",
+      "Start around 8:30pm in summer — earlier and the city can feel half-asleep.",
+      "Book a table only for the final sit-down stop if the group wants to land somewhere.",
+    ],
+  },
+  {
+    slug: "porto-wine-day",
+    intro:
+      "A Douro Valley day from Porto for wine-curious travelers who want river views, one quinta visit, and a return without driving.",
+    rhythm: "Morning train, afternoon quinta, evening back in Porto",
+    footprint:
+      "Rail-first where possible, shared transfers for quinta visits, and one structured lunch rather than three tastings.",
+    days: [
+      {
+        label: "Morning",
+        place: "Porto to Pinhão",
+        plan:
+          "Take the scenic train along the Douro, sit on the river side, and treat the journey as part of the day — not just transfer time.",
+      },
+      {
+        label: "Midday",
+        place: "Pinhão",
+        plan:
+          "Walk the riverside, grab a simple lunch, and decide whether the afternoon belongs to a boat look or a quinta uphill.",
+      },
+      {
+        label: "Afternoon",
+        place: "Quinta visit",
+        plan:
+          "Book one quinta with a clear tasting slot and terrace time; avoid stacking two visits unless someone else is driving.",
+      },
+      {
+        label: "Evening",
+        place: "Back to Porto",
+        plan:
+          "Return before you are tired, shower, then let a Francesinha or riverside dinner close the day in the city.",
+      },
+    ],
+    notes: [
+      "Book quinta visits ahead in harvest season — spontaneity is harder then.",
+      "If you dislike early starts, swap the train for a small-group tour with pickup.",
+      "One good tasting beats three rushed ones every time.",
+    ],
+  },
+  {
+    slug: "sicily-coastal-route",
+    intro:
+      "A nine-day Sicily route along the east and north coast — baroque towns, Greek ruins, and sea days without circling the whole island.",
+    rhythm: "Taormina base, south loop, Cefalù finish",
+    footprint:
+      "Designed around three hotels, short drives, and one train link where it saves sanity.",
+    days: [
+      {
+        label: "Days 1-3",
+        place: "Taormina",
+        plan:
+          "Settle into Taormina with one beach morning, one Greek theatre visit, and dinners that do not require a car.",
+      },
+      {
+        label: "Days 4-5",
+        place: "Noto and the south",
+        plan:
+          "Drive south for Noto's baroque streets, a long lunch, and an afternoon that respects Sicilian heat.",
+      },
+      {
+        label: "Days 6-7",
+        place: "Syracuse",
+        plan:
+          "Use Syracuse for Ortigia evenings, market mornings, and one archaeological morning before moving on.",
+      },
+      {
+        label: "Days 8-9",
+        place: "Cefalù",
+        plan:
+          "Finish on the north coast with a beach day, cathedral visit, and a slow last night before flying from Palermo.",
+      },
+    ],
+    notes: [
+      "Fly into Catania and out of Palermo — or reverse — to avoid backtracking.",
+      "Keep one flex day for weather; Sicily changes plans quickly.",
+      "Book Taormina early in shoulder season; it still fills up.",
     ],
   },
 ];

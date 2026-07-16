@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EditorialCarousel } from "./EditorialCarousel";
 import { NewsletterBand, SectionHeading } from "./components";
 import {
   destinationBlogArticles,
@@ -29,17 +30,20 @@ const structuredData = {
   },
 };
 
-const destinationFocus = ["andalusia", "rome", "lisbon", "madeira"];
 const routeFocus = [
+  "lisbon-food-tour",
+  "rome-best-restaurants",
+  "amalfi-coast-tours",
+  "center-of-italy-guide",
   "andalusia-slow-route",
   "italian-long-weekend",
   "portugal-by-train",
+  "seville-tapas-trail",
+  "porto-wine-day",
+  "sicily-coastal-route",
 ];
 
 export default function Home() {
-  const featuredDestinations = destinationFocus
-    .map((slug) => destinations.find((destination) => destination.slug === slug))
-    .filter(Boolean);
   const featuredRoutes = routeFocus
     .map((slug) => itineraries.find((itinerary) => itinerary.slug === slug))
     .filter(Boolean);
@@ -84,86 +88,33 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="editorial-lede section-shell">
-        <p className="eyebrow">The pilot</p>
-        <h2>
-          Beautiful routes, honest notes, and local experiences before anything
-          becomes a product.
-        </h2>
-        <p>
-          For now, Flower Travel is a blog-led studio. The work is to publish
-          useful inspiration, understand what readers search for, and learn
-          which destinations, hotels, food notes, and positive-footprint routes
-          people actually want.
-        </p>
-      </section>
-
-      <section className="mediterranean-feature section-shell tinted">
-        <figure>
-          <img
-            src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1800&q=84"
-            alt="Historic Spanish architecture and palm trees in warm light"
-            loading="eager"
-          />
-        </figure>
-        <div className="mediterranean-copy">
-          <p className="eyebrow">Italy, Spain, Portugal</p>
-          <h2>The first editorial map is Southern Europe.</h2>
-          <p>
-            Not every trip needs to be luxury in the obvious way. Sometimes the
-            better version is a rail route that feels easy, a restaurant chosen
-            for its sense of place, a hotel with real character, or a day that
-            leaves money in the local economy.
-          </p>
-          <div className="mediterranean-notes">
-            {featuredDestinations.map((destination) =>
-              destination ? (
-                <Link key={destination.slug} href={`/destinations/${destination.slug}`}>
-                  <span>{destination.region}</span>
-                  <strong>{destination.title}</strong>
-                  <small>{destination.mood}</small>
-                </Link>
-              ) : null,
-            )}
-          </div>
-        </div>
-      </section>
-
-      <section className="route-editorial section-shell">
-        <SectionHeading
-          eyebrow="Curated trip notes"
-          title="Routes to inspire the trip, not sell it yet."
-        >
-          <p>
-            These are early editorial trip edits: enough structure to make a
-            journey feel possible, enough restraint to keep the site from
-            becoming a package-holiday shop.
-          </p>
-        </SectionHeading>
-        <div className="route-editorial-list">
-          {featuredRoutes.map((itinerary) =>
-            itinerary ? (
-              <article className="route-editorial-row" key={itinerary.slug}>
-                <Link href={`/routes/${itinerary.slug}`} aria-label={itinerary.title}>
-                  <img src={itinerary.image} alt={itinerary.alt} loading="lazy" />
-                </Link>
-                <div>
-                  <div className="meta-line">
+      <EditorialCarousel
+        eyebrow="Curated trip notes"
+        title="Routes to inspire the trip, not sell it yet."
+        viewAllHref="/routes"
+        viewAllLabel="View all"
+        ariaLabel="Curated trip routes"
+      >
+        {featuredRoutes.map((itinerary) =>
+          itinerary ? (
+            <article className="story-card" key={itinerary.slug}>
+              <Link
+                className="story-card-link"
+                href={`/routes/${itinerary.slug}`}
+              >
+                <img src={itinerary.image} alt={itinerary.alt} loading="lazy" />
+                <div className="story-card-body">
+                  <p className="story-card-meta">
                     <span>{itinerary.region}</span>
                     <span>{itinerary.days}</span>
-                  </div>
+                  </p>
                   <h3>{itinerary.title}</h3>
-                  <p>{itinerary.summary}</p>
-                  <p className="route-footprint">{itinerary.bestFor}</p>
-                  <Link className="text-link" href={`/routes/${itinerary.slug}`}>
-                    Read the route
-                  </Link>
                 </div>
-              </article>
-            ) : null,
-          )}
-        </div>
-      </section>
+              </Link>
+            </article>
+          ) : null,
+        )}
+      </EditorialCarousel>
 
       <section className="journal-board section-shell">
         <SectionHeading
@@ -239,30 +190,6 @@ export default function Home() {
         <Link className="button light" href="/club">
           Join the Club
         </Link>
-      </section>
-
-      <section className="about-preview section-shell">
-        <figure>
-          <img
-            src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=1400&q=84"
-            alt="A traveler walking through a wide landscape with a backpack"
-            loading="lazy"
-          />
-        </figure>
-        <div>
-          <p className="eyebrow">Point of view</p>
-          <h2>Travel better by choosing with more care.</h2>
-          <p>
-            Flower Travel is not a travel agency. It is a small editorial
-            studio testing what thoughtful travelers want to read, save, and
-            eventually ask for: food-led routes, hotel criteria, local
-            experiences, honeymoon-worthy pacing, and trips with a more positive
-            footprint.
-          </p>
-          <Link className="text-link" href="/about">
-            Read the story
-          </Link>
-        </div>
       </section>
 
       <NewsletterBand />

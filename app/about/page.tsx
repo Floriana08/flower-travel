@@ -38,27 +38,30 @@ export default function AboutPage() {
         </div>
         <div className="story-copy">
           <p>
-            The original Flower Travel site was a personal, slow-travel journal:
-            warm notes from Europe, gentle itineraries, and practical route
-            ideas. This redesign keeps that intimacy and gives it a more
-            premium editorial frame.
+            Flower Travel was born from a love of discovering the world with
+            curiosity, intention, and a well-planned itinerary. Choosing the
+            right neighborhood, finding that unforgettable local restaurant,
+            slowing down enough to enjoy the journey, and leaving room for the
+            unexpected.
           </p>
           <p>
-            The studio exists to help people make better travel choices before
-            the trip starts. That can mean choosing Lisbon over a busier route,
-            spending more on one hotel night that changes the whole trip, or
-            leaving space in an itinerary so the best memory has room to happen.
+            This is where I share thoughtfully curated travel guides, detailed
+            itineraries, and honest recommendations to help you travel with
+            confidence and make the most of every destination.
           </p>
           <p>
-            It is not a travel agency yet. The first chapter is audience,
-            search, trust, and learning what readers care about. Services can
-            come later from that foundation.
+            Flower Travel is a place for inspiration, practical advice, and
+            beautiful stories, built on the idea that better travel starts long
+            before you board the plane. Welcome to Flower Travel.
           </p>
         </div>
       </section>
 
       <section className="values-section">
-        <SectionHeading eyebrow="Studio pillars" title="What the site is built to publish." />
+        <SectionHeading
+          eyebrow="Studio pillars"
+          title="What the site is built to publish."
+        />
         <div className="value-grid">
           {studioPillars.map((pillar) => (
             <article className="value-item" key={pillar}>
@@ -75,12 +78,12 @@ export default function AboutPage() {
       <section className="consultation-strip">
         <div>
           <p className="eyebrow">Next chapter</p>
-          <h2>A travel club can grow from the same editorial taste level.</h2>
+          <h2>Don't Miss the Next Story</h2>
           <p>
-            The design leaves room for paid downloads, club-only edits,
-            sustainable hotel notes, local partnerships, honeymoon planning, and
-            curated trips without changing the brand from editorial to
-            sales-heavy.
+            The Club is a community of curious travelers who value quality over
+            checklists. Members receive early access to new guides, insider
+            recommendations, and, in time, exclusive travel benefits, curated
+            experiences, and carefully selected partner perks.
           </p>
         </div>
         <Link className="button light" href="/club">

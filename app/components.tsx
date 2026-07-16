@@ -121,20 +121,22 @@ export function PageHero({
 }: {
   eyebrow: string;
   title: string;
-  children: ReactNode;
-  image: string;
-  alt: string;
+  children?: ReactNode;
+  image?: string;
+  alt?: string;
 }) {
   return (
-    <section className="page-hero">
+    <section className={`page-hero${image ? "" : " page-hero-text"}`}>
       <div className="page-hero-copy reveal">
         <p className="eyebrow">{eyebrow}</p>
         <h1>{title}</h1>
-        <div className="lede">{children}</div>
+        {children ? <div className="lede">{children}</div> : null}
       </div>
-      <figure className="page-hero-image reveal delay-1">
-        <img src={image} alt={alt} />
-      </figure>
+      {image ? (
+        <figure className="page-hero-image reveal delay-1">
+          <img src={image} alt={alt ?? ""} />
+        </figure>
+      ) : null}
     </section>
   );
 }
@@ -270,18 +272,12 @@ export function NewsletterBand() {
     <section className="newsletter-band" id="newsletter">
       <div>
         <p className="eyebrow">The Club letter</p>
-        <h2>Join the Flower Travel Club while the journal is still a pilot.</h2>
-        <p>
-          A thoughtful letter for travelers who care about Italy, Spain,
-          Portugal, independent places, local culture, and lower-impact ways to
-          move through the world.
-        </p>
+        <h2>Join the Flower Travel Club</h2>
       </div>
       <form
         className="newsletter-form"
         action={`mailto:${site.email}`}
         method="post"
-        encType="text/plain"
       >
         <label>
           <span>Email address</span>
