@@ -288,15 +288,23 @@ export function GuideProductCard({
   );
 }
 
-export function NewsletterBand() {
+export function NewsletterBand({
+  title = "Join the Flower Travel Club",
+  description = "Become part of a community of travellers who love discovering places with more character and fewer crowds.",
+  placeholder = "you@example.com",
+  footnote,
+}: {
+  title?: string;
+  description?: string;
+  placeholder?: string;
+  footnote?: string;
+}) {
   return (
     <section className="newsletter-band" id="newsletter">
       <div>
-        <h2>Join the Flower Travel Club</h2>
-        <p>
-          Become part of a community of travellers who love discovering places
-          with more character and fewer crowds.
-        </p>
+        <h2>{title}</h2>
+        <p>{description}</p>
+        {footnote ? <p className="newsletter-footnote">{footnote}</p> : null}
       </div>
       <form
         className="newsletter-form"
@@ -308,14 +316,14 @@ export function NewsletterBand() {
           <input
             name="email"
             type="email"
-            placeholder="you@example.com"
+            placeholder={placeholder}
             required
           />
         </label>
         <label className="consent-check">
           <input name="consent" type="checkbox" required />
           <span>
-            I agree to receive Flower Travel emails and understand I can
+            I agree to receive Flower Travel emails and understand that I can
             unsubscribe at any time.
           </span>
         </label>
