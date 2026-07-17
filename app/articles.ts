@@ -422,6 +422,353 @@ export const guideArticles: GuideArticle[] = [
       },
     ],
   },
+  {
+    slug: "travel-insurance-worth-it",
+    dek:
+      "Travel insurance is not one product, it is a bundle of protections that only make sense when they match the trip you are actually taking.",
+    lastReviewed: "July 15, 2026",
+    facts: [
+      "Policies differ sharply on medical limits, evacuation, cancellation triggers, and gear cover.",
+      "Credit-card travel benefits often cover fragments of a trip but rarely replace a full policy.",
+      "Pre-existing condition waivers usually require purchase within a short window of your first deposit.",
+    ],
+    sections: [
+      {
+        heading: "When it is usually worth it",
+        body: [
+          "Insurance earns its place on trips with non-refundable deposits, remote terrain, expensive gear, or medical uncertainty abroad. Long-haul journeys, adventure days, and multi-country routes are the obvious cases.",
+          "For a simple domestic weekend with flexible bookings, you may be buying peace of mind rather than meaningful protection, and that is fine if the price reflects that."
+        ],
+        bullets: [
+          "Non-refundable flights, cruises, or lodge deposits.",
+          "Trips with hiking, diving, or driving on rough roads.",
+          "Travelers without reliable home health cover abroad.",
+          "Expensive camera or sports equipment in checked bags.",
+        ],
+      },
+      {
+        heading: "What to compare beyond the headline price",
+        body: [
+          "Read medical and evacuation limits first, then cancellation rules, then baggage and delay cover. A cheap policy with a low medical ceiling is often a false economy.",
+          "Check whether activities you plan, trekking, scuba, rental cars on unpaved roads, are excluded. Add a waiver if you need pre-existing condition coverage and you are still inside the purchase window."
+        ],
+      },
+    ],
+    goodFor: [
+      "First-time policy buyers",
+      "Remote or adventure trips",
+      "Readers comparing credit-card cover",
+    ],
+    sources: [
+      {
+        label: "UK Foreign Travel Insurance guidance",
+        url: "https://www.gov.uk/guidance/foreign-travel-insurance",
+      },
+      {
+        label: "US State Department travel insurance overview",
+        url: "https://travel.state.gov/content/travel/en/international-travel/before-you-go/your-health-abroad/Insurance_Coverage_Overseas.html",
+      },
+    ],
+  },
+  {
+    slug: "sustainable-travel-basics",
+    dek:
+      "Sustainable travel is less about perfection and more about choosing fewer moves, better bases, and local systems that already exist.",
+    lastReviewed: "July 15, 2026",
+    facts: [
+      "Transport choice and trip length often matter more than small in-destination swaps.",
+      "Longer stays in one base reduce cleaning, laundry, and transfer emissions.",
+      "Regional rail and public transit are often the lowest-stress lower-impact option in Europe.",
+    ],
+    sections: [
+      {
+        heading: "Start with the shape of the trip",
+        body: [
+          "The biggest lever is usually how many flights and hotel moves you plan. One region, two bases, and rail between cities beats a continent in a week, for the planet and for your nervous system.",
+          "Shoulder season travel spreads demand more evenly and often delivers better weather-value balance in Mediterranean destinations."
+        ],
+        bullets: [
+          "Choose one region per trip when possible.",
+          "Stay longer in fewer hotels.",
+          "Use trains and buses for inter-city days.",
+          "Walk and use metro systems inside cities.",
+        ],
+      },
+      {
+        heading: "On the ground choices that actually stick",
+        body: [
+          "Independent restaurants, local guides, and family-run stays usually keep money closer to the place you came to see. Refill bottles, skip unnecessary daily room cleaning, and treat heritage sites with the patience they deserve.",
+          "Sustainable travel should still feel beautiful. If your plan becomes ascetic, you will abandon it, better to keep one or two rules you will follow every trip."
+        ],
+      },
+    ],
+    goodFor: [
+      "Europe rail travelers",
+      "Readers reducing flight-heavy trips",
+      "Couples and families planning slower routes",
+    ],
+    sources: [
+      {
+        label: "UNWTO sustainable tourism principles",
+        url: "https://www.unwto.org/sustainable-development",
+      },
+      {
+        label: "EU rail overview",
+        url: "https://europa.eu/youreurope/citizens/travel/trains-and-railways/index_en.htm",
+      },
+    ],
+  },
+  {
+    slug: "galapagos-twelve-days",
+    dek:
+      "The Galápagos reward a clear choice early: live on a boat and let the itinerary move, or base on land and day-trip to islands, mixing both rarely works as well as it sounds.",
+    lastReviewed: "July 15, 2026",
+    facts: [
+      "Visitor numbers and routes are regulated; cruises follow set island schedules.",
+      "Seas can be rough between islands; medication and cabin placement matter.",
+      "Land-based trips can work for readers who want more town rhythm and less night sailing.",
+    ],
+    sections: [
+      {
+        heading: "Twelve-day rhythm",
+        body: [
+          "An eight-night cruise plus two buffer days in Quito or Guayaquil is the classic editorial shape. Use the buffers for altitude, flight delays, and the mental shift from airport to archipelago.",
+          "If you choose land-based, pick one town, Puerto Ayora or Puerto Baquerizo Moreno, and accept that you will see fewer islands but sleep on steady ground every night."
+        ],
+        bullets: [
+          "Days 1 to 2: Mainland arrival and buffer.",
+          "Days 3 to 10: Cruise or structured island days.",
+          "Days 11 to 12: Soft return and flight home.",
+        ],
+      },
+      {
+        heading: "Wildlife without burnout",
+        body: [
+          "The magic is constant, sea lions, iguanas, boobies, tortoises, but heat, snorkel days, and early starts stack up. Plan one lighter afternoon every three days.",
+          "Pack reef-safe sunscreen, a brimmed hat, and shoes that work on lava rock. The islands are not a fashion shoot; they are a living laboratory."
+        ],
+      },
+    ],
+    goodFor: [
+      "Wildlife-first travelers",
+      "Honeymoon and milestone trips",
+      "Readers choosing cruise vs land",
+    ],
+    sources: [
+      {
+        label: "Galápagos National Park",
+        url: "https://www.galapagos.gob.ec/",
+      },
+      {
+        label: "Ecuador travel information",
+        url: "https://ecuador.travel/en/",
+      },
+    ],
+  },
+  {
+    slug: "japan-rail-first-edit",
+    dek:
+      "Japan looks intimidating on a map and feels orderly once you pick two or three bases and stop trying to see every prefecture in ten days.",
+    lastReviewed: "July 15, 2026",
+    facts: [
+      "The Shinkansen network connects major cities quickly; regional passes suit specific areas better than a nationwide pass for many itineraries.",
+      "Luggage forwarding between hotels is common and removes the worst of station stress.",
+      "Kyoto and Tokyo both reward early starts and early evenings more than late-night cramming.",
+    ],
+    sections: [
+      {
+        heading: "A gentle first route",
+        body: [
+          "Tokyo four nights, Kyoto three nights, and one night in Osaka or Nara works for many first trips. Add Hiroshima or Hakone only if you extend beyond ten days.",
+          "Buy IC cards for local metros, reserve Shinkansen seats for peak travel dates, and use luggage delivery at least once, it is the single best quality-of-life upgrade."
+        ],
+      },
+      {
+        heading: "Pacing and etiquette",
+        body: [
+          "Shrine mornings, market lunches, and neighborhood walks beat attraction bingo. Japan's food culture is the itinerary, konbini breakfasts, ramen counters, and one splurge omakase you planned ahead.",
+          "Quiet trains, queued boarding, and removing shoes are not trivia, they are part of why the trip feels so calm when you respect them."
+        ],
+      },
+    ],
+    goodFor: [
+      "First Japan trips",
+      "Rail-curious travelers",
+      "Food-led city breaks",
+    ],
+    sources: [
+      {
+        label: "Japan National Tourism Organization",
+        url: "https://www.japan.travel/en/",
+      },
+      {
+        label: "JR Pass official information",
+        url: "https://japanrailpass.net/en/",
+      },
+    ],
+  },
+  {
+    slug: "patagonia-without-rushing",
+    dek:
+      "Patagonia is weather-literate travel: the mountains decide the schedule, and the best trips leave flex days built in from the start.",
+    lastReviewed: "July 15, 2026",
+    facts: [
+      "Wind and cloud can close viewpoints without warning, even in summer.",
+      "El Calafate and Puerto Natales are the usual gateway bases for Argentina and Chile sides.",
+      "Private transfers and small-group tours often beat self-drive for first visits.",
+    ],
+    sections: [
+      {
+        heading: "A realistic two-base plan",
+        body: [
+          "Four nights El Calafate for Perito Moreno and glacier days, then four nights near Torres del Paine with one flex day for weather. Do not stack long drives on both sides of a border crossing unless you enjoy suffering.",
+          "Book lodges early for peak weeks; Patagonia accommodation is limited relative to demand."
+        ],
+      },
+      {
+        heading: "Gear and comfort",
+        body: [
+          "Layer for wind, not just cold. Waterproof shell, hat with a strap, and broken-in boots matter more than camera gear.",
+          "This is not the trip for minimalist packing pride, dry socks and a good hotel bar after a long walk are part of the design."
+        ],
+      },
+    ],
+    goodFor: [
+      "Hikers and photographers",
+      "Milestone trips",
+      "Readers comparing Argentina vs Chile",
+    ],
+    sources: [
+      {
+        label: "Argentina tourism",
+        url: "https://www.argentina.travel/en",
+      },
+      {
+        label: "Chile travel",
+        url: "https://www.chile.travel/en/",
+      },
+    ],
+  },
+  {
+    slug: "morocco-riad-first-edit",
+    dek:
+      "Morocco begins with where you sleep: a well-chosen riad turns Marrakech from overwhelming to intoxicating within one courtyard dinner.",
+    lastReviewed: "July 15, 2026",
+    facts: [
+      "Medina riads are often car-free; luggage is handled by porters or hand carts.",
+      "Fes and Marrakech both reward guided half-days before independent wandering.",
+      "Heat and Ramadan timing can reshape restaurant and museum hours.",
+    ],
+    sections: [
+      {
+        heading: "Choosing the riad",
+        body: [
+          "Prioritize courtyard shade, air conditioning, and honest access notes over Instagram arches. A riad slightly farther from the noisiest squares often sleeps better.",
+          "Confirm whether breakfast is included and whether the riad books trusted airport transfers. The first hour in the medina sets the tone."
+        ],
+      },
+      {
+        heading: "Pacing the medina",
+        body: [
+          "Mornings for souks and monuments, riad pool or hammam midday, rooftop dinner at night. Repeat before adding desert camps or Atlas day trips.",
+          "Say yes to fewer experiences done well: one cooking class, one guided medina walk, one slow shopping afternoon."
+        ],
+      },
+    ],
+    goodFor: [
+      "First Morocco trips",
+      "Couples and food travelers",
+      "Readers comparing Marrakech and Fes",
+    ],
+    sources: [
+      {
+        label: "Visit Morocco",
+        url: "https://www.visitmorocco.com/en",
+      },
+    ],
+  },
+  {
+    slug: "costa-rica-wildlife-loop",
+    dek:
+      "Costa Rica works best as a wildlife loop, not a coastline dash. Cloud forest, volcano, then a softer beach finish with the binoculars still in the bag.",
+    lastReviewed: "July 15, 2026",
+    facts: [
+      "Monteverde and Arenal are the classic inland pairing for first trips.",
+      "Dry season on the Pacific coast runs roughly December through April on many beaches.",
+      "Private drivers are common and often cheaper in stress than unfamiliar mountain roads.",
+    ],
+    sections: [
+      {
+        heading: "Two-week loop",
+        body: [
+          "San José buffer, three nights Monteverde, three nights Arenal, four nights on the central or northern Pacific coast, and flex for Manuel Antonio only if crowds fit your mood.",
+          "Wildlife mornings are non-negotiable. Sloths, toucans, and frogs show up when you are quiet and early, not when you sleep off a long drive."
+        ],
+      },
+      {
+        heading: "Lower-impact notes",
+        body: [
+          "Certified guides, ecolodges, and shared transfers reduce pressure on fragile areas. Pack light, reuse bottles, and choose lodges that treat water and waste seriously.",
+          "Costa Rica sells adventure; your job is to pick the adventures that match your fitness and leave room for hammock afternoons."
+        ],
+      },
+    ],
+    goodFor: [
+      "Wildlife and family trips",
+      "First Central America visits",
+      "Readers pairing forest and beach",
+    ],
+    sources: [
+      {
+        label: "Visit Costa Rica",
+        url: "https://www.visitcostarica.com/en",
+      },
+    ],
+  },
+  {
+    slug: "carry-on-packing-edit",
+    dek:
+      "Carry-on travel works when the list is short, the fabrics cooperate, and you stop packing for imaginary scenarios.",
+    lastReviewed: "July 15, 2026",
+    facts: [
+      "One neutral base color makes mixing outfits easier on the road.",
+      "Shoes are the fastest way to overfill a bag, limit yourself to two pairs.",
+      "Liquids and chargers belong in one easy-access pouch, not scattered through the bag.",
+    ],
+    sections: [
+      {
+        heading: "The core list",
+        body: [
+          "Build around two bottoms, three tops, one layer, one dress or smart option, and underwear for five days with laundry planned mid-trip. Add sleepwear only if your hotels will not provide robes you are happy to use.",
+          "Wear the bulkiest shoes and jacket on travel days. Everything else should fit in a standard carry-on with room for a market find."
+        ],
+        bullets: [
+          "Neutral palette: black, navy, sand, or olive.",
+          "Merino or quick-dry fabrics for repeat wears.",
+          "One compact toiletry bag under 100 ml rules.",
+          "Universal adapter, small first-aid kit, photocopy pouch.",
+        ],
+      },
+      {
+        heading: "What to leave behind",
+        body: [
+          "Full-size toiletries, maybe outfits, and just-in-case gadgets are the usual culprits. If you have not used it on the last two trips, it does not belong in the bag.",
+          "Pack for the trip you booked, not every weather forecast anxiety. A light rain shell and one warm layer cover most shoulder-season Europe and Mediterranean routes."
+        ],
+      },
+    ],
+    goodFor: [
+      "Carry-on only travelers",
+      "Mixed city and warm trips",
+      "Readers overpacking for short breaks",
+    ],
+    sources: [
+      {
+        label: "IATA cabin baggage guidance",
+        url: "https://www.iata.org/en/programs/passenger/cabin-baggage/",
+      },
+    ],
+  },
 ];
 
 export function getGuideArticle(slug: string) {

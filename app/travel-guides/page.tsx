@@ -1,99 +1,153 @@
 import type { Metadata } from "next";
-import {
-  GuideCard,
-  GuideProductCard,
-  NewsletterBand,
-  PageHero,
-  SectionHeading,
-} from "../components";
-import { guideProducts, guides } from "../data";
+import Link from "next/link";
+import { EditorialCarousel } from "../EditorialCarousel";
+import { NewsletterBand, PageHero } from "../components";
+import { getGuidesBySection, guides } from "../data";
 
 export const metadata: Metadata = {
-  title: "Portugal Travel Guides",
+  title: "Travel Journal",
   description:
-    "Browse Flower Travel's Portugal guide shop for Lisbon, Madeira, train routes, sustainable travel notes, and future downloadable guides.",
+    "Broader travel inspiration from Flower Travel: planning advice, sustainable travel, honeymoon ideas, packing tips, editorials, and personal stories.",
 };
 
-export default function TravelGuidesPage() {
-  const portugalArticles = guides.filter((guide) =>
-    ["Lisbon", "Madeira", "Portugal"].includes(guide.destination),
+const planningSlugs = [
+  "travel-insurance-worth-it",
+  "train-travel-europe",
+  "carry-on-packing-edit",
+  "choosing-a-honeymoon-route",
+];
+
+const thoughtfulSlugs = [
+  "sustainable-travel-basics",
+  "train-travel-europe",
+  "patagonia-without-rushing",
+  "japan-rail-first-edit",
+  "costa-rica-wildlife-loop",
+];
+
+const storySlugs = [
+  "solo-paris-weekend",
+  "choosing-a-honeymoon-route",
+  "morocco-riad-first-edit",
+  "galapagos-twelve-days",
+];
+
+function storiesFromSlugs(slugs: string[]) {
+  return slugs
+    .map((slug) => guides.find((guide) => guide.slug === slug))
+    .filter(Boolean);
+}
+
+function JournalStoryCard({ guide }: { guide: (typeof guides)[number] }) {
+  return (
+    <article className="story-card">
+      <Link className="story-card-link" href={`/travel-guides/${guide.slug}`}>
+        <img src={guide.image} alt={guide.alt} loading="lazy" />
+        <div className="story-card-body">
+          <p className="story-card-meta">
+            <span>{guide.category}</span>
+            <span>{guide.readTime}</span>
+          </p>
+          <h3>{guide.title}</h3>
+        </div>
+      </Link>
+    </article>
   );
+}
+
+export default function TravelJournalPage() {
+  const journalGuides = getGuidesBySection("journal");
+  const destinationDispatches = guides
+    .filter((guide) => guide.section === "destinations")
+    .slice(0, 8);
 
   return (
     <main>
       <PageHero
-        eyebrow="Portugal guide shop"
-        title="Collectible guides for traveling Portugal beautifully."
-        image="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1800&q=84"
-        alt="Lisbon rooftops and tiled buildings in warm evening light"
+        eyebrow="Travel Journal"
+        title="Inspiration and advice for the trip, and the traveller."
+        image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=84"
+        alt="Soft waves on a pale beach at dusk"
       >
         <p>
-          The guide library starts with Portugal: Lisbon food notes, Madeira
-          planning, train routes, lower-impact weekends, and future downloadable
-          editions for readers who want more than a generic itinerary.
+          Broader travel inspiration, planning advice, sustainable travel,
+          honeymoon ideas, packing tips, editorials, and personal stories. The
+          pieces that are not tied to one place alone.
         </p>
       </PageHero>
 
       <section className="section-shell">
-        <div className="guide-category-row" aria-label="Guide categories">
+        <div className="guide-category-row" aria-label="Journal topics">
           {[
-            "Lisbon",
-            "Madeira",
-            "Portugal by train",
+            "Planning advice",
             "Sustainable travel",
-            "Downloadable guides",
+            "Honeymoon ideas",
+            "Packing tips",
+            "Personal stories",
+            "Editorials",
           ].map((category) => (
             <span key={category}>{category}</span>
           ))}
         </div>
+      </section>
 
-        <SectionHeading
-          eyebrow="Guide shop"
-          title="Portugal-first products, with previews while the shop grows."
-        >
+      <EditorialCarousel
+        eyebrow="Latest Journal"
+        title="Read, save, and travel with a clearer point of view."
+        ariaLabel="Latest travel journal stories"
+        intro={
           <p>
-            For now, every product points to a free preview or the Club
-            waitlist. Later this can connect to checkout, reader pricing,
-            downloadable PDFs, affiliate hotel edits, and private city maps.
+            Essays and guides that help you decide how to travel, not just
+            where to go next.
           </p>
-        </SectionHeading>
+        }
+      >
+        {journalGuides.map((guide) => (
+          <JournalStoryCard key={guide.slug} guide={guide} />
+        ))}
+      </EditorialCarousel>
 
-        <div className="guide-product-grid">
-          {guideProducts.map((product) => (
-            <GuideProductCard key={product.slug} product={product} />
-          ))}
-        </div>
-      </section>
+      <EditorialCarousel
+        eyebrow="Planning"
+        title="Practical pieces for easier, more confident trips."
+        ariaLabel="Travel planning articles"
+      >
+        {storiesFromSlugs(planningSlugs).map((guide) =>
+          guide ? <JournalStoryCard key={guide.slug} guide={guide} /> : null,
+        )}
+      </EditorialCarousel>
 
-      <section className="section-shell tinted">
-        <SectionHeading
-          eyebrow="Free previews"
-          title="Portugal articles that can become paid guide chapters."
-        >
-          <p>
-            The free layer builds trust and search traffic. The paid layer can
-            later package deeper maps, restaurant notes, hotel criteria, transit
-            details, and seasonal updates.
-          </p>
-        </SectionHeading>
-        <div className="guide-grid wide">
-          {portugalArticles.map((guide) => (
-            <GuideCard key={guide.slug} guide={guide} ctaLabel="Read preview" />
-          ))}
-        </div>
-      </section>
+      <EditorialCarousel
+        eyebrow="Lower-impact travel"
+        title="Slower routes, better bases, and lighter ways to move."
+        ariaLabel="Lower-impact travel stories"
+      >
+        {storiesFromSlugs(thoughtfulSlugs).map((guide) =>
+          guide ? <JournalStoryCard key={guide.slug} guide={guide} /> : null,
+        )}
+      </EditorialCarousel>
 
-      <section className="editorial-band light-band">
-        <div>
-          <p className="eyebrow">Commerce later</p>
-          <h2>The shop can start as a waitlist, then become a guide library.</h2>
-        </div>
-        <p>
-          This keeps the site sustainable: build audience first, learn what
-          people want, then sell useful digital guides instead of pushing
-          packaged holidays before the Club has a clear point of view.
-        </p>
-      </section>
+      <EditorialCarousel
+        eyebrow="Personal notes"
+        title="Softer stories, romantic routes, and places worth lingering in."
+        ariaLabel="Personal travel stories"
+      >
+        {storiesFromSlugs(storySlugs).map((guide) =>
+          guide ? <JournalStoryCard key={guide.slug} guide={guide} /> : null,
+        )}
+      </EditorialCarousel>
+
+      <EditorialCarousel
+        eyebrow="Destination dispatches"
+        title="Fresh destination edits from the wider Flower Travel collection."
+        viewAllHref="/destinations"
+        viewAllLabel="Destinations"
+        ariaLabel="Destination dispatches"
+      >
+        {destinationDispatches.map((guide) => (
+          <JournalStoryCard key={guide.slug} guide={guide} />
+        ))}
+      </EditorialCarousel>
 
       <NewsletterBand />
     </main>

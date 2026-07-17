@@ -79,7 +79,7 @@ export function SiteFooter() {
 
       <div className="footer-col">
         <h2>Explore</h2>
-        {navItems.slice(0, 4).map((item) => (
+        {navItems.map((item) => (
           <Link key={item.href} href={item.href}>
             {item.label}
           </Link>
@@ -141,12 +141,33 @@ export function PageHero({
   );
 }
 
+export function DestinationTile({
+  href,
+  label,
+  image,
+  alt,
+}: {
+  href: string;
+  label: string;
+  image: string;
+  alt: string;
+}) {
+  return (
+    <Link className="destination-tile" href={href} aria-label={label}>
+      <img src={image} alt={alt} loading="lazy" />
+      <span className="destination-tile-label">{label}</span>
+    </Link>
+  );
+}
+
 export function DestinationCard({
   destination,
   featured = false,
+  ctaLabel,
 }: {
   destination: (typeof destinations)[number];
   featured?: boolean;
+  ctaLabel?: string;
 }) {
   return (
     <article className={`destination-card card ${featured ? "featured" : ""}`}>
@@ -172,7 +193,7 @@ export function DestinationCard({
           ))}
         </ul>
         <Link className="text-link" href={`/destinations/${destination.slug}`}>
-          Read destination
+          {ctaLabel ?? `Explore ${destination.title.split(",")[0]}`}
         </Link>
       </div>
     </article>
@@ -271,8 +292,11 @@ export function NewsletterBand() {
   return (
     <section className="newsletter-band" id="newsletter">
       <div>
-        <p className="eyebrow">The Club letter</p>
         <h2>Join the Flower Travel Club</h2>
+        <p>
+          Become part of a community of travellers who love discovering places
+          with more character and fewer crowds.
+        </p>
       </div>
       <form
         className="newsletter-form"

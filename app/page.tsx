@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EditorialCarousel } from "./EditorialCarousel";
-import { NewsletterBand, SectionHeading } from "./components";
+import { NewsletterBand } from "./components";
 import {
-  destinationBlogArticles,
-  destinations,
+  guides,
   itineraries,
   site,
 } from "./data";
@@ -43,15 +42,22 @@ const routeFocus = [
   "sicily-coastal-route",
 ];
 
+const journalFocus = [
+  "travel-insurance-worth-it",
+  "sustainable-travel-basics",
+  "choosing-a-honeymoon-route",
+  "carry-on-packing-edit",
+  "train-travel-europe",
+  "solo-paris-weekend",
+];
+
 export default function Home() {
   const featuredRoutes = routeFocus
     .map((slug) => itineraries.find((itinerary) => itinerary.slug === slug))
     .filter(Boolean);
-  const leadArticle = destinationBlogArticles[0];
-  const leadDestination = destinations.find(
-    (destination) => destination.slug === leadArticle.destinationSlug,
-  );
-  const latestDestinationArticles = destinationBlogArticles.slice(1, 6);
+  const journalStories = journalFocus
+    .map((slug) => guides.find((guide) => guide.slug === slug))
+    .filter(Boolean);
 
   return (
     <main>
@@ -70,16 +76,15 @@ export default function Home() {
           <span className="wave-layer wave-two" aria-hidden="true" />
         </div>
         <div className="hero-content reveal">
-          <p className="eyebrow">Southern Europe travel journal</p>
+          <p className="eyebrow">Travel better, not just farther.</p>
           <h1>Flower Travel</h1>
           <p>
-            A pilot editorial project for travelers from the UK and US who want
-            Italy, Spain, and Portugal with more atmosphere, better local
-            experiences, and a lighter footprint.
+            Curated itineraries, destination guides and thoughtful travel
+            advice for people who want authentic experiences.
           </p>
           <div className="hero-actions">
             <Link className="button light" href="/destinations">
-              Read the journal
+              Explore destinations
             </Link>
             <Link className="button ghost-on-dark" href="/club">
               Join the Club
@@ -89,9 +94,9 @@ export default function Home() {
       </section>
 
       <EditorialCarousel
-        eyebrow="Curated trip notes"
-        title="Routes to inspire the trip, not sell it yet."
-        viewAllHref="/routes"
+        eyebrow="Editor's Picks"
+        title="Itineraries, restaurants, hotels, and routes worth planning around."
+        viewAllHref="/destinations"
         viewAllLabel="View all"
         ariaLabel="Curated trip routes"
       >
@@ -116,81 +121,33 @@ export default function Home() {
         )}
       </EditorialCarousel>
 
-      <section className="journal-board section-shell">
-        <SectionHeading
-          eyebrow="Latest journal"
-          title="Destination writing with a point of view."
-        >
-          <p>
-            More inspiration, fewer generic lists: city notes, food rituals,
-            independent hotels, local experiences, and the decisions that make
-            travel feel more meaningful.
-          </p>
-        </SectionHeading>
-        <div className="journal-layout">
-          {leadDestination ? (
-            <article className="journal-feature">
-              <img
-                src={leadDestination.image}
-                alt={leadDestination.alt}
-                loading="lazy"
-              />
-              <div>
-                <p className="eyebrow">{leadDestination.title}</p>
-                <h3>{leadArticle.title}</h3>
-                <p>{leadArticle.excerpt}</p>
-                <Link
-                  className="text-link"
-                  href={`/destinations/${leadDestination.slug}/articles/${leadArticle.slug}`}
-                >
-                  Read the article
-                </Link>
-              </div>
+      <EditorialCarousel
+        eyebrow="Travel Journal"
+        title="Inspiration, planning advice, and stories for curious travellers."
+        viewAllHref="/travel-guides"
+        viewAllLabel="View all"
+        ariaLabel="Travel journal stories"
+      >
+        {journalStories.map((guide) =>
+          guide ? (
+            <article className="story-card" key={guide.slug}>
+              <Link
+                className="story-card-link"
+                href={`/travel-guides/${guide.slug}`}
+              >
+                <img src={guide.image} alt={guide.alt} loading="lazy" />
+                <div className="story-card-body">
+                  <p className="story-card-meta">
+                    <span>{guide.category}</span>
+                    <span>{guide.readTime}</span>
+                  </p>
+                  <h3>{guide.title}</h3>
+                </div>
+              </Link>
             </article>
-          ) : null}
-
-          <div className="journal-list">
-            {latestDestinationArticles.map((article) => {
-              const destination = destinations.find(
-                (item) => item.slug === article.destinationSlug,
-              );
-
-              if (!destination) {
-                return null;
-              }
-
-              return (
-                <article key={article.slug}>
-                  <p className="eyebrow">{destination.title}</p>
-                  <h3>{article.title}</h3>
-                  <p>{article.excerpt}</p>
-                  <Link
-                    className="text-link"
-                    href={`/destinations/${destination.slug}/articles/${article.slug}`}
-                  >
-                    Read article
-                  </Link>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="club-strip">
-        <div>
-          <p className="eyebrow">The Flower Travel Club</p>
-          <h2>Join the reader list while this is still a pilot.</h2>
-        </div>
-        <p>
-          The Club is simply the early circle for now: a place to see which
-          stories land, which routes people save, and what should become deeper
-          guides, local partnerships, or curated travel planning later.
-        </p>
-        <Link className="button light" href="/club">
-          Join the Club
-        </Link>
-      </section>
+          ) : null,
+        )}
+      </EditorialCarousel>
 
       <NewsletterBand />
     </main>

@@ -92,7 +92,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
         <header className="article-hero">
           <div className="article-hero-copy reveal">
             <Link className="article-back-link" href="/travel-guides">
-              Travel guides
+              Travel Journal
             </Link>
             <p className="eyebrow">{guide.category}</p>
             <h1>{guide.title}</h1>

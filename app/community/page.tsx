@@ -1,70 +1,139 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageHero, SectionHeading } from "../components";
-import { communityInterests, site } from "../data";
+import { PageHero } from "../components";
+import { clubBenefits, site, travellerTypes } from "../data";
 
 export const metadata: Metadata = {
   title: "Club",
   description:
-    "Join the Flower Travel Club for thoughtful destination notes, Italy, Spain, Portugal stories, positive-footprint travel ideas, and future editorial pilots.",
+    "Join the Flower Travel Club for curated travel inspiration, early access to destination guides, exclusive itineraries, and boutique hotel and restaurant recommendations.",
 };
+
+function ClubBenefitIcon({ id }: { id: string }) {
+  const shared = {
+    width: 28,
+    height: 28,
+    viewBox: "0 0 28 28",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    "aria-hidden": true,
+  };
+
+  switch (id) {
+    case "early-access":
+      return (
+        <svg {...shared}>
+          <path
+            d="M14 3.5C10.13 3.5 7 6.63 7 10.5C7 15.75 14 24.5 14 24.5C14 24.5 21 15.75 21 10.5C21 6.63 17.87 3.5 14 3.5Z"
+            stroke="currentColor"
+            strokeWidth="1.6"
+          />
+          <circle cx="14" cy="10.5" r="2.5" stroke="currentColor" strokeWidth="1.6" />
+        </svg>
+      );
+    case "itineraries":
+      return (
+        <svg {...shared}>
+          <path
+            d="M6 7H22V21H6V7Z"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M10 11H18M10 14.5H16M10 18H14"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+          />
+          <path
+            d="M6 7L14 4.5L22 7"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
+    case "recommendations":
+      return (
+        <svg {...shared}>
+          <path
+            d="M5 23V11.5L14 5L23 11.5V23H5Z"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M11 23V16H17V23"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
+    case "email":
+      return (
+        <svg {...shared}>
+          <path
+            d="M5 9.5L14 15L23 9.5"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M5 9.5H23V20.5H5V9.5Z"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
 
 export default function CommunityPage() {
   return (
     <main>
       <PageHero
         eyebrow="Club"
-        title="The reader circle behind the travel journal."
+        title="Join the Flower Travel Club"
         image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=84"
         alt="Soft waves washing onto a pale beach"
       >
         <p>
-          Flower Travel is more than a travel blog. It's an evolving journal for
-          people who want to travel with more intention, discovering beautiful
-          places, supporting local communities, and making choices that leave a
-          lighter footprint without sacrificing memorable experiences. The Club
-          is where that journey begins.
+          Curated travel inspiration, thoughtful itineraries and the best local
+          discoveries, delivered before anyone else.
         </p>
       </PageHero>
 
       <section className="community-page section-shell">
         <div className="community-copy">
-          <SectionHeading
-            eyebrow="Join the Club"
-            title="Start with the letter. Let the audience shape what comes next."
-          >
-            <p>
-              For now, the Club is the best place to share new destination
-              articles, Italy, Spain, and Portugal notes, positive-footprint
-              travel ideas, restaurant and hotel edits, and the questions that
-              should shape future guides or planning.
-            </p>
-          </SectionHeading>
+          <p className="community-intro">
+            The Flower Travel Club is for people who love planning unforgettable
+            trips. Members receive new destination guides, carefully researched
+            itineraries, hotel recommendations and travel inspiration before
+            they&apos;re published on the website. As the community grows,
+            members will also help shape what Flower Travel becomes next, from
+            exclusive guides to curated trips and travel perks.
+          </p>
+
+          <h2 className="community-benefits-heading">
+            As a Club member you&apos;ll receive
+          </h2>
 
           <div className="community-values">
-            <article>
-              <h3>Better research</h3>
-              <p>
-                Thoughtful articles that help people travel with more
-                confidence, less noise, and fewer rushed decisions.
-              </p>
-            </article>
-            <article>
-              <h3>Lower-impact choices</h3>
-              <p>
-                We try to propose slower routes, public transport, independent
-                businesses, local culture, and stays that make sense for the
-                place.
-              </p>
-            </article>
-            <article>
-              <h3>Still special</h3>
-              <p>
-                Sustainability should not make travel feel flat. The aim is to
-                keep the beauty, taste, and sense of occasion while choosing
-                more carefully.
-              </p>
-            </article>
+            {clubBenefits.map((benefit) => (
+              <article key={benefit.id}>
+                <span className="club-benefit-icon" aria-hidden="true">
+                  <ClubBenefitIcon id={benefit.id} />
+                </span>
+                <h3>{benefit.title}</h3>
+                <p>{benefit.description}</p>
+              </article>
+            ))}
           </div>
         </div>
 
@@ -72,8 +141,8 @@ export default function CommunityPage() {
           <p className="eyebrow">Early access</p>
           <h2>Join the Flower Travel Club</h2>
           <p>
-            Tell me what you care about, and I will use the replies to shape the
-            next articles, essays, and pilot ideas.
+            Tell us what kind of traveller you are, and we&apos;ll shape the
+            guides, routes, and recommendations around what matters to you.
           </p>
 
           <form
@@ -94,24 +163,21 @@ export default function CommunityPage() {
                 required
               />
             </label>
-            <label>
-              <span>Most interested in</span>
-              <select name="interest" defaultValue="Destination articles">
-                {communityInterests.map((interest) => (
-                  <option key={interest} value={interest}>
-                    {interest}
-                  </option>
+            <fieldset className="traveller-type-fieldset">
+              <legend>What kind of traveller are you?</legend>
+              <div className="traveller-type-grid">
+                {travellerTypes.map((type) => (
+                  <label key={type} className="traveller-type-check">
+                    <input
+                      type="checkbox"
+                      name="traveller_type"
+                      value={type}
+                    />
+                    <span>{type}</span>
+                  </label>
                 ))}
-              </select>
-            </label>
-            <label>
-              <span>What would make this useful for you?</span>
-              <textarea
-                name="message"
-                rows={4}
-                placeholder="Italy routes, Spanish food notes, Portugal by train, sustainable hotels..."
-              />
-            </label>
+              </div>
+            </fieldset>
             <label className="consent-check">
               <input name="consent" type="checkbox" required />
               <span>
@@ -125,28 +191,10 @@ export default function CommunityPage() {
           </form>
 
           <p className="small-print">
-            This form currently sends the request by email. Before collecting
-            addresses at scale, connect it to an email platform or database with
-            a clear privacy workflow. Read the starter{" "}
-            <Link href="/privacy">privacy note</Link>.
+            Read our <Link href="/privacy">privacy note</Link> for how we handle
+            your details.
           </p>
         </aside>
-      </section>
-
-      <section className="editorial-band light-band">
-        <div>
-          <p className="eyebrow">Positive footprint</p>
-          <br />
-          <h2>Travel better, not necessarily more.</h2>
-        </div>
-        <p>
-          The editorial direction is simple: fewer generic lists, more useful
-          decisions, routes that respect time and place, and a club that rewards
-          curiosity over overconsumption.
-        </p>
-        <Link className="button dark" href="/destinations">
-          Read the blog
-        </Link>
       </section>
     </main>
   );

@@ -2,25 +2,54 @@ export const site = {
   name: "Flower Travel",
   strapline: "Southern Europe, beautifully",
   studioLine:
-    "An editorial travel blog and club for thoughtful destination notes, graceful routes, local experiences, and lower-impact ways to see Southern Europe.",
+    "An editorial travel magazine for curated destinations, graceful routes, favourite finds, and lower-impact ways to see the world.",
   email: "hello@flowertravel.studio",
 };
 
 export const navItems = [
+  { href: "/", label: "Home" },
   { href: "/destinations", label: "Destinations" },
-  { href: "/club", label: "Club" },
+  { href: "/travel-guides", label: "Travel Journal" },
+  { href: "/club", label: "The Club" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
-export const communityInterests = [
-  "Destination articles",
-  "Portugal notes",
-  "Italy and Spain ideas",
-  "Positive-footprint travel",
-  "Food and hotel edits",
-  "Local experiences",
-  "Honeymoon inspiration",
+export const travellerTypes = [
+  "Food & wine",
+  "Nature",
+  "Luxury",
+  "Cities",
+  "Beaches",
+  "Adventure",
+  "Honeymoons",
+  "Sustainable travel",
+];
+
+export const clubBenefits = [
+  {
+    id: "early-access",
+    title: "Early access",
+    description: "Read new destination guides before everyone else.",
+  },
+  {
+    id: "itineraries",
+    title: "Exclusive itineraries",
+    description:
+      "Occasional members-only travel routes and downloadable guides.",
+  },
+  {
+    id: "recommendations",
+    title: "Boutique recommendations",
+    description:
+      "Hotels, restaurants and local experiences I'd genuinely recommend.",
+  },
+  {
+    id: "email",
+    title: "One thoughtful email",
+    description:
+      "No spam. Just the best places I've discovered and the stories worth sharing.",
+  },
 ];
 
 export const destinations = [
@@ -135,6 +164,118 @@ export const destinations = [
     excerpt:
       "Riad mornings, spice stalls, tilework, craft ateliers, garden lunches, and sensory city notes.",
     highlights: ["Riad criteria", "Souk pacing", "Atlas add-on"],
+  },
+  {
+    slug: "portugal",
+    title: "Portugal",
+    continent: "Europe",
+    country: "Portugal",
+    region: "Portugal",
+    mood: "Coast and city",
+    season: "March to June, September to November",
+    bestFor: "First-time Europe, food, tiled streets, Atlantic light",
+    image:
+      "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1600&q=84",
+    alt: "Portugal coastline with golden light and Atlantic water",
+    excerpt:
+      "Lisbon tiles, Porto wine bars, Algarve coves, and slow rail days between cities that feel lived-in rather than staged.",
+    highlights: ["Lisbon base", "Porto food", "Coastal detours"],
+  },
+  {
+    slug: "spain",
+    title: "Spain",
+    continent: "Europe",
+    country: "Spain",
+    region: "Spain",
+    mood: "Sun and stone",
+    season: "March to June, September to November",
+    bestFor: "Food, architecture, rail routes, shoulder-season sun",
+    image:
+      "https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1600&q=84",
+    alt: "A warm Spanish street with historic architecture",
+    excerpt:
+      "Andalusian patios, Barcelona design, Basque pintxos, and the kind of cities that reward slow mornings and long lunches.",
+    highlights: ["Andalusia route", "Tapas pacing", "Rail links"],
+  },
+  {
+    slug: "italy",
+    title: "Italy",
+    continent: "Europe",
+    country: "Italy",
+    region: "Italy",
+    mood: "Art and appetite",
+    season: "April to June, September to October",
+    bestFor: "Food, history, design hotels, regional pacing",
+    image:
+      "https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?auto=format&fit=crop&w=1600&q=84",
+    alt: "Italian architecture and warm evening light",
+    excerpt:
+      "From Roman ruins to Amalfi terraces, Italy works best when each region gets room to breathe on its own terms.",
+    highlights: ["City breaks", "Coastal routes", "Trattoria notes"],
+  },
+  {
+    slug: "naples",
+    title: "Naples, Italy",
+    continent: "Europe",
+    country: "Italy",
+    region: "Campania",
+    mood: "Raw and real",
+    season: "April to June, September to October",
+    bestFor: "Pizza, Pompeii, island day trips, street life",
+    image:
+      "https://images.unsplash.com/photo-1775188693558-31c7f14790f5?auto=format&fit=crop&w=1600&q=84",
+    alt: "Naples bay with Mount Vesuvius in the distance",
+    excerpt:
+      "Margherita counters, waterfront walks, Pompeii mornings, and the energy of a city that never pretends to be polished.",
+    highlights: ["Pizza map", "Pompeii day", "Bay views"],
+  },
+  {
+    slug: "amalfi-coast",
+    title: "Amalfi Coast, Italy",
+    continent: "Europe",
+    country: "Italy",
+    region: "Campania",
+    mood: "Cliffside light",
+    season: "May to June, September",
+    bestFor: "Coastal drives, lemon terraces, boutique hotels, honeymoons",
+    image:
+      "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1600&q=84",
+    alt: "Colourful houses on the Amalfi Coast above the sea",
+    excerpt:
+      "Positano mornings, Ravello gardens, ferry hops, and the kind of coastal days that need fewer plans, not more.",
+    highlights: ["Positano base", "Ferry days", "Terrace hotels"],
+  },
+  {
+    slug: "milan",
+    title: "Milan, Italy",
+    continent: "Europe",
+    country: "Italy",
+    region: "Lombardy",
+    mood: "Design and aperitivo",
+    season: "April to June, September to October",
+    bestFor: "Design, fashion, short city breaks, lake day trips",
+    image:
+      "https://images.unsplash.com/photo-1743092144642-c22fe3a39dd4?auto=format&fit=crop&w=1600&q=84",
+    alt: "Milan cathedral and city square in warm light",
+    excerpt:
+      "Duomo mornings, Brera galleries, aperitivo hours, and the polished city break that pairs well with Como or Bergamo.",
+    highlights: ["Brera walk", "Aperitivo map", "Lake Como add-on"],
+  },
+  {
+    slug: "london",
+    title: "London, UK",
+    continent: "Europe",
+    country: "United Kingdom",
+    region: "England",
+    mood: "Neighbourhood rhythm",
+    season: "May to September",
+    bestFor: "Museums, markets, theatre, long weekend breaks",
+    image:
+      "https://images.unsplash.com/photo-1718579019220-98697dc2fd72?auto=format&fit=crop&w=1600&q=84",
+    alt: "Colourful Notting Hill houses on a London street",
+    excerpt:
+      "Market mornings, museum afternoons, pub gardens, and the neighbourhood edits that make London feel navigable.",
+    highlights: ["Museum pairings", "Market map", "Weekend pacing"],
   },
 ];
 
@@ -479,10 +620,102 @@ export const destinationBlogArticles = [
       },
     ],
   },
+  {
+    slug: "naples-first-weekend",
+    destinationSlug: "naples",
+    title: "Naples for a First Weekend",
+    category: "City Notes",
+    date: "July 17, 2026",
+    readTime: "5 min read",
+    excerpt:
+      "A first Naples edit built around pizza counters, waterfront light, quiet museum hours, and one Pompeii or island decision.",
+    sections: [
+      {
+        heading: "Let Naples be Naples",
+        body: [
+          "Naples is not at its best when it is treated as a polished gateway to somewhere else. Give the city its own time: coffee standing up, a long walk toward the water, a chapel or museum, and one pizza stop chosen with intention.",
+          "The trick is not to over-domesticate the city. Stay central enough to walk, keep valuables simple, and let the energy be part of why you came.",
+        ],
+      },
+      {
+        heading: "Choose one escape",
+        body: [
+          "For a short visit, choose Pompeii, Capri, Procida, or the Amalfi Coast, not all of them. The best Naples weekends have one clean day trip and enough space to return for dinner without feeling wrung out.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "milan-design-aperitivo-edit",
+    destinationSlug: "milan",
+    title: "Milan for Design, Aperitivo, and a Lake Add-On",
+    category: "Design Guide",
+    date: "July 17, 2026",
+    readTime: "5 min read",
+    excerpt:
+      "How to make Milan feel less like a business stop and more like a polished northern Italy city break.",
+    sections: [
+      {
+        heading: "Start with Brera and the Duomo",
+        body: [
+          "Milan works when the day moves between grandeur and detail. Use the Duomo early, then let Brera, galleries, courtyards, and design shops soften the city into something more intimate.",
+        ],
+      },
+      {
+        heading: "Do not rush the lake",
+        body: [
+          "Lake Como can be a beautiful add-on, but it needs clear weather and a realistic travel day. If the trip is short, one carefully chosen lake town beats an overstuffed circuit of ferry stops.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "london-neighbourhood-weekend",
+    destinationSlug: "london",
+    title: "A London Weekend by Neighbourhood",
+    category: "Neighbourhood Guide",
+    date: "July 17, 2026",
+    readTime: "6 min read",
+    excerpt:
+      "A softer London plan through markets, museums, theatre, pub gardens, and neighbourhoods that make the city easier to love.",
+    sections: [
+      {
+        heading: "Pick a side of the city",
+        body: [
+          "London becomes easier when each day belongs to one side of the city. Pair Notting Hill with Portobello and Kensington, Bloomsbury with museums and bookshops, or the South Bank with theatre and a river walk.",
+        ],
+      },
+      {
+        heading: "Make room for ordinary pleasures",
+        body: [
+          "The memorable London moments are often not the headline attractions: a neighbourhood bakery, a good pub garden, a small exhibition, or a bus route that gives you the city without turning it into a tour.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getDestination(slug: string) {
   return destinations.find((destination) => destination.slug === slug);
+}
+
+export const destinationBrowseTiles = [
+  { slug: "portugal", label: "Portugal" },
+  { slug: "spain", label: "Spain" },
+  { slug: "italy", label: "Italy" },
+  { slug: "lisbon", label: "Lisbon" },
+  { slug: "naples", label: "Naples" },
+  { slug: "amalfi-coast", label: "Amalfi Coast" },
+  { slug: "rome", label: "Rome" },
+  { slug: "milan", label: "Milan" },
+  { slug: "london", label: "London" },
+] as const;
+
+export function getDestinationBrowseTiles() {
+  return destinationBrowseTiles.flatMap((tile) => {
+    const destination = getDestination(tile.slug);
+    return destination ? [{ ...tile, destination }] : [];
+  });
 }
 
 export function getDestinationArticles(destinationSlug: string) {
@@ -496,6 +729,375 @@ export function getDestinationArticle(destinationSlug: string, articleSlug: stri
     (article) =>
       article.destinationSlug === destinationSlug && article.slug === articleSlug,
   );
+}
+
+export const featuredDestinationSlugs = [
+  "portugal",
+  "italy",
+  "spain",
+  "lisbon",
+  "naples",
+  "london",
+] as const;
+
+export const featuredItinerarySlugs = [
+  "portugal-by-train",
+  "andalusia-slow-route",
+  "italian-long-weekend",
+  "amalfi-coast-tours",
+  "rome-best-restaurants",
+  "porto-wine-day",
+] as const;
+
+export const latestJournalSlugs = [
+  "london-neighbourhood-weekend",
+  "milan-design-aperitivo-edit",
+  "naples-first-weekend",
+] as const;
+
+export const travelCollections = [
+  {
+    title: "Slow Cities",
+    description:
+      "City breaks with one neighbourhood at a time, better meals, and room to return to places you liked.",
+    href: "/destinations/lisbon",
+  },
+  {
+    title: "Coastal Escapes",
+    description:
+      "Atlantic light, island routes, ferry days, and beaches that work best outside the obvious rush.",
+    href: "/destinations/amalfi-coast",
+  },
+  {
+    title: "Food Trips",
+    description:
+      "Markets, trattorias, tapas counters, wine days, and restaurants worth planning a day around.",
+    href: "/routes/rome-best-restaurants",
+  },
+  {
+    title: "Train Journeys",
+    description:
+      "Rail-first routes where the movement becomes part of the trip rather than a compromise.",
+    href: "/routes/portugal-by-train",
+  },
+  {
+    title: "Wine Regions",
+    description:
+      "Douro terraces, long lunches, vineyard days, and tasting plans that leave space to enjoy the place.",
+    href: "/routes/porto-wine-day",
+  },
+  {
+    title: "Islands",
+    description:
+      "Madeira, Greek island light, Sicily, and other places where weather and rhythm matter.",
+    href: "/destinations/madeira",
+  },
+  {
+    title: "Romantic Escapes",
+    description:
+      "Softly paced routes for couples, honeymoon scouting, and hotels that feel special without becoming staged.",
+    href: "/destinations/greek-islands",
+  },
+  {
+    title: "Design Hotels",
+    description:
+      "Boutique stays, calm bases, and addresses where the hotel supports the whole trip.",
+    href: "/destinations/milan",
+  },
+] as const;
+
+type DestinationProfile = {
+  overview: string;
+  atAGlance: {
+    budget: string;
+    gettingAround: string;
+    sustainability: string;
+    perfectFor: string[];
+  };
+  editorsPick: string;
+  mapPins: string[];
+  chapters: Array<{
+    title: string;
+    description: string;
+  }>;
+  clubExtras: string[];
+};
+
+const standardClubExtras = [
+  "Printable itinerary",
+  "Interactive map",
+  "Hidden restaurants",
+  "Boutique hotel shortlist",
+];
+
+export const destinationProfiles: Record<string, DestinationProfile> = {
+  portugal: {
+    overview:
+      "Golden cities, Atlantic coastlines and slow journeys that reward curiosity. From Lisbon's tiled streets to the vineyards of the Douro and the dramatic landscapes of Madeira, Portugal is a country best explored with fewer hotel changes, longer lunches and plenty of time to wander.",
+    atAGlance: {
+      budget: "$$-$$$, with strong value outside peak summer",
+      gettingAround: "Train between the main cities",
+      sustainability: "Relaxed, walkable and rail-friendly",
+      perfectFor: ["Couples", "Food lovers", "Solo travellers", "First Europe trips"],
+    },
+    editorsPick:
+      "Everyone tries to squeeze Lisbon, Porto, the Algarve and Madeira into one trip. Do not. Portugal rewards slower travel: choose one route, spend longer in fewer places, and save Madeira for its own adventure.",
+    mapPins: ["Lisbon", "Porto", "Douro", "Sintra", "Madeira"],
+    chapters: [
+      {
+        title: "Featured itineraries",
+        description: "Portugal by Train, Lisbon food walks, Porto wine country, and slower city-to-coast routes.",
+      },
+      {
+        title: "Cities",
+        description: "Lisbon, Porto, Coimbra, Sintra, Cascais, and the bases that make each route feel easier.",
+      },
+      {
+        title: "Where to eat",
+        description: "Seafood lunches, bakeries, wine bars, market stops, and small restaurants worth booking.",
+      },
+      {
+        title: "Day trips",
+        description: "Sintra, Cascais, Douro viewpoints, surf towns, and train-friendly escapes.",
+      },
+    ],
+    clubExtras: standardClubExtras,
+  },
+  italy: {
+    overview:
+      "Italy rewards regional focus: a Roman food weekend, a Campania coast, Milan and the lakes, or a slower central route through hill towns and wine country.",
+    atAGlance: {
+      budget: "Mid-range to high, with major swings by season and region",
+      gettingAround: "Train between cities, drivers or ferries for coast days",
+      sustainability: "Best with fewer regions and rail-first city links",
+      perfectFor: ["Food lovers", "Couples", "Honeymoon scouting", "Design stays"],
+    },
+    editorsPick:
+      "Skip the all-Italy checklist on a first trip. Rome plus one region will feel richer than six cities stitched together by tired train days.",
+    mapPins: ["Rome", "Naples", "Amalfi Coast", "Milan", "Sicily"],
+    chapters: [
+      {
+        title: "Featured itineraries",
+        description: "Rome weekends, Amalfi coast days, central Italy, Sicily, and Milan with a lake add-on.",
+      },
+      {
+        title: "Cities",
+        description: "Rome, Naples, Milan, Palermo, Florence, and smaller second-trip bases.",
+      },
+      {
+        title: "Restaurants",
+        description: "Trattorias, aperitivo bars, market lunches, and the reservations that matter.",
+      },
+      {
+        title: "Worth the detour",
+        description: "Gardens, hill towns, islands, vineyards, and coastal villages that need careful timing.",
+      },
+    ],
+    clubExtras: standardClubExtras,
+  },
+  spain: {
+    overview:
+      "Spain is strongest when planned by rhythm: rail-linked southern cities, long lunches, design-forward hotels, and warm shoulder-season routes.",
+    atAGlance: {
+      budget: "Flexible, with excellent value outside major events",
+      gettingAround: "High-speed rail for city links, walking inside old centres",
+      sustainability: "Strong on rail routes with fewer car days",
+      perfectFor: ["Food trips", "Architecture", "Shoulder-season sun", "Small groups"],
+    },
+    editorsPick:
+      "For a first Spain route, Andalusia gives the most atmosphere with the least friction: Seville, Cordoba, Granada, then a soft coast finish.",
+    mapPins: ["Seville", "Cordoba", "Granada", "Malaga", "Barcelona"],
+    chapters: [
+      {
+        title: "Featured itineraries",
+        description: "Andalusia by rail, tapas evenings, city breaks, and food-first routes.",
+      },
+      {
+        title: "Cities",
+        description: "Seville, Granada, Cordoba, Malaga, Madrid, Barcelona, and future Basque notes.",
+      },
+      {
+        title: "Food",
+        description: "Tapas counters, markets, wine bars, late dinners, and places to linger.",
+      },
+      {
+        title: "Local craft",
+        description: "Ceramics, patios, olive oil, architecture, and slower experiences rooted in place.",
+      },
+    ],
+    clubExtras: standardClubExtras,
+  },
+  lisbon: {
+    overview:
+      "A soft city break with tiled streets, viewpoints, small restaurants, river light, and day trips that work best when the base is chosen carefully.",
+    atAGlance: {
+      budget: "Mid-range, with boutique stays rising quickly in peak months",
+      gettingAround: "Walk by neighbourhood, use metro and trams for longer hills",
+      sustainability: "Good with public transport, rail day trips, and local spending",
+      perfectFor: ["Solo travellers", "Couples", "Food lovers", "Long weekends"],
+    },
+    editorsPick:
+      "Choose Chiado, Baixa, Avenida, or Principe Real for a first stay. Alfama is cinematic, but it is less forgiving with luggage and late returns.",
+    mapPins: ["Chiado", "Alfama", "Principe Real", "Belem", "Sintra"],
+    chapters: [
+      {
+        title: "Neighbourhoods",
+        description: "Chiado, Baixa, Alfama, Graca, Principe Real, and the trade-offs between beauty and ease.",
+      },
+      {
+        title: "Where to eat",
+        description: "Tascas, seafood, bakeries, wine bars, and quieter tables worth saving.",
+      },
+      {
+        title: "Day trips",
+        description: "Sintra, Cascais, Belem, and half-day ideas that do not overfill the weekend.",
+      },
+      {
+        title: "Journal",
+        description: "Neighbourhood notes, lower-impact weekends, and first-timer planning essays.",
+      },
+    ],
+    clubExtras: standardClubExtras,
+  },
+  naples: {
+    overview:
+      "A vivid Campania base for pizza, museums, waterfront walks, Pompeii mornings, island days, and the kind of energy that stays with you.",
+    atAGlance: {
+      budget: "Good value, with splurges around the coast and islands",
+      gettingAround: "Walk centrally, use trains for Pompeii and ferries for islands",
+      sustainability: "Good when using rail and ferries instead of private transfers",
+      perfectFor: ["Food lovers", "Repeat Italy travellers", "Island day trips", "History"],
+    },
+    editorsPick:
+      "Stay in Naples for the city, not only as a gateway. One pizza counter, one museum, and one waterfront walk can be more memorable than rushing straight to the coast.",
+    mapPins: ["Centro Storico", "Chiaia", "Pompeii", "Procida", "Capri"],
+    chapters: [
+      {
+        title: "First weekend",
+        description: "Pizza, sea air, museums, and one clean day trip rather than four competing plans.",
+      },
+      {
+        title: "Where to eat",
+        description: "Pizzerias, pastry counters, seafood, and old-school rooms with real city texture.",
+      },
+      {
+        title: "Day trips",
+        description: "Pompeii, Procida, Capri, Sorrento, and Amalfi routes that need honest timing.",
+      },
+      {
+        title: "Journal",
+        description: "Campania notes, safety context, and practical edits for first-time visitors.",
+      },
+    ],
+    clubExtras: standardClubExtras,
+  },
+  milan: {
+    overview:
+      "A polished northern Italy stop for design, aperitivo, galleries, fashion, and lake days when the weather and timing are right.",
+    atAGlance: {
+      budget: "Mid-range to luxury, especially during design and fashion weeks",
+      gettingAround: "Metro, walking districts, and rail for Lake Como or Bergamo",
+      sustainability: "Strong as a rail hub with easy regional links",
+      perfectFor: ["Design lovers", "Short breaks", "Shopping", "Lake add-ons"],
+    },
+    editorsPick:
+      "Use Milan as a mood, not just a transit point. Pair the Duomo early with Brera, then protect the aperitivo hour.",
+    mapPins: ["Duomo", "Brera", "Navigli", "Fondazione Prada", "Lake Como"],
+    chapters: [
+      {
+        title: "Design notes",
+        description: "Galleries, interiors, courtyards, and neighbourhoods that reveal Milan slowly.",
+      },
+      {
+        title: "Aperitivo",
+        description: "Where the evening should begin, from classic bars to quieter neighbourhood tables.",
+      },
+      {
+        title: "Lake add-ons",
+        description: "Como and Bergamo ideas that make sense without hijacking the city break.",
+      },
+      {
+        title: "Journal",
+        description: "Short-break planning, design weeks, and northern Italy extensions.",
+      },
+    ],
+    clubExtras: standardClubExtras,
+  },
+  london: {
+    overview:
+      "A city that feels best by neighbourhood, with markets, museums, theatre, bakeries, bookshops, and quiet rituals between the famous sights.",
+    atAGlance: {
+      budget: "High, but flexible with smart neighbourhood bases",
+      gettingAround: "Tube, buses, walking clusters, and rail for day trips",
+      sustainability: "Strong for public transport and longer neighbourhood stays",
+      perfectFor: ["First UK trips", "Solo travellers", "Culture", "Food weekends"],
+    },
+    editorsPick:
+      "Plan London by area, not attraction. Notting Hill and Kensington, Bloomsbury and museums, or South Bank and theatre each deserve their own day.",
+    mapPins: ["Notting Hill", "Bloomsbury", "South Bank", "Soho", "Hampstead"],
+    chapters: [
+      {
+        title: "Neighbourhoods",
+        description: "Choose one side of the city each day so London feels generous instead of sprawling.",
+      },
+      {
+        title: "Where to eat",
+        description: "Bakeries, modern British rooms, markets, pubs, and places for a beautiful pause.",
+      },
+      {
+        title: "Culture",
+        description: "Museums, small galleries, theatre nights, bookshops, and gardens to reset.",
+      },
+      {
+        title: "Journal",
+        description: "Weekend routes, market mornings, and neighbourhood-first city notes.",
+      },
+    ],
+    clubExtras: standardClubExtras,
+  },
+};
+
+export function getDestinationProfile(slug: string): DestinationProfile {
+  const destination = getDestination(slug);
+  const profile = destinationProfiles[slug];
+
+  if (profile) {
+    return profile;
+  }
+
+  return {
+    overview:
+      destination?.excerpt ??
+      "A destination edit shaped around fewer rushed plans, better bases, and the details that make a trip feel personal.",
+    atAGlance: {
+      budget: "Flexible by season",
+      gettingAround: "Choose the base first, then build movement around it",
+      sustainability: "Best with fewer transfers and more local spending",
+      perfectFor: destination?.bestFor.split(", ").slice(0, 4) ?? [
+        "Curious travellers",
+        "Couples",
+        "Food lovers",
+      ],
+    },
+    editorsPick:
+      "Choose one strong reason to visit and let the rest of the trip support it. The best routes rarely need every famous stop.",
+    mapPins: destination?.highlights ?? ["Main base", "Food stop", "Day trip"],
+    chapters: [
+      {
+        title: "Overview",
+        description: "How the destination feels, when to go, and what makes the trip worth planning.",
+      },
+      {
+        title: "Itineraries",
+        description: "Routes, day trips, and practical pacing notes for future planning.",
+      },
+      {
+        title: "Journal",
+        description: "Articles, neighbourhood notes, local favourites, and places worth returning to.",
+      },
+    ],
+    clubExtras: standardClubExtras,
+  };
 }
 
 export const itineraries = [
@@ -540,6 +1142,34 @@ export const itineraries = [
       "Museum mornings, market lunches, gardens, design shops, and one neighborhood at a time.",
     route: ["Left Bank", "Marais", "Canal Saint-Martin", "Montmartre"],
     bestFor: "Solo travelers, couples, first-timers who hate checklists",
+  },
+  {
+    slug: "milan-lake-como-weekend",
+    title: "Milan and Lake Como Weekend",
+    days: "4 days",
+    region: "Milan, Brera, Lake Como",
+    pace: "Design and lake air",
+    image:
+      "https://images.unsplash.com/photo-1743092144642-c22fe3a39dd4?auto=format&fit=crop&w=1600&q=84",
+    alt: "Milan cathedral and city square in warm light",
+    summary:
+      "A polished northern Italy route through Milan design districts, aperitivo hours, and one lake day that does not overreach.",
+    route: ["Duomo", "Brera", "Navigli", "Lake Como"],
+    bestFor: "Design lovers, couples, short breaks, lake add-ons",
+  },
+  {
+    slug: "london-neighbourhood-weekend",
+    title: "London by Neighbourhood",
+    days: "4 days",
+    region: "Notting Hill, Bloomsbury, South Bank",
+    pace: "Culture and markets",
+    image:
+      "https://images.unsplash.com/photo-1718579019220-98697dc2fd72?auto=format&fit=crop&w=1600&q=84",
+    alt: "Colourful Notting Hill houses on a London street",
+    summary:
+      "A softer London route that clusters markets, museums, theatre, bakeries, and pub gardens by area.",
+    route: ["Notting Hill", "Bloomsbury", "South Bank", "Hampstead"],
+    bestFor: "First UK trips, culture, solo travellers, long weekends",
   },
   {
     slug: "madeira-soft-adventure",
@@ -607,7 +1237,7 @@ export const itineraries = [
       "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1600&q=84",
     alt: "A Roman trattoria table set for dinner with wine and bread",
     summary:
-      "Ten places worth planning around — from Testaccio trattorias to Monti wine bars and the reservations that actually matter.",
+      "Ten places worth planning around, from Testaccio trattorias to Monti wine bars and the reservations that actually matter.",
     route: ["Testaccio", "Trastevere", "Monti", "Prati", "Esquilino"],
     bestFor: "Food travelers, long weekends, repeat visitors",
   },
@@ -621,7 +1251,7 @@ export const itineraries = [
       "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1600&q=84",
     alt: "A hill town overlooking vineyards and cypress trees in central Italy",
     summary:
-      "Perugia to Urbino by way of Assisi, Siena, and Orvieto — a second-Italy route built around hill towns, wine, and unhurried lunches.",
+      "Perugia to Urbino by way of Assisi, Siena, and Orvieto, a second-Italy route built around hill towns, wine, and unhurried lunches.",
     route: ["Perugia", "Assisi", "Siena", "Orvieto", "Urbino"],
     bestFor: "Second Italy trip, hill towns, wine and art",
   },
@@ -635,7 +1265,7 @@ export const itineraries = [
       "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1600&q=84",
     alt: "Tapas and wine on a warm European street terrace",
     summary:
-      "One unhurried evening across Triana, the riverfront, and the old quarter — stand-up bars, vermouth, and the stops worth repeating.",
+      "One unhurried evening across Triana, the riverfront, and the old quarter: stand-up bars, vermouth, and the stops worth repeating.",
     route: ["Triana", "Arenal", "Santa Cruz", "Alameda"],
     bestFor: "First Seville night, small groups, shoulder season",
   },
@@ -663,11 +1293,44 @@ export const itineraries = [
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=84",
     alt: "Turquoise Mediterranean water along a Sicilian-style coastline",
     summary:
-      "Taormina, Noto, Syracuse, and Cefalù — a shoulder-season island route with baroque towns, sea swims, and fewer hotel moves.",
+      "Taormina, Noto, Syracuse, and Cefalù, a shoulder-season island route with baroque towns, sea swims, and fewer hotel moves.",
     route: ["Taormina", "Noto", "Syracuse", "Cefalù"],
     bestFor: "Shoulder season, history lovers, sea and food",
   },
 ];
+
+export const destinationItineraryMap: Record<string, string[]> = {
+  portugal: ["portugal-by-train", "lisbon-food-tour", "porto-wine-day"],
+  lisbon: ["portugal-by-train", "lisbon-food-tour"],
+  madeira: ["madeira-soft-adventure"],
+  spain: ["andalusia-slow-route", "seville-tapas-trail"],
+  andalusia: ["andalusia-slow-route", "seville-tapas-trail"],
+  italy: [
+    "italian-long-weekend",
+    "amalfi-coast-tours",
+    "rome-best-restaurants",
+    "center-of-italy-guide",
+    "sicily-coastal-route",
+  ],
+  rome: ["italian-long-weekend", "rome-best-restaurants", "center-of-italy-guide"],
+  naples: ["amalfi-coast-tours", "italian-long-weekend"],
+  "amalfi-coast": ["amalfi-coast-tours"],
+  milan: ["milan-lake-como-weekend"],
+  london: ["london-neighbourhood-weekend"],
+  paris: ["paris-without-rushing"],
+  "greek-islands": ["sicily-coastal-route"],
+  marrakech: ["andalusia-slow-route"],
+};
+
+export function getDestinationItineraries(destinationSlug: string) {
+  const routeSlugs = destinationItineraryMap[destinationSlug] ?? [];
+
+  return routeSlugs
+    .map((slug) => itineraries.find((itinerary) => itinerary.slug === slug))
+    .filter((itinerary): itinerary is (typeof itineraries)[number] =>
+      Boolean(itinerary),
+    );
+}
 
 export const routeDetails = [
   {
@@ -794,6 +1457,84 @@ export const routeDetails = [
     ],
   },
   {
+    slug: "milan-lake-como-weekend",
+    intro:
+      "A four-day northern Italy route for Milan design, aperitivo, and one lake day that feels beautiful without becoming logistically heavy.",
+    rhythm: "Milan 3 nights, Lake Como as one carefully chosen day",
+    footprint:
+      "Built around walking districts, metro links, and rail to the lake rather than private transfers for every move.",
+    days: [
+      {
+        label: "Day 1",
+        place: "Duomo and Brera",
+        plan:
+          "Start early at the Duomo, then soften the day with Brera galleries, courtyards, and a first aperitivo close to the hotel.",
+      },
+      {
+        label: "Day 2",
+        place: "Design Milan",
+        plan:
+          "Use the day for design shops, galleries, Fondazione Prada or a smaller exhibition, then keep dinner relaxed.",
+      },
+      {
+        label: "Day 3",
+        place: "Lake Como",
+        plan:
+          "Choose one lake base or ferry pairing, not the whole lake. The point is light, water, and lunch, not collecting every village.",
+      },
+      {
+        label: "Day 4",
+        place: "Navigli or a favourite return",
+        plan:
+          "Finish with a slower neighbourhood morning, a repeat coffee, and one final aperitivo if your flight allows it.",
+      },
+    ],
+    notes: [
+      "Avoid fashion and design weeks unless that is the reason for the trip.",
+      "Check lake weather before committing to a long day out.",
+      "Milan is better when the evening is protected, not used as spare time.",
+    ],
+  },
+  {
+    slug: "london-neighbourhood-weekend",
+    intro:
+      "A four-day London route planned by neighbourhood so markets, museums, theatre, food, and quiet pauses feel connected.",
+    rhythm: "One area per day, public transport between chapters",
+    footprint:
+      "Designed around the Tube, buses, walking clusters, and independent places rather than cross-city taxis.",
+    days: [
+      {
+        label: "Day 1",
+        place: "Notting Hill and Kensington",
+        plan:
+          "Use Portobello, pastel streets, a bakery stop, and Kensington gardens as a gentle first London day.",
+      },
+      {
+        label: "Day 2",
+        place: "Bloomsbury and museums",
+        plan:
+          "Pair a museum with bookshops, garden squares, and a lunch that keeps the day walkable.",
+      },
+      {
+        label: "Day 3",
+        place: "South Bank and theatre",
+        plan:
+          "Let the river structure the day, then book theatre or a performance rather than trying to add another district.",
+      },
+      {
+        label: "Day 4",
+        place: "Hampstead or a favourite return",
+        plan:
+          "Choose a village-feeling finish, a park walk, or return to the neighbourhood that felt most like your London.",
+      },
+    ],
+    notes: [
+      "Buses are often the most scenic way to understand the city.",
+      "Book one culture anchor per day, not three.",
+      "Stay near a Tube line you actually want to use in the evening.",
+    ],
+  },
+  {
     slug: "madeira-soft-adventure",
     intro:
       "A Madeira route for people who want levadas, viewpoints, ocean pools, and island drama without losing comfort or weather flexibility.",
@@ -895,7 +1636,7 @@ export const routeDetails = [
         label: "Stop 1",
         place: "Mercado da Ribeira",
         plan:
-          "Start with coffee and one market bite — enough to orient yourself without turning breakfast into a full meal.",
+          "Start with coffee and one market bite, enough to orient yourself without turning breakfast into a full meal.",
       },
       {
         label: "Stop 2",
@@ -917,7 +1658,7 @@ export const routeDetails = [
       },
     ],
     notes: [
-      "Go hungry but not starving — the best walks leave room for spontaneity.",
+      "Go hungry but not starving. The best walks leave room for spontaneity.",
       "Book nothing before 11am; Lisbon food culture starts later than northern Europe expects.",
       "Wear shoes that handle cobblestones and hills without punishing your knees.",
     ],
@@ -925,7 +1666,7 @@ export const routeDetails = [
   {
     slug: "amalfi-coast-tours",
     intro:
-      "A practical edit for Amalfi Coast day trips — Positano glamour, Ravello gardens, and the Path of the Gods without losing a whole day to buses.",
+      "A practical edit for Amalfi Coast day trips, Positano glamour, Ravello gardens, and the Path of the Gods without losing a whole day to buses.",
     rhythm: "One base, one main coast day, one mountain or garden day",
     footprint:
       "Designed around ferries, shared boats, and early starts rather than summer traffic and impossible parking.",
@@ -946,7 +1687,7 @@ export const routeDetails = [
         label: "Option C",
         place: "Path of the Gods",
         plan:
-          "Choose a half-day hike with a clear start point, water, and a post-walk lunch plan — not a heroic trek before dinner.",
+          "Choose a half-day hike with a clear start point, water, and a post-walk lunch plan, not a heroic trek before dinner.",
       },
       {
         label: "Option D",
@@ -956,7 +1697,7 @@ export const routeDetails = [
       },
     ],
     notes: [
-      "Pick two towns, not five — the coast punishes overambition in peak season.",
+      "Pick two towns, not five. The coast punishes overambition in peak season.",
       "Boats often beat buses for both views and sanity.",
       "Stay in Sorrento or Salerno if Positano hotel prices feel disconnected from the experience.",
     ],
@@ -964,7 +1705,7 @@ export const routeDetails = [
   {
     slug: "rome-best-restaurants",
     intro:
-      "Ten Rome restaurants worth building a trip around — trattorias, wine bars, and the reservations that separate a good visit from a great one.",
+      "Ten Rome restaurants worth building a trip around: trattorias, wine bars, and the reservations that separate a good visit from a great one.",
     rhythm: "Spread across neighborhoods, one anchor meal per day",
     footprint:
       "Clustered by district so you are not crossing the city for every dinner.",
@@ -979,7 +1720,7 @@ export const routeDetails = [
         label: "Pick 3-4",
         place: "Trastevere",
         plan:
-          "Choose one sit-down trattoria and one wine bar — Trastevere rewards repeat visits more than one mega dinner.",
+          "Choose one sit-down trattoria and one wine bar, Trastevere rewards repeat visits more than one mega dinner.",
       },
       {
         label: "Pick 5-6",
@@ -996,7 +1737,7 @@ export const routeDetails = [
     ],
     notes: [
       "Reserve the one dinner you care about most; keep the rest flexible.",
-      "Lunch can be the better meal in Rome — do not save all your appetite for 9pm.",
+      "Lunch can be the better meal in Rome, do not save all your appetite for 9pm.",
       "Walk between courses when neighborhoods allow it; the city is part of the menu.",
     ],
   },
@@ -1036,13 +1777,13 @@ export const routeDetails = [
     notes: [
       "This route shines in spring and autumn when hill-town heat and crowds ease.",
       "Book one agriturismo stay if you want the trip to feel grounded, not hotel-hoppy.",
-      "Leave a flex day — central Italy rewards weather and mood more than schedules.",
+      "Leave a flex day, central Italy rewards weather and mood more than schedules.",
     ],
   },
   {
     slug: "seville-tapas-trail",
     intro:
-      "One Seville evening mapped as a tapas trail — stand-up bars, sherry, and the neighborhoods where the city loosens up after dark.",
+      "One Seville evening mapped as a tapas trail: stand-up bars, sherry, and the neighborhoods where the city loosens up after dark.",
     rhythm: "Four stops, two hours, one slow finale",
     footprint:
       "Walking distance only; no taxis needed if you start in Triana and drift back across the river.",
@@ -1051,7 +1792,7 @@ export const routeDetails = [
         label: "Stop 1",
         place: "Triana",
         plan:
-          "Begin across the river with vermouth and one small plate — Triana sets a local tone before the old quarter pulls you in.",
+          "Begin across the river with vermouth and one small plate, Triana sets a local tone before the old quarter pulls you in.",
       },
       {
         label: "Stop 2",
@@ -1069,12 +1810,12 @@ export const routeDetails = [
         label: "Stop 4",
         place: "Alameda",
         plan:
-          "Finish around Alameda de Hércules if you want a looser, younger energy — or sit down properly if stand-up bars have done their job.",
+          "Finish around Alameda de Hércules if you want a looser, younger energy, or sit down properly if stand-up bars have done their job.",
       },
     ],
     notes: [
       "Eat a little everywhere; order one or two dishes per stop, not a full meal at each.",
-      "Start around 8:30pm in summer — earlier and the city can feel half-asleep.",
+      "Start around 8:30pm in summer, earlier and the city can feel half-asleep.",
       "Book a table only for the final sit-down stop if the group wants to land somewhere.",
     ],
   },
@@ -1090,7 +1831,7 @@ export const routeDetails = [
         label: "Morning",
         place: "Porto to Pinhão",
         plan:
-          "Take the scenic train along the Douro, sit on the river side, and treat the journey as part of the day — not just transfer time.",
+          "Take the scenic train along the Douro, sit on the river side, and treat the journey as part of the day, not just transfer time.",
       },
       {
         label: "Midday",
@@ -1112,7 +1853,7 @@ export const routeDetails = [
       },
     ],
     notes: [
-      "Book quinta visits ahead in harvest season — spontaneity is harder then.",
+      "Book quinta visits ahead in harvest season, spontaneity is harder then.",
       "If you dislike early starts, swap the train for a small-group tour with pickup.",
       "One good tasting beats three rushed ones every time.",
     ],
@@ -1120,7 +1861,7 @@ export const routeDetails = [
   {
     slug: "sicily-coastal-route",
     intro:
-      "A nine-day Sicily route along the east and north coast — baroque towns, Greek ruins, and sea days without circling the whole island.",
+      "A nine-day Sicily route along the east and north coast, baroque towns, Greek ruins, and sea days without circling the whole island.",
     rhythm: "Taormina base, south loop, Cefalù finish",
     footprint:
       "Designed around three hotels, short drives, and one train link where it saves sanity.",
@@ -1151,7 +1892,7 @@ export const routeDetails = [
       },
     ],
     notes: [
-      "Fly into Catania and out of Palermo — or reverse — to avoid backtracking.",
+      "Fly into Catania and out of Palermo, or reverse, to avoid backtracking.",
       "Keep one flex day for weather; Sicily changes plans quickly.",
       "Book Taormina early in shoulder season; it still fills up.",
     ],
@@ -1161,6 +1902,7 @@ export const routeDetails = [
 export const guides = [
   {
     slug: "where-to-stay-lisbon",
+    section: "destinations",
     title: "Where to Stay in Lisbon, by Travel Mood",
     category: "Hotel Notes",
     destination: "Lisbon",
@@ -1174,6 +1916,7 @@ export const guides = [
   },
   {
     slug: "madeira-first-timers",
+    section: "destinations",
     title: "Madeira for First-Timers: What to Know Before You Book",
     category: "Destination Guide",
     destination: "Madeira",
@@ -1187,6 +1930,7 @@ export const guides = [
   },
   {
     slug: "solo-paris-weekend",
+    section: "journal",
     title: "A Solo Paris Weekend That Feels Gentle",
     category: "Personal Story",
     destination: "Paris",
@@ -1200,6 +1944,7 @@ export const guides = [
   },
   {
     slug: "rome-food-walk",
+    section: "destinations",
     title: "A First-Timer Food Walk Through Rome",
     category: "Food Guide",
     destination: "Rome",
@@ -1213,6 +1958,7 @@ export const guides = [
   },
   {
     slug: "choosing-a-honeymoon-route",
+    section: "journal",
     title: "How to Choose a Honeymoon Route Without Overplanning",
     category: "Future Planning",
     destination: "Europe and beyond",
@@ -1226,6 +1972,7 @@ export const guides = [
   },
   {
     slug: "train-travel-europe",
+    section: "journal",
     title: "The Flower Travel Guide to Easy Train Days in Europe",
     category: "Planning Guide",
     destination: "Europe",
@@ -1237,7 +1984,125 @@ export const guides = [
     excerpt:
       "How to choose routes, avoid overambitious transfer days, and make rail travel feel part of the trip.",
   },
+  {
+    slug: "travel-insurance-worth-it",
+    section: "journal",
+    title: "Is Travel Insurance Worth It?",
+    category: "Planning",
+    destination: "Any trip",
+    date: "July 14, 2026",
+    readTime: "6 min read",
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=84",
+    alt: "A calm beach and open horizon suggesting travel protection and peace of mind",
+    excerpt:
+      "When coverage actually helps, what to look for in a policy, and how to avoid paying for paperwork you will never use.",
+  },
+  {
+    slug: "sustainable-travel-basics",
+    section: "journal",
+    title: "How to Travel More Sustainably",
+    category: "Lower impact",
+    destination: "Everywhere",
+    date: "July 12, 2026",
+    readTime: "8 min read",
+    image:
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=84",
+    alt: "A wide landscape of hills and open sky under soft light",
+    excerpt:
+      "Fewer flights where possible, better bases, local transport, and the small decisions that lighten a trip's footprint.",
+  },
+  {
+    slug: "galapagos-twelve-days",
+    section: "destinations",
+    title: "12 Days in the Galápagos",
+    category: "Ecuador",
+    destination: "Galápagos Islands",
+    date: "July 10, 2026",
+    readTime: "11 min read",
+    image:
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=84",
+    alt: "Turquoise water and rugged coastline in a remote island setting",
+    excerpt:
+      "Cruise vs land-based, wildlife pacing, seasickness reality, and a twelve-day rhythm that respects the islands.",
+  },
+  {
+    slug: "japan-rail-first-edit",
+    section: "destinations",
+    title: "Japan by Train: A Gentle First Edit",
+    category: "Japan",
+    destination: "Tokyo, Kyoto, Osaka",
+    date: "July 7, 2026",
+    readTime: "9 min read",
+    image:
+      "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1600&q=84",
+    alt: "A train moving through a scenic landscape",
+    excerpt:
+      "JR Pass or not, base choices, shrine-and-city pacing, and why Japan rewards fewer hotel moves.",
+  },
+  {
+    slug: "patagonia-without-rushing",
+    section: "destinations",
+    title: "Patagonia Without Rushing",
+    category: "Argentina & Chile",
+    destination: "El Calafate, Torres del Paine",
+    date: "July 4, 2026",
+    readTime: "10 min read",
+    image:
+      "https://images.unsplash.com/photo-1600703136783-bdb5ea365239?auto=format&fit=crop&w=1600&q=84",
+    alt: "A winding road through dramatic mountain terrain",
+    excerpt:
+      "Weather-flex days, lodge vs camping, and a Patagonia route that trades checklist peaks for actual comfort.",
+  },
+  {
+    slug: "morocco-riad-first-edit",
+    section: "destinations",
+    title: "Morocco: A First Riad Edit",
+    category: "Morocco",
+    destination: "Marrakech, Fes",
+    date: "July 1, 2026",
+    readTime: "7 min read",
+    image:
+      "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1600&q=84",
+    alt: "Warm evening light on historic rooftops and tiled architecture",
+    excerpt:
+      "Choosing a riad, souk pacing, guided days vs wandering, and the heat-aware rhythm that makes Morocco feel magical.",
+  },
+  {
+    slug: "costa-rica-wildlife-loop",
+    section: "destinations",
+    title: "Costa Rica Wildlife Loop",
+    category: "Central America",
+    destination: "Monteverde, Arenal, coast",
+    date: "June 28, 2026",
+    readTime: "9 min read",
+    image:
+      "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1600&q=84",
+    alt: "Lush green hills and cloud forest atmosphere",
+    excerpt:
+      "Cloud forest, volcano views, and a coast finish, a two-week loop built around wildlife mornings and slow drives.",
+  },
+  {
+    slug: "carry-on-packing-edit",
+    section: "journal",
+    title: "A Carry-On Packing Edit That Actually Works",
+    category: "Packing",
+    destination: "Any trip",
+    date: "July 5, 2026",
+    readTime: "5 min read",
+    image:
+      "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1600&q=84",
+    alt: "Travel essentials laid out before a trip",
+    excerpt:
+      "One small bag, ten days, and no outfit panic, a realistic packing list for mixed-city and warm-weather trips.",
+  },
 ];
+
+export type GuideSection = "destinations" | "journal";
+
+export function getGuidesBySection(section: GuideSection) {
+  return guides.filter((guide) => guide.section === section);
+}
 
 export const guideProducts = [
   {
