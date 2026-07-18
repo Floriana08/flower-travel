@@ -1803,6 +1803,37 @@ a.destination-article-card:focus-visible .destination-article-link {
   border-bottom: 1px solid var(--line);
 }
 
+.portugal-why-article {
+  max-width: 680px;
+  margin-top: 8px;
+}
+
+.portugal-why-article p {
+  font-size: 1.05rem;
+  line-height: 1.78;
+}
+
+.portugal-why-article p + p {
+  margin-top: 1.15em;
+}
+
+.portugal-why-lead {
+  color: var(--charcoal);
+  font-size: 1.18rem;
+  line-height: 1.68;
+}
+
+.portugal-why-closing {
+  margin-top: 1.35em;
+  padding-top: 1.15em;
+  border-top: 1px solid var(--line);
+  color: var(--charcoal);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.22rem;
+  font-style: italic;
+  line-height: 1.55;
+}
+
 .portugal-mistakes-panel {
   margin-top: 28px;
   padding-top: 22px;
@@ -1860,6 +1891,17 @@ a.destination-article-card:focus-visible .destination-article-link {
   line-height: 1.42;
 }
 
+@media (max-width: 760px) {
+  .portugal-why-article p,
+  .portugal-why-lead {
+    font-size: 1rem;
+  }
+
+  .portugal-why-closing {
+    font-size: 1.1rem;
+  }
+}
+
 .flor-tip-card {
   display: grid;
   gap: 16px;
@@ -1891,8 +1933,7 @@ a.destination-article-card:focus-visible .destination-article-link {
   gap: 16px;
 }
 
-.portugal-way-card,
-.season-card {
+.portugal-way-card {
   display: grid;
   min-height: 170px;
   align-content: space-between;
@@ -1912,8 +1953,7 @@ a.destination-article-card:focus-visible .destination-article-link {
   line-height: 1.1;
 }
 
-.portugal-way-card p,
-.season-card p {
+.portugal-way-card p {
   font-size: 0.94rem;
   line-height: 1.58;
 }
@@ -1933,21 +1973,6 @@ a.destination-article-card:focus-visible .destination-article-link {
 
 .chapter-grid.visual .chapter-card span {
   font-size: 1.42rem;
-}
-
-.season-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.season-card {
-  min-height: 190px;
-}
-
-.season-card h3 {
-  color: var(--charcoal);
-  font-size: 1.55rem;
 }
 
 .avoid-mistakes-panel ul,
@@ -2603,8 +2628,7 @@ a.destination-article-card:focus-visible .destination-article-link {
   .collection-grid,
   .chapter-grid,
   .chapter-grid.visual,
-  .portugal-way-grid,
-  .season-grid {
+  .portugal-way-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2822,7 +2846,6 @@ a.destination-article-card:focus-visible .destination-article-link {
   .chapter-grid,
   .chapter-grid.visual,
   .portugal-way-grid,
-  .season-grid,
   .club-extras-panel ul,
   .guide-grid,
   .guide-product-grid,

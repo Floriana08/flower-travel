@@ -35,15 +35,17 @@ const portugalSnapshot = [
   { label: "Travel style", value: "Relaxed, walkable and rail-friendly" },
 ] as const;
 
-const portugalReasons = [
-  "Beautiful cities without the rush of larger European capitals",
-  "One of Europe's best food scenes",
-  "Easy train travel between the main cities",
-  "Atlantic coastline, surf towns and island landscapes",
-  "Excellent value when you avoid peak summer",
-  "Friendly, welcoming local rhythm",
-  "Perfect for first-time Europe trips",
-] as const;
+const portugalWhyArticle = {
+  lead:
+    "Portugal is easy to love, but it is even better when you slow the route down and let each place have its own texture.",
+  paragraphs: [
+    "Lisbon and Porto have the beauty of larger European capitals without the same relentless pace. You can spend a morning in tiled streets, pause for a long lunch, and still feel as if the day belongs to you. That sense of space is what makes Portugal such a satisfying first Europe trip, and such a rewarding return.",
+    "Food is not a side note here. Seafood lunches, pastelarias, neighbourhood tascas and Douro wine days shape the itinerary as much as museums or viewpoints. The country also travels well by train: Porto, Coimbra, Lisbon and Cascais connect cleanly enough that you can keep hotel changes few and still cover a memorable stretch of the mainland.",
+    "Beyond the cities, Atlantic light pulls you toward Cascais, Comporta, the Algarve and the quieter surf towns. Madeira sits apart as its own adventure of cliffs, levadas and dramatic weather. Outside peak summer, Portugal also offers excellent value, a welcoming local rhythm, and the rare feeling that a trip can be both beautiful and manageable.",
+  ],
+  closing:
+    "The best version of Portugal is rarely the one that tries to do everything. Choose one route, stay longer, and let curiosity set the pace.",
+} as const;
 
 const portugalWays = [
   {
@@ -73,25 +75,6 @@ const portugalWays = [
   {
     title: "Romantic Escape",
     description: "Boutique stays, calm bases and routes with room to breathe.",
-  },
-] as const;
-
-const portugalSeasons = [
-  {
-    title: "Spring",
-    description: "Best for cities, walking days, gardens and softer hiking weather.",
-  },
-  {
-    title: "Summer",
-    description: "Coast, festivals and long evenings, with busier prices and beaches.",
-  },
-  {
-    title: "Autumn",
-    description: "Wine harvests, warm light, fewer crowds and excellent city days.",
-  },
-  {
-    title: "Winter",
-    description: "Lisbon, Porto and Madeira, with a calmer rhythm and better value.",
   },
 ] as const;
 
@@ -359,17 +342,17 @@ export default async function DestinationDetailPage({ params }: PageProps) {
         >
           {isPortugal ? (
             <section className="portugal-why">
-              <SectionHeading eyebrow="Why Portugal" title="Why visit Portugal now?">
-                <p>
-                  Portugal is easy to love, but it is even better when you slow
-                  the route down and let each place have its own texture.
-                </p>
-              </SectionHeading>
-              <div className="portugal-reason-grid">
-                {portugalReasons.map((reason) => (
-                  <span key={reason}>{reason}</span>
+              <SectionHeading
+                eyebrow="Why Portugal"
+                title="Why visit Portugal now?"
+              />
+              <article className="portugal-why-article">
+                <p className="portugal-why-lead">{portugalWhyArticle.lead}</p>
+                {portugalWhyArticle.paragraphs.map((paragraph) => (
+                  <p key={paragraph.slice(0, 48)}>{paragraph}</p>
                 ))}
-              </div>
+                <p className="portugal-why-closing">{portugalWhyArticle.closing}</p>
+              </article>
             </section>
           ) : null}
 
@@ -437,25 +420,6 @@ export default async function DestinationDetailPage({ params }: PageProps) {
               </div>
             </section>
           )}
-
-          {isPortugal ? (
-            <section>
-              <SectionHeading eyebrow="Portugal by season" title="When to go.">
-                <p>
-                  Portugal works all year, but the best version of the trip
-                  depends on the season.
-                </p>
-              </SectionHeading>
-              <div className="season-grid">
-                {portugalSeasons.map((season) => (
-                  <article className="season-card" key={season.title}>
-                    <h3>{season.title}</h3>
-                    <p>{season.description}</p>
-                  </article>
-                ))}
-              </div>
-            </section>
-          ) : null}
 
           {destinationItineraries.length > 0 ? (
             <section>
