@@ -14,6 +14,8 @@ import {
   getDestinationArticles,
   getDestinationItineraries,
   getDestinationProfile,
+  guides,
+  itineraries,
   site,
 } from "../../data";
 
@@ -22,7 +24,7 @@ type PageProps = {
 };
 
 const portugalSnapshot = [
-  { label: "Best season", value: "Spring and early autumn" },
+  { label: "Best time to visit", value: "Spring and early autumn" },
   { label: "Best way to travel", value: "Train between the main cities" },
   { label: "Ideal trip length", value: "7-14 days" },
   { label: "Budget", value: "$$-$$$" },
@@ -70,34 +72,7 @@ const portugalWays = [
   },
   {
     title: "Romantic Escape",
-    description: "Boutique stays, slow mornings and routes with room to breathe.",
-  },
-] as const;
-
-const portugalChapters = [
-  {
-    title: "Cities",
-    description: "Lisbon, Porto, Coimbra and the bases that make the route feel easy.",
-  },
-  {
-    title: "Restaurants",
-    description: "Seafood, wine bars, tascas, bakeries and tables worth planning around.",
-  },
-  {
-    title: "Hotels",
-    description: "Boutique stays, calm bases and future hotel shortlists.",
-  },
-  {
-    title: "Itineraries",
-    description: "Rail-first routes, food walks, Douro days and slower city-to-coast plans.",
-  },
-  {
-    title: "Day Trips",
-    description: "Sintra, Cascais, the Douro and escapes that need honest timing.",
-  },
-  {
-    title: "Journal",
-    description: "Neighbourhood notes, lower-impact travel ideas and personal discoveries.",
+    description: "Boutique stays, calm bases and routes with room to breathe.",
   },
 ] as const;
 
@@ -121,28 +96,94 @@ const portugalSeasons = [
 ] as const;
 
 const portugalMistakes = [
-  "Driving in Lisbon.",
-  "Visiting Sintra on a Saturday.",
-  "Treating the Algarve as a day trip.",
-  "Booking the Douro in August without reservations.",
-  "Spending only one night in Porto.",
+  "Driving in central Lisbon",
+  "Visiting Sintra on a Saturday",
+  "Treating the Algarve as a day trip",
+  "Booking the Douro in August without reservations",
+  "Spending only one night in Porto",
+  "Adding Madeira to an already packed mainland itinerary",
 ] as const;
 
-const portugalComingSoon = [
-  "Boutique hotel collection",
-  "Restaurant map",
-  "Neighbourhood guides",
-  "Interactive walking routes",
-  "Club extras",
-] as const;
+type PortugalJournalEntry = {
+  title: string;
+  label: string;
+  excerpt: string;
+  readTime: string;
+  image: string;
+  alt: string;
+  href?: string;
+};
 
-const portugalClubBenefits = [
-  "New Portugal guides",
-  "Restaurant recommendations",
-  "Boutique hotel collections",
-  "Printable itineraries, coming soon",
-  "Local discoveries before they are published",
-] as const;
+function getPortugalJournalEntries(): PortugalJournalEntry[] {
+  const stay = guides.find((guide) => guide.slug === "where-to-stay-lisbon");
+  const madeira = guides.find((guide) => guide.slug === "madeira-first-timers");
+  const food = itineraries.find((item) => item.slug === "lisbon-food-tour");
+  const train = itineraries.find((item) => item.slug === "portugal-by-train");
+  const douro = itineraries.find((item) => item.slug === "porto-wine-day");
+  const entries: PortugalJournalEntry[] = [];
+
+  if (stay) {
+    entries.push({
+      title: stay.title,
+      label: stay.destination,
+      excerpt: stay.excerpt,
+      readTime: stay.readTime,
+      image: stay.image,
+      alt: stay.alt,
+      href: `/travel-guides/${stay.slug}`,
+    });
+  }
+
+  if (food) {
+    entries.push({
+      title: food.title,
+      label: "Lisbon",
+      excerpt: food.summary,
+      readTime: "5 min read",
+      image: food.image,
+      alt: food.alt,
+      href: `/routes/${food.slug}`,
+    });
+  }
+
+  if (madeira) {
+    entries.push({
+      title: madeira.title,
+      label: madeira.destination,
+      excerpt: madeira.excerpt,
+      readTime: madeira.readTime,
+      image: madeira.image,
+      alt: madeira.alt,
+      href: `/travel-guides/${madeira.slug}`,
+    });
+  }
+
+  if (train) {
+    entries.push({
+      title: train.title,
+      label: "Portugal",
+      excerpt: train.summary,
+      readTime: "8 min read",
+      image: train.image,
+      alt: train.alt,
+      href: `/routes/${train.slug}`,
+    });
+  }
+
+  if (douro) {
+    entries.push({
+      title: douro.title,
+      label: "Douro",
+      excerpt: douro.summary,
+      readTime: "5 min read",
+      image: douro.image,
+      alt: douro.alt,
+      href: `/routes/${douro.slug}`,
+    });
+  }
+
+  return entries;
+}
 
 export function generateStaticParams() {
   return destinations.map((destination) => ({ slug: destination.slug }));
@@ -187,6 +228,7 @@ export default async function DestinationDetailPage({ params }: PageProps) {
   const profile = getDestinationProfile(destination.slug);
   const articles = getDestinationArticles(destination.slug);
   const destinationItineraries = getDestinationItineraries(destination.slug);
+  const portugalJournal = isPortugal ? getPortugalJournalEntries() : [];
   const relatedDestinations = destinations
     .filter(
       (item) =>
@@ -216,21 +258,37 @@ export default async function DestinationDetailPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <PageHero
-        eyebrow={destination.country}
-        title={destination.title}
-        image={destination.image}
-        alt={destination.alt}
-      >
-        <p>{profile.overview}</p>
-        {isPortugal ? (
+      {isPortugal ? (
+        <PageHero
+          className="portugal-hero"
+          eyebrow="Portugal"
+          title="Portugal, slowly"
+          image={destination.image}
+          alt={destination.alt}
+          imageObjectPosition="center 40%"
+        >
+          <p>Golden cities, Atlantic coastlines and journeys that reward curiosity.</p>
+          <p>
+            From Lisbon’s tiled streets to the vineyards of the Douro and the
+            dramatic landscapes of Madeira, Portugal is best explored with fewer
+            hotel changes, longer lunches and plenty of time to wander.
+          </p>
           <div className="destination-hero-actions">
             <Link className="button dark" href="#start-planning">
-              Start planning
+              Explore Portugal
             </Link>
           </div>
-        ) : null}
-      </PageHero>
+        </PageHero>
+      ) : (
+        <PageHero
+          eyebrow={destination.country}
+          title={destination.title}
+          image={destination.image}
+          alt={destination.alt}
+        >
+          <p>{profile.overview}</p>
+        </PageHero>
+      )}
 
       <section className="destination-guide-shell section-shell" id="start-planning">
         <aside className="destination-profile">
@@ -249,6 +307,22 @@ export default async function DestinationDetailPage({ params }: PageProps) {
                   </div>
                 ))}
               </dl>
+
+              <section
+                className="portugal-mistakes-panel"
+                aria-labelledby="portugal-mistakes-heading"
+              >
+                <p className="eyebrow">Planning notes</p>
+                <h3 id="portugal-mistakes-heading">
+                  Portugal planning mistakes to avoid
+                </h3>
+                <p>Small choices can completely change the pace of the trip.</p>
+                <ul className="portugal-mistakes-list">
+                  {portugalMistakes.map((mistake) => (
+                    <li key={mistake}>{mistake}</li>
+                  ))}
+                </ul>
+              </section>
             </>
           ) : (
             <>
@@ -280,10 +354,12 @@ export default async function DestinationDetailPage({ params }: PageProps) {
           )}
         </aside>
 
-        <div className="destination-guide-main">
+        <div
+          className={`destination-guide-main${isPortugal ? " portugal-main" : ""}`}
+        >
           {isPortugal ? (
             <section className="portugal-why">
-              <SectionHeading eyebrow="Why Portugal?" title="Why visit Portugal now?">
+              <SectionHeading eyebrow="Why Portugal" title="Why visit Portugal now?">
                 <p>
                   Portugal is easy to love, but it is even better when you slow
                   the route down and let each place have its own texture.
@@ -301,7 +377,10 @@ export default async function DestinationDetailPage({ params }: PageProps) {
             <p className="eyebrow">{isPortugal ? "Flor's Tip" : "Flor's Pick"}</p>
             {isPortugal ? (
               <>
-                <h2>Everyone tries to squeeze Lisbon, Porto, the Algarve and Madeira into one trip.</h2>
+                <h2>
+                  Everyone tries to squeeze Lisbon, Porto, the Algarve and Madeira
+                  into one trip.
+                </h2>
                 <p>Do not.</p>
                 <p>
                   Portugal rewards slower travel. I would choose one route,
@@ -335,33 +414,29 @@ export default async function DestinationDetailPage({ params }: PageProps) {
                 ))}
               </div>
             </section>
-          ) : null}
+          ) : (
+            <section>
+              <SectionHeading
+                eyebrow="Plan by chapter"
+                title={`How to explore ${destination.title.split(",")[0]}.`}
+              >
+                <p>
+                  Itineraries, neighbourhoods, restaurants, hotels, experiences,
+                  journal notes, and map points now live together inside the
+                  destination.
+                </p>
+              </SectionHeading>
 
-          <section>
-            <SectionHeading
-              eyebrow={isPortugal ? "Explore by chapter" : "Plan by chapter"}
-              title={
-                isPortugal
-                  ? "Build the guide around what you need."
-                  : `How to explore ${destination.title.split(",")[0]}.`
-              }
-            >
-              <p>
-                {isPortugal
-                  ? "Cities, food, stays, day trips, routes and journal notes will grow into one polished Portugal guide."
-                  : "Itineraries, neighbourhoods, restaurants, hotels, experiences, journal notes, and map points now live together inside the destination."}
-              </p>
-            </SectionHeading>
-
-            <div className={`chapter-grid${isPortugal ? " visual" : ""}`}>
-              {(isPortugal ? portugalChapters : profile.chapters).map((chapter) => (
-                <article className="chapter-card" key={chapter.title}>
-                  <span>{chapter.title}</span>
-                  <p>{chapter.description}</p>
-                </article>
-              ))}
-            </div>
-          </section>
+              <div className="chapter-grid">
+                {profile.chapters.map((chapter) => (
+                  <article className="chapter-card" key={chapter.title}>
+                    <span>{chapter.title}</span>
+                    <p>{chapter.description}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
 
           {isPortugal ? (
             <section>
@@ -385,107 +460,133 @@ export default async function DestinationDetailPage({ params }: PageProps) {
           {destinationItineraries.length > 0 ? (
             <section>
               <SectionHeading
-                eyebrow={isPortugal ? "Editor's favourite journeys" : "Featured Itineraries"}
-                title={isPortugal ? "Start with these routes." : "Routes connected to this place."}
-              />
+                eyebrow={
+                  isPortugal ? "Featured Portugal itineraries" : "Featured Itineraries"
+                }
+                title={
+                  isPortugal
+                    ? "Routes worth building a trip around."
+                    : "Routes connected to this place."
+                }
+              >
+                {isPortugal ? (
+                  <p>
+                    Three practical starting points: a rail journey, a food-led
+                    Lisbon morning, and a slower Douro day from Porto.
+                  </p>
+                ) : null}
+              </SectionHeading>
               <div className="itinerary-grid wide">
                 {destinationItineraries.map((itinerary) => (
-                  <ItineraryCard key={itinerary.slug} itinerary={itinerary} />
+                  <ItineraryCard
+                    key={itinerary.slug}
+                    itinerary={itinerary}
+                    ctaLabel={isPortugal ? "View itinerary" : "View route"}
+                  />
                 ))}
               </div>
             </section>
           ) : null}
 
           {isPortugal ? (
-            <section className="avoid-mistakes-panel">
+            <section>
               <SectionHeading
-                eyebrow="Avoid these mistakes"
-                title="The small planning traps that change the trip."
-              />
-              <ul>
-                {portugalMistakes.map((mistake) => (
-                  <li key={mistake}>{mistake}</li>
-                ))}
-              </ul>
-            </section>
-          ) : null}
+                eyebrow="Journal"
+                title="From the Portugal Journal"
+              >
+                <p>
+                  Neighbourhood notes, hotel edits, food guides and thoughtful
+                  routes from across Portugal.
+                </p>
+              </SectionHeading>
 
-          <section>
-            <SectionHeading
-              eyebrow="Journal"
-              title={`Articles linked to ${destination.title.split(",")[0]}.`}
-            >
-              <p>
-                City notes, restaurant edits, route ideas, hotel thoughts, and
-                personal observations can grow here over time.
-              </p>
-            </SectionHeading>
-
-            {articles.length > 0 ? (
-              <div className="destination-article-list">
-                {articles.map((article) => (
-                  <article
-                    className="destination-article-row"
-                    key={article.slug}
-                  >
-                    <div>
-                      <div className="meta-line">
-                        <span>{article.category}</span>
-                        <span>{article.readTime}</span>
+              <div className="destination-article-grid">
+                {portugalJournal.map((entry) => {
+                  const cardInner = (
+                    <>
+                      <img src={entry.image} alt={entry.alt} loading="lazy" />
+                      <div className="card-body">
+                        <div className="meta-line">
+                          <span>{entry.label}</span>
+                          <span>{entry.readTime}</span>
+                        </div>
+                        <h3>{entry.title}</h3>
+                        <p>{entry.excerpt}</p>
+                        {entry.href ? (
+                          <span className="text-link destination-article-link">
+                            Read story
+                          </span>
+                        ) : null}
                       </div>
-                      <h3>{article.title}</h3>
-                      <p>{article.excerpt}</p>
-                    </div>
+                    </>
+                  );
+
+                  return entry.href ? (
                     <Link
-                      className="text-link"
-                      href={`/destinations/${destination.slug}/articles/${article.slug}`}
+                      className="destination-article-card"
+                      key={entry.title}
+                      href={entry.href}
+                      aria-label={entry.title}
                     >
-                      Read story
+                      {cardInner}
                     </Link>
-                  </article>
-                ))}
+                  ) : (
+                    <article className="destination-article-card" key={entry.title}>
+                      {cardInner}
+                    </article>
+                  );
+                })}
               </div>
-            ) : (
-              <div className="article-panel">
-                <h2>Journal coming next</h2>
-                <p>
-                  This destination is ready for future articles, hotel notes,
-                  restaurant edits, and local favourites.
-                </p>
-              </div>
-            )}
-          </section>
-
-          {isPortugal ? (
-            <>
-              <section className="growing-guide-panel">
-                <p className="eyebrow">Growing this guide</p>
-                <h2>Next additions</h2>
-                <ul>
-                  {portugalComingSoon.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </section>
-
-              <section className="club-extras-panel destination-specific">
-                <p className="eyebrow">Planning a trip to Portugal?</p>
-                <h2>Join the Club for the next Portugal edits.</h2>
-                <p>
-                  Receive new guides, restaurant notes, hotel shortlists and
-                  practical routes as this destination grows.
-                </p>
-                <ul>
-                  {portugalClubBenefits.map((benefit) => (
-                    <li key={benefit}>{benefit}</li>
-                  ))}
-                </ul>
-                <Link className="button light" href="/club">
-                  Join the Club
-                </Link>
-              </section>
-            </>
+            </section>
           ) : (
+            <section>
+              <SectionHeading
+                eyebrow="Journal"
+                title={`Articles linked to ${destination.title.split(",")[0]}.`}
+              >
+                <p>
+                  City notes, restaurant edits, route ideas, hotel thoughts, and
+                  personal observations can grow here over time.
+                </p>
+              </SectionHeading>
+
+              {articles.length > 0 ? (
+                <div className="destination-article-list">
+                  {articles.map((article) => (
+                    <article
+                      className="destination-article-row"
+                      key={article.slug}
+                    >
+                      <div>
+                        <div className="meta-line">
+                          <span>{article.category}</span>
+                          <span>{article.readTime}</span>
+                        </div>
+                        <h3>{article.title}</h3>
+                        <p>{article.excerpt}</p>
+                      </div>
+                      <Link
+                        className="text-link"
+                        href={`/destinations/${destination.slug}/articles/${article.slug}`}
+                      >
+                        Read story
+                      </Link>
+                    </article>
+                  ))}
+                </div>
+              ) : (
+                <div className="article-panel">
+                  <h2>Journal coming next</h2>
+                  <p>
+                    This destination is ready for future articles, hotel notes,
+                    restaurant edits, and local favourites.
+                  </p>
+                </div>
+              )}
+            </section>
+          )}
+
+          {isPortugal ? null : (
             <section className="club-extras-panel">
               <p className="eyebrow">Club Extras</p>
               <h2>Future member additions for this destination.</h2>
@@ -501,9 +602,18 @@ export default async function DestinationDetailPage({ params }: PageProps) {
 
       <section className="section-shell tinted">
         <SectionHeading
-          eyebrow="Keep browsing"
-          title="More destinations in the archive."
-        />
+          eyebrow={isPortugal ? "Related destinations" : "Keep browsing"}
+          title={
+            isPortugal ? "Continue exploring" : "More destinations in the archive."
+          }
+        >
+          {isPortugal ? (
+            <p>
+              More places for travellers who prefer character, atmosphere and a
+              slower pace.
+            </p>
+          ) : null}
+        </SectionHeading>
         <div className="destination-grid">
           {relatedDestinations.map((relatedDestination) => (
             <DestinationCard
@@ -514,7 +624,7 @@ export default async function DestinationDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      {isPortugal ? null : <NewsletterBand />}
+      <NewsletterBand />
     </main>
   );
 }

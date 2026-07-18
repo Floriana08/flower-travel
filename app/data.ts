@@ -833,7 +833,7 @@ const standardClubExtras = [
 export const destinationProfiles: Record<string, DestinationProfile> = {
   portugal: {
     overview:
-      "Golden cities, Atlantic coastlines and slow journeys that reward curiosity. From Lisbon's tiled streets to the vineyards of the Douro and the dramatic landscapes of Madeira, Portugal is a country best explored with fewer hotel changes, longer lunches and plenty of time to wander.",
+      "Golden cities, Atlantic coastlines and journeys that reward curiosity. From Lisbon's tiled streets to the vineyards of the Douro and the dramatic landscapes of Madeira, Portugal is best explored with fewer hotel changes, longer lunches and plenty of time to wander.",
     atAGlance: {
       budget: "$$-$$$, with strong value outside peak summer",
       gettingAround: "Train between the main cities",
@@ -1201,7 +1201,7 @@ export const itineraries = [
   },
   {
     slug: "lisbon-food-tour",
-    title: "Best Food Tour of Lisbon",
+    title: "A Food-Lover's Morning in Lisbon",
     days: "Half day",
     region: "Alfama, Mouraria, Baixa",
     pace: "Food walk",
@@ -1271,7 +1271,7 @@ export const itineraries = [
   },
   {
     slug: "porto-wine-day",
-    title: "Porto Wine Country Day",
+    title: "A Slow Day in the Douro Valley",
     days: "Day trip",
     region: "Douro Valley from Porto",
     pace: "Wine and river",

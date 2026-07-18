@@ -1357,6 +1357,12 @@ textarea:focus {
   padding: 78px 0 62px;
 }
 
+.page-hero.portugal-hero {
+  align-items: start;
+  gap: 48px;
+  padding: 28px 0 42px;
+}
+
 .page-hero-text {
   grid-template-columns: minmax(0, 1fr);
   align-items: start;
@@ -1367,9 +1373,18 @@ textarea:focus {
   padding-bottom: 28px;
 }
 
+.page-hero.portugal-hero .page-hero-copy {
+  padding-bottom: 0;
+}
+
 .page-hero h1 {
   max-width: 760px;
   margin-top: 18px;
+}
+
+.page-hero.portugal-hero h1 {
+  max-width: 11ch;
+  margin-top: 12px;
 }
 
 .lede {
@@ -1377,8 +1392,17 @@ textarea:focus {
   margin-top: 22px;
 }
 
+.page-hero.portugal-hero .lede {
+  max-width: 520px;
+  margin-top: 18px;
+}
+
 .lede p {
   font-size: 1.12rem;
+}
+
+.page-hero.portugal-hero .lede p + p {
+  margin-top: 14px;
 }
 
 .page-hero-image {
@@ -1390,6 +1414,16 @@ textarea:focus {
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: 6px;
+}
+
+.page-hero.portugal-hero .page-hero-image {
+  max-width: 460px;
+  justify-self: end;
+}
+
+.page-hero.portugal-hero .page-hero-image img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
 }
 
 .wave-layer {
@@ -1609,15 +1643,50 @@ textarea:focus {
 .destination-article-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  gap: 28px 22px;
+}
+
+.destination-article-card {
+  display: grid;
+  align-content: start;
+  gap: 0;
+  padding-top: 4px;
+  border-top: 1px solid var(--line);
+  color: inherit;
+  text-decoration: none;
 }
 
 .destination-article-card img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 6px;
   background: var(--warm-paper);
+}
+
+.destination-article-card .card-body {
+  padding-top: 16px;
+}
+
+.destination-article-card h3 {
+  max-width: 18ch;
+  margin-bottom: 10px;
+  font-size: 1.35rem;
+  line-height: 1.15;
+}
+
+.destination-article-card p {
+  font-size: 0.94rem;
+  line-height: 1.58;
+}
+
+.destination-article-card .destination-article-link {
+  margin-top: 16px;
+}
+
+a.destination-article-card:hover .destination-article-link,
+a.destination-article-card:focus-visible .destination-article-link {
+  border-bottom-color: var(--charcoal);
 }
 
 .destination-page-grid {
@@ -1639,6 +1708,10 @@ textarea:focus {
 .destination-guide-main {
   display: grid;
   gap: 76px;
+}
+
+.destination-guide-main.portugal-main {
+  gap: 58px;
 }
 
 .destination-profile {
@@ -1728,6 +1801,44 @@ textarea:focus {
   padding: 34px 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+}
+
+.portugal-mistakes-panel {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(24, 48, 46, 0.12);
+}
+
+.portugal-mistakes-panel h3 {
+  margin: 8px 0 10px;
+  font-size: 1.28rem;
+  line-height: 1.2;
+}
+
+.portugal-mistakes-panel > p:not(.eyebrow) {
+  margin: 0;
+  color: var(--soft-ink);
+  font-size: 0.94rem;
+  line-height: 1.58;
+}
+
+.portugal-mistakes-list {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  margin: 16px 0 0;
+  list-style: none;
+}
+
+.portugal-mistakes-list li {
+  padding: 11px 12px;
+  border: 1px solid rgba(24, 48, 46, 0.1);
+  border-left: 2px solid var(--clay);
+  color: var(--charcoal);
+  background: rgba(255, 253, 249, 0.92);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .portugal-reason-grid {
@@ -2505,6 +2616,24 @@ textarea:focus {
     padding-bottom: 0;
   }
 
+  .page-hero.portugal-hero {
+    gap: 28px;
+    padding: 24px 0 36px;
+  }
+
+  .page-hero.portugal-hero .page-hero-image {
+    max-width: none;
+    justify-self: stretch;
+  }
+
+  .page-hero.portugal-hero .page-hero-image img {
+    aspect-ratio: 1 / 1;
+  }
+
+  .destination-article-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .article-sidebar {
     position: static;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2634,6 +2763,18 @@ textarea:focus {
     margin-right: 18px;
     margin-left: 18px;
     padding: 66px 0;
+  }
+
+  .page-hero.portugal-hero {
+    padding: 22px 0 34px;
+  }
+
+  .page-hero.portugal-hero h1 {
+    max-width: none;
+  }
+
+  .destination-guide-main.portugal-main {
+    gap: 48px;
   }
 
   .editorial-carousel {

@@ -118,15 +118,27 @@ export function PageHero({
   children,
   image,
   alt,
+  className,
+  imageObjectPosition,
 }: {
   eyebrow: string;
   title: string;
   children?: ReactNode;
   image?: string;
   alt?: string;
+  className?: string;
+  imageObjectPosition?: string;
 }) {
+  const heroClassName = [
+    "page-hero",
+    image ? "" : "page-hero-text",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <section className={`page-hero${image ? "" : " page-hero-text"}`}>
+    <section className={heroClassName}>
       <div className="page-hero-copy reveal">
         <p className="eyebrow">{eyebrow}</p>
         <h1>{title}</h1>
@@ -134,7 +146,15 @@ export function PageHero({
       </div>
       {image ? (
         <figure className="page-hero-image reveal delay-1">
-          <img src={image} alt={alt ?? ""} />
+          <img
+            src={image}
+            alt={alt ?? ""}
+            style={
+              imageObjectPosition
+                ? { objectPosition: imageObjectPosition }
+                : undefined
+            }
+          />
         </figure>
       ) : null}
     </section>
@@ -202,8 +222,10 @@ export function DestinationCard({
 
 export function ItineraryCard({
   itinerary,
+  ctaLabel = "View route",
 }: {
   itinerary: (typeof itineraries)[number];
+  ctaLabel?: string;
 }) {
   return (
     <article className="itinerary-card card">
@@ -223,7 +245,7 @@ export function ItineraryCard({
           ))}
         </div>
         <Link className="text-link" href={`/routes/${itinerary.slug}`}>
-          View route
+          {ctaLabel}
         </Link>
       </div>
     </article>
