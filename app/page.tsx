@@ -91,9 +91,11 @@ export default function Home() {
           <span className="wave-layer wave-two" aria-hidden="true" />
         </div>
         <div className="hero-content reveal">
-          <p className="eyebrow">Travel Journal</p>
-          <h1>Altrove</h1>
-          <p className="hero-tagline">{site.strapline}</p>
+          <img
+            className="hero-logo"
+            src="/logo-altrove.png"
+            alt="Altrove Travel Journal — places worth travelling for"
+          />
           <p>
             Routes, guides, and local notes for trips with a strong sense of
             place.

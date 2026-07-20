@@ -22,14 +22,9 @@ export function SiteHeader() {
       <Link className="brand" href="/" aria-label={`${site.name} home`}>
         <img
           className="brand-logo"
-          src="/logo-mark.svg"
-          alt=""
-          aria-hidden="true"
+          src="/logo-altrove.png"
+          alt={site.fullName}
         />
-        <span className="brand-copy">
-          <span className="brand-title">{site.name}</span>
-          <span className="brand-kicker">Travel Journal</span>
-        </span>
       </Link>
 
       <nav className="primary-nav" aria-label="Primary navigation">
@@ -68,17 +63,11 @@ export function SiteFooter() {
       <div className="footer-lead">
         <Link className="brand footer-brand" href="/">
           <img
-            className="brand-logo"
-            src="/logo-mark-light.svg"
-            alt=""
-            aria-hidden="true"
+            className="brand-logo footer-logo"
+            src="/logo-altrove.png"
+            alt={site.fullName}
           />
-          <span className="brand-copy">
-            <span className="brand-title">{site.name}</span>
-            <span className="brand-kicker">Travel Journal</span>
-          </span>
         </Link>
-        <p className="footer-tagline">{site.strapline}</p>
         <p>
           Researched routes, honest notes, and editorial planning for travellers
           who want taste, local feeling, and a lighter footprint.

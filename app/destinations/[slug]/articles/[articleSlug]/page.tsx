@@ -79,7 +79,7 @@ export default async function DestinationArticlePage({ params }: PageProps) {
       name: site.name,
       logo: {
         "@type": "ImageObject",
-        url: "https://flowertravel.studio/logo.svg",
+        url: "https://flowertravel.studio/logo-altrove.png",
       },
     },
     mainEntityOfPage: `https://flowertravel.studio/destinations/${destination.slug}/articles/${article.slug}`,

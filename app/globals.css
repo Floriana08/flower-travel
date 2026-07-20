@@ -13,7 +13,7 @@
   --rose: #c8c2b8;
   --sea-glass: #f3eee6;
   --shadow: 0 18px 48px rgba(17, 17, 17, 0.06);
-  --header-height: 78px;
+  --header-height: 92px;
   --max: 1180px;
   --arch: 999px 999px 0 0 / 56% 56% 0 0;
   background: var(--paper);
@@ -111,9 +111,9 @@ p {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   min-height: var(--header-height);
-  padding: 0 42px;
+  padding: 8px 42px;
   border-bottom: 1px solid var(--line);
-  background: rgba(253, 251, 247, 0.92);
+  background: rgba(253, 251, 247, 0.94);
   backdrop-filter: blur(16px);
 }
 
@@ -125,16 +125,28 @@ p {
 }
 
 .brand-logo {
-  width: 36px;
-  height: 44px;
-  flex: 0 0 36px;
+  display: block;
+  width: auto;
+  height: 72px;
+  flex: 0 0 auto;
   object-fit: contain;
+  background: var(--paper);
+}
+
+.footer-logo {
+  height: 148px;
+}
+
+.hero-logo {
+  display: block;
+  width: min(300px, 78vw);
+  height: auto;
+  margin-bottom: 10px;
+  background: var(--paper);
 }
 
 .brand-copy {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
+  display: none;
 }
 
 .brand-title,
@@ -145,18 +157,17 @@ p {
 .brand-title {
   font-size: 1.15rem;
   line-height: 1;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
   font-weight: 500;
 }
 
 .brand-kicker {
   margin-top: 0;
-  color: var(--ink);
+  color: var(--muted);
   font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.62rem;
-  font-weight: 500;
-  letter-spacing: 0.28em;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
@@ -308,13 +319,8 @@ p {
   color: var(--porcelain);
 }
 
-.hero-content h1 {
-  margin-top: 18px;
-  color: var(--porcelain);
-  font-size: clamp(3.8rem, 8vw, 6.2rem);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 500;
+.hero-content .hero-logo {
+  margin-top: 0;
 }
 
 .hero-content p:not(.eyebrow) {
@@ -324,13 +330,6 @@ p {
   font-size: 1.08rem;
   line-height: 1.72;
   font-weight: 400;
-}
-
-.hero-content .hero-tagline {
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
-  font-style: italic;
-  letter-spacing: 0.01em;
-  text-transform: none;
 }
 
 .hero-actions {
@@ -2651,26 +2650,14 @@ a.destination-article-card:focus-visible .destination-article-link {
   border-top: 1px solid rgba(253, 251, 247, 0.08);
 }
 
-.site-footer .brand-logo {
-  box-shadow: none;
-  filter: none;
+.site-footer .brand-logo,
+.site-footer .footer-logo {
+  height: 148px;
+  background: var(--paper);
 }
 
-.site-footer .brand-title,
 .site-footer h2 {
   color: var(--paper);
-}
-
-.site-footer .brand-kicker {
-  color: rgba(253, 251, 247, 0.55);
-}
-
-.footer-tagline {
-  margin-top: 16px !important;
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
-  font-style: italic;
-  font-size: 1.05rem !important;
-  color: rgba(253, 251, 247, 0.88) !important;
 }
 
 .footer-lead p {
@@ -2974,27 +2961,23 @@ a.destination-article-card:focus-visible .destination-article-link {
   }
 
   .brand-logo {
-    width: 38px;
-    height: 38px;
-    flex-basis: 38px;
+    height: 58px;
+    width: auto;
+    flex-basis: auto;
   }
 
-  .brand-title {
-    font-size: 1.08rem;
+  .footer-logo {
+    height: 120px;
   }
 
-  .brand-kicker {
-    display: none;
+  .hero-logo {
+    width: min(240px, 82vw);
   }
 
   .home-hero {
     min-height: calc(100vh - var(--header-height) - 34px);
     max-height: none;
     padding: 58px 22px;
-  }
-
-  .hero-content h1 {
-    font-size: 4.2rem;
   }
 
   .article-hero h1 {
