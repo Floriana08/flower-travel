@@ -6,7 +6,7 @@ import { consultationTopics, site } from "../data";
 export const metadata: Metadata = {
   title: "Travel Consultations",
   description:
-    "Book a Flower Travel consultation for personal destination advice, itinerary review, honeymoon route thinking, and carefully researched next steps.",
+    "Book a Altrove consultation for personal destination advice, itinerary review, honeymoon route thinking, and carefully researched next steps.",
 };
 
 export default function TravelConsultationsPage() {
@@ -120,7 +120,7 @@ export default function TravelConsultationsPage() {
           <h2>The first product is trust.</h2>
         </div>
         <p>
-          Flower Travel is intentionally starting with content and
+          Altrove is intentionally starting with content and
           consultations. Curated planning, honeymoon design, downloadable
           resources, and packaged edits can grow from real reader behavior.
         </p>

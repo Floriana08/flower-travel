@@ -1,10 +1,57 @@
-<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flower Travel logo">
-  <rect x="4" y="4" width="88" height="88" rx="18" fill="#FFF7F6"/>
-  <svg x="16" y="10" width="64" height="70" viewBox="0 0 24 24" fill="none" stroke="#C76482" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1"/>
-    <circle cx="12" cy="8" r="2"/>
-    <path d="M12 10v12"/>
-    <path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z"/>
-    <path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z"/>
-  </svg>
+<svg width="280" height="360" viewBox="0 0 280 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Altrove Travel Journal — places worth travelling for">
+  <rect width="280" height="360" fill="#FDFBF7"/>
+
+  <!-- Mark -->
+  <g transform="translate(90 28)">
+    <path
+      d="M50 6C26.862 6 8 24.862 8 48V112H92V48C92 24.862 73.138 6 50 6Z"
+      stroke="#111111"
+      stroke-width="3.5"
+      fill="none"
+    />
+    <path
+      d="M14 112C20 88 32 76 50 76C68 76 80 88 86 112H14Z"
+      fill="#111111"
+    />
+    <path
+      d="M28 112C34 96 41 90 50 90C59 90 66 96 72 112H28Z"
+      fill="#FDFBF7"
+    />
+    <path
+      d="M50 38 L52.35 45.15 L60 45.7 L53.9 50.35 L56.2 57.8 L50 53.7 L43.8 57.8 L46.1 50.35 L40 45.7 L47.65 45.15 Z"
+      fill="#111111"
+    />
+  </g>
+
+  <text
+    x="140"
+    y="198"
+    text-anchor="middle"
+    fill="#111111"
+    font-family="Georgia, 'Times New Roman', Times, serif"
+    font-size="36"
+    letter-spacing="12"
+  >ALTROVE</text>
+
+  <text
+    x="140"
+    y="228"
+    text-anchor="middle"
+    fill="#111111"
+    font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+    font-size="10"
+    letter-spacing="5.5"
+  >TRAVEL JOURNAL</text>
+
+  <line x1="122" y1="250" x2="158" y2="250" stroke="#111111" stroke-width="1" />
+
+  <text
+    x="140"
+    y="280"
+    text-anchor="middle"
+    fill="#111111"
+    font-family="Georgia, 'Times New Roman', Times, serif"
+    font-size="14"
+    font-style="italic"
+  >places worth travelling for</text>
 </svg>

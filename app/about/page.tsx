@@ -13,20 +13,20 @@ const studioPillars = [
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Meet Flower Travel, a boutique editorial travel blog and club for slow itineraries, destination articles, personal stories, and thoughtful travel ideas.",
+    "Meet Altrove, a boutique editorial travel blog and club for slow itineraries, destination articles, personal stories, and thoughtful travel ideas.",
 };
 
 export default function AboutPage() {
   return (
     <main>
       <PageHero
-        eyebrow="About Flower Travel"
+        eyebrow="About Altrove"
         title="A travel studio with a magazine heart."
         image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=84"
         alt="A breakfast table on a terrace overlooking the sea"
       >
         <p>
-          Flower Travel is built for readers who want the romance of a beautiful
+          Altrove is built for readers who want the romance of a beautiful
           travel story and the relief of a plan that actually works.
         </p>
       </PageHero>
@@ -38,7 +38,7 @@ export default function AboutPage() {
         </div>
         <div className="story-copy">
           <p>
-            Flower Travel was born from a love of discovering the world with
+            Altrove was born from a love of discovering the world with
             curiosity, intention, and a well-planned itinerary. Choosing the
             right neighborhood, finding that unforgettable local restaurant,
             slowing down enough to enjoy the journey, and leaving room for the
@@ -50,9 +50,9 @@ export default function AboutPage() {
             confidence and make the most of every destination.
           </p>
           <p>
-            Flower Travel is a place for inspiration, practical advice, and
+            Altrove is a place for inspiration, practical advice, and
             beautiful stories, built on the idea that better travel starts long
-            before you board the plane. Welcome to Flower Travel.
+            before you board the plane. Welcome to Altrove.
           </p>
         </div>
       </section>
@@ -85,7 +85,7 @@ export default function AboutPage() {
           </p>
         </div>
         <Link className="button light" href="/club">
-          Join the Club
+          Join the Journal
         </Link>
       </section>
     </main>

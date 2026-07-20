@@ -7,7 +7,7 @@ import { guides } from "../data";
 export const metadata: Metadata = {
   title: "Travel Journal",
   description:
-    "Thoughtful stories for travelling better, from Flower Travel.",
+    "Thoughtful stories for travelling better, from Altrove.",
 };
 
 const journalCategories = [

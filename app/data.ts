@@ -1,16 +1,17 @@
 export const site = {
-  name: "Flower Travel",
-  strapline: "Southern Europe, beautifully",
+  name: "Altrove",
+  fullName: "Altrove Travel Journal",
+  strapline: "places worth travelling for",
   studioLine:
-    "An editorial travel magazine for curated destinations, graceful routes, favourite finds, and lower-impact ways to see the world.",
-  email: "hello@flowertravel.studio",
+    "An editorial travel journal for curated destinations, graceful routes, and places worth travelling for.",
+  email: "hello@altrove.studio",
 };
 
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/destinations", label: "Destinations" },
   { href: "/travel-guides", label: "Travel Journal" },
-  { href: "/club", label: "The Club" },
+  { href: "/club", label: "Journal" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -2092,7 +2093,7 @@ export const guides = [
   {
     slug: "train-travel-europe",
     section: "journal",
-    title: "The Flower Travel Guide to Easy Train Days in Europe",
+    title: "The Altrove Guide to Easy Train Days in Europe",
     category: "Planning",
     destination: "Europe",
     date: "May 30, 2026",

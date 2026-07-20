@@ -6,7 +6,7 @@ import { clubBenefits, site, travellerTypes } from "../data";
 export const metadata: Metadata = {
   title: "Club",
   description:
-    "Join the Flower Travel Club for thoughtful destination stories, planning advice, and hotel finds.",
+    "Join the Altrove Journal for thoughtful destination stories, planning advice, and hotel finds.",
 };
 
 function ClubBenefitIcon({ id }: { id: string }) {
@@ -99,7 +99,7 @@ export default function CommunityPage() {
     <main>
       <PageHero
         eyebrow="Club"
-        title="Join the Flower Travel Club"
+        title="Join the Altrove Journal"
         image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=84"
         alt="Soft waves washing onto a pale beach"
       >
@@ -111,7 +111,7 @@ export default function CommunityPage() {
       <section className="community-page section-shell">
         <div className="community-copy">
           <p className="community-intro">
-            The Flower Travel Club is a free editorial letter for people who
+            The Altrove Journal is a free editorial letter for people who
             love planning meaningful trips. Receive occasional emails with
             destination stories, practical planning advice, and hotel and
             restaurant finds worth saving.
@@ -136,7 +136,7 @@ export default function CommunityPage() {
 
         <aside className="community-form-panel" id="join">
           <p className="eyebrow">Join free</p>
-          <h2>Join the Flower Travel Club</h2>
+          <h2>Join the Altrove Journal</h2>
           <p>
             Tell us how you like to travel so the letter stays relevant.
           </p>
@@ -177,12 +177,12 @@ export default function CommunityPage() {
             <label className="consent-check">
               <input name="consent" type="checkbox" required />
               <span>
-                I agree to receive Flower Travel emails and understand I can
+                I agree to receive Altrove emails and understand I can
                 unsubscribe at any time.
               </span>
             </label>
             <button className="button dark" type="submit">
-              Join the Club
+              Join the Journal
             </button>
           </form>
 

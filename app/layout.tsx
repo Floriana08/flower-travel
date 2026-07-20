@@ -1,44 +1,45 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { DM_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { SiteFooter, SiteHeader } from "./components";
 
-const display = Cormorant_Garamond({
+const display = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
   variable: "--font-display",
   display: "swap",
 });
 
-const sans = Manrope({
+const sans = DM_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Flower Travel | Editorial Travel Blog and Club",
-    template: "%s | Flower Travel",
+    default: "Altrove | Travel Journal",
+    template: "%s | Altrove",
   },
   description:
-    "Flower Travel is an editorial travel journal for destination inspiration, thoughtful routes, and quieter ways to travel through Europe.",
+    "Altrove is an editorial travel journal for destination inspiration, thoughtful routes, and places worth travelling for.",
   keywords: [
-    "travel blog",
+    "travel journal",
     "destination articles",
     "curated itineraries",
     "travel club",
-    "Portugal travel blog",
+    "Portugal travel",
     "Italy travel",
     "Spain travel",
     "sustainable travel",
     "Europe travel",
     "boutique travel",
-    "honeymoon travel planning",
+    "editorial travel",
   ],
   openGraph: {
-    title: "Flower Travel",
+    title: "Altrove Travel Journal",
     description:
       "Thoughtful destination essays, route ideas, and a quieter travel letter for travellers who prefer character over crowds.",
     type: "website",

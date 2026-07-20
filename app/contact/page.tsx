@@ -6,7 +6,7 @@ import { site } from "../data";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Flower Travel for club notes, editorial collaborations, destination article ideas, and future travel partnerships.",
+    "Contact Altrove for club notes, editorial collaborations, destination article ideas, and future travel partnerships.",
 };
 
 export default function ContactPage() {
@@ -34,7 +34,7 @@ export default function ContactPage() {
             ideas, press, or destination suggestions.
           </p>
           <div className="contact-links">
-            <Link href="/club">Join the Club</Link>
+            <Link href="/club">Join the Journal</Link>
             <Link href="/destinations">Destination blog</Link>
           </div>
         </div>
@@ -77,7 +77,7 @@ export default function ContactPage() {
           <h2>Ask for the article you wish existed.</h2>
         </div>
         <p>
-          The next stage of Flower Travel should be shaped by real reader
+          The next stage of Altrove should be shaped by real reader
           questions: Portugal dilemmas, route ideas, sustainable travel worries,
           hotel criteria, and the planning details that are hard to find
           elsewhere.

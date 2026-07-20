@@ -20,9 +20,15 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <Link className="brand" href="/" aria-label={`${site.name} home`}>
-        <img className="brand-logo" src="/logo.svg" alt="" aria-hidden="true" />
-        <span>
+        <img
+          className="brand-logo"
+          src="/logo-mark.svg"
+          alt=""
+          aria-hidden="true"
+        />
+        <span className="brand-copy">
           <span className="brand-title">{site.name}</span>
+          <span className="brand-kicker">Travel Journal</span>
         </span>
       </Link>
 
@@ -35,7 +41,7 @@ export function SiteHeader() {
       </nav>
 
       <Link className="header-action" href="/club">
-        Join the Club
+        Join the Journal
       </Link>
 
       <details className="mobile-menu">
@@ -63,16 +69,18 @@ export function SiteFooter() {
         <Link className="brand footer-brand" href="/">
           <img
             className="brand-logo"
-            src="/logo.svg"
+            src="/logo-mark-light.svg"
             alt=""
             aria-hidden="true"
           />
-          <span>
+          <span className="brand-copy">
             <span className="brand-title">{site.name}</span>
+            <span className="brand-kicker">Travel Journal</span>
           </span>
         </Link>
+        <p className="footer-tagline">{site.strapline}</p>
         <p>
-          Researched routes, honest notes, and editorial planning for travelers
+          Researched routes, honest notes, and editorial planning for travellers
           who want taste, local feeling, and a lighter footprint.
         </p>
       </div>
@@ -311,8 +319,8 @@ export function GuideProductCard({
 }
 
 export function NewsletterBand({
-  title = "Join the Flower Travel Club",
-  description = "A thoughtful note for travellers who prefer character over crowds. Receive new destination stories, practical planning advice, hotel discoveries and occasional Club-only travel edits.",
+  title = "Join the Altrove Journal",
+  description = "A thoughtful note for travellers who prefer character over crowds. Receive new destination stories, practical planning advice, hotel discoveries and occasional journal-only travel edits.",
   placeholder = "Your email address",
   footnote = "No clutter. Just carefully chosen travel inspiration.",
 }: {
@@ -345,12 +353,12 @@ export function NewsletterBand({
         <label className="consent-check">
           <input name="consent" type="checkbox" required />
           <span>
-            I agree to receive Flower Travel emails and understand that I can
+            I agree to receive Altrove emails and understand that I can
             unsubscribe at any time.
           </span>
         </label>
         <button className="button dark" type="submit">
-          Join the Club
+          Join the Journal
         </button>
       </form>
     </section>
@@ -361,7 +369,7 @@ export function ConsultationCta() {
   return (
     <section className="consultation-strip">
       <div>
-        <p className="eyebrow">The Club</p>
+        <p className="eyebrow">The Journal</p>
         <h2>A quieter letter for better trips.</h2>
         <p>
           Destination stories, practical planning notes and hotel discoveries
@@ -369,7 +377,7 @@ export function ConsultationCta() {
         </p>
       </div>
       <Link className="button light" href="/club">
-        Join the Club
+        Join the Journal
       </Link>
     </section>
   );

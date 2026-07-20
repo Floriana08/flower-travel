@@ -6,7 +6,7 @@ import { itineraries } from "../data";
 export const metadata: Metadata = {
   title: "Routes",
   description:
-    "Browse Flower Travel route ideas with realistic pacing, thoughtful bases, beautiful detours, and practical planning notes.",
+    "Browse Altrove route ideas with realistic pacing, thoughtful bases, beautiful detours, and practical planning notes.",
 };
 
 export default function RoutesPage() {
@@ -67,12 +67,12 @@ export default function RoutesPage() {
           <h2>Want better routes without the packaged-holiday feeling?</h2>
           <p>
             Join the letter for Italy, Spain, Portugal route ideas,
-            positive-footprint travel thinking, and early signals while Flower
-            Travel learns what readers want.
+            positive-footprint travel thinking, and early signals while Altrove
+            learns what readers want.
           </p>
         </div>
         <Link className="button light" href="/club">
-          Join the Club
+          Join the Journal
         </Link>
       </section>
     </main>

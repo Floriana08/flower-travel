@@ -1,0 +1,24 @@
+<svg width="100" height="120" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Altrove">
+  <!-- Portal arch -->
+  <path
+    d="M50 6C26.862 6 8 24.862 8 48V112H92V48C92 24.862 73.138 6 50 6Z"
+    stroke="#111111"
+    stroke-width="3.5"
+    fill="none"
+  />
+  <!-- Outer hills -->
+  <path
+    d="M14 112C20 88 32 76 50 76C68 76 80 88 86 112H14Z"
+    fill="#111111"
+  />
+  <!-- Inner dune highlight -->
+  <path
+    d="M28 112C34 96 41 90 50 90C59 90 66 96 72 112H28Z"
+    fill="#FDFBF7"
+  />
+  <!-- North star -->
+  <path
+    d="M50 38 L52.35 45.15 L60 45.7 L53.9 50.35 L56.2 57.8 L50 53.7 L43.8 57.8 L46.1 50.35 L40 45.7 L47.65 45.15 Z"
+    fill="#111111"
+  />
+</svg>

@@ -91,8 +91,9 @@ export default function Home() {
           <span className="wave-layer wave-two" aria-hidden="true" />
         </div>
         <div className="hero-content reveal">
-          <p className="eyebrow">Travel better, not farther.</p>
-          <h1>Flower Travel</h1>
+          <p className="eyebrow">Travel Journal</p>
+          <h1>Altrove</h1>
+          <p className="hero-tagline">{site.strapline}</p>
           <p>
             Routes, guides, and local notes for trips with a strong sense of
             place.
@@ -102,7 +103,7 @@ export default function Home() {
               Explore destinations
             </Link>
             <Link className="button ghost-on-dark" href="/club">
-              Join the Club
+              Join the Journal
             </Link>
           </div>
         </div>

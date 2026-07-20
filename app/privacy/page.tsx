@@ -5,7 +5,7 @@ import { site } from "../data";
 export const metadata: Metadata = {
   title: "Privacy",
   description:
-    "Starter privacy note for Flower Travel Club signups, reader messages, and future newsletter communication.",
+    "Starter privacy note for Altrove Journal signups, reader messages, and future newsletter communication.",
 };
 
 export default function PrivacyPage() {
@@ -44,7 +44,7 @@ export default function PrivacyPage() {
             <section>
               <h2>What may be collected</h2>
               <p>
-                When you join the Club or contact Flower Travel, the site
+                When you Join the Journal or contact Altrove, the site
                 may receive the details you choose to send: email address, name,
                 travel interests, and your message.
               </p>
@@ -55,7 +55,7 @@ export default function PrivacyPage() {
               <p>
                 Your details may be used to reply to you, send Club
                 letters, understand what guides readers want, and shape future
-                Flower Travel services.
+                Altrove services.
               </p>
             </section>
 
@@ -71,7 +71,7 @@ export default function PrivacyPage() {
             <section>
               <h2>Future tools</h2>
               <p>
-                If Flower Travel later uses an email provider, analytics,
+                If Altrove later uses an email provider, analytics,
                 affiliate links, payment tools, downloadable guide checkout, or
                 reader accounts, this page should be updated to explain those
                 providers and purposes clearly.
