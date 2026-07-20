@@ -22,7 +22,7 @@ export function SiteHeader() {
       <Link className="brand" href="/" aria-label={`${site.name} home`}>
         <img
           className="brand-logo"
-          src="/logo-altrove.png?v=2"
+          src="/logo-altrove.png?v=5"
           alt={site.fullName}
         />
       </Link>
@@ -64,7 +64,7 @@ export function SiteFooter() {
         <Link className="brand footer-brand" href="/">
           <img
             className="brand-logo footer-logo"
-            src="/logo-altrove.png?v=2"
+            src="/logo-altrove.png?v=5"
             alt={site.fullName}
           />
         </Link>

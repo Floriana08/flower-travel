@@ -130,7 +130,7 @@ p {
   height: 72px;
   flex: 0 0 auto;
   object-fit: contain;
-  background: var(--paper);
+  background: transparent;
 }
 
 .footer-logo {
@@ -142,7 +142,8 @@ p {
   width: min(300px, 78vw);
   height: auto;
   margin-bottom: 10px;
-  background: var(--paper);
+  background: transparent;
+  filter: invert(1);
 }
 
 .brand-copy {
@@ -2653,7 +2654,8 @@ a.destination-article-card:focus-visible .destination-article-link {
 .site-footer .brand-logo,
 .site-footer .footer-logo {
   height: 148px;
-  background: var(--paper);
+  background: transparent;
+  filter: invert(1);
 }
 
 .site-footer h2 {
