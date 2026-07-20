@@ -19,10 +19,8 @@ export default function RoutesPage() {
         alt="A train traveling through a mountain valley"
       >
         <p>
-          These are not packaged holidays. They are carefully researched route
-          frameworks: where to begin, how many nights to stay, when to slow
-          down, and what might later become a deeper Club edit or paid route
-          pack.
+          Carefully researched route frameworks: where to begin, how many nights
+          to stay, when to slow down, and which detours are worth the day.
         </p>
       </PageHero>
 
@@ -32,9 +30,8 @@ export default function RoutesPage() {
           title="Built around pacing, not pressure."
         >
           <p>
-            Click any route to see the stops, suggested rhythm, pacing notes,
-            and how it could become a future Club-only edit or paid route
-            pack.
+            Open any route for stops, suggested rhythm and practical planning
+            notes.
           </p>
         </SectionHeading>
         <div className="itinerary-grid wide">

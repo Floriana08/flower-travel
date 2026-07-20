@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageHero, SectionHeading } from "../components";
+import { NewsletterBand, PageHero, SectionHeading } from "../components";
 import {
   destinationBlogArticles,
   destinations,
@@ -8,7 +8,6 @@ import {
   getDestination,
   getDestinationBrowseTiles,
   getDestinationItineraries,
-  getDestinationProfile,
   getMoodStories,
   getTravelMood,
   travelMoods,
@@ -19,32 +18,63 @@ import {
 export const metadata: Metadata = {
   title: "Destinations",
   description:
-    "Curated destination edits from Flower Travel, with itineraries, neighbourhood guides, restaurants, hotels, local discoveries, and lower-impact planning notes.",
+    "Browse countries, cities, regions and islands for thoughtful travel planning.",
 };
+
+type PlaceType = "country" | "city" | "region" | "island";
+
+const placeTypes: Record<string, PlaceType> = {
+  portugal: "country",
+  spain: "country",
+  italy: "country",
+  lisbon: "city",
+  naples: "city",
+  rome: "city",
+  milan: "city",
+  london: "city",
+  paris: "city",
+  marrakech: "city",
+  madeira: "island",
+  "greek-islands": "island",
+  "amalfi-coast": "region",
+  andalusia: "region",
+};
+
+const countryDescriptions: Record<string, string> = {
+  portugal:
+    "Golden cities, Atlantic coastlines, rail journeys and slower routes through Lisbon, Porto, the Douro and Madeira.",
+  italy:
+    "Regional journeys built around food, cities, coastlines, design and routes worth taking slowly.",
+  spain:
+    "Rail-linked cities, long lunches, warm shoulder seasons and routes shaped by rhythm rather than rush.",
+};
+
+const placeTypeFilters: Array<{ label: string; value?: PlaceType }> = [
+  { label: "All" },
+  { label: "Countries", value: "country" },
+  { label: "Cities", value: "city" },
+  { label: "Regions", value: "region" },
+  { label: "Islands", value: "island" },
+];
 
 type DestinationsPageProps = {
-  searchParams?: Promise<{ q?: string; mood?: string }>;
+  searchParams?: Promise<{ q?: string; mood?: string; type?: string }>;
 };
 
-function isCountryDestination(destination: (typeof destinations)[number]) {
-  return destination.title === destination.country;
-}
-
-function getDestinationDepth(destination: (typeof destinations)[number]) {
-  const relatedSlugs = isCountryDestination(destination)
-    ? destinations
-        .filter((item) => item.country === destination.country)
-        .map((item) => item.slug)
-    : [destination.slug];
+function getCountryDepth(destination: (typeof destinations)[number]) {
+  const relatedSlugs = destinations
+    .filter((item) => item.country === destination.country)
+    .map((item) => item.slug);
   const articles = destinationBlogArticles.filter((article) =>
     relatedSlugs.includes(article.destinationSlug),
-  );
-  const itineraries = getDestinationItineraries(destination.slug);
+  ).length;
+  const itineraries = new Set(
+    relatedSlugs.flatMap((slug) =>
+      getDestinationItineraries(slug).map((itinerary) => itinerary.slug),
+    ),
+  ).size;
 
-  return {
-    articles: articles.length,
-    itineraries: itineraries.length,
-  };
+  return { articles, itineraries };
 }
 
 function matchesSearch(
@@ -55,59 +85,84 @@ function matchesSearch(
     return true;
   }
 
-  const profile = getDestinationProfile(destination.slug);
-  const haystack = [
+  return [
     destination.title,
     destination.country,
-    destination.continent,
     destination.region,
     destination.mood,
     destination.bestFor,
     destination.excerpt,
     ...destination.highlights,
-    profile.overview,
-    ...profile.chapters.map((chapter) => chapter.title),
-    ...profile.chapters.map((chapter) => chapter.description),
   ]
     .join(" ")
-    .toLowerCase();
-
-  return haystack.includes(query);
+    .toLowerCase()
+    .includes(query);
 }
 
-function DestinationDiscoveryCard({
+function getDestinationsHref(
+  params: { q?: string; mood?: string; type?: string } | undefined,
+  updates: Record<string, string | undefined>,
+  hash = "",
+) {
+  const search = new URLSearchParams();
+  const values = { q: params?.q, mood: params?.mood, type: params?.type, ...updates };
+
+  Object.entries(values).forEach(([key, value]) => {
+    if (value) {
+      search.set(key, value);
+    }
+  });
+
+  return `/destinations${search.size ? `?${search.toString()}` : ""}${hash}`;
+}
+
+function CountryBrowseCard({
   destination,
-  featured = false,
 }: {
   destination: (typeof destinations)[number];
-  featured?: boolean;
 }) {
-  const profile = getDestinationProfile(destination.slug);
-  const depth = getDestinationDepth(destination);
+  const depth = getCountryDepth(destination);
   const stats = [
-    `${depth.articles} ${depth.articles === 1 ? "article" : "articles"}`,
-    `${depth.itineraries} ${
-      depth.itineraries === 1 ? "itinerary" : "itineraries"
-    }`,
-  ].join(" / ");
+    depth.articles
+      ? `${depth.articles} ${depth.articles === 1 ? "article" : "articles"}`
+      : null,
+    depth.itineraries
+      ? `${depth.itineraries} ${
+          depth.itineraries === 1 ? "itinerary" : "itineraries"
+        }`
+      : null,
+  ].filter(Boolean);
 
   return (
-    <Link
-      className={`destination-discovery-card${featured ? " featured" : ""}`}
-      href={`/destinations/${destination.slug}`}
-    >
-      <img src={destination.image} alt={destination.alt} loading="lazy" />
-      <span className="destination-discovery-overlay" aria-hidden="true" />
-      <div className="destination-discovery-copy">
-        <p>{stats}</p>
+    <article className="country-browse-card">
+      <Link
+        href={`/destinations/${destination.slug}`}
+        aria-label={`Explore ${destination.title}`}
+      >
+        <img src={destination.image} alt={destination.alt} loading="lazy" />
+      </Link>
+      <div className="country-browse-card-copy">
         <h3>{destination.title}</h3>
-        <span>{profile.overview}</span>
+        <p>{countryDescriptions[destination.slug]}</p>
+        {stats.length > 0 ? (
+          <p className="country-browse-card-meta">{stats.join(" · ")}</p>
+        ) : null}
+        <Link className="text-link" href={`/destinations/${destination.slug}`}>
+          Explore {destination.title}
+        </Link>
       </div>
-    </Link>
+    </article>
   );
 }
 
 function MoodStoryCard({ story }: { story: MoodStory }) {
+  const cta =
+    story.contentType === "Itinerary"
+      ? "View itinerary"
+      : story.contentType === "Destination"
+        ? "Explore destination"
+        : "Read story";
+
   return (
     <article className="mood-story-card card">
       <Link href={story.href} aria-label={story.title}>
@@ -119,16 +174,10 @@ function MoodStoryCard({ story }: { story: MoodStory }) {
           {story.meta ? <span>{story.meta}</span> : null}
         </div>
         <h3>{story.title}</h3>
-        {story.location ? (
-          <p className="mood-story-location">{story.location}</p>
-        ) : null}
+        {story.location ? <p className="mood-story-location">{story.location}</p> : null}
         <p>{story.excerpt}</p>
         <Link className="text-link" href={story.href}>
-          {story.contentType === "Itinerary"
-            ? "View itinerary"
-            : story.contentType === "Destination"
-              ? "Explore destination"
-              : "Read story"}
+          {cta}
         </Link>
       </div>
     </article>
@@ -140,233 +189,183 @@ export default async function DestinationsPage({
 }: DestinationsPageProps) {
   const params = await searchParams;
   const query = (params?.q ?? "").trim().toLowerCase();
-  const hasQuery = query.length > 0;
   const selectedMood = getTravelMood(params?.mood ?? "");
   const selectedMoodSlug = selectedMood?.slug as TravelMoodSlug | undefined;
-  const featuredDestinations = featuredDestinationSlugs
+  const selectedType = placeTypeFilters.some(
+    (filter) => filter.value === params?.type,
+  )
+    ? (params?.type as PlaceType | undefined)
+    : undefined;
+  const countryDestinations = featuredDestinationSlugs
     .map((slug) => getDestination(slug))
     .filter((destination): destination is (typeof destinations)[number] =>
       Boolean(destination),
-    )
-    .filter(isCountryDestination);
+    );
   const browseTiles = getDestinationBrowseTiles();
-  const filteredTiles = browseTiles.filter((tile) =>
-    matchesSearch(tile.destination, query),
+  const visibleTiles = browseTiles.filter(
+    (tile) =>
+      matchesSearch(tile.destination, query) &&
+      (!selectedType || placeTypes[tile.slug] === selectedType),
   );
-  const moodStories = selectedMoodSlug
-    ? getMoodStories(selectedMoodSlug)
-    : [];
+  const moodStories = selectedMoodSlug ? getMoodStories(selectedMoodSlug) : [];
 
   return (
     <main>
-      <PageHero eyebrow="Destinations" title="Browse destinations, not bucket lists.">
-        <p>
-          Open a place for its overview, itineraries, neighbourhood notes,
-          restaurants, local discoveries, map points, journal stories, and
-          future Club extras.
-        </p>
+      <PageHero eyebrow="Destinations" title="Find your next place">
+        <p>Browse by country or by the kind of trip you want to take.</p>
       </PageHero>
 
       <section className="destination-search section-shell">
-        <form action="/destinations#destination-results" method="get" role="search">
-          <label htmlFor="destination-search">Where would you like to go?</label>
+        <form action="/destinations#all-destinations" method="get" role="search">
+          <label htmlFor="destination-search">Search destinations</label>
           <div className="destination-search-row">
             <input
               id="destination-search"
               name="q"
               type="search"
-              placeholder="Search destinations, cities or experiences..."
+              placeholder="Search a country, city or travel mood"
               defaultValue={params?.q ?? ""}
             />
             {selectedMoodSlug ? (
               <input type="hidden" name="mood" value={selectedMoodSlug} />
             ) : null}
+            {selectedType ? <input type="hidden" name="type" value={selectedType} /> : null}
             <button className="button dark" type="submit">
               Search
             </button>
           </div>
         </form>
-        <span
-          className="destination-results-anchor"
-          id="destination-results"
-          aria-hidden="true"
-        />
-        {hasQuery ? (
-          <div className="destination-inline-results">
-            <SectionHeading
-              eyebrow="Search results"
-              title={`${filteredTiles.length} ${
-                filteredTiles.length === 1 ? "place" : "places"
-              } for "${params?.q}"`}
-            >
-              <p>
-                Results now appear here first, so you can move straight from a
-                search into the destination edit.
-              </p>
-            </SectionHeading>
-
-            {filteredTiles.length > 0 ? (
-              <div className="destination-discovery-grid compact">
-                {filteredTiles.map((tile) => (
-                  <DestinationDiscoveryCard
-                    key={tile.slug}
-                    destination={tile.destination}
-                  />
-                ))}
-              </div>
-            ) : (
-              <div className="destination-no-results">
-                <h3>No destination matched that search.</h3>
-                <p>
-                  Try a place, country, mood, food, coast, train, design, or
-                  honeymoon.
-                </p>
-                <Link className="text-link" href="/destinations">
-                  Browse all destinations
-                </Link>
-              </div>
-            )}
-          </div>
-        ) : null}
       </section>
 
       <section className="section-shell destination-feature-section">
-        <SectionHeading
-          eyebrow="Start here"
-          title="Countries to begin with."
-        >
-          <p>
-            Start with a country edit first. Each one gathers itineraries,
-            neighbourhood notes and local recommendations so you can plan with
-            confidence before choosing a city or region.
-          </p>
+        <SectionHeading eyebrow="Browse by country" title="Start with the map.">
+          <p>Three ways into Europe, each with plenty of room to make the trip your own.</p>
         </SectionHeading>
-
-        <div className="destination-discovery-grid featured">
-          {featuredDestinations.map((destination) => (
-            <DestinationDiscoveryCard
-              key={destination.slug}
-              destination={destination}
-              featured
-            />
+        <div className="country-browse-grid">
+          {countryDestinations.map((destination) => (
+            <CountryBrowseCard key={destination.slug} destination={destination} />
           ))}
         </div>
       </section>
 
       <section className="section-shell tinted" id="travel-by-mood">
-        <SectionHeading eyebrow="Travel by mood" title="Not sure where to go?">
-          <p>
-            Sometimes the best trip starts with a feeling rather than a
-            destination. Browse by the kind of experience you&apos;re looking for.
-          </p>
+        <SectionHeading eyebrow="Travel by mood" title="Start with how you want to feel.">
+          <p>Choose a mood to see destinations, itineraries and stories with a shared rhythm.</p>
         </SectionHeading>
-
         <div className="mood-toolbar">
           <Link
             className={`mood-show-all${selectedMoodSlug ? "" : " is-active"}`}
-            href="/destinations#travel-by-mood"
+            href={getDestinationsHref(params, { mood: undefined }, "#travel-by-mood")}
           >
             Show all
           </Link>
         </div>
-
         <div className="mood-grid">
           {travelMoods.map((mood) => {
             const isActive = selectedMoodSlug === mood.slug;
+
             return (
               <Link
                 className={`mood-card${isActive ? " is-active" : ""}`}
-                href={
-                  isActive
-                    ? "/destinations#travel-by-mood"
-                    : `/destinations?mood=${mood.slug}#mood-results`
-                }
+                href={getDestinationsHref(params, { mood: mood.slug }, "#mood-results")}
                 key={mood.slug}
                 aria-current={isActive ? "true" : undefined}
               >
                 <span className="mood-card-kicker">Mood</span>
                 <h3>{mood.title}</h3>
                 <p>{mood.description}</p>
-                <span className="mood-card-link">
-                  {isActive ? "Selected" : "View stories"}
-                </span>
+                <span className="mood-card-link">View stories</span>
               </Link>
             );
           })}
         </div>
 
-        {selectedMood ? (
-          <div className="mood-results" id="mood-results">
-            <SectionHeading
-              eyebrow="Stories for this mood"
-              title={selectedMood.title}
-            >
-              <p>
-                Destinations, itineraries and journal stories linked to this
-                mood.
-              </p>
-            </SectionHeading>
+        <div className="mood-results" id="mood-results">
+          {selectedMood ? (
+            <>
+              <SectionHeading eyebrow="Mood results" title={selectedMood.title}>
+                <p>Stories and routes chosen for this kind of trip.</p>
+              </SectionHeading>
+              {moodStories.length > 0 ? (
+                <div className="mood-story-grid">
+                  {moodStories.map((story) => (
+                    <MoodStoryCard key={story.id} story={story} />
+                  ))}
+                </div>
+              ) : (
+                <div className="destination-no-results">
+                  <h3>No stories match this mood.</h3>
+                  <Link
+                    className="text-link"
+                    href={getDestinationsHref(params, { mood: undefined }, "#travel-by-mood")}
+                  >
+                    Show all moods
+                  </Link>
+                </div>
+              )}
+            </>
+          ) : null}
+        </div>
+      </section>
 
-            {moodStories.length > 0 ? (
-              <div className="mood-story-grid">
-                {moodStories.map((story) => (
-                  <MoodStoryCard key={story.id} story={story} />
-                ))}
-              </div>
-            ) : (
-              <div className="destination-no-results">
-                <h3>No stories are linked to this mood yet.</h3>
-                <Link className="text-link" href="/destinations#travel-by-mood">
-                  Show all moods
+      <section className="section-shell" id="all-destinations">
+        <SectionHeading eyebrow="All destinations" title="Browse the collection.">
+          <p>Countries, cities, regions and islands, gathered in one place.</p>
+        </SectionHeading>
+        <nav className="destination-type-filters" aria-label="Filter destinations by type">
+          {placeTypeFilters.map((filter) => {
+            const isActive = selectedType === filter.value;
+
+            return (
+              <Link
+                key={filter.label}
+                className={`destination-type-filter${isActive ? " is-active" : ""}`}
+                href={getDestinationsHref(
+                  params,
+                  { type: filter.value },
+                  "#all-destinations",
+                )}
+                aria-current={isActive ? "true" : undefined}
+              >
+                {filter.label}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {visibleTiles.length > 0 ? (
+          <div className="destination-discovery-grid compact">
+            {visibleTiles.map((tile) => (
+              <article className="destination-card card" key={tile.slug}>
+                <Link href={`/destinations/${tile.slug}`} aria-label={tile.label}>
+                  <img
+                    src={tile.destination.image}
+                    alt={tile.destination.alt}
+                    loading="lazy"
+                  />
                 </Link>
-              </div>
-            )}
+                <div className="card-body">
+                  <p className="eyebrow">{placeTypes[tile.slug]}</p>
+                  <h3>{tile.label}</h3>
+                  <p>{tile.destination.excerpt}</p>
+                  <Link className="text-link" href={`/destinations/${tile.slug}`}>
+                    Explore {tile.label}
+                  </Link>
+                </div>
+              </article>
+            ))}
           </div>
         ) : (
-          <span
-            className="destination-results-anchor"
-            id="mood-results"
-            aria-hidden="true"
-          />
+          <div className="destination-no-results">
+            <h3>No destinations match those filters.</h3>
+            <Link className="text-link" href="/destinations#all-destinations">
+              Clear filters
+            </Link>
+          </div>
         )}
       </section>
 
-      <section className="section-shell">
-        <SectionHeading
-          eyebrow="Browse all destinations"
-          title="Explore the collection."
-        >
-          <p>
-            Countries, cities and regions currently available. More places can
-            be added as the editorial collection grows.
-          </p>
-        </SectionHeading>
-
-        <div className="destination-discovery-grid compact">
-          {browseTiles.map((tile) => (
-            <DestinationDiscoveryCard
-              key={tile.slug}
-              destination={tile.destination}
-            />
-          ))}
-        </div>
-      </section>
-
-      <section className="editorial-band">
-        <div>
-          <p className="eyebrow">Club Extras</p>
-          <br />
-          <h2>Coming soon</h2>
-        </div>
-        <p>
-          Some destinations will eventually include downloadable guides,
-          interactive maps, boutique hotel collections and member-only
-          recommendations.
-        </p>
-        <Link className="button dark" href="/club">
-          Join the Club
-        </Link>
-      </section>
+      <NewsletterBand />
     </main>
   );
 }

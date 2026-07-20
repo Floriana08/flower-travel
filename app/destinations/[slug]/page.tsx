@@ -502,81 +502,55 @@ export default async function DestinationDetailPage({ params }: PageProps) {
                 })}
               </div>
             </section>
-          ) : (
+          ) : articles.length > 0 ? (
             <section>
               <SectionHeading
                 eyebrow="Journal"
-                title={`Articles linked to ${destination.title.split(",")[0]}.`}
+                title={`From the ${destination.title.split(",")[0]} Journal`}
               >
                 <p>
-                  City notes, restaurant edits, route ideas, hotel thoughts, and
-                  personal observations can grow here over time.
+                  Neighbourhood notes, hotel edits and thoughtful routes for
+                  this destination.
                 </p>
               </SectionHeading>
 
-              {articles.length > 0 ? (
-                <div className="destination-article-list">
-                  {articles.map((article) => (
-                    <article
-                      className="destination-article-row"
-                      key={article.slug}
-                    >
-                      <div>
-                        <div className="meta-line">
-                          <span>{article.category}</span>
-                          <span>{article.readTime}</span>
-                        </div>
-                        <h3>{article.title}</h3>
-                        <p>{article.excerpt}</p>
+              <div className="destination-article-list">
+                {articles.map((article) => (
+                  <article
+                    className="destination-article-row"
+                    key={article.slug}
+                  >
+                    <div>
+                      <div className="meta-line">
+                        <span>{article.category}</span>
+                        <span>{article.readTime}</span>
                       </div>
-                      <Link
-                        className="text-link"
-                        href={`/destinations/${destination.slug}/articles/${article.slug}`}
-                      >
-                        Read story
-                      </Link>
-                    </article>
-                  ))}
-                </div>
-              ) : (
-                <div className="article-panel">
-                  <h2>Journal coming next</h2>
-                  <p>
-                    This destination is ready for future articles, hotel notes,
-                    restaurant edits, and local favourites.
-                  </p>
-                </div>
-              )}
-            </section>
-          )}
-
-          {isPortugal ? null : (
-            <section className="club-extras-panel">
-              <p className="eyebrow">Club Extras</p>
-              <h2>Future member additions for this destination.</h2>
-              <ul>
-                {profile.clubExtras.map((extra) => (
-                  <li key={extra}>{extra}</li>
+                      <h3>{article.title}</h3>
+                      <p>{article.excerpt}</p>
+                    </div>
+                    <Link
+                      className="text-link"
+                      href={`/destinations/${destination.slug}/articles/${article.slug}`}
+                    >
+                      Read story
+                    </Link>
+                  </article>
                 ))}
-              </ul>
+              </div>
             </section>
-          )}
+          ) : null}
         </div>
       </section>
 
       <section className="section-shell tinted">
         <SectionHeading
-          eyebrow={isPortugal ? "Related destinations" : "Keep browsing"}
-          title={
-            isPortugal ? "Continue exploring" : "More destinations in the archive."
-          }
+          eyebrow="Related destinations"
+          title="Continue exploring"
         >
-          {isPortugal ? (
-            <p>
-              More places for travellers who prefer character, atmosphere and a
-              slower pace.
-            </p>
-          ) : null}
+          <p>
+            More places for travellers who prefer character, atmosphere and a
+            slower pace.
+          </p>
         </SectionHeading>
         <div className="destination-grid">
           {relatedDestinations.map((relatedDestination) => (

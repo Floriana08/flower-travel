@@ -312,9 +312,9 @@ export function GuideProductCard({
 
 export function NewsletterBand({
   title = "Join the Flower Travel Club",
-  description = "Become part of a community of travellers who love discovering places with more character and fewer crowds.",
-  placeholder = "you@example.com",
-  footnote,
+  description = "A thoughtful note for travellers who prefer character over crowds. Receive new destination stories, practical planning advice, hotel discoveries and occasional Club-only travel edits.",
+  placeholder = "Your email address",
+  footnote = "No clutter. Just carefully chosen travel inspiration.",
 }: {
   title?: string;
   description?: string;
@@ -362,13 +362,10 @@ export function ConsultationCta() {
     <section className="consultation-strip">
       <div>
         <p className="eyebrow">The Club</p>
-        <h2>
-          A travel club for people who want to go beautifully and lightly.
-        </h2>
+        <h2>A quieter letter for better trips.</h2>
         <p>
-          Start with the free letter: Italy, Spain, and Portugal notes,
-          thoughtful destination essays, sustainable route ideas, and early
-          signals as Flower Travel learns what readers want.
+          Destination stories, practical planning notes and hotel discoveries
+          for travellers who prefer character over crowds.
         </p>
       </div>
       <Link className="button light" href="/club">

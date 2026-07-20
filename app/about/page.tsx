@@ -77,13 +77,11 @@ export default function AboutPage() {
 
       <section className="consultation-strip">
         <div>
-          <p className="eyebrow">Next chapter</p>
-          <h2>Don't Miss the Next Story</h2>
+          <p className="eyebrow">The Club</p>
+          <h2>A quieter letter for better trips</h2>
           <p>
-            The Club is a community of curious travelers who value quality over
-            checklists. Members receive early access to new guides, insider
-            recommendations, and, in time, exclusive travel benefits, curated
-            experiences, and carefully selected partner perks.
+            Destination stories, practical planning notes and hotel discoveries
+            for travellers who prefer character over crowds.
           </p>
         </div>
         <Link className="button light" href="/club">

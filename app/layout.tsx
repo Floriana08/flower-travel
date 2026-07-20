@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s | Flower Travel",
   },
   description:
-    "Flower Travel is an editorial travel blog and club for destination inspiration, Italy, Spain, Portugal notes, graceful routes, and lower-impact ways to travel beautifully.",
+    "Flower Travel is an editorial travel journal for destination inspiration, thoughtful routes, and quieter ways to travel through Europe.",
   keywords: [
     "travel blog",
     "destination articles",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Flower Travel",
     description:
-      "Thoughtful destination essays, Italy, Spain, Portugal notes, route ideas, and a future travel club.",
+      "Thoughtful destination essays, route ideas, and a quieter travel letter for travellers who prefer character over crowds.",
     type: "website",
     images: [
       {

@@ -7,56 +7,41 @@ import { guides } from "../data";
 export const metadata: Metadata = {
   title: "Travel Journal",
   description:
-    "Thoughtful stories for travelling better: destination ideas, practical advice, honeymoon inspiration, lower-impact travel, packing edits, and personal notes from Flower Travel.",
+    "Thoughtful stories for travelling better, from Flower Travel.",
 };
 
 const journalCategories = [
-  { label: "Planning", href: "#planning-well" },
+  { label: "Planning", href: "#planning" },
   { label: "Lower-impact travel", href: "#lower-impact" },
-  { label: "Honeymoons", href: "#featured-story" },
+  { label: "Honeymoons", href: "#planning" },
   { label: "Personal stories", href: "#personal-stories" },
-  { label: "Packing", href: "#planning-well" },
+  { label: "Destination guides", href: "#destinations" },
 ] as const;
 
-const featuredSlug = "choosing-a-honeymoon-route";
+const featuredSlug = "where-to-stay-lisbon";
 
 const latestSlugs = [
   "solo-paris-weekend",
-  "choosing-a-honeymoon-route",
+  "madeira-first-timers",
+  "rome-food-walk",
   "train-travel-europe",
-  "travel-insurance-worth-it",
-  "sustainable-travel-basics",
-  "carry-on-packing-edit",
 ];
 
 const planningSlugs = [
   "travel-insurance-worth-it",
-  "train-travel-europe",
   "carry-on-packing-edit",
   "choosing-a-honeymoon-route",
 ];
 
 const lowerImpactSlugs = [
   "sustainable-travel-basics",
-  "train-travel-europe",
   "patagonia-without-rushing",
   "japan-rail-first-edit",
 ];
 
 const personalStorySlugs = [
-  "solo-paris-weekend",
-  "choosing-a-honeymoon-route",
   "morocco-riad-first-edit",
   "galapagos-twelve-days",
-];
-
-const destinationStorySlugs = [
-  "where-to-stay-lisbon",
-  "madeira-first-timers",
-  "rome-food-walk",
-  "galapagos-twelve-days",
-  "japan-rail-first-edit",
-  "morocco-riad-first-edit",
 ];
 
 function storiesFromSlugs(slugs: string[]) {
@@ -88,23 +73,18 @@ export default function TravelJournalPage() {
   const planningStories = storiesFromSlugs(planningSlugs);
   const lowerImpactStories = storiesFromSlugs(lowerImpactSlugs);
   const personalStories = storiesFromSlugs(personalStorySlugs);
-  const destinationStories = storiesFromSlugs(destinationStorySlugs);
 
   return (
     <main>
       <PageHero
         eyebrow="Travel Journal"
-        title="Thoughtful stories for travelling better"
+        title="Stories for travelling better"
         image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=84"
         alt="Soft waves on a pale beach at dusk"
       >
         <p>
           Destination ideas, practical advice and personal notes for travellers
           who care about how a journey feels, not just where it goes.
-        </p>
-        <p>
-          Explore slower routes, honeymoon inspiration, considered packing,
-          lower-impact travel and honest stories from the road.
         </p>
       </PageHero>
 
@@ -158,36 +138,18 @@ export default function TravelJournalPage() {
         <EditorialCarousel
           title="Latest from the Journal"
           ariaLabel="Latest travel journal stories"
-          intro={
-            <p>
-              Fresh stories, practical guides and personal edits from Flower
-              Travel.
-            </p>
-          }
         >
           {latestStories.map((guide) => (
             <JournalStoryCard key={guide.slug} guide={guide} />
           ))}
         </EditorialCarousel>
-        <p className="journal-section-footer">
-          <Link className="text-link" href="#journal-sections">
-            View all stories
-          </Link>
-        </p>
       </section>
 
       <div id="journal-sections">
-        <section className="section-shell" id="planning-well">
+        <section className="section-shell" id="planning">
           <EditorialCarousel
-            eyebrow="Planning well"
-            title="Plan well, travel lightly"
+            title="Planning"
             ariaLabel="Travel planning articles"
-            intro={
-              <p>
-                Practical advice for making clearer decisions before you leave,
-                without planning every hour of the trip.
-              </p>
-            }
           >
             {planningStories.map((guide) => (
               <JournalStoryCard key={guide.slug} guide={guide} />
@@ -197,15 +159,8 @@ export default function TravelJournalPage() {
 
         <section className="section-shell tinted" id="lower-impact">
           <EditorialCarousel
-            eyebrow="Lower-impact travel"
-            title="Travel with a lighter footprint"
+            title="Lower-impact travel"
             ariaLabel="Lower-impact travel stories"
-            intro={
-              <p>
-                Slower routes, longer stays and more thoughtful ways to
-                experience a place.
-              </p>
-            }
           >
             {lowerImpactStories.map((guide) => (
               <JournalStoryCard key={guide.slug} guide={guide} />
@@ -215,14 +170,8 @@ export default function TravelJournalPage() {
 
         <section className="section-shell" id="personal-stories">
           <EditorialCarousel
-            title="Stories worth lingering over"
+            title="Personal stories"
             ariaLabel="Personal travel stories"
-            intro={
-              <p>
-                Personal journeys, romantic routes and places that stayed with
-                us long after the trip ended.
-              </p>
-            }
           >
             {personalStories.map((guide) => (
               <JournalStoryCard key={guide.slug} guide={guide} />
@@ -230,21 +179,7 @@ export default function TravelJournalPage() {
           </EditorialCarousel>
         </section>
 
-        <section className="section-shell tinted" id="destination-stories">
-          <EditorialCarousel
-            title="Destination stories"
-            ariaLabel="Destination stories from the Flower Travel collection"
-            intro={
-              <p>
-                Hotel notes, food guides and thoughtful itineraries from places
-                across the Flower Travel collection.
-              </p>
-            }
-          >
-            {destinationStories.map((guide) => (
-              <JournalStoryCard key={guide.slug} guide={guide} />
-            ))}
-          </EditorialCarousel>
+        <section className="section-shell tinted" id="destinations">
           <p className="journal-section-footer">
             <Link className="text-link" href="/destinations">
               Explore all destinations
@@ -253,11 +188,7 @@ export default function TravelJournalPage() {
         </section>
       </div>
 
-      <NewsletterBand
-        description="A thoughtful note for travellers who prefer character over crowds. Receive new destination stories, practical planning advice, hotel discoveries and occasional Club-only travel edits."
-        placeholder="Your email address"
-        footnote="No clutter. Just carefully chosen travel inspiration."
-      />
+      <NewsletterBand />
     </main>
   );
 }

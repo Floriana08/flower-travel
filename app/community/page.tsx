@@ -6,7 +6,7 @@ import { clubBenefits, site, travellerTypes } from "../data";
 export const metadata: Metadata = {
   title: "Club",
   description:
-    "Join the Flower Travel Club for curated travel inspiration, early access to destination guides, exclusive itineraries, and boutique hotel and restaurant recommendations.",
+    "Join the Flower Travel Club for thoughtful destination stories, planning advice, and hotel finds.",
 };
 
 function ClubBenefitIcon({ id }: { id: string }) {
@@ -104,24 +104,21 @@ export default function CommunityPage() {
         alt="Soft waves washing onto a pale beach"
       >
         <p>
-          Curated travel inspiration, thoughtful itineraries and the best local
-          discoveries, delivered before anyone else.
+          A thoughtful note for travellers who prefer character over crowds.
         </p>
       </PageHero>
 
       <section className="community-page section-shell">
         <div className="community-copy">
           <p className="community-intro">
-            The Flower Travel Club is for people who love planning unforgettable
-            trips. Members receive new destination guides, carefully researched
-            itineraries, hotel recommendations and travel inspiration before
-            they&apos;re published on the website. As the community grows,
-            members will also help shape what Flower Travel becomes next, from
-            exclusive guides to curated trips and travel perks.
+            The Flower Travel Club is a free editorial letter for people who
+            love planning meaningful trips. Receive occasional emails with
+            destination stories, practical planning advice, and hotel and
+            restaurant finds worth saving.
           </p>
 
           <h2 className="community-benefits-heading">
-            As a Club member you&apos;ll receive
+            In the letter
           </h2>
 
           <div className="community-values">
@@ -138,11 +135,10 @@ export default function CommunityPage() {
         </div>
 
         <aside className="community-form-panel" id="join">
-          <p className="eyebrow">Early access</p>
+          <p className="eyebrow">Join free</p>
           <h2>Join the Flower Travel Club</h2>
           <p>
-            Tell us what kind of traveller you are, and we&apos;ll shape the
-            guides, routes, and recommendations around what matters to you.
+            Tell us how you like to travel so the letter stays relevant.
           </p>
 
           <form

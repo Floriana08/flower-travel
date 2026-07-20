@@ -29,26 +29,27 @@ export const travellerTypes = [
 export const clubBenefits = [
   {
     id: "early-access",
-    title: "Early access",
-    description: "Read new destination guides before everyone else.",
+    title: "New destination stories",
+    description:
+      "Read carefully edited guides and route notes as they are published.",
   },
   {
     id: "itineraries",
-    title: "Exclusive itineraries",
+    title: "Practical planning advice",
     description:
-      "Occasional members-only travel routes and downloadable guides.",
+      "Season timing, pacing notes and small decisions that change a trip.",
   },
   {
     id: "recommendations",
-    title: "Boutique recommendations",
+    title: "Hotel and restaurant finds",
     description:
-      "Hotels, restaurants and local experiences I'd genuinely recommend.",
+      "Boutique stays and tables worth planning around, chosen with care.",
   },
   {
     id: "email",
-    title: "One thoughtful email",
+    title: "One thoughtful note",
     description:
-      "No spam. Just the best places I've discovered and the stories worth sharing.",
+      "Occasional emails. No clutter. Easy to unsubscribe whenever you like.",
   },
 ];
 
@@ -1436,8 +1437,8 @@ export const destinationItineraryMap: Record<string, string[]> = {
   milan: ["milan-lake-como-weekend"],
   london: ["london-neighbourhood-weekend"],
   paris: ["paris-without-rushing"],
-  "greek-islands": ["sicily-coastal-route"],
-  marrakech: ["andalusia-slow-route"],
+  "greek-islands": [],
+  marrakech: [],
 };
 
 export function getDestinationItineraries(destinationSlug: string) {
