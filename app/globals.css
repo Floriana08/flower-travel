@@ -72,26 +72,26 @@ p {
 h1,
 h2,
 h3 {
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
   font-weight: 500;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 h1 {
-  font-size: clamp(3.2rem, 6.5vw, 4.85rem);
-  line-height: 0.96;
+  font-size: clamp(2.8rem, 5.8vw, 4.4rem);
+  line-height: 1.02;
   font-weight: 500;
 }
 
 h2 {
-  font-size: clamp(2rem, 3.4vw, 2.65rem);
-  line-height: 1.05;
+  font-size: clamp(1.85rem, 3.2vw, 2.45rem);
+  line-height: 1.1;
   font-weight: 500;
 }
 
 h3 {
-  font-size: 1.42rem;
-  line-height: 1.2;
+  font-size: 1.28rem;
+  line-height: 1.25;
   font-weight: 500;
 }
 
@@ -154,10 +154,10 @@ p {
 }
 
 .brand-name {
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
-  font-size: clamp(1.35rem, 1.6vw, 1.7rem);
+  font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(1.2rem, 1.5vw, 1.45rem);
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   line-height: 0.95;
   text-transform: uppercase;
   white-space: nowrap;
@@ -165,9 +165,9 @@ p {
 
 .brand-descriptor {
   font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.55rem;
+  font-size: 0.52rem;
   font-weight: 500;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.34em;
   line-height: 1;
   text-transform: uppercase;
   color: var(--muted);
@@ -190,19 +190,19 @@ p {
 }
 
 .brand-lockup-name {
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
-  font-size: clamp(1.8rem, 3vw, 2.35rem);
+  font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(1.65rem, 2.8vw, 2.15rem);
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.24em;
   line-height: 1;
   text-transform: uppercase;
 }
 
 .brand-lockup-descriptor {
   font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.62rem;
+  font-size: 0.58rem;
   font-weight: 500;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.36em;
   text-transform: uppercase;
 }
 
@@ -216,11 +216,11 @@ p {
 }
 
 .brand-lockup-tagline {
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
-  font-size: 0.95rem;
+  font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.88rem;
   font-style: italic;
   font-weight: 400;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
   line-height: 1.35;
   text-transform: none;
 }
@@ -415,7 +415,7 @@ p {
   align-items: center;
   padding: 18px 18px 0 0;
   border-right: 1px solid rgba(255, 253, 248, 0.28);
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
   font-size: 1.08rem;
   line-height: 1.22;
 }
@@ -553,7 +553,7 @@ p {
 }
 
 .mediterranean-notes strong {
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
   font-size: 1.25rem;
   font-weight: 500;
 }
@@ -743,7 +743,7 @@ p {
 .collection-card span,
 .chapter-card span {
   color: var(--charcoal);
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
   font-size: 1.3rem;
   line-height: 1.16;
 }
@@ -769,7 +769,7 @@ p {
 
 .destination-search label {
   color: var(--charcoal);
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
   font-size: clamp(1.6rem, 3vw, 2.35rem);
   line-height: 1.1;
 }
@@ -1127,7 +1127,7 @@ p {
 }
 
 .home-flor-list span {
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
   font-size: 1.35rem;
   line-height: 1.15;
 }
@@ -1317,7 +1317,7 @@ p {
   left: 0;
   padding: 48px 18px 16px;
   background: linear-gradient(180deg, rgba(24, 18, 16, 0) 0%, rgba(24, 18, 16, 0.72) 100%);
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
   font-size: clamp(1.25rem, 2vw, 1.55rem);
   font-weight: 500;
   line-height: 1.2;
@@ -1340,7 +1340,7 @@ p {
 .continent-group summary {
   cursor: pointer;
   color: var(--charcoal);
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
   font-size: clamp(1.7rem, 3vw, 2.45rem);
   line-height: 1.1;
 }
@@ -1516,7 +1516,7 @@ p {
 
 .product-card-footer span {
   color: var(--charcoal);
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
   font-size: 1.4rem;
 }
 
@@ -2119,7 +2119,7 @@ a.destination-article-card:focus-visible .destination-article-link {
   padding-top: 1.15em;
   border-top: 1px solid var(--line);
   color: var(--charcoal);
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
   font-size: 1.22rem;
   font-style: italic;
   line-height: 1.55;
@@ -2239,7 +2239,7 @@ a.destination-article-card:focus-visible .destination-article-link {
 
 .portugal-way-card span {
   color: var(--charcoal);
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
   font-size: 1.55rem;
   line-height: 1.1;
 }
