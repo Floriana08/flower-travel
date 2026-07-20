@@ -712,7 +712,7 @@ export const destinationBrowseTiles = [
   { slug: "london", label: "London" },
   { slug: "paris", label: "Paris" },
   { slug: "andalusia", label: "Andalusia" },
-  { slug: "greek-islands", label: "Greek Islands" },
+  { slug: "greek-islands", label: "Greek Island Light" },
   { slug: "marrakech", label: "Marrakech" },
 ] as const;
 

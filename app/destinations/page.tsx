@@ -217,7 +217,7 @@ export default async function DestinationsPage({
         <SectionHeading eyebrow="Travel by mood" title="Not sure where to go?">
           <p>
             Sometimes the best trip starts with a feeling rather than a
-            destination. Browse by the kind of experience you're looking for.
+            destination. Browse by the kind of experience you&apos;re looking for.
           </p>
         </SectionHeading>
         <div className="mood-grid">
