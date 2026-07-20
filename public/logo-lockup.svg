@@ -1,0 +1,45 @@
+<svg width="280" height="360" viewBox="0 0 280 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Altrove Travel Journal">
+  <g transform="translate(100 24)" stroke="#151515" fill="none">
+    <path
+      d="M40 3C22.327 3 8 17.327 8 35V92H72V35C72 17.327 57.673 3 40 3Z"
+      stroke-width="2.4"
+    />
+    <path
+      d="M14 92C18.2 72 27 63 40 63C53 63 61.8 72 66 92"
+      stroke-width="2.4"
+      stroke-linecap="round"
+    />
+  </g>
+  <path
+    d="M140 50 L142.1 55.9 L148.5 56.3 L143.5 60.2 L145.3 66.4 L140 62.9 L134.7 66.4 L136.5 60.2 L131.5 56.3 L137.9 55.9 Z"
+    fill="#151515"
+  />
+  <text
+    x="140"
+    y="170"
+    text-anchor="middle"
+    fill="#151515"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="34"
+    letter-spacing="10"
+  >ALTROVE</text>
+  <text
+    x="140"
+    y="198"
+    text-anchor="middle"
+    fill="#151515"
+    font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+    font-size="10"
+    letter-spacing="5.2"
+  >TRAVEL JOURNAL</text>
+  <line x1="122" y1="220" x2="158" y2="220" stroke="#151515" stroke-width="1"/>
+  <text
+    x="140"
+    y="248"
+    text-anchor="middle"
+    fill="#151515"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="14"
+    font-style="italic"
+  >places worth travelling for</text>
+</svg>

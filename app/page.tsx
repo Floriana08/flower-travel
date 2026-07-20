@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { DestinationCard, NewsletterBand, SectionHeading } from "./components";
+import {
+  BrandLockup,
+  DestinationCard,
+  NewsletterBand,
+  SectionHeading,
+} from "./components";
 import {
   destinations,
   getDestination,
@@ -91,11 +96,7 @@ export default function Home() {
           <span className="wave-layer wave-two" aria-hidden="true" />
         </div>
         <div className="hero-content reveal">
-          <img
-            className="hero-logo"
-            src="/logo-altrove.png?v=5"
-            alt="Altrove Travel Journal — places worth travelling for"
-          />
+          <BrandLockup tone="light" className="hero-lockup" />
           <p>
             Routes, guides, and local notes for trips with a strong sense of
             place.

@@ -16,43 +16,119 @@ type SectionHeadingProps = {
   align?: "left" | "center";
 };
 
+function BrandMark({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="28"
+      height="34"
+      viewBox="0 0 40 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path
+        d="M20 2.5C11.44 2.5 4.5 9.44 4.5 18V45.5H35.5V18C35.5 9.44 28.56 2.5 20 2.5Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        fill="none"
+      />
+      <path
+        d="M7.5 45.5C9.8 35.2 14.2 30.5 20 30.5C25.8 30.5 30.2 35.2 32.5 45.5"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path
+        d="M20 14.2 L20.85 16.7 L23.55 16.9 L21.4 18.55 L22.15 21.2 L20 19.7 L17.85 21.2 L18.6 18.55 L16.45 16.9 L19.15 16.7 Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+function BrandWordmark({
+  showDescriptor = true,
+  className = "",
+}: {
+  showDescriptor?: boolean;
+  className?: string;
+}) {
+  return (
+    <span className={`brand-wordmark ${className}`.trim()}>
+      <span className="brand-name">Altrove</span>
+      {showDescriptor ? (
+        <span className="brand-descriptor">Travel Journal</span>
+      ) : null}
+    </span>
+  );
+}
+
+export function BrandLockup({
+  showTagline = true,
+  tone = "dark",
+  className = "",
+}: {
+  showTagline?: boolean;
+  tone?: "dark" | "light";
+  className?: string;
+}) {
+  return (
+    <div
+      className={`brand-lockup brand-lockup-${tone} ${className}`.trim()}
+      aria-label={site.fullName}
+    >
+      <BrandMark className="brand-lockup-mark" />
+      <span className="brand-lockup-name">Altrove</span>
+      <span className="brand-lockup-descriptor">Travel Journal</span>
+      {showTagline ? (
+        <>
+          <span className="brand-lockup-rule" aria-hidden="true" />
+          <span className="brand-lockup-tagline">{site.strapline}</span>
+        </>
+      ) : null}
+    </div>
+  );
+}
+
 export function SiteHeader() {
   return (
     <header className="site-header">
-      <Link className="brand" href="/" aria-label={`${site.name} home`}>
-        <img
-          className="brand-logo"
-          src="/logo-altrove.png?v=5"
-          alt={site.fullName}
-        />
-      </Link>
+      <div className="header-inner">
+        <Link className="brand" href="/" aria-label={`${site.name} home`}>
+          <BrandMark className="brand-mark" />
+          <BrandWordmark />
+        </Link>
 
-      <nav className="primary-nav" aria-label="Primary navigation">
-        {navItems.map((item) => (
-          <Link key={item.href} href={item.href}>
-            {item.label}
-          </Link>
-        ))}
-      </nav>
-
-      <Link className="header-action" href="/club">
-        Join the Journal
-      </Link>
-
-      <details className="mobile-menu">
-        <summary aria-label="Open navigation">
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-        </summary>
-        <nav aria-label="Mobile navigation">
+        <nav className="primary-nav" aria-label="Primary navigation">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href}>
               {item.label}
             </Link>
           ))}
         </nav>
-      </details>
+
+        <Link className="header-action" href="/club">
+          Join the Journal
+        </Link>
+
+        <details className="mobile-menu">
+          <summary aria-label="Open navigation">
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </summary>
+          <nav aria-label="Mobile navigation">
+            {navItems.map((item) => (
+              <Link key={item.href} href={item.href}>
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </details>
+      </div>
     </header>
   );
 }
@@ -61,12 +137,8 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="footer-lead">
-        <Link className="brand footer-brand" href="/">
-          <img
-            className="brand-logo footer-logo"
-            src="/logo-altrove.png?v=5"
-            alt={site.fullName}
-          />
+        <Link className="footer-brand" href="/" aria-label={`${site.name} home`}>
+          <BrandLockup tone="light" />
         </Link>
         <p>
           Researched routes, honest notes, and editorial planning for travellers
