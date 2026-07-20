@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import "@fontsource/montserrat/400.css";
+import "@fontsource/montserrat/500.css";
+import "@fontsource/montserrat/600.css";
+import "@fontsource/montserrat/700.css";
+import "@fontsource/montserrat/400-italic.css";
+import "./fonts.css";
 import "./globals.css";
 import { SiteFooter, SiteHeader } from "./components";
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-sans",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -57,8 +54,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${montserrat.className}`}>
-      <body className={montserrat.className}>
+    <html lang="en">
+      <body>
         <SiteHeader />
         {children}
         <SiteFooter />
