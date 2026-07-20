@@ -93,7 +93,7 @@ export default function Home() {
         <div className="hero-content reveal">
           <img
             className="hero-logo"
-            src="/logo-altrove.png"
+            src="/logo-altrove.png?v=2"
             alt="Altrove Travel Journal — places worth travelling for"
           />
           <p>
