@@ -757,56 +757,172 @@ export const latestJournalSlugs = [
   "naples-first-weekend",
 ] as const;
 
-export const travelCollections = [
+export type TravelMoodSlug =
+  | "slow-cities"
+  | "coastal-escapes"
+  | "food-trips"
+  | "train-journeys"
+  | "wine-regions"
+  | "islands"
+  | "romantic-escapes"
+  | "design-hotels";
+
+export const travelMoods = [
   {
+    slug: "slow-cities",
     title: "Slow Cities",
     description:
       "City breaks with one neighbourhood at a time, better meals, and room to return to places you liked.",
-    href: "/destinations/lisbon",
   },
   {
+    slug: "coastal-escapes",
     title: "Coastal Escapes",
     description:
       "Atlantic light, island routes, ferry days, and beaches that work best outside the obvious rush.",
-    href: "/destinations/amalfi-coast",
   },
   {
+    slug: "food-trips",
     title: "Food Trips",
     description:
       "Markets, trattorias, tapas counters, wine days, and restaurants worth planning a day around.",
-    href: "/routes/rome-best-restaurants",
   },
   {
+    slug: "train-journeys",
     title: "Train Journeys",
     description:
       "Rail-first routes where the movement becomes part of the trip rather than a compromise.",
-    href: "/routes/portugal-by-train",
   },
   {
+    slug: "wine-regions",
     title: "Wine Regions",
     description:
       "Douro terraces, long lunches, vineyard days, and tasting plans that leave space to enjoy the place.",
-    href: "/routes/porto-wine-day",
   },
   {
+    slug: "islands",
     title: "Islands",
     description:
       "Madeira, Greek island light, Sicily, and other places where weather and rhythm matter.",
-    href: "/destinations/madeira",
   },
   {
+    slug: "romantic-escapes",
     title: "Romantic Escapes",
     description:
       "Softly paced routes for couples, honeymoon scouting, and hotels that feel special without becoming staged.",
-    href: "/destinations/greek-islands",
   },
   {
+    slug: "design-hotels",
     title: "Design Hotels",
     description:
       "Boutique stays, calm bases, and addresses where the hotel supports the whole trip.",
-    href: "/destinations/milan",
   },
-] as const;
+] as const satisfies ReadonlyArray<{
+  slug: TravelMoodSlug;
+  title: string;
+  description: string;
+}>;
+
+export const destinationMoodTags: Record<string, TravelMoodSlug[]> = {
+  portugal: [
+    "slow-cities",
+    "coastal-escapes",
+    "food-trips",
+    "train-journeys",
+    "wine-regions",
+    "islands",
+  ],
+  spain: ["food-trips", "train-journeys", "slow-cities"],
+  italy: [
+    "food-trips",
+    "slow-cities",
+    "coastal-escapes",
+    "design-hotels",
+    "romantic-escapes",
+    "train-journeys",
+  ],
+  lisbon: ["slow-cities", "food-trips", "design-hotels"],
+  madeira: ["islands", "coastal-escapes"],
+  naples: ["food-trips", "slow-cities", "coastal-escapes"],
+  "amalfi-coast": ["coastal-escapes", "romantic-escapes"],
+  rome: ["food-trips", "slow-cities"],
+  milan: ["design-hotels", "slow-cities"],
+  london: ["slow-cities", "design-hotels"],
+  paris: ["slow-cities", "design-hotels", "romantic-escapes"],
+  andalusia: ["food-trips", "train-journeys", "slow-cities"],
+  "greek-islands": ["islands", "coastal-escapes", "romantic-escapes"],
+  marrakech: ["design-hotels", "slow-cities"],
+};
+
+export const itineraryMoodTags: Record<string, TravelMoodSlug[]> = {
+  "portugal-by-train": ["train-journeys", "slow-cities", "food-trips"],
+  "andalusia-slow-route": ["train-journeys", "food-trips", "slow-cities"],
+  "paris-without-rushing": ["slow-cities", "design-hotels"],
+  "milan-lake-como-weekend": ["design-hotels", "romantic-escapes"],
+  "london-neighbourhood-weekend": ["slow-cities"],
+  "madeira-soft-adventure": ["islands", "coastal-escapes"],
+  "italian-long-weekend": ["food-trips", "slow-cities"],
+  "lisbon-food-tour": ["food-trips", "slow-cities"],
+  "amalfi-coast-tours": ["coastal-escapes", "romantic-escapes"],
+  "rome-best-restaurants": ["food-trips"],
+  "center-of-italy-guide": ["train-journeys", "food-trips", "wine-regions"],
+  "seville-tapas-trail": ["food-trips"],
+  "porto-wine-day": ["wine-regions", "food-trips"],
+  "sicily-coastal-route": ["islands", "coastal-escapes", "romantic-escapes"],
+};
+
+export const guideMoodTags: Record<string, TravelMoodSlug[]> = {
+  "where-to-stay-lisbon": ["slow-cities", "design-hotels"],
+  "madeira-first-timers": ["islands", "coastal-escapes"],
+  "solo-paris-weekend": ["slow-cities", "romantic-escapes"],
+  "rome-food-walk": ["food-trips", "slow-cities"],
+  "choosing-a-honeymoon-route": ["romantic-escapes"],
+  "train-travel-europe": ["train-journeys"],
+  "galapagos-twelve-days": ["islands", "coastal-escapes"],
+  "japan-rail-first-edit": ["train-journeys", "slow-cities"],
+};
+
+export const destinationArticleMoodTags: Record<string, TravelMoodSlug[]> = {
+  "lisbon-neighborhood-first-edit": ["slow-cities", "design-hotels"],
+  "lighter-lisbon-weekend": ["slow-cities"],
+  "madeira-base-and-weather-guide": ["islands", "coastal-escapes"],
+  "madeira-soft-adventure-days": ["islands", "coastal-escapes"],
+  "paris-solo-gentle-weekend": ["slow-cities", "romantic-escapes"],
+  "paris-without-rushing-neighborhoods": ["slow-cities"],
+  "rome-food-first-walk": ["food-trips", "slow-cities"],
+  "rome-long-weekend-rhythm": ["food-trips", "slow-cities"],
+  "andalusia-slow-rail-edit": ["train-journeys", "food-trips"],
+  "seville-local-experiences-first": ["food-trips", "slow-cities"],
+  "greek-islands-soft-honeymoon": ["islands", "romantic-escapes", "coastal-escapes"],
+  "greek-islands-ferry-rhythm": ["islands", "coastal-escapes"],
+  "marrakech-first-riad-edit": ["design-hotels", "slow-cities"],
+  "marrakech-souk-pacing": ["slow-cities"],
+  "naples-first-weekend": ["food-trips", "slow-cities"],
+  "milan-design-aperitivo-edit": ["design-hotels", "slow-cities"],
+  "london-neighbourhood-weekend": ["slow-cities"],
+};
+
+export type MoodStory = {
+  id: string;
+  contentType: "Destination" | "Itinerary" | "Journal";
+  title: string;
+  location?: string;
+  excerpt: string;
+  meta?: string;
+  image: string;
+  alt: string;
+  href: string;
+};
+
+export function getTravelMood(slug: string) {
+  return travelMoods.find((mood) => mood.slug === slug);
+}
+
+export const travelCollections = travelMoods.map((mood) => ({
+  title: mood.title,
+  description: mood.description,
+  slug: mood.slug,
+  href: `/destinations?mood=${mood.slug}#mood-results`,
+}));
 
 type DestinationProfile = {
   overview: string;
@@ -2104,6 +2220,85 @@ export type GuideSection = "destinations" | "journal";
 
 export function getGuidesBySection(section: GuideSection) {
   return guides.filter((guide) => guide.section === section);
+}
+
+export function getMoodStories(moodSlug: TravelMoodSlug): MoodStory[] {
+  const destinationStories = destinations
+    .filter((destination) =>
+      (destinationMoodTags[destination.slug] ?? []).includes(moodSlug),
+    )
+    .map((destination) => ({
+      id: `destination-${destination.slug}`,
+      contentType: "Destination" as const,
+      title: destination.title,
+      location: destination.country,
+      excerpt: destination.excerpt,
+      image: destination.image,
+      alt: destination.alt,
+      href: `/destinations/${destination.slug}`,
+    }));
+
+  const itineraryStories = itineraries
+    .filter((itinerary) =>
+      (itineraryMoodTags[itinerary.slug] ?? []).includes(moodSlug),
+    )
+    .map((itinerary) => ({
+      id: `itinerary-${itinerary.slug}`,
+      contentType: "Itinerary" as const,
+      title: itinerary.title,
+      location: itinerary.region,
+      excerpt: itinerary.summary,
+      meta: itinerary.days,
+      image: itinerary.image,
+      alt: itinerary.alt,
+      href: `/routes/${itinerary.slug}`,
+    }));
+
+  const journalStories = guides
+    .filter((guide) => (guideMoodTags[guide.slug] ?? []).includes(moodSlug))
+    .map((guide) => ({
+      id: `journal-${guide.slug}`,
+      contentType: "Journal" as const,
+      title: guide.title,
+      location: guide.destination,
+      excerpt: guide.excerpt,
+      meta: guide.readTime,
+      image: guide.image,
+      alt: guide.alt,
+      href: `/travel-guides/${guide.slug}`,
+    }));
+
+  const destinationArticleStories = destinationBlogArticles
+    .filter((article) =>
+      (destinationArticleMoodTags[article.slug] ?? []).includes(moodSlug),
+    )
+    .flatMap((article) => {
+      const destination = getDestination(article.destinationSlug);
+      if (!destination) {
+        return [];
+      }
+
+      return [
+        {
+          id: `article-${article.destinationSlug}-${article.slug}`,
+          contentType: "Journal" as const,
+          title: article.title,
+          location: destination.title,
+          excerpt: article.excerpt,
+          meta: article.readTime,
+          image: destination.image,
+          alt: destination.alt,
+          href: `/destinations/${article.destinationSlug}/articles/${article.slug}`,
+        },
+      ];
+    });
+
+  return [
+    ...journalStories,
+    ...destinationArticleStories,
+    ...destinationStories,
+    ...itineraryStories,
+  ];
 }
 
 export const guideProducts = [

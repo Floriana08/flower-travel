@@ -9,7 +9,11 @@ import {
   getDestinationBrowseTiles,
   getDestinationItineraries,
   getDestinationProfile,
-  travelCollections,
+  getMoodStories,
+  getTravelMood,
+  travelMoods,
+  type MoodStory,
+  type TravelMoodSlug,
 } from "../data";
 
 export const metadata: Metadata = {
@@ -19,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 type DestinationsPageProps = {
-  searchParams?: Promise<{ q?: string }>;
+  searchParams?: Promise<{ q?: string; mood?: string }>;
 };
 
 function isCountryDestination(destination: (typeof destinations)[number]) {
@@ -103,12 +107,42 @@ function DestinationDiscoveryCard({
   );
 }
 
+function MoodStoryCard({ story }: { story: MoodStory }) {
+  return (
+    <article className="mood-story-card card">
+      <Link href={story.href} aria-label={story.title}>
+        <img src={story.image} alt={story.alt} loading="lazy" />
+      </Link>
+      <div className="card-body">
+        <div className="meta-line">
+          <span>{story.contentType}</span>
+          {story.meta ? <span>{story.meta}</span> : null}
+        </div>
+        <h3>{story.title}</h3>
+        {story.location ? (
+          <p className="mood-story-location">{story.location}</p>
+        ) : null}
+        <p>{story.excerpt}</p>
+        <Link className="text-link" href={story.href}>
+          {story.contentType === "Itinerary"
+            ? "View itinerary"
+            : story.contentType === "Destination"
+              ? "Explore destination"
+              : "Read story"}
+        </Link>
+      </div>
+    </article>
+  );
+}
+
 export default async function DestinationsPage({
   searchParams,
 }: DestinationsPageProps) {
   const params = await searchParams;
   const query = (params?.q ?? "").trim().toLowerCase();
   const hasQuery = query.length > 0;
+  const selectedMood = getTravelMood(params?.mood ?? "");
+  const selectedMoodSlug = selectedMood?.slug as TravelMoodSlug | undefined;
   const featuredDestinations = featuredDestinationSlugs
     .map((slug) => getDestination(slug))
     .filter((destination): destination is (typeof destinations)[number] =>
@@ -119,6 +153,9 @@ export default async function DestinationsPage({
   const filteredTiles = browseTiles.filter((tile) =>
     matchesSearch(tile.destination, query),
   );
+  const moodStories = selectedMoodSlug
+    ? getMoodStories(selectedMoodSlug)
+    : [];
 
   return (
     <main>
@@ -141,6 +178,9 @@ export default async function DestinationsPage({
               placeholder="Search destinations, cities or experiences..."
               defaultValue={params?.q ?? ""}
             />
+            {selectedMoodSlug ? (
+              <input type="hidden" name="mood" value={selectedMoodSlug} />
+            ) : null}
             <button className="button dark" type="submit">
               Search
             </button>
@@ -220,20 +260,75 @@ export default async function DestinationsPage({
             destination. Browse by the kind of experience you&apos;re looking for.
           </p>
         </SectionHeading>
-        <div className="mood-grid">
-          {travelCollections.map((collection) => (
-            <Link
-              className="mood-card"
-              href={collection.href}
-              key={collection.title}
-            >
-              <span className="mood-card-kicker">Explore</span>
-              <h3>{collection.title}</h3>
-              <p>{collection.description}</p>
-              <span className="mood-card-link">Open edit</span>
-            </Link>
-          ))}
+
+        <div className="mood-toolbar">
+          <Link
+            className={`mood-show-all${selectedMoodSlug ? "" : " is-active"}`}
+            href="/destinations#travel-by-mood"
+          >
+            Show all
+          </Link>
         </div>
+
+        <div className="mood-grid">
+          {travelMoods.map((mood) => {
+            const isActive = selectedMoodSlug === mood.slug;
+            return (
+              <Link
+                className={`mood-card${isActive ? " is-active" : ""}`}
+                href={
+                  isActive
+                    ? "/destinations#travel-by-mood"
+                    : `/destinations?mood=${mood.slug}#mood-results`
+                }
+                key={mood.slug}
+                aria-current={isActive ? "true" : undefined}
+              >
+                <span className="mood-card-kicker">Mood</span>
+                <h3>{mood.title}</h3>
+                <p>{mood.description}</p>
+                <span className="mood-card-link">
+                  {isActive ? "Selected" : "View stories"}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+
+        {selectedMood ? (
+          <div className="mood-results" id="mood-results">
+            <SectionHeading
+              eyebrow="Stories for this mood"
+              title={selectedMood.title}
+            >
+              <p>
+                Destinations, itineraries and journal stories linked to this
+                mood.
+              </p>
+            </SectionHeading>
+
+            {moodStories.length > 0 ? (
+              <div className="mood-story-grid">
+                {moodStories.map((story) => (
+                  <MoodStoryCard key={story.id} story={story} />
+                ))}
+              </div>
+            ) : (
+              <div className="destination-no-results">
+                <h3>No stories are linked to this mood yet.</h3>
+                <Link className="text-link" href="/destinations#travel-by-mood">
+                  Show all moods
+                </Link>
+              </div>
+            )}
+          </div>
+        ) : (
+          <span
+            className="destination-results-anchor"
+            id="mood-results"
+            aria-hidden="true"
+          />
+        )}
       </section>
 
       <section className="section-shell">

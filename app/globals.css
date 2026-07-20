@@ -866,6 +866,83 @@ p {
   color: var(--deep-green);
 }
 
+.mood-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.mood-show-all {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid rgba(24, 48, 46, 0.14);
+  border-radius: 4px;
+  color: var(--charcoal);
+  background: rgba(255, 253, 249, 0.86);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.mood-show-all.is-active,
+.mood-card.is-active {
+  border-color: var(--charcoal);
+  color: var(--porcelain);
+  background: var(--charcoal);
+}
+
+.mood-card.is-active h3,
+.mood-card.is-active p,
+.mood-card.is-active .mood-card-kicker,
+.mood-card.is-active .mood-card-link {
+  color: var(--porcelain);
+}
+
+.mood-card.is-active::before {
+  opacity: 0.18;
+  background: rgba(255, 253, 249, 0.35);
+}
+
+.mood-results {
+  margin-top: 42px;
+  padding-top: 34px;
+  border-top: 1px solid rgba(24, 48, 46, 0.12);
+  scroll-margin-top: calc(var(--header-height) + 22px);
+}
+
+.mood-story-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.mood-story-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  background: var(--warm-paper);
+}
+
+.mood-story-card h3 {
+  max-width: 18ch;
+}
+
+.mood-story-card p {
+  font-size: 0.94rem;
+  line-height: 1.58;
+}
+
+.mood-story-location {
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
 .destination-no-results {
   max-width: 620px;
   padding: 28px 0;
@@ -2618,6 +2695,7 @@ a.destination-article-card:focus-visible .destination-article-link {
   .featured-destination-grid,
   .destination-discovery-grid.featured,
   .destination-discovery-grid.compact,
+  .mood-story-grid,
   .mood-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2837,6 +2915,7 @@ a.destination-article-card:focus-visible .destination-article-link {
   .featured-destination-grid,
   .destination-discovery-grid.featured,
   .destination-discovery-grid.compact,
+  .mood-story-grid,
   .mood-grid,
   .portugal-reason-grid,
   .destination-tile-grid,
