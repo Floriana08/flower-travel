@@ -113,7 +113,8 @@ export default async function DestinationsPage({
     .map((slug) => getDestination(slug))
     .filter((destination): destination is (typeof destinations)[number] =>
       Boolean(destination),
-    );
+    )
+    .filter(isCountryDestination);
   const browseTiles = getDestinationBrowseTiles();
   const filteredTiles = browseTiles.filter((tile) =>
     matchesSearch(tile.destination, query),
@@ -192,12 +193,12 @@ export default async function DestinationsPage({
       <section className="section-shell destination-feature-section">
         <SectionHeading
           eyebrow="Start here"
-          title="Our favourite places to begin exploring."
+          title="Countries to begin with."
         >
           <p>
-            The destinations we've explored most deeply, with curated
-            itineraries, neighbourhood guides and local recommendations to help
-            you plan with confidence.
+            Start with a country edit first. Each one gathers itineraries,
+            neighbourhood notes and local recommendations so you can plan with
+            confidence before choosing a city or region.
           </p>
         </SectionHeading>
 
@@ -241,7 +242,7 @@ export default async function DestinationsPage({
           title="Explore the collection."
         >
           <p>
-            Browse the places currently available. More countries and cities can
+            Countries, cities and regions currently available. More places can
             be added as the editorial collection grows.
           </p>
         </SectionHeading>

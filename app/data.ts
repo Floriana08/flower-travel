@@ -704,11 +704,16 @@ export const destinationBrowseTiles = [
   { slug: "spain", label: "Spain" },
   { slug: "italy", label: "Italy" },
   { slug: "lisbon", label: "Lisbon" },
+  { slug: "madeira", label: "Madeira" },
   { slug: "naples", label: "Naples" },
   { slug: "amalfi-coast", label: "Amalfi Coast" },
   { slug: "rome", label: "Rome" },
   { slug: "milan", label: "Milan" },
   { slug: "london", label: "London" },
+  { slug: "paris", label: "Paris" },
+  { slug: "andalusia", label: "Andalusia" },
+  { slug: "greek-islands", label: "Greek Islands" },
+  { slug: "marrakech", label: "Marrakech" },
 ] as const;
 
 export function getDestinationBrowseTiles() {
@@ -735,9 +740,6 @@ export const featuredDestinationSlugs = [
   "portugal",
   "italy",
   "spain",
-  "lisbon",
-  "naples",
-  "london",
 ] as const;
 
 export const featuredItinerarySlugs = [
