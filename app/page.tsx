@@ -7,7 +7,6 @@ import {
   SectionHeading,
 } from "./components";
 import {
-  ComingSoonBlock,
   FlorNote,
   TrustBadgeRow,
 } from "./editorial-components";
@@ -262,31 +261,6 @@ export default function Home() {
           {secondaryDestinations.map((destination) => (
             <DestinationCard key={destination.slug} destination={destination} />
           ))}
-        </div>
-      </section>
-
-      <section className="section-shell tinted" id="studio-extras">
-        <SectionHeading
-          eyebrow="Studio extras"
-          title="Quietly in the works"
-        >
-          <p>Editorial products for later — never pop-ups, never hard sell.</p>
-        </SectionHeading>
-        <div className="coming-soon-grid">
-          <ComingSoonBlock
-            title="Portugal map collection"
-            body="Saved hotels, cafés, viewpoints and Flor’s Picks in one map."
-          />
-          <ComingSoonBlock
-            title="Downloadable city notes"
-            body="Short printable neighbourhood guides for first-timers."
-          />
-          <ComingSoonBlock
-            title="Travel planning interest list"
-            body="A future one-to-one planning option for deeper itineraries."
-            href="/travel-consultations"
-            cta="Register interest"
-          />
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 export type DestinationGlanceItem = {
   label: string;
   value: string;
+  detail?: string;
 };
 
 export type DestinationPlaceLink = {
@@ -70,15 +71,36 @@ export const portugalGuide: DestinationGuideContent = {
     "Beyond the cities, Atlantic light pulls you toward Cascais, the Algarve and quieter surf towns. Madeira sits apart as its own adventure of cliffs and levadas. Outside peak summer, Portugal offers excellent value and a welcoming local rhythm.",
   ],
   glance: [
-    { label: "Best time to visit", value: "Spring and early autumn" },
-    { label: "Best way to travel", value: "Train between the main cities" },
-    { label: "Ideal trip length", value: "7–14 days" },
-    { label: "Budget", value: "$$–$$$" },
     {
-      label: "Perfect for",
-      value: "Food lovers, couples, first-time Europe, slow travel",
+      label: "Best time",
+      value: "March–June and September–November",
+      detail: "Softer light, easier reservations, fewer queues at Sintra and the coast.",
     },
-    { label: "Travel style", value: "Relaxed, walkable and rail-friendly" },
+    {
+      label: "Getting around",
+      value: "Train between cities, then walk",
+      detail: "Porto, Coimbra, Lisbon and Cascais connect cleanly. Skip driving in central Lisbon.",
+    },
+    {
+      label: "Trip length",
+      value: "7 days, or 10–14 if you can",
+      detail: "A week covers Lisbon and Porto. Extra days open the Douro, Cascais or Madeira properly.",
+    },
+    {
+      label: "Budget feel",
+      value: "Comfortable mid-range",
+      detail: "Strong value outside August. Splurge on one Douro lunch or a quieter hotel base.",
+    },
+    {
+      label: "Best for",
+      value: "First Europe trips and food-led routes",
+      detail: "Couples, slow travellers and anyone who would rather stay longer than tick more boxes.",
+    },
+    {
+      label: "Travel style",
+      value: "Unhurried and rail-friendly",
+      detail: "Few hotel changes, long lunches, neighbourhood mornings and Atlantic light.",
+    },
   ],
   florPick: {
     title: "Flor’s Pick: start in Lisbon, finish in Porto",

@@ -3466,6 +3466,46 @@ a.destination-article-card:focus-visible .destination-article-link {
   object-fit: cover;
 }
 
+.destination-intro-copy {
+  max-width: 46rem;
+}
+
+.portugal-glance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.portugal-glance-item {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 28px 24px 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.portugal-glance-item:nth-child(3n + 2),
+.portugal-glance-item:nth-child(3n + 3) {
+  padding-left: 28px;
+  border-left: 1px solid var(--line);
+}
+
+.portugal-glance-item h3 {
+  margin: 0;
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.portugal-glance-item p:not(.eyebrow) {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
 .destination-intro-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
@@ -3698,9 +3738,16 @@ a.destination-article-card:focus-visible .destination-article-link {
   .practical-grid,
   .portugal-hero-block,
   .destination-intro-grid,
+  .portugal-glance-grid,
   .featured-itinerary-panel,
   .featured-story-row,
   .travel-map-split {
     grid-template-columns: 1fr;
+  }
+
+  .portugal-glance-item:nth-child(3n + 2),
+  .portugal-glance-item:nth-child(3n + 3) {
+    padding-left: 0;
+    border-left: 0;
   }
 }

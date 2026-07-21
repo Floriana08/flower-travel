@@ -5,7 +5,6 @@ import {
   SectionHeading,
 } from "./components";
 import {
-  ComingSoonBlock,
   FlorNote,
   PracticalBox,
   PullQuote,
@@ -112,32 +111,39 @@ export function PortugalDestinationGuide() {
         id="editorial-intro"
       >
         <SectionHeading eyebrow="Editorial introduction" title={portugalGuide.introTitle} />
-        <div className="destination-intro-grid">
-          <div className="story-copy">
-            {portugalGuide.introParagraphs.map((paragraph) => (
-              <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-            ))}
-            <PullQuote>
-              The best version of Portugal is rarely the one that tries to do
-              everything.
-            </PullQuote>
-          </div>
-          <aside className="destination-glance" id="at-a-glance">
-            <p className="eyebrow">At a glance</p>
-            <h2>Travel snapshot</h2>
-            <dl className="travel-snapshot-list">
-              {portugalGuide.glance.map((item) => (
-                <div key={item.label}>
-                  <dt>{item.label}</dt>
-                  <dd>{item.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </aside>
+        <div className="story-copy destination-intro-copy">
+          {portugalGuide.introParagraphs.map((paragraph) => (
+            <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+          ))}
+          <PullQuote>
+            The best version of Portugal is rarely the one that tries to do
+            everything.
+          </PullQuote>
         </div>
       </section>
 
-      <section className="section-shell tinted" id="flors-pick">
+      <section className="section-shell tinted" id="at-a-glance">
+        <SectionHeading
+          eyebrow="At a glance"
+          title="A practical snapshot before you plan"
+        >
+          <p>
+            The notes I wish I had on my first Portugal trip — timing, pacing
+            and how the country actually moves.
+          </p>
+        </SectionHeading>
+        <div className="portugal-glance-grid">
+          {portugalGuide.glance.map((item) => (
+            <article className="portugal-glance-item" key={item.label}>
+              <p className="eyebrow">{item.label}</p>
+              <h3>{item.value}</h3>
+              {item.detail ? <p>{item.detail}</p> : null}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-shell" id="flors-pick">
         <FlorNote title="Flor’s Pick">
           <h2>{portugalGuide.florPick.title}</h2>
           <p>{portugalGuide.florPick.body}</p>
@@ -320,19 +326,6 @@ export function PortugalDestinationGuide() {
                 <p>{story.excerpt}</p>
               </div>
             </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="section-shell tinted" id="coming-soon">
-        <SectionHeading eyebrow="Studio extras" title="Coming next for Portugal" />
-        <div className="coming-soon-grid">
-          {portugalGuide.comingSoon.map((item) => (
-            <ComingSoonBlock
-              key={item.title}
-              title={item.title}
-              body={item.body}
-            />
           ))}
         </div>
       </section>
