@@ -42,34 +42,6 @@ const latestGuideSlugs = [
   "solo-paris-weekend",
 ];
 
-const florRecommends = [
-  {
-    title: "Portugal by Train",
-    detail: "A 10-day route from Porto to Lisbon.",
-    href: "/routes/portugal-by-train",
-  },
-  {
-    title: "A Food-Lover's Morning in Lisbon",
-    detail: "Markets, tascas, and a pastry stop.",
-    href: "/routes/lisbon-food-tour",
-  },
-  {
-    title: "Where to Stay in Lisbon",
-    detail: "Choose a neighbourhood that fits your trip.",
-    href: "/travel-guides/where-to-stay-lisbon",
-  },
-  {
-    title: "A Douro Wine Day from Porto",
-    detail: "A relaxed vineyard day with room for lunch.",
-    href: "/routes/porto-wine-day",
-  },
-  {
-    title: "Madeira for First-Timers",
-    detail: "Clear notes for an easy island start.",
-    href: "/travel-guides/madeira-first-timers",
-  },
-];
-
 export default function Home() {
   const portugal = getDestination("portugal");
   const latestGuides = guides.filter((guide) =>
@@ -211,22 +183,6 @@ export default function Home() {
               <span className="mood-card-link">View stories</span>
             </Link>
           ))}
-        </div>
-      </section>
-
-      <section className="section-shell" id="flor-recommends">
-        <div className="flor-tip-card">
-          <p className="eyebrow">Flor recommends</p>
-          <h2>Five places to begin</h2>
-          <p>A short list of dependable reads for a Portugal-led trip.</p>
-          <div className="home-flor-list">
-            {florRecommends.map((item) => (
-              <Link href={item.href} key={item.href}>
-                <span>{item.title}</span>
-                <small>{item.detail}</small>
-              </Link>
-            ))}
-          </div>
         </div>
       </section>
 
