@@ -80,32 +80,30 @@ export default function Home() {
 
       {portugal ? (
         <section className="section-shell home-feature" id="featured">
-          <p className="eyebrow">Featured destination</p>
-          <div className="journal-layout">
+          <div className="home-feature-grid">
+            <div className="home-feature-copy">
+              <p className="eyebrow">From the journal</p>
+              <h2>Portugal</h2>
+              <p className="home-feature-lede">
+                Start with Lisbon for tiled mornings, Porto for long lunches,
+                and the Atlantic coast when you want salt air and fewer plans.
+              </p>
+              <ul className="home-feature-notes">
+                <li>Rail days that feel like part of the trip</li>
+                <li>Neighbourhoods worth returning to twice</li>
+                <li>Shoulder-season light over peak crowds</li>
+              </ul>
+              <Link className="text-link home-feature-link" href="/destinations/portugal">
+                Read the Portugal guide
+              </Link>
+            </div>
             <Link
-              className="journal-feature-image-link"
+              className="home-feature-media"
               href="/destinations/portugal"
-              aria-label="Explore Portugal"
+              aria-label="Read the Portugal guide"
             >
               <img src={portugal.image} alt={portugal.alt} loading="eager" />
             </Link>
-            <article className="journal-feature">
-              <h2>Portugal, at an unhurried pace</h2>
-              <p>
-                Atlantic cities, long lunches, and rail days that make the
-                journey part of the trip.
-              </p>
-              <p className="story-card-meta">
-                <span>{portugal.season}</span>
-                <span>{portugal.mood}</span>
-              </p>
-              <Link
-                className="button dark journal-feature-cta"
-                href="/destinations/portugal"
-              >
-                Explore Portugal
-              </Link>
-            </article>
           </div>
         </section>
       ) : null}
