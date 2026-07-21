@@ -3595,12 +3595,49 @@ a.destination-article-card:focus-visible .destination-article-link {
 }
 
 .travel-map-canvas {
+  display: block;
+  width: 100%;
+  min-height: 420px;
+  height: min(62vh, 560px);
+  border: 1px solid var(--line);
+  background: #d8e0e4;
+}
+
+.travel-map-stage {
+  position: relative;
   display: grid;
   gap: 12px;
-  min-height: 220px;
-  padding: 28px;
-  border: 1px dashed var(--line);
-  background: var(--warm-paper);
+}
+
+.travel-map-status {
+  margin: 0;
+  color: var(--soft-ink);
+  font-size: 0.95rem;
+}
+
+.travel-map-floating-card {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  z-index: 2;
+  width: min(100% - 32px, 320px);
+  pointer-events: auto;
+}
+
+.map-pin {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #151515;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+}
+
+.map-pin-flor {
+  background: #8b5a2b;
+  width: 18px;
+  height: 18px;
 }
 
 .travel-map-split {

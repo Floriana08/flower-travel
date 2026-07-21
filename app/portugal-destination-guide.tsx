@@ -198,8 +198,8 @@ export function PortugalDestinationGuide() {
           title="Saved places across Portugal"
         >
           <p>
-            Hotels, cafés, viewpoints and Flor’s Picks — managed as structured
-            location data, ready for the live map layer.
+            Click a pin or filter by category. Switch to List on mobile if you
+            prefer reading over panning.
           </p>
         </SectionHeading>
         <TravelMap locations={portugalMapLocations} />
