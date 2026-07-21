@@ -139,12 +139,14 @@ p {
   outline-offset: 4px;
 }
 
-.brand-mark {
+.brand-mark,
+.brand-mark-image {
   display: block;
-  width: 22px;
-  height: 28px;
+  width: 28px;
+  height: 35px;
   flex: 0 0 auto;
-  color: var(--ink);
+  object-fit: contain;
+  background: transparent;
 }
 
 .brand-wordmark {
@@ -3055,9 +3057,10 @@ a.destination-article-card:focus-visible .destination-article-link {
     display: none;
   }
 
-  .brand-mark {
-    width: 18px;
-    height: 22px;
+  .brand-mark,
+  .brand-mark-image {
+    width: 22px;
+    height: 28px;
   }
 
   .brand-name {

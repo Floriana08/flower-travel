@@ -16,36 +16,26 @@ type SectionHeadingProps = {
   align?: "left" | "center";
 };
 
-function BrandMark({ className = "" }: { className?: string }) {
+function BrandMark({
+  className = "",
+  tone = "dark",
+}: {
+  className?: string;
+  tone?: "dark" | "light";
+}) {
+  const src =
+    tone === "light" ? "/logo-mark-light.png?v=2" : "/logo-mark.png?v=2";
+
   return (
-    <svg
-      className={className}
-      width="28"
-      height="34"
-      viewBox="0 0 40 48"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+    <img
+      className={`brand-mark-image ${className}`.trim()}
+      src={src}
+      alt=""
+      width={40}
+      height={50}
+      decoding="async"
       aria-hidden="true"
-      focusable="false"
-    >
-      <path
-        d="M20 2.5C11.44 2.5 4.5 9.44 4.5 18V45.5H35.5V18C35.5 9.44 28.56 2.5 20 2.5Z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        fill="none"
-      />
-      <path
-        d="M7.5 45.5C9.8 35.2 14.2 30.5 20 30.5C25.8 30.5 30.2 35.2 32.5 45.5"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        fill="none"
-        strokeLinecap="round"
-      />
-      <path
-        d="M20 14.2 L20.85 16.7 L23.55 16.9 L21.4 18.55 L22.15 21.2 L20 19.7 L17.85 21.2 L18.6 18.55 L16.45 16.9 L19.15 16.7 Z"
-        fill="currentColor"
-      />
-    </svg>
+    />
   );
 }
 
@@ -80,7 +70,7 @@ export function BrandLockup({
       className={`brand-lockup brand-lockup-${tone} ${className}`.trim()}
       aria-label={site.fullName}
     >
-      <BrandMark className="brand-lockup-mark" />
+      <BrandMark className="brand-lockup-mark" tone={tone} />
       <span className="brand-lockup-name">Altrove</span>
       <span className="brand-lockup-descriptor">Travel Journal</span>
       {showTagline ? (
