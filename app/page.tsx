@@ -81,22 +81,6 @@ export default function Home() {
       {portugal ? (
         <section className="section-shell home-feature" id="featured">
           <div className="home-feature-grid">
-            <div className="home-feature-copy">
-              <p className="eyebrow">From the journal</p>
-              <h2>Portugal</h2>
-              <p className="home-feature-lede">
-                Start with Lisbon for tiled mornings, Porto for long lunches,
-                and the Atlantic coast when you want salt air and fewer plans.
-              </p>
-              <ul className="home-feature-notes">
-                <li>Rail days that feel like part of the trip</li>
-                <li>Neighbourhoods worth returning to twice</li>
-                <li>Shoulder-season light over peak crowds</li>
-              </ul>
-              <Link className="text-link home-feature-link" href="/destinations/portugal">
-                Read the Portugal guide
-              </Link>
-            </div>
             <Link
               className="home-feature-media"
               href="/destinations/portugal"
@@ -104,6 +88,20 @@ export default function Home() {
             >
               <img src={portugal.image} alt={portugal.alt} loading="eager" />
             </Link>
+            <div className="home-feature-copy">
+              <p className="eyebrow">From the journal</p>
+              <h2>Portugal, taken slowly</h2>
+              <p className="home-feature-lede">
+                Lisbon for tiled mornings, Porto for long lunches, and the
+                Atlantic coast when you want salt air and fewer plans.
+              </p>
+              <Link
+                className="button dark home-feature-cta"
+                href="/destinations/portugal"
+              >
+                Read the Portugal guide
+              </Link>
+            </div>
           </div>
         </section>
       ) : null}

@@ -177,8 +177,8 @@ export const destinations = [
     season: "March to June, September to November",
     bestFor: "First-time Europe, food, tiled streets, Atlantic light",
     image:
-      "https://images.unsplash.com/photo-1555881403-649958240e4c?auto=format&fit=crop&w=1600&q=84",
-    alt: "Yellow tram climbing a tiled Lisbon street in soft afternoon light",
+      "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=1600&q=84",
+    alt: "Lisbon’s yellow tram on a steep tiled street",
     excerpt:
       "Lisbon tiles, Porto wine bars, Algarve coves, and slow rail days between cities that feel lived-in rather than staged.",
     highlights: ["Lisbon base", "Porto food", "Coastal detours"],
