@@ -3292,3 +3292,378 @@ a.destination-article-card:focus-visible .destination-article-link {
     padding: 48px 22px;
   }
 }
+
+/* --- Phase 1 / 2 editorial upgrades --- */
+.hero-headline {
+  max-width: 14ch;
+  margin: 18px 0 0;
+  color: var(--porcelain);
+  font-size: clamp(2.4rem, 5.4vw, 4.2rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.button.ghost {
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  background: transparent;
+}
+
+.flor-intro {
+  display: grid;
+  gap: 18px;
+  max-width: 42rem;
+}
+
+.portugal-place-links {
+  display: grid;
+  gap: 10px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.portugal-place-links li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  align-items: baseline;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.portugal-place-links a {
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.portugal-place-links span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.home-destination-grid-secondary {
+  max-width: 780px;
+}
+
+.mood-grid-featured {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.trust-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.trust-badge {
+  display: inline-flex;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  color: var(--soft-ink);
+  background: var(--porcelain);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.flor-note,
+.practical-box,
+.worth-knowing,
+.do-differently,
+.pull-quote,
+.coming-soon-block {
+  padding: 22px 24px;
+  border: 1px solid var(--line);
+  background: var(--porcelain);
+}
+
+.flor-note,
+.do-differently {
+  background: var(--warm-paper);
+}
+
+.flor-note-body,
+.practical-box > div,
+.worth-knowing > div,
+.do-differently > div {
+  display: grid;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.pull-quote {
+  margin: 28px 0;
+  border-left: 2px solid var(--ink);
+  background: transparent;
+}
+
+.pull-quote p {
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+.pull-quote cite {
+  display: block;
+  margin-top: 12px;
+  color: var(--muted);
+  font-style: normal;
+  font-size: 0.88rem;
+}
+
+.coming-soon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.coming-soon-block {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.form-status {
+  min-height: 1.2em;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.form-status-success {
+  color: var(--soft-ink);
+}
+
+.form-status-error {
+  color: #8a2f2f;
+}
+
+.portugal-hero-block {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+}
+
+.portugal-hero-copy {
+  display: grid;
+  gap: 16px;
+}
+
+.portugal-hero-media {
+  overflow: hidden;
+  border-radius: 50% 50% 0 0 / 28% 28% 0 0;
+}
+
+.portugal-hero-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+}
+
+.destination-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+  gap: clamp(28px, 5vw, 56px);
+  align-items: start;
+}
+
+.destination-glance {
+  padding: 22px;
+  border: 1px solid var(--line);
+  background: var(--warm-paper);
+}
+
+.featured-itinerary-panel,
+.practical-grid,
+.recommendation-list,
+.region-link-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.featured-itinerary-panel {
+  grid-template-columns: minmax(0, 1.1fr) minmax(240px, 0.7fr);
+  align-items: stretch;
+}
+
+.featured-story-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(220px, 0.7fr);
+  gap: 24px;
+  align-items: center;
+}
+
+.featured-story-row img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 50% 50% 0 0 / 18% 18% 0 0;
+}
+
+.recommendation-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.recommendation-list article,
+.region-link-grid article {
+  display: grid;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.recommendation-list.compact {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.region-link-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.practical-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.article-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 18px;
+  margin-top: 18px;
+}
+
+.article-meta-grid div {
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.article-meta-grid dt {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.article-meta-grid dd {
+  margin: 4px 0 0;
+}
+
+.travel-map {
+  display: grid;
+  gap: 18px;
+}
+
+.travel-map-toolbar {
+  display: grid;
+  gap: 14px;
+}
+
+.travel-map-modes,
+.map-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.travel-map-modes button,
+.map-filter button,
+.map-location-button {
+  border: 1px solid var(--line);
+  background: var(--porcelain);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.travel-map-modes button,
+.map-filter button {
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.travel-map-modes button.is-active,
+.map-filter button.is-active,
+.map-location-button.is-active {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--porcelain);
+}
+
+.travel-map-canvas {
+  display: grid;
+  gap: 12px;
+  min-height: 220px;
+  padding: 28px;
+  border: 1px dashed var(--line);
+  background: var(--warm-paper);
+}
+
+.travel-map-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 18px;
+}
+
+.map-location-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 420px;
+  overflow: auto;
+}
+
+.map-location-button {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  padding: 12px 14px;
+  text-align: left;
+}
+
+.map-location-kicker,
+.map-location-meta {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.map-location-card {
+  display: grid;
+  gap: 10px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  background: var(--porcelain);
+}
+
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 1100px) {
+  .mood-grid-featured,
+  .coming-soon-grid,
+  .recommendation-list,
+  .recommendation-list.compact,
+  .region-link-grid,
+  .practical-grid,
+  .portugal-hero-block,
+  .destination-intro-grid,
+  .featured-itinerary-panel,
+  .featured-story-row,
+  .travel-map-split {
+    grid-template-columns: 1fr;
+  }
+}

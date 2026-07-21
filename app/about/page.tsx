@@ -1,19 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero, SectionHeading } from "../components";
+import { FlorNote } from "../editorial-components";
 
 const studioPillars = [
-  "Italy, Spain, Portugal routes",
-  "Local experience edits",
-  "Beach and hotel mood boards",
-  "Slow travel essays",
-  "Club-first reader signals",
+  "Portugal-first destination authority",
+  "Routes you can actually follow",
+  "Hotel and neighbourhood notes",
+  "Honest planning mistakes to avoid",
+  "Club letters with one idea at a time",
 ];
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Flor and Altrove",
   description:
-    "Meet Altrove, a boutique editorial travel blog and club for slow itineraries, destination articles, personal stories, and thoughtful travel ideas.",
+    "Meet Flor, editor of Altrove — a boutique travel journal for curated routes, honest notes and practical guides.",
+  alternates: {
+    canonical: "https://flowertravel.studio/about",
+  },
 };
 
 export default function AboutPage() {
@@ -21,38 +25,40 @@ export default function AboutPage() {
     <main>
       <PageHero
         eyebrow="About Altrove"
-        title="A travel studio with a magazine heart."
+        title="A travel journal with a magazine heart."
         image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=84"
         alt="A breakfast table on a terrace overlooking the sea"
       >
         <p>
-          Altrove is built for readers who want the romance of a beautiful
-          travel story and the relief of a plan that actually works.
+          Curated routes, honest travel notes and practical guides for
+          travellers who prefer depth over checklists.
         </p>
       </PageHero>
 
       <section className="about-story section-shell">
         <div>
-          <p className="eyebrow">The point of view</p>
-          <h2>Travel better by choosing more carefully.</h2>
+          <p className="eyebrow">Meet the editor</p>
+          <h2>Hi, I’m Flor.</h2>
         </div>
         <div className="story-copy">
           <p>
-            Altrove was born from a love of discovering the world with
-            curiosity, intention, and a well-planned itinerary. Choosing the
-            right neighborhood, finding that unforgettable local restaurant,
-            slowing down enough to enjoy the journey, and leaving room for the
-            unexpected.
+            I created Altrove as a place to collect the routes, neighbourhoods,
+            hotels and travel notes that are genuinely worth remembering. The
+            aim is not to see everything, but to travel with more intention and
+            develop a stronger sense of place.
           </p>
+          <FlorNote>
+            <p>
+              Portugal is where the journal begins in earnest. Italy and Spain
+              remain in the collection, but I would rather build one destination
+              with depth than publish shallow coverage everywhere.
+            </p>
+          </FlorNote>
           <p>
-            This is where I share thoughtfully curated travel guides, detailed
-            itineraries, and honest recommendations to help you travel with
-            confidence and make the most of every destination.
-          </p>
-          <p>
-            Altrove is a place for inspiration, practical advice, and
-            beautiful stories, built on the idea that better travel starts long
-            before you board the plane. Welcome to Altrove.
+            What you will find here are personally researched notes, practical
+            planning advice and editorial recommendations that stay independent.
+            No fake visitor counts. No invented credentials. Just careful
+            writing meant to help you plan a better trip.
           </p>
         </div>
       </section>
@@ -67,7 +73,7 @@ export default function AboutPage() {
             <article className="value-item" key={pillar}>
               <h3>{pillar}</h3>
               <p>
-                Researched, polished, and written for travelers who want useful
+                Researched, polished, and written for travellers who want useful
                 specificity without losing the feeling of discovery.
               </p>
             </article>
@@ -80,8 +86,9 @@ export default function AboutPage() {
           <p className="eyebrow">The Club</p>
           <h2>A quieter letter for better trips</h2>
           <p>
-            Destination stories, practical planning notes and hotel discoveries
-            for travellers who prefer character over crowds.
+            One carefully planned route, one hotel worth remembering, one
+            restaurant worth travelling for — and notes that do not always make
+            the website.
           </p>
         </div>
         <Link className="button light" href="/club">

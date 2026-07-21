@@ -3,7 +3,7 @@ export const site = {
   fullName: "Altrove Travel Journal",
   strapline: "places worth travelling for",
   studioLine:
-    "An editorial travel journal for curated destinations, graceful routes, and places worth travelling for.",
+    "Curated routes, honest travel notes and practical guides for travellers who prefer depth over checklists.",
   email: "hello@altrove.studio",
 };
 

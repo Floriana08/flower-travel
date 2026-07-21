@@ -8,6 +8,7 @@ import {
   navItems,
   site,
 } from "./data";
+import { NewsletterForm } from "./newsletter-form";
 
 type SectionHeadingProps = {
   eyebrow: string;
@@ -371,9 +372,9 @@ export function GuideProductCard({
 
 export function NewsletterBand({
   title = "Join the Altrove Club",
-  description = "A thoughtful note for travellers who prefer character over crowds. Receive new destination stories, practical planning advice, hotel discoveries and occasional Club-only travel edits.",
+  description = "Every month, receive one carefully planned route, one hotel worth remembering, one restaurant worth travelling for and personal travel notes that do not always make it onto the website.",
   placeholder = "Your email address",
-  footnote = "No clutter. Just carefully chosen travel inspiration.",
+  footnote = "No daily emails. Just thoughtful travel inspiration and practical ideas.",
 }: {
   title?: string;
   description?: string;
@@ -387,31 +388,7 @@ export function NewsletterBand({
         <p>{description}</p>
         {footnote ? <p className="newsletter-footnote">{footnote}</p> : null}
       </div>
-      <form
-        className="newsletter-form"
-        action={`mailto:${site.email}`}
-        method="post"
-      >
-        <label>
-          <span>Email address</span>
-          <input
-            name="email"
-            type="email"
-            placeholder={placeholder}
-            required
-          />
-        </label>
-        <label className="consent-check">
-          <input name="consent" type="checkbox" required />
-          <span>
-            I agree to receive Altrove emails and understand that I can
-            unsubscribe at any time.
-          </span>
-        </label>
-        <button className="button dark" type="submit">
-          Join the Club
-        </button>
-      </form>
+      <NewsletterForm placeholder={placeholder} />
     </section>
   );
 }

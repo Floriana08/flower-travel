@@ -5,29 +5,29 @@ import { SiteFooter, SiteHeader } from "./components";
 
 export const metadata: Metadata = {
   title: {
-    default: "Altrove | Travel Journal",
+    default: "Altrove | Travel fewer places, but know them better",
     template: "%s | Altrove",
   },
   description:
-    "Altrove is an editorial travel journal for destination inspiration, thoughtful routes, and places worth travelling for.",
+    "Curated routes, honest travel notes and practical guides for travellers who prefer depth over checklists.",
   keywords: [
     "travel journal",
-    "destination articles",
+    "Portugal travel guide",
+    "Portugal by train",
+    "Lisbon neighbourhood guide",
+    "slow travel",
     "curated itineraries",
     "travel club",
-    "Portugal travel",
-    "Italy travel",
-    "Spain travel",
-    "sustainable travel",
-    "Europe travel",
-    "boutique travel",
     "editorial travel",
+    "Europe travel",
   ],
+  metadataBase: new URL("https://flowertravel.studio"),
   openGraph: {
     title: "Altrove Travel Journal",
     description:
-      "Thoughtful destination essays, route ideas, and a quieter travel letter for travellers who prefer character over crowds.",
+      "Travel fewer places, but know them better. Curated routes and practical guides for thoughtful travellers.",
     type: "website",
+    siteName: "Altrove",
     images: [
       {
         url: "https://images.unsplash.com/photo-1695199817779-4c879085a9a0?auto=format&fit=crop&w=1600&q=84",

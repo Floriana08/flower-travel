@@ -3,6 +3,11 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { guideArticles, getGuideArticle } from "../../articles";
 import { ConsultationCta, GuideCard, NewsletterBand } from "../../components";
+import {
+  ArticleMeta,
+  FlorNote,
+  WorthKnowing,
+} from "../../editorial-components";
 import { guides, site } from "../../data";
 
 type PageProps = {
@@ -67,8 +72,9 @@ export default async function GuideArticlePage({ params }: PageProps) {
     datePublished: guide.date,
     dateModified: article.lastReviewed,
     author: {
-      "@type": "Organization",
-      name: site.name,
+      "@type": "Person",
+      name: "Flor",
+      url: "https://flowertravel.studio/about",
     },
     publisher: {
       "@type": "Organization",
@@ -103,6 +109,14 @@ export default async function GuideArticlePage({ params }: PageProps) {
               <span>{guide.readTime}</span>
               <span>Reviewed {article.lastReviewed}</span>
             </div>
+            <ArticleMeta
+              items={[
+                { label: "Location", value: guide.destination },
+                { label: "Updated", value: article.lastReviewed },
+                { label: "Read time", value: guide.readTime },
+                { label: "Type", value: guide.category },
+              ]}
+            />
           </div>
           <figure className="article-hero-image reveal delay-1">
             <img src={guide.image} alt={guide.alt} />
@@ -127,10 +141,31 @@ export default async function GuideArticlePage({ params }: PageProps) {
                 ))}
               </ul>
             </div>
+            <div className="article-panel">
+              <h2>Continue in the journal</h2>
+              <p>
+                <Link className="text-link" href="/destinations/portugal">
+                  Portugal destination guide
+                </Link>
+              </p>
+              <p>
+                <Link className="text-link" href="/club">
+                  Join the Club
+                </Link>
+              </p>
+            </div>
           </aside>
 
           <div className="article-body">
-            {article.sections.map((section) => (
+            <FlorNote>
+              <p>
+                These notes are written from personal research and first-hand
+                travel preference. Always re-check opening times and transport
+                before you go.
+              </p>
+            </FlorNote>
+
+            {article.sections.map((section, index) => (
               <section key={section.heading}>
                 <h2>{section.heading}</h2>
                 {section.body.map((paragraph) => (
@@ -142,6 +177,25 @@ export default async function GuideArticlePage({ params }: PageProps) {
                       <li key={bullet}>{bullet}</li>
                     ))}
                   </ul>
+                ) : null}
+                {index === 0 &&
+                /portugal|lisbon|porto|madeira|douro/i.test(
+                  `${guide.destination} ${guide.slug}`,
+                ) ? (
+                  <WorthKnowing>
+                    <p>
+                      If you are building a wider Portugal trip, pair this guide
+                      with the{" "}
+                      <Link href="/destinations/portugal">
+                        Portugal destination page
+                      </Link>{" "}
+                      and the{" "}
+                      <Link href="/routes/portugal-by-train">
+                        Portugal by train
+                      </Link>{" "}
+                      route.
+                    </p>
+                  </WorthKnowing>
                 ) : null}
               </section>
             ))}
