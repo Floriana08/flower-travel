@@ -8,7 +8,6 @@ import {
   FlorNote,
   PullQuote,
   TrustBadgeRow,
-  WorthKnowing,
 } from "./editorial-components";
 import { getDestination, guides, itineraries } from "./data";
 import { portugalMapLocations } from "./locations";
@@ -161,14 +160,8 @@ export function PortugalDestinationGuide() {
           >
             <p>{featuredItinerary.summary}</p>
           </SectionHeading>
-          <div className="featured-itinerary-panel">
+          <div className="featured-itinerary-solo">
             <ItineraryCard itinerary={featuredItinerary} ctaLabel="Open route" />
-            <WorthKnowing>
-              <p>
-                Keep hotel changes few. Lisbon and Porto with a Douro day is
-                stronger than four cities and one rushed night everywhere.
-              </p>
-            </WorthKnowing>
           </div>
         </section>
       ) : null}

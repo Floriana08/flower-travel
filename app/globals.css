@@ -3554,6 +3554,10 @@ a.destination-article-card:focus-visible .destination-article-link {
   align-items: stretch;
 }
 
+.featured-itinerary-solo {
+  max-width: 42rem;
+}
+
 .featured-story-row {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(220px, 0.7fr);
