@@ -50,8 +50,6 @@ export type DestinationGuideContent = {
   stays: DestinationStay[];
   restaurants: DestinationRestaurant[];
   regions: DestinationRegion[];
-  practical: { title: string; body: string }[];
-  mistakes: string[];
   comingSoon: { title: string; body: string }[];
   lastUpdated: string;
 };
@@ -186,28 +184,6 @@ export const portugalGuide: DestinationGuideContent = {
       name: "The Azores",
       note: "Coming into the journal as a deeper island chapter — green crater lakes and quieter pacing.",
     },
-  ],
-  practical: [
-    {
-      title: "Getting around",
-      body: "Trains work well between Porto, Coimbra, Lisbon and Cascais. For Sintra, go early on a weekday. For the Douro, a day tour or private driver is often calmer than self-driving the first time.",
-    },
-    {
-      title: "How long to stay",
-      body: "Seven days can cover Lisbon and Porto. Ten to fourteen days leave room for the Douro or Cascais without rushing. Madeira deserves its own week.",
-    },
-    {
-      title: "Season notes",
-      body: "March–June and September–November are the sweet spot for light and fewer crowds. August is beautiful but busy, especially on the Algarve and in Sintra.",
-    },
-  ],
-  mistakes: [
-    "Driving in central Lisbon",
-    "Visiting Sintra on a Saturday",
-    "Treating the Algarve as a day trip",
-    "Booking the Douro in August without reservations",
-    "Spending only one night in Porto",
-    "Adding Madeira to an already packed mainland itinerary",
   ],
   comingSoon: [
     {

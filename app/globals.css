@@ -3466,57 +3466,79 @@ a.destination-article-card:focus-visible .destination-article-link {
   object-fit: cover;
 }
 
-.destination-intro-copy {
-  max-width: 46rem;
-}
-
-.portugal-glance-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0;
-  border-top: 1px solid var(--line);
-}
-
-.portugal-glance-item {
-  display: grid;
-  gap: 10px;
-  align-content: start;
-  padding: 28px 24px 28px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.portugal-glance-item:nth-child(3n + 2),
-.portugal-glance-item:nth-child(3n + 3) {
-  padding-left: 28px;
-  border-left: 1px solid var(--line);
-}
-
-.portugal-glance-item h3 {
-  margin: 0;
-  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
-  font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-}
-
-.portugal-glance-item p:not(.eyebrow) {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.55;
-}
-
 .destination-intro-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
-  gap: clamp(28px, 5vw, 56px);
+  grid-template-columns: minmax(240px, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(28px, 5vw, 64px);
   align-items: start;
 }
 
 .destination-glance {
-  padding: 22px;
-  border: 1px solid var(--line);
-  background: var(--warm-paper);
+  position: sticky;
+  top: calc(var(--header-height) + 18px);
+  display: grid;
+  gap: 16px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.destination-glance h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+}
+
+.portugal-glance-list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+}
+
+.portugal-glance-list div {
+  display: grid;
+  gap: 6px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+
+.portugal-glance-list div:first-child {
+  border-top: 0;
+  padding-top: 4px;
+}
+
+.portugal-glance-list dt {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.portugal-glance-list dd {
+  margin: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.portugal-glance-list strong {
+  font-size: 1.02rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.portugal-glance-list span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.destination-intro-copy {
+  max-width: 42rem;
+}
+
+.destination-intro-copy .section-heading {
+  margin-bottom: 18px;
 }
 
 .featured-itinerary-panel,
@@ -3738,16 +3760,13 @@ a.destination-article-card:focus-visible .destination-article-link {
   .practical-grid,
   .portugal-hero-block,
   .destination-intro-grid,
-  .portugal-glance-grid,
   .featured-itinerary-panel,
   .featured-story-row,
   .travel-map-split {
     grid-template-columns: 1fr;
   }
 
-  .portugal-glance-item:nth-child(3n + 2),
-  .portugal-glance-item:nth-child(3n + 3) {
-    padding-left: 0;
-    border-left: 0;
+  .destination-glance {
+    position: static;
   }
 }
