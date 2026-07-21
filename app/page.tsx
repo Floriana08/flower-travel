@@ -13,6 +13,7 @@ import {
   site,
   travelMoods,
 } from "./data";
+import { HeroOceanVideo } from "./hero-ocean-video";
 
 export const metadata: Metadata = {
   description:
@@ -59,14 +60,7 @@ export default function Home() {
       />
 
       <section className="home-hero" id="home">
-        <div className="hero-image" aria-hidden="true">
-          <img
-            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2200&q=86"
-            alt=""
-          />
-          <span className="wave-layer wave-one" aria-hidden="true" />
-          <span className="wave-layer wave-two" aria-hidden="true" />
-        </div>
+        <HeroOceanVideo />
         <div className="hero-content reveal">
           <BrandLockup tone="light" className="hero-lockup" />
           <p>
