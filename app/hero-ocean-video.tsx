@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 const POSTER =
-  "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2200&q=86";
+  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=80";
 
 export function HeroOceanVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -12,22 +12,30 @@ export function HeroOceanVideo() {
     const video = videoRef.current;
     if (!video) return;
 
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-    const syncMotionPreference = () => {
+    const tryPlay = () => {
       if (mediaQuery.matches) {
         video.pause();
-        video.removeAttribute("autoplay");
-      } else {
-        void video.play().catch(() => {
-          /* Autoplay can be blocked; poster remains. */
-        });
+        return;
       }
+      void video.play().catch(() => {
+        /* Autoplay can be blocked; poster remains visible. */
+      });
     };
 
-    syncMotionPreference();
-    mediaQuery.addEventListener("change", syncMotionPreference);
-    return () => mediaQuery.removeEventListener("change", syncMotionPreference);
+    tryPlay();
+    video.addEventListener("loadeddata", tryPlay);
+    mediaQuery.addEventListener("change", tryPlay);
+
+    return () => {
+      video.removeEventListener("loadeddata", tryPlay);
+      mediaQuery.removeEventListener("change", tryPlay);
+    };
   }, []);
 
   return (
@@ -39,11 +47,10 @@ export function HeroOceanVideo() {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
         poster={POSTER}
-      >
-        <source src="/videos/ocean-waves.mp4" type="video/mp4" />
-      </video>
+        src="/videos/ocean-waves.mp4"
+      />
     </div>
   );
 }
