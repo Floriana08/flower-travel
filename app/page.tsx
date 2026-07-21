@@ -106,7 +106,7 @@ export default function Home() {
               Explore destinations
             </Link>
             <Link className="button ghost-on-dark" href="/club">
-              Join the Journal
+              Join the Club
             </Link>
           </div>
         </div>

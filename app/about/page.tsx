@@ -85,7 +85,7 @@ export default function AboutPage() {
           </p>
         </div>
         <Link className="button light" href="/club">
-          Join the Journal
+          Join the Club
         </Link>
       </section>
     </main>

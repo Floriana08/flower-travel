@@ -5,7 +5,7 @@ import { site } from "../data";
 export const metadata: Metadata = {
   title: "Privacy",
   description:
-    "Starter privacy note for Altrove Journal signups, reader messages, and future newsletter communication.",
+    "Starter privacy note for Altrove Club signups, reader messages, and future newsletter communication.",
 };
 
 export default function PrivacyPage() {
@@ -44,7 +44,7 @@ export default function PrivacyPage() {
             <section>
               <h2>What may be collected</h2>
               <p>
-                When you Join the Journal or contact Altrove, the site
+                When you join the Club or contact Altrove, the site
                 may receive the details you choose to send: email address, name,
                 travel interests, and your message.
               </p>

@@ -101,7 +101,7 @@ export function SiteHeader() {
         </nav>
 
         <Link className="header-action" href="/club">
-          Join the Journal
+          Join the Club
         </Link>
 
         <details className="mobile-menu">
@@ -370,8 +370,8 @@ export function GuideProductCard({
 }
 
 export function NewsletterBand({
-  title = "Join the Altrove Journal",
-  description = "A thoughtful note for travellers who prefer character over crowds. Receive new destination stories, practical planning advice, hotel discoveries and occasional journal-only travel edits.",
+  title = "Join the Altrove Club",
+  description = "A thoughtful note for travellers who prefer character over crowds. Receive new destination stories, practical planning advice, hotel discoveries and occasional Club-only travel edits.",
   placeholder = "Your email address",
   footnote = "No clutter. Just carefully chosen travel inspiration.",
 }: {
@@ -409,7 +409,7 @@ export function NewsletterBand({
           </span>
         </label>
         <button className="button dark" type="submit">
-          Join the Journal
+          Join the Club
         </button>
       </form>
     </section>
@@ -420,7 +420,7 @@ export function ConsultationCta() {
   return (
     <section className="consultation-strip">
       <div>
-        <p className="eyebrow">The Journal</p>
+        <p className="eyebrow">The Club</p>
         <h2>A quieter letter for better trips.</h2>
         <p>
           Destination stories, practical planning notes and hotel discoveries
@@ -428,7 +428,7 @@ export function ConsultationCta() {
         </p>
       </div>
       <Link className="button light" href="/club">
-        Join the Journal
+        Join the Club
       </Link>
     </section>
   );

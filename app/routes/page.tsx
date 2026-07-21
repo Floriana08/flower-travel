@@ -72,7 +72,7 @@ export default function RoutesPage() {
           </p>
         </div>
         <Link className="button light" href="/club">
-          Join the Journal
+          Join the Club
         </Link>
       </section>
     </main>
