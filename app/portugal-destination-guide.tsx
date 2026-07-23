@@ -1,6 +1,5 @@
 import Link from "next/link";
 import {
-  ItineraryCard,
   NewsletterBand,
   SectionHeading,
 } from "./components";
@@ -23,9 +22,6 @@ const portugalCarouselSlugs = [
 
 export function PortugalDestinationGuide() {
   const destination = getDestination("portugal");
-  const featuredItinerary = itineraries.find(
-    (item) => item.slug === portugalGuide.featuredItinerarySlug,
-  );
   const featuredStory = guides.find(
     (item) => item.slug === portugalGuide.featuredStorySlug,
   );
@@ -182,20 +178,6 @@ export function PortugalDestinationGuide() {
           ) : null}
         </FlorNote>
       </section>
-
-      {featuredItinerary ? (
-        <section className="section-shell" id="featured-itinerary">
-          <SectionHeading
-            eyebrow="Featured itinerary"
-            title={featuredItinerary.title}
-          >
-            <p>{featuredItinerary.summary}</p>
-          </SectionHeading>
-          <div className="featured-itinerary-solo">
-            <ItineraryCard itinerary={featuredItinerary} ctaLabel="Open route" />
-          </div>
-        </section>
-      ) : null}
 
       {featuredStory ? (
         <section className="section-shell tinted" id="latest-story">
