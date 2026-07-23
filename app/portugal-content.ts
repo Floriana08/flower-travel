@@ -116,7 +116,7 @@ export const portugalGuide: DestinationGuideContent = {
     { label: "The Algarve", href: "/destinations/portugal#regions", note: "Coast outside August" },
     { label: "The Douro Valley", href: "/routes/porto-wine-day", note: "Wine day from Porto" },
     { label: "Portugal by train", href: "/routes/portugal-by-train", note: "10-day route" },
-    { label: "Portugal itineraries", href: "/destinations/portugal#itineraries", note: "Ready-made routes" },
+    { label: "Portugal itineraries", href: "/routes", note: "Ready-made routes" },
   ],
   stays: [
     {

@@ -29,11 +29,6 @@ export function PortugalDestinationGuide() {
   const featuredStory = guides.find(
     (item) => item.slug === portugalGuide.featuredStorySlug,
   );
-  const relatedItineraries = itineraries.filter((item) =>
-    ["portugal-by-train", "lisbon-food-tour", "porto-wine-day"].includes(
-      item.slug,
-    ),
-  );
   const relatedStories = guides.filter((item) =>
     ["where-to-stay-lisbon", "madeira-first-timers"].includes(item.slug),
   );
@@ -254,22 +249,6 @@ export function PortugalDestinationGuide() {
             </article>
           ))}
         </EditorialCarousel>
-      </section>
-
-      <section className="section-shell" id="itineraries">
-        <SectionHeading
-          eyebrow="Suggested routes"
-          title="Itineraries worth building a trip around"
-        />
-        <div className="itinerary-grid wide">
-          {relatedItineraries.map((itinerary) => (
-            <ItineraryCard
-              key={itinerary.slug}
-              itinerary={itinerary}
-              ctaLabel="View itinerary"
-            />
-          ))}
-        </div>
       </section>
 
       <section className="section-shell tinted" id="related-stories">
