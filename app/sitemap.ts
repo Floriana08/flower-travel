@@ -9,7 +9,6 @@ const routes = [
   "/club",
   "/community",
   "/travel-consultations",
-  "/about",
   "/contact",
   "/privacy",
 ];

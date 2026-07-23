@@ -18,7 +18,15 @@ import {
   travelMoods,
 } from "./data";
 import { HeroOceanVideo } from "./hero-ocean-video";
-import { portugalGuide } from "./portugal-content";
+
+const amalfiPlaceLinks = [
+  { label: "Positano", href: "/routes/amalfi-coast-tours", note: "Cliffside base" },
+  { label: "Ravello", href: "/routes/amalfi-coast-tours", note: "Gardens and quiet" },
+  { label: "Amalfi town", href: "/destinations/amalfi-coast", note: "Ferry hub" },
+  { label: "Path of the Gods", href: "/routes/amalfi-coast-tours", note: "Half-day hike" },
+  { label: "Sorrento", href: "/destinations/naples", note: "Practical base" },
+  { label: "Amalfi Coast tours", href: "/routes/amalfi-coast-tours", note: "Day-trip edit" },
+];
 
 export const metadata: Metadata = {
   title: "Altrove | Travel fewer places, but know them better",
@@ -64,7 +72,7 @@ const structuredData = {
         "@type": "Organization",
         name: site.name,
       },
-      url: "https://flowertravel.studio/about",
+      url: "https://flowertravel.studio/",
     },
   ],
 };
@@ -86,7 +94,7 @@ const featuredMoodSlugs = [
 ];
 
 export default function Home() {
-  const portugal = getDestination("portugal");
+  const amalfi = getDestination("amalfi-coast");
   const latestGuides = guides.filter((guide) =>
     latestGuideSlugs.includes(guide.slug),
   );
@@ -126,29 +134,29 @@ export default function Home() {
         </div>
       </section>
 
-      {portugal ? (
+      {amalfi ? (
         <section className="section-shell home-feature" id="featured">
           <div className="home-feature-grid">
             <Link
               className="home-feature-media"
-              href="/destinations/portugal"
-              aria-label="Read the Portugal guide"
+              href="/destinations/amalfi-coast"
+              aria-label="Read the Amalfi Coast guide"
             >
-              <img src={portugal.image} alt={portugal.alt} loading="eager" />
+              <img src={amalfi.image} alt={amalfi.alt} loading="eager" />
             </Link>
             <div className="home-feature-copy">
               <p className="eyebrow">Featured destination</p>
-              <h2>Portugal</h2>
+              <h2>Amalfi Coast</h2>
               <TrustBadgeRow
                 items={["Personally researched", "Updated July 2026"]}
               />
               <p className="home-feature-lede">
-                The strongest chapter in the journal so far: Lisbon mornings,
-                Porto lunches, Douro terraces and island light — written for
-                travellers who would rather stay longer than tick more boxes.
+                Cliffside villages, lemon terraces and ferry light — written for
+                travellers who would rather choose two towns well than rush the
+                whole coast in a day.
               </p>
               <ul className="portugal-place-links">
-                {portugalGuide.placeLinks.map((place) => (
+                {amalfiPlaceLinks.map((place) => (
                   <li key={place.label}>
                     <Link href={place.href}>{place.label}</Link>
                     {place.note ? <span>{place.note}</span> : null}
@@ -157,9 +165,9 @@ export default function Home() {
               </ul>
               <Link
                 className="button dark home-feature-cta"
-                href="/destinations/portugal"
+                href="/destinations/amalfi-coast"
               >
-                Open the Portugal guide
+                Open the Amalfi Coast guide
               </Link>
             </div>
           </div>
@@ -182,9 +190,6 @@ export default function Home() {
               It is where the journal’s voice is clearest.
             </p>
           </FlorNote>
-          <Link className="text-link" href="/about">
-            More about the studio
-          </Link>
         </div>
       </section>
 

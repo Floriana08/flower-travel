@@ -12,7 +12,6 @@ export const navItems = [
   { href: "/destinations", label: "Destinations" },
   { href: "/travel-guides", label: "Travel Journal" },
   { href: "/club", label: "Club" },
-  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -81,8 +80,8 @@ export const destinations = [
     season: "April to October",
     bestFor: "Hiking, scenic drives, ocean pools, wildflower routes",
     image:
-      "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=1600&q=84",
-    alt: "Madeira coastline with green cliffs and Atlantic water",
+      "https://images.unsplash.com/photo-1635181738174-9bcd6b93f46e?auto=format&fit=crop&w=1600&q=84",
+    alt: "Madeira’s Ponta de São Lourenço cliffs above the Atlantic",
     excerpt:
       "Levadas, mountain sunrise transfers, ocean pools, market lunches, and cliffside picnic days.",
     highlights: ["Levada pacing", "Funchal base notes", "Sunrise logistics"],
@@ -241,8 +240,8 @@ export const destinations = [
     season: "May to June, September",
     bestFor: "Coastal drives, lemon terraces, boutique hotels, honeymoons",
     image:
-      "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1600&q=84",
-    alt: "Colourful houses on the Amalfi Coast above the sea",
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=84",
+    alt: "Cliffside villages on the Amalfi Coast above blue Mediterranean water",
     excerpt:
       "Positano mornings, Ravello gardens, ferry hops, and the kind of coastal days that need fewer plans, not more.",
     highlights: ["Positano base", "Ferry days", "Terrace hotels"],

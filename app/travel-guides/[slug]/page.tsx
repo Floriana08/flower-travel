@@ -74,7 +74,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
     author: {
       "@type": "Person",
       name: "Flor",
-      url: "https://flowertravel.studio/about",
+      url: "https://flowertravel.studio/",
     },
     publisher: {
       "@type": "Organization",
