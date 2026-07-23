@@ -10,9 +10,7 @@ import {
   TrustBadgeRow,
 } from "./editorial-components";
 import { getDestination, guides, itineraries } from "./data";
-import { portugalMapLocations } from "./locations";
 import { portugalGuide } from "./portugal-content";
-import { TravelMap } from "./travel-map";
 
 export function PortugalDestinationGuide() {
   const destination = getDestination("portugal");
@@ -94,8 +92,8 @@ export function PortugalDestinationGuide() {
             <Link className="button dark" href="#editorial-intro">
               Start reading
             </Link>
-            <Link className="button ghost" href="#map">
-              Browse saved places
+            <Link className="button ghost" href="#places-to-stay">
+              Places to stay
             </Link>
           </div>
         </div>
@@ -188,19 +186,6 @@ export function PortugalDestinationGuide() {
           </article>
         </section>
       ) : null}
-
-      <section className="section-shell" id="map">
-        <SectionHeading
-          eyebrow="Interactive map"
-          title="Saved places across Portugal"
-        >
-          <p>
-            Click a pin or filter by category. Switch to List on mobile if you
-            prefer reading over panning.
-          </p>
-        </SectionHeading>
-        <TravelMap locations={portugalMapLocations} />
-      </section>
 
       <section className="section-shell tinted" id="places-to-stay">
         <SectionHeading eyebrow="Places to stay" title="Where I would base myself" />
