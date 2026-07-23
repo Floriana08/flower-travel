@@ -9,8 +9,17 @@ import {
   PullQuote,
   TrustBadgeRow,
 } from "./editorial-components";
+import { EditorialCarousel } from "./EditorialCarousel";
 import { getDestination, guides, itineraries } from "./data";
 import { portugalGuide } from "./portugal-content";
+
+const portugalCarouselSlugs = [
+  "lisbon-food-tour",
+  "where-to-stay-lisbon",
+  "porto-wine-day",
+  "portugal-by-train",
+  "madeira-first-timers",
+] as const;
 
 export function PortugalDestinationGuide() {
   const destination = getDestination("portugal");
@@ -28,6 +37,35 @@ export function PortugalDestinationGuide() {
   const relatedStories = guides.filter((item) =>
     ["where-to-stay-lisbon", "madeira-first-timers"].includes(item.slug),
   );
+  const journalCarousel = portugalCarouselSlugs
+    .map((slug) => {
+      const guide = guides.find((item) => item.slug === slug);
+      if (guide) {
+        return {
+          slug,
+          href: `/travel-guides/${guide.slug}`,
+          title: guide.title,
+          image: guide.image,
+          alt: guide.alt,
+          meta: guide.category,
+          detail: guide.readTime,
+        };
+      }
+
+      const route = itineraries.find((item) => item.slug === slug);
+      if (!route) return null;
+
+      return {
+        slug,
+        href: `/routes/${route.slug}`,
+        title: route.title,
+        image: route.image,
+        alt: route.alt,
+        meta: route.pace,
+        detail: route.days,
+      };
+    })
+    .filter((item): item is NonNullable<typeof item> => Boolean(item));
 
   if (!destination) return null;
 
@@ -92,8 +130,8 @@ export function PortugalDestinationGuide() {
             <Link className="button dark" href="#editorial-intro">
               Start reading
             </Link>
-            <Link className="button ghost" href="#places-to-stay">
-              Places to stay
+            <Link className="button ghost" href="#portugal-journal">
+              Browse articles
             </Link>
           </div>
         </div>
@@ -187,61 +225,35 @@ export function PortugalDestinationGuide() {
         </section>
       ) : null}
 
-      <section className="section-shell tinted" id="places-to-stay">
-        <SectionHeading eyebrow="Places to stay" title="Where I would base myself" />
-        <div className="recommendation-list">
-          {portugalGuide.stays.map((stay) => (
-            <article key={stay.name}>
-              <p className="eyebrow">{stay.area}</p>
-              <h3>{stay.name}</h3>
-              <p>{stay.note}</p>
-              {stay.href ? (
-                <Link className="text-link" href={stay.href}>
-                  Related guide
-                </Link>
-              ) : null}
+      <section className="section-shell tinted" id="portugal-journal">
+        <EditorialCarousel
+          eyebrow="From the journal"
+          title="Articles for planning Portugal"
+          intro={
+            <p>
+              Where to eat, where to stay, and days that shape the trip — Lisbon,
+              the Douro and beyond.
+            </p>
+          }
+          viewAllHref="/travel-guides"
+          viewAllLabel="All stories"
+          ariaLabel="Portugal planning articles"
+        >
+          {journalCarousel.map((item) => (
+            <article className="story-card" key={item.slug}>
+              <Link className="story-card-link" href={item.href}>
+                <img src={item.image} alt={item.alt} loading="lazy" />
+                <div className="story-card-body">
+                  <p className="story-card-meta">
+                    <span>{item.meta}</span>
+                    <span>{item.detail}</span>
+                  </p>
+                  <h3>{item.title}</h3>
+                </div>
+              </Link>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="section-shell" id="restaurants">
-        <SectionHeading
-          eyebrow="Restaurants and cafés"
-          title="Tables worth planning around"
-        />
-        <div className="recommendation-list compact">
-          {portugalGuide.restaurants.map((place) => (
-            <article key={place.name}>
-              <p className="eyebrow">
-                {place.area} · {place.kind === "cafe" ? "Café" : "Restaurant"}
-              </p>
-              <h3>{place.name}</h3>
-              <p>{place.note}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section-shell tinted" id="regions">
-        <SectionHeading
-          eyebrow="Neighbourhoods and regions"
-          title="Choose one Portugal at a time"
-        />
-        <div className="region-link-grid">
-          {portugalGuide.regions.map((region) => (
-            <article key={region.name}>
-              <h3>
-                {region.href ? (
-                  <Link href={region.href}>{region.name}</Link>
-                ) : (
-                  region.name
-                )}
-              </h3>
-              <p>{region.note}</p>
-            </article>
-          ))}
-        </div>
+        </EditorialCarousel>
       </section>
 
       <section className="section-shell" id="itineraries">
