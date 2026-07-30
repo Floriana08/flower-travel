@@ -4,6 +4,7 @@ import { BrandLockup, SectionHeading } from "./components";
 import { NewsletterForm } from "./newsletter-form";
 import { getDestination, guides, site } from "./data";
 import { getHomepageJourneys } from "./journeys-data";
+import { HeroOceanVideo } from "./hero-ocean-video";
 import {
   DestinationFeature,
   EditorialStoryCard,
@@ -90,12 +91,7 @@ export default function Home() {
       />
 
       <section className="studio-hero">
-        <div className="studio-hero-media">
-          <img
-            src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1800&q=84"
-            alt="Cliffside villages on the Amalfi Coast above the Mediterranean"
-          />
-        </div>
+        <HeroOceanVideo />
         <div className="studio-hero-copy">
           <BrandLockup tone="light" className="hero-lockup" showTagline={false} />
           <p className="eyebrow light">Curated travel, with a sense of place</p>
