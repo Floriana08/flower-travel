@@ -1,109 +1,86 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BrandLockup, SectionHeading } from "./components";
+import { NewsletterForm } from "./newsletter-form";
+import { getDestination, guides, site } from "./data";
+import { getHomepageJourneys } from "./journeys-data";
 import {
-  BrandLockup,
-  DestinationCard,
-  NewsletterBand,
-  SectionHeading,
-} from "./components";
-import {
-  FlorNote,
-  TrustBadgeRow,
-} from "./editorial-components";
-import {
-  destinations,
-  getDestination,
-  guides,
-  site,
-  travelMoods,
-} from "./data";
-import { HeroOceanVideo } from "./hero-ocean-video";
-
-const amalfiPlaceLinks = [
-  { label: "Positano", href: "/routes/amalfi-coast-tours", note: "Cliffside base" },
-  { label: "Ravello", href: "/routes/amalfi-coast-tours", note: "Gardens and quiet" },
-  { label: "Amalfi town", href: "/destinations/amalfi-coast", note: "Ferry hub" },
-  { label: "Path of the Gods", href: "/routes/amalfi-coast-tours", note: "Half-day hike" },
-  { label: "Sorrento", href: "/destinations/naples", note: "Practical base" },
-  { label: "Amalfi Coast tours", href: "/routes/amalfi-coast-tours", note: "Day-trip edit" },
-];
+  DestinationFeature,
+  EditorialStoryCard,
+  EnquiryCta,
+  JourneyCard,
+  StudioNewsletter,
+} from "./studio-components";
 
 export const metadata: Metadata = {
-  title: "Altrove | Travel fewer places, but know them better",
+  title: "Altrove | Journeys worth travelling slowly",
   description:
-    "Curated routes, neighbourhood notes, hotel recommendations and practical guides for travellers who prefer depth over checklists.",
+    "A boutique travel studio creating thoughtful itineraries, independent recommendations and deeply researched journeys through places we know and love.",
   alternates: {
     canonical: "https://flowertravel.studio/",
   },
   openGraph: {
-    title: "Travel fewer places, but know them better | Altrove",
+    title: "Altrove | Journeys worth travelling slowly",
     description:
-      "Curated routes, honest travel notes and practical guides for travellers who prefer depth over checklists.",
+      "Thoughtful itineraries, independent recommendations and a travel studio built destination by destination.",
     type: "website",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=84",
+        width: 1600,
+        height: 1067,
+        alt: "Cliffside villages on the Amalfi Coast",
+      },
+    ],
   },
 };
+
+const featuredDestinationSlugs = [
+  "portugal",
+  "amalfi-coast",
+  "lisbon",
+  "spain",
+  "madeira",
+  "naples",
+] as const;
+
+const journalSlugs = [
+  "where-to-stay-lisbon",
+  "madeira-first-timers",
+  "choosing-a-honeymoon-route",
+];
 
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebSite",
-      name: site.fullName,
+      "@type": "TravelAgency",
+      name: site.name,
       url: "https://flowertravel.studio/",
-      description:
-        "Curated routes, honest travel notes and practical guides for travellers who prefer depth over checklists.",
-      publisher: {
-        "@type": "Organization",
-        name: site.name,
-        url: "https://flowertravel.studio/",
-      },
-      potentialAction: {
-        "@type": "SearchAction",
-        target:
-          "https://flowertravel.studio/destinations?q={search_term_string}",
-        "query-input": "required name=search_term_string",
-      },
+      description: site.studioLine,
+      email: site.email,
     },
     {
       "@type": "Person",
       name: "Flor",
-      jobTitle: "Editor",
+      jobTitle: "Founder and editor",
       worksFor: {
         "@type": "Organization",
         name: site.name,
       },
-      url: "https://flowertravel.studio/",
+      url: "https://flowertravel.studio/about",
     },
   ],
 };
 
-const latestGuideSlugs = [
-  "where-to-stay-lisbon",
-  "madeira-first-timers",
-  "rome-food-walk",
-  "solo-paris-weekend",
-];
-
-const featuredMoodSlugs = [
-  "slow-cities",
-  "coastal-escapes",
-  "food-trips",
-  "train-journeys",
-  "wine-regions",
-  "islands",
-];
-
 export default function Home() {
-  const amalfi = getDestination("amalfi-coast");
-  const latestGuides = guides.filter((guide) =>
-    latestGuideSlugs.includes(guide.slug),
-  );
-  const secondaryDestinations = destinations.filter((destination) =>
-    ["italy", "spain"].includes(destination.slug),
-  );
-  const featuredMoods = travelMoods.filter((mood) =>
-    featuredMoodSlugs.includes(mood.slug),
-  );
+  const homepageJourneys = getHomepageJourneys();
+  const featuredDestinations = featuredDestinationSlugs
+    .map((slug) => getDestination(slug))
+    .filter((item): item is NonNullable<typeof item> => Boolean(item));
+  const journalStories = journalSlugs
+    .map((slug) => guides.find((guide) => guide.slug === slug))
+    .filter((item): item is NonNullable<typeof item> => Boolean(item));
 
   return (
     <main>
@@ -112,164 +89,134 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <section className="home-hero" id="home">
-        <HeroOceanVideo />
-        <div className="hero-content reveal">
-          <BrandLockup tone="light" className="hero-lockup" />
-          <h1 className="hero-headline">
-            Travel fewer places, but know them better.
-          </h1>
+      <section className="studio-hero">
+        <div className="studio-hero-media">
+          <img
+            src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1800&q=84"
+            alt="Cliffside villages on the Amalfi Coast above the Mediterranean"
+          />
+        </div>
+        <div className="studio-hero-copy">
+          <BrandLockup tone="light" className="hero-lockup" showTagline={false} />
+          <p className="eyebrow light">Curated travel, with a sense of place</p>
+          <h1 className="display-title">Journeys worth travelling slowly.</h1>
           <p>
-            Curated routes, neighbourhood notes, hotel recommendations and
-            practical guides for travellers who prefer depth over checklists.
+            Altrove is a boutique travel studio creating thoughtful itineraries,
+            independent recommendations and deeply researched journeys through
+            places we know and love.
           </p>
           <div className="hero-actions">
-            <Link className="button light" href="/travel-guides">
-              Explore the journal
+            <Link className="button light" href="/journeys">
+              Explore the journeys
             </Link>
-            <Link className="button ghost-on-dark" href="/destinations">
-              Browse destinations
+            <Link className="button ghost-on-dark" href="/plan-a-trip">
+              Plan with Altrove
             </Link>
           </div>
         </div>
       </section>
 
-      {amalfi ? (
-        <section className="section-shell home-feature" id="featured">
-          <div className="home-feature-grid">
-            <Link
-              className="home-feature-media"
-              href="/destinations/amalfi-coast"
-              aria-label="Read the Amalfi Coast guide"
-            >
-              <img src={amalfi.image} alt={amalfi.alt} loading="eager" />
-            </Link>
-            <div className="home-feature-copy">
-              <p className="eyebrow">Featured destination</p>
-              <h2>Amalfi Coast</h2>
-              <TrustBadgeRow
-                items={["Personally researched", "Updated July 2026"]}
-              />
-              <p className="home-feature-lede">
-                Cliffside villages, lemon terraces and ferry light — written for
-                travellers who would rather choose two towns well than rush the
-                whole coast in a day.
-              </p>
-              <ul className="portugal-place-links">
-                {amalfiPlaceLinks.map((place) => (
-                  <li key={place.label}>
-                    <Link href={place.href}>{place.label}</Link>
-                    {place.note ? <span>{place.note}</span> : null}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                className="button dark home-feature-cta"
-                href="/destinations/amalfi-coast"
-              >
-                Open the Amalfi Coast guide
-              </Link>
-            </div>
-          </div>
-        </section>
-      ) : null}
+      <section className="section-shell studio-intro" id="approach">
+        <p className="eyebrow">The studio</p>
+        <h2 className="display-title">A smaller world, explored more deeply</h2>
+        <p>
+          Altrove is being built one destination at a time. Instead of offering
+          hundreds of generic trips, we are creating a small collection of
+          journeys shaped by personal experience, careful research and a genuine
+          understanding of place.
+        </p>
+        <Link className="text-link" href="/about">
+          Discover our approach
+        </Link>
+      </section>
 
-      <section className="section-shell tinted" id="meet-flor">
-        <div className="flor-intro">
-          <p className="eyebrow">Editor’s note</p>
-          <h2>Hi, I’m Flor.</h2>
+      <section className="section-shell tinted" id="journeys">
+        <SectionHeading eyebrow="Collection" title="The first journeys">
           <p>
-            I created Altrove as a place to collect the routes, neighbourhoods,
-            hotels and travel notes that are genuinely worth remembering. The
-            aim is not to see everything, but to travel with more intention and
-            develop a stronger sense of place.
+            A limited set of itineraries currently available to explore or still
+            in development. Nothing here is filler — if a journey is not ready,
+            we say so.
           </p>
-          <FlorNote>
-            <p>
-              If you only read one destination guide first, start with Portugal.
-              It is where the journal’s voice is clearest.
-            </p>
-          </FlorNote>
-        </div>
-      </section>
-
-      <section className="section-shell" id="latest-stories">
-        <SectionHeading
-          eyebrow="Stories"
-          title="From the travel journal"
-        >
-          <p>Personal notes and practical guides for trips with character.</p>
         </SectionHeading>
-        <div className="guide-grid">
-          {latestGuides.map((guide) => (
-            <article className="story-card" key={guide.slug}>
-              <Link
-                className="story-card-link"
-                href={`/travel-guides/${guide.slug}`}
-              >
-                <img src={guide.image} alt={guide.alt} loading="lazy" />
-                <div className="story-card-body">
-                  <p className="story-card-meta">
-                    <span>{guide.category}</span>
-                    <span>{guide.readTime}</span>
-                  </p>
-                  <h3>{guide.title}</h3>
-                </div>
-              </Link>
-            </article>
+        <div className="journey-grid">
+          {homepageJourneys.map((journey) => (
+            <JourneyCard key={journey.slug} journey={journey} />
           ))}
         </div>
-        <p className="journal-section-footer">
-          <Link className="text-link" href="/travel-guides">
-            Read all travel stories
+        <p className="section-footer-link">
+          <Link className="text-link" href="/journeys">
+            View all journeys
           </Link>
         </p>
       </section>
 
-      <section className="section-shell tinted" id="travel-by-mood">
+      <section className="section-shell">
+        <EnquiryCta title="Planning a journey of your own?">
+          <p>
+            Altrove is developing a personal travel-planning service for
+            travellers looking for thoughtful routes, characterful places to stay
+            and recommendations that reflect how they genuinely want to travel.
+          </p>
+          <ul className="soft-list">
+            <li>Personalised itinerary design</li>
+            <li>Honeymoon planning</li>
+            <li>Hotel shortlists</li>
+            <li>Destination consultations</li>
+            <li>Special-occasion travel</li>
+          </ul>
+        </EnquiryCta>
+      </section>
+
+      <section className="section-shell tinted" id="destinations">
         <SectionHeading
-          eyebrow="Travel by mood"
-          title="Choose the feeling first"
+          eyebrow="Places"
+          title="Selected destinations"
         >
           <p>
-            Browse by pace and atmosphere — then open the places that match how
-            you want the trip to feel.
+            A focused collection — not every place on the map. Each destination
+            is here because it has been visited, researched and written with care.
           </p>
         </SectionHeading>
-        <div className="mood-grid mood-grid-featured">
-          {featuredMoods.map((mood) => (
-            <Link
-              className="mood-card"
-              href={`/destinations?mood=${mood.slug}#mood-results`}
-              key={mood.slug}
+        <div className="destination-feature-list">
+          {featuredDestinations.map((destination) => (
+            <DestinationFeature
+              key={destination.slug}
+              title={destination.title.split(",")[0]}
+              href={`/destinations/${destination.slug}`}
+              image={destination.image}
+              alt={destination.alt}
             >
-              <span className="mood-card-kicker">Mood</span>
-              <h3>{mood.title}</h3>
-              <p>{mood.description}</p>
-              <span className="mood-card-link">View stories</span>
-            </Link>
+              <p>{destination.excerpt}</p>
+            </DestinationFeature>
           ))}
         </div>
       </section>
 
-      <section className="section-shell" id="browse-destinations">
-        <SectionHeading
-          eyebrow="Also in the journal"
-          title="Italy and Spain, next"
-        >
+      <section className="section-shell" id="journal">
+        <SectionHeading eyebrow="Journal" title="Notes from elsewhere">
           <p>
-            Portugal leads for now. Italy and Spain remain in the collection as
-            the next deep chapters.
+            A small edit from the journal — stories that support the journeys,
+            rather than compete with them.
           </p>
         </SectionHeading>
-        <div className="destination-grid home-destination-grid home-destination-grid-secondary">
-          {secondaryDestinations.map((destination) => (
-            <DestinationCard key={destination.slug} destination={destination} />
+        <div className="editorial-story-grid">
+          {journalStories.map((guide) => (
+            <EditorialStoryCard key={guide.slug} guide={guide} />
           ))}
+        </div>
+        <div className="section-footer-row">
+          <Link className="text-link" href="/travel-guides">
+            Visit the journal
+          </Link>
+          <Link className="text-link" href="/about">
+            More about Altrove
+          </Link>
         </div>
       </section>
 
-      <NewsletterBand />
+      <StudioNewsletter>
+        <NewsletterForm buttonLabel="Join the list" />
+      </StudioNewsletter>
     </main>
   );
 }

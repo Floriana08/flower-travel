@@ -5,35 +5,34 @@ import { SiteFooter, SiteHeader } from "./components";
 
 export const metadata: Metadata = {
   title: {
-    default: "Altrove | Travel fewer places, but know them better",
+    default: "Altrove | Journeys worth travelling slowly",
     template: "%s | Altrove",
   },
   description:
-    "Curated routes, honest travel notes and practical guides for travellers who prefer depth over checklists.",
+    "A boutique travel studio creating thoughtful itineraries, independent recommendations and deeply researched journeys.",
   keywords: [
-    "travel journal",
-    "Portugal travel guide",
-    "Portugal by train",
-    "Lisbon neighbourhood guide",
-    "slow travel",
+    "boutique travel studio",
     "curated itineraries",
-    "travel club",
+    "Portugal travel",
+    "Amalfi Coast",
+    "personalised travel planning",
+    "slow travel",
     "editorial travel",
-    "Europe travel",
+    "Europe journeys",
   ],
   metadataBase: new URL("https://flowertravel.studio"),
   openGraph: {
-    title: "Altrove Travel Journal",
+    title: "Altrove Travel Studio",
     description:
-      "Travel fewer places, but know them better. Curated routes and practical guides for thoughtful travellers.",
+      "Thoughtful journeys, independent recommendations and a travel studio built destination by destination.",
     type: "website",
     siteName: "Altrove",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1695199817779-4c879085a9a0?auto=format&fit=crop&w=1600&q=84",
+        url: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=84",
         width: 1600,
         height: 1067,
-        alt: "A Portuguese beach and Atlantic cliffs",
+        alt: "Cliffside villages on the Amalfi Coast",
       },
     ],
   },

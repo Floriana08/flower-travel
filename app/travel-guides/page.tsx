@@ -1,194 +1,173 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { EditorialCarousel } from "../EditorialCarousel";
-import { NewsletterBand, PageHero } from "../components";
+import { SectionHeading } from "../components";
+import { NewsletterForm } from "../newsletter-form";
 import { guides } from "../data";
+import {
+  EditorialStoryCard,
+  PageIntro,
+  StudioNewsletter,
+} from "../studio-components";
 
 export const metadata: Metadata = {
-  title: "Travel Journal",
+  title: "Journal",
   description:
-    "Thoughtful stories for travelling better, from Altrove.",
+    "Notes from elsewhere — places, routes, hotels, food and practical guides from the Altrove journal.",
+  alternates: {
+    canonical: "https://flowertravel.studio/travel-guides",
+  },
 };
 
-const journalCategories = [
-  { label: "Planning", href: "#planning" },
-  { label: "Lower-impact travel", href: "#lower-impact" },
-  { label: "Honeymoons", href: "#planning" },
-  { label: "Personal stories", href: "#personal-stories" },
-  { label: "Destination guides", href: "#destinations" },
+const collections = [
+  {
+    id: "places",
+    label: "Places",
+    slugs: ["madeira-first-timers", "rome-food-walk", "solo-paris-weekend"],
+  },
+  {
+    id: "routes",
+    label: "Routes",
+    slugs: ["train-travel-europe", "japan-rail-first-edit"],
+  },
+  {
+    id: "hotels",
+    label: "Hotels",
+    slugs: ["where-to-stay-lisbon", "morocco-riad-first-edit"],
+  },
+  {
+    id: "food",
+    label: "Food",
+    slugs: ["rome-food-walk"],
+  },
+  {
+    id: "notes",
+    label: "Notes",
+    slugs: ["choosing-a-honeymoon-route", "galapagos-twelve-days"],
+  },
+  {
+    id: "practical",
+    label: "Practical Guides",
+    slugs: [
+      "travel-insurance-worth-it",
+      "sustainable-travel-basics",
+      "carry-on-packing-edit",
+    ],
+  },
 ] as const;
 
-const featuredSlug = "where-to-stay-lisbon";
+const leadSlug = "where-to-stay-lisbon";
+const secondarySlugs = ["madeira-first-timers", "choosing-a-honeymoon-route"];
 
-const latestSlugs = [
-  "solo-paris-weekend",
-  "madeira-first-timers",
-  "rome-food-walk",
-  "train-travel-europe",
-];
-
-const planningSlugs = [
-  "travel-insurance-worth-it",
-  "carry-on-packing-edit",
-  "choosing-a-honeymoon-route",
-];
-
-const lowerImpactSlugs = [
-  "sustainable-travel-basics",
-  "patagonia-without-rushing",
-  "japan-rail-first-edit",
-];
-
-const personalStorySlugs = [
-  "morocco-riad-first-edit",
-  "galapagos-twelve-days",
-];
-
-function storiesFromSlugs(slugs: string[]) {
+function storiesFromSlugs(slugs: readonly string[]) {
   return slugs
     .map((slug) => guides.find((guide) => guide.slug === slug))
     .filter((guide): guide is (typeof guides)[number] => Boolean(guide));
 }
 
-function JournalStoryCard({ guide }: { guide: (typeof guides)[number] }) {
-  return (
-    <article className="story-card">
-      <Link className="story-card-link" href={`/travel-guides/${guide.slug}`}>
-        <img src={guide.image} alt={guide.alt} loading="lazy" />
-        <div className="story-card-body">
-          <p className="story-card-meta">
-            <span>{guide.category}</span>
-            <span>{guide.readTime}</span>
-          </p>
-          <h3>{guide.title}</h3>
-        </div>
-      </Link>
-    </article>
-  );
-}
-
 export default function TravelJournalPage() {
-  const featuredGuide = guides.find((guide) => guide.slug === featuredSlug);
-  const latestStories = storiesFromSlugs(latestSlugs);
-  const planningStories = storiesFromSlugs(planningSlugs);
-  const lowerImpactStories = storiesFromSlugs(lowerImpactSlugs);
-  const personalStories = storiesFromSlugs(personalStorySlugs);
+  const lead = guides.find((guide) => guide.slug === leadSlug);
+  const secondary = storiesFromSlugs(secondarySlugs);
+  const archive = guides.filter(
+    (guide) =>
+      guide.slug !== leadSlug && !secondarySlugs.includes(guide.slug),
+  );
 
   return (
     <main>
-      <PageHero
-        eyebrow="Travel Journal"
-        title="Stories for travelling better"
-        image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=84"
-        alt="Soft waves on a pale beach at dusk"
-      >
-        <p>
-          Destination ideas, practical advice and personal notes for travellers
-          who care about how a journey feels, not just where it goes.
-        </p>
-      </PageHero>
-
-      <section className="section-shell journal-category-section">
-        <div className="guide-category-row" aria-label="Journal topics">
-          {journalCategories.map((category) => (
-            <Link key={category.label} href={category.href}>
-              {category.label}
-            </Link>
-          ))}
-        </div>
+      <section className="section-shell page-top">
+        <PageIntro
+          eyebrow="Journal"
+          title="Notes from elsewhere."
+        >
+          <p>
+            Editorial notes that support the studio — not a feed of everything at
+            once. Read for taste, pacing and practical detail.
+          </p>
+        </PageIntro>
       </section>
 
-      {featuredGuide ? (
-        <section
-          className="section-shell journal-featured-section"
-          id="featured-story"
-        >
-          <p className="eyebrow">Featured story</p>
-          <div className="journal-layout">
+      {lead ? (
+        <section className="section-shell tinted journal-lead">
+          <p className="eyebrow">Lead story</p>
+          <div className="journal-lead-grid">
             <Link
-              className="journal-feature-image-link"
-              href={`/travel-guides/${featuredGuide.slug}`}
-              aria-label={featuredGuide.title}
+              href={`/travel-guides/${lead.slug}`}
+              aria-label={lead.title}
             >
-              <img
-                src={featuredGuide.image}
-                alt={featuredGuide.alt}
-                loading="eager"
-              />
+              <img src={lead.image} alt={lead.alt} />
             </Link>
-            <article className="journal-feature">
-              <h3>{featuredGuide.title}</h3>
-              <p>{featuredGuide.excerpt}</p>
+            <div>
               <p className="story-card-meta">
-                <span>{featuredGuide.category}</span>
-                <span>{featuredGuide.readTime}</span>
+                <span>{lead.category}</span>
+                <span>{lead.readTime}</span>
               </p>
-              <Link
-                className="button dark journal-feature-cta"
-                href={`/travel-guides/${featuredGuide.slug}`}
-              >
+              <h2 className="display-title">{lead.title}</h2>
+              <p>{lead.excerpt}</p>
+              <Link className="button dark" href={`/travel-guides/${lead.slug}`}>
                 Read the story
               </Link>
-            </article>
+            </div>
           </div>
         </section>
       ) : null}
 
-      <section className="section-shell tinted" id="latest-journal">
-        <EditorialCarousel
-          title="Latest from the Journal"
-          ariaLabel="Latest travel journal stories"
-        >
-          {latestStories.map((guide) => (
-            <JournalStoryCard key={guide.slug} guide={guide} />
+      <section className="section-shell">
+        <SectionHeading eyebrow="Also reading" title="Selected notes" />
+        <div className="editorial-story-grid">
+          {secondary.map((guide) => (
+            <EditorialStoryCard key={guide.slug} guide={guide} />
           ))}
-        </EditorialCarousel>
+        </div>
       </section>
 
-      <div id="journal-sections">
-        <section className="section-shell" id="planning">
-          <EditorialCarousel
-            title="Planning"
-            ariaLabel="Travel planning articles"
-          >
-            {planningStories.map((guide) => (
-              <JournalStoryCard key={guide.slug} guide={guide} />
-            ))}
-          </EditorialCarousel>
-        </section>
+      <section className="section-shell tinted" id="collections">
+        <SectionHeading eyebrow="Collections" title="Browse by subject">
+          <p>A quieter way into the archive than a long chronological list.</p>
+        </SectionHeading>
+        <div className="journal-collection-grid">
+          {collections.map((collection) => {
+            const items = storiesFromSlugs(collection.slugs);
+            if (!items.length) return null;
+            return (
+              <article key={collection.id} id={collection.id}>
+                <h3>{collection.label}</h3>
+                <ul>
+                  {items.map((guide) => (
+                    <li key={guide.slug}>
+                      <Link href={`/travel-guides/${guide.slug}`}>
+                        {guide.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            );
+          })}
+        </div>
+      </section>
 
-        <section className="section-shell tinted" id="lower-impact">
-          <EditorialCarousel
-            title="Lower-impact travel"
-            ariaLabel="Lower-impact travel stories"
-          >
-            {lowerImpactStories.map((guide) => (
-              <JournalStoryCard key={guide.slug} guide={guide} />
-            ))}
-          </EditorialCarousel>
-        </section>
-
-        <section className="section-shell" id="personal-stories">
-          <EditorialCarousel
-            title="Personal stories"
-            ariaLabel="Personal travel stories"
-          >
-            {personalStories.map((guide) => (
-              <JournalStoryCard key={guide.slug} guide={guide} />
-            ))}
-          </EditorialCarousel>
-        </section>
-
-        <section className="section-shell tinted" id="destinations">
-          <p className="journal-section-footer">
-            <Link className="text-link" href="/destinations">
-              Explore all destinations
-            </Link>
+      <section className="section-shell" id="archive">
+        <SectionHeading eyebrow="Archive" title="Further reading">
+          <p>
+            Kept for readers who want more depth. Some pieces may later merge —
+            see the content audit for priorities.
           </p>
-        </section>
-      </div>
+        </SectionHeading>
+        <ul className="journal-archive-list">
+          {archive.map((guide) => (
+            <li key={guide.slug}>
+              <Link href={`/travel-guides/${guide.slug}`}>
+                <span>{guide.category}</span>
+                <strong>{guide.title}</strong>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
 
-      <NewsletterBand />
+      <StudioNewsletter>
+        <NewsletterForm buttonLabel="Join the list" />
+      </StudioNewsletter>
     </main>
   );
 }

@@ -19,8 +19,9 @@ export default function RoutesPage() {
         alt="A train traveling through a mountain valley"
       >
         <p>
-          Carefully researched route frameworks: where to begin, how many nights
-          to stay, when to slow down, and which detours are worth the day.
+          The wider editorial route library. For the curated studio collection,
+          start with{" "}
+          <Link href="/journeys">Journeys</Link>.
         </p>
       </PageHero>
 

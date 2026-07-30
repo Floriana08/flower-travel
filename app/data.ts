@@ -1,19 +1,24 @@
 export const site = {
   name: "Altrove",
-  fullName: "Altrove Travel Journal",
-  strapline: "places worth travelling for",
+  fullName: "Altrove Travel Studio",
+  strapline: "thoughtful journeys, with a sense of place",
   studioLine:
-    "Curated routes, honest travel notes and practical guides for travellers who prefer depth over checklists.",
+    "A boutique travel studio creating thoughtful itineraries, independent recommendations and deeply researched journeys.",
   email: "hello@altrove.studio",
 };
 
 export const navItems = [
   { href: "/", label: "Home" },
+  { href: "/journeys", label: "Journeys" },
   { href: "/destinations", label: "Destinations" },
-  { href: "/travel-guides", label: "Travel Journal" },
-  { href: "/club", label: "Club" },
-  { href: "/contact", label: "Contact" },
+  { href: "/travel-guides", label: "Journal" },
+  { href: "/about", label: "About" },
 ];
+
+export const navCta = {
+  href: "/plan-a-trip",
+  label: "Plan a Trip",
+};
 
 export const travellerTypes = [
   "Food & wine",

@@ -184,16 +184,27 @@ export default async function GuideArticlePage({ params }: PageProps) {
                 ) ? (
                   <WorthKnowing>
                     <p>
-                      If you are building a wider Portugal trip, pair this guide
-                      with the{" "}
+                      Planning a longer stay in Portugal? Explore our{" "}
+                      <Link href="/journeys/portugal-by-train">
+                        Portugal journeys
+                      </Link>{" "}
+                      or the{" "}
                       <Link href="/destinations/portugal">
                         Portugal destination page
-                      </Link>{" "}
-                      and the{" "}
-                      <Link href="/routes/portugal-by-train">
-                        Portugal by train
-                      </Link>{" "}
-                      route.
+                      </Link>
+                      .
+                    </p>
+                  </WorthKnowing>
+                ) : null}
+                {index === 0 &&
+                /honeymoon/i.test(`${guide.slug} ${guide.title}`) ? (
+                  <WorthKnowing>
+                    <p>
+                      Considering a honeymoon in Southern Europe?{" "}
+                      <Link href="/plan-a-trip">
+                        Tell Altrove what you have in mind
+                      </Link>
+                      .
                     </p>
                   </WorthKnowing>
                 ) : null}

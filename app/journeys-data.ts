@@ -1,0 +1,205 @@
+export type JourneyStatus = "available" | "in-development" | "custom";
+
+export type Journey = {
+  slug: string;
+  title: string;
+  destination: string;
+  destinationSlug?: string;
+  duration: string;
+  summary: string;
+  status: JourneyStatus;
+  statusLabel: string;
+  image: string;
+  alt: string;
+  overview: string[];
+  forWhom: string[];
+  bestTime: string;
+  route: string[];
+  /** Existing SEO route detail, if any */
+  routeSlug?: string;
+  hotels: { name: string; note: string }[];
+  experiences: string[];
+  practicalNotes: string[];
+  homepage?: boolean;
+};
+
+/**
+ * Curated Altrove journeys. Draft / coming-soon items are explicitly labelled.
+ * Do not invent partnerships, prices or availability.
+ */
+export const journeys: Journey[] = [
+  {
+    slug: "lisbon-slowly",
+    title: "Lisbon, Slowly",
+    destination: "Lisbon, Portugal",
+    destinationSlug: "lisbon",
+    duration: "4 days",
+    summary:
+      "Tiled streets, neighbourhood restaurants, contemporary design and mornings left deliberately unhurried.",
+    status: "in-development",
+    statusLabel: "Coming soon",
+    image:
+      "https://images.unsplash.com/photo-1513735492246-483525079686?auto=format&fit=crop&w=1600&q=84",
+    alt: "A quiet Lisbon street with tiled facades and balconies",
+    overview: [
+      "A short stay shaped around one calm neighbourhood base, long lunches and viewpoint mornings that do not fight the heat or the crowds.",
+      "The itinerary is being written from first-hand time in Lisbon, with hotel and restaurant notes that favour character over the obvious tourist strip.",
+    ],
+    forWhom: [
+      "First-time visitors who dislike rushing",
+      "Couples and solo travellers",
+      "Anyone who wants food and neighbourhood life to set the pace",
+    ],
+    bestTime: "March–June and September–November",
+    route: ["Graça or Estrela base", "Baixa and Chiado", "Alfama morning", "Cascais half-day optional"],
+    routeSlug: "lisbon-food-tour",
+    hotels: [
+      {
+        name: "A quiet hill neighbourhood base",
+        note: "Prefer Graça, Estrela or a calm corner of Príncipe Real over the loudest Baixa blocks. Specific hotel shortlists will publish with the finished journey.",
+      },
+    ],
+    experiences: [
+      "Neighbourhood tasca lunch",
+      "Pastelaria before a miradouro",
+      "One design or azulejo museum, not three",
+    ],
+    practicalNotes: [
+      "This journey is in development. Join the list or enquire if you are planning Lisbon dates.",
+      "Trams and walking cover most of the city; skip driving in the centre.",
+    ],
+    homepage: true,
+  },
+  {
+    slug: "naples-amalfi",
+    title: "Naples and the Amalfi Coast",
+    destination: "Campania, Italy",
+    destinationSlug: "amalfi-coast",
+    duration: "7–9 days",
+    summary:
+      "A journey through Flor’s home region — the intensity of Naples balanced with quieter coastal rhythms.",
+    status: "in-development",
+    statusLabel: "In development",
+    image:
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=84",
+    alt: "Cliffside villages on the Amalfi Coast above blue Mediterranean water",
+    overview: [
+      "Start in Naples for food, neighbourhoods and the working city’s energy. Then move to one coastal base rather than hopping every town on the Amalfi strip.",
+      "The route is shaped by personal knowledge of Campania and will publish with honest pacing notes for ferries, heat and peak-season crowds.",
+    ],
+    forWhom: [
+      "Travellers who want both city and coast",
+      "Food-led trips and honeymoons",
+      "Return visitors ready to go beyond Positano-only plans",
+    ],
+    bestTime: "May–June and September",
+    route: ["Naples", "Sorrento or Salerno base", "Positano or Amalfi day", "Ravello quieter day"],
+    routeSlug: "amalfi-coast-tours",
+    hotels: [
+      {
+        name: "One Naples neighbourhood, one coast base",
+        note: "Two hotel changes at most. Named properties will be listed when the journey is ready — no invented partnerships.",
+      },
+    ],
+    experiences: [
+      "Neighbourhood pizza and pastry in Naples",
+      "Ferry light along the coast",
+      "Ravello gardens or a half-day Path of the Gods",
+    ],
+    practicalNotes: [
+      "Pick two coastal focuses, not five. The coast punishes overambition in summer.",
+      "Boats often beat buses for both views and sanity.",
+    ],
+    homepage: true,
+  },
+  {
+    slug: "portugal-by-train",
+    title: "Portugal by Train",
+    destination: "Portugal",
+    destinationSlug: "portugal",
+    duration: "10 days",
+    summary:
+      "A polished north-to-south route with tiled stations, river views, one beach day and spacious city bases.",
+    status: "available",
+    statusLabel: "Available to explore",
+    image:
+      "https://images.unsplash.com/photo-1555881400-74d7acaacd1b?auto=format&fit=crop&w=1600&q=84",
+    alt: "A train moving through a scenic railway landscape",
+    overview: [
+      "Lisbon to Porto by rail, with room for Coimbra or a Douro day without turning the trip into a scramble.",
+      "This is currently the most complete mainland Portugal route in the Altrove library — still editorial, not a bookable package.",
+    ],
+    forWhom: [
+      "First Portugal trips",
+      "Travellers who prefer trains to rental cars",
+      "Anyone who wants few hotel changes",
+    ],
+    bestTime: "March–June and September–November",
+    route: ["Porto", "Coimbra", "Lisbon", "Cascais"],
+    routeSlug: "portugal-by-train",
+    hotels: [
+      {
+        name: "Lisbon and Porto bases",
+        note: "See the Portugal destination notes and Lisbon stay guide for neighbourhood direction. Hotel names are recommendations, not bookings.",
+      },
+    ],
+    experiences: [
+      "Douro day from Porto",
+      "Lisbon food morning",
+      "Cascais Atlantic pause",
+    ],
+    practicalNotes: [
+      "Open the full day-by-day route for pacing detail.",
+      "Personalised planning for this corridor is opening gradually via Plan a Trip.",
+    ],
+    homepage: true,
+  },
+  {
+    slug: "northern-spain",
+    title: "Northern Spain",
+    destination: "Spain",
+    destinationSlug: "spain",
+    duration: "8–10 days",
+    summary:
+      "Food, landscape and character across a route designed for travellers who prefer depth over checklists.",
+    status: "in-development",
+    statusLabel: "Coming soon",
+    image:
+      "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=1600&q=84",
+    alt: "Warm evening light over a historic Spanish city square",
+    overview: [
+      "A draft direction for northern Spain — cities, coast and food culture — still being researched into a finished Altrove journey.",
+      "Andalusia notes already in the journal may inform a southern companion route later; this card is intentionally labelled as early.",
+    ],
+    forWhom: [
+      "Food travellers",
+      "Road or rail-curious visitors",
+      "Second Spain trips beyond Madrid and Barcelona defaults",
+    ],
+    bestTime: "May–June and September–October",
+    route: ["To be confirmed as research continues"],
+    hotels: [
+      {
+        name: "Shortlist forthcoming",
+        note: "No hotel partnerships are claimed. Recommendations will follow real stays and research.",
+      },
+    ],
+    experiences: ["Regional food focus", "Landscape days", "One slower town pause"],
+    practicalNotes: [
+      "Draft concept only. Join the list to hear when the route is ready.",
+    ],
+    homepage: true,
+  },
+];
+
+export function getJourney(slug: string) {
+  return journeys.find((journey) => journey.slug === slug);
+}
+
+export function getHomepageJourneys() {
+  return journeys.filter((journey) => journey.homepage);
+}
+
+export function getJourneysByStatus(status: JourneyStatus) {
+  return journeys.filter((journey) => journey.status === status);
+}

@@ -5,6 +5,7 @@ import {
   guideProducts,
   guides,
   itineraries,
+  navCta,
   navItems,
   site,
 } from "./data";
@@ -51,7 +52,7 @@ function BrandWordmark({
     <span className={`brand-wordmark ${className}`.trim()}>
       <span className="brand-name">Altrove</span>
       {showDescriptor ? (
-        <span className="brand-descriptor">Travel Journal</span>
+        <span className="brand-descriptor">Travel Studio</span>
       ) : null}
     </span>
   );
@@ -73,7 +74,7 @@ export function BrandLockup({
     >
       <BrandMark className="brand-lockup-mark" tone={tone} />
       <span className="brand-lockup-name">Altrove</span>
-      <span className="brand-lockup-descriptor">Travel Journal</span>
+      <span className="brand-lockup-descriptor">Travel Studio</span>
       {showTagline ? (
         <>
           <span className="brand-lockup-rule" aria-hidden="true" />
@@ -101,8 +102,8 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <Link className="header-action" href="/club">
-          Join the Club
+        <Link className="header-action" href={navCta.href}>
+          {navCta.label}
         </Link>
 
         <details className="mobile-menu">
@@ -117,6 +118,9 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
+            <Link className="mobile-cta" href={navCta.href}>
+              {navCta.label}
+            </Link>
           </nav>
         </details>
       </div>
@@ -132,8 +136,8 @@ export function SiteFooter() {
           <BrandLockup tone="light" />
         </Link>
         <p>
-          Researched routes, honest notes, and editorial planning for travellers
-          who want taste, local feeling, and a lighter footprint.
+          Thoughtful journeys, independent recommendations and a travel studio
+          being built one destination at a time.
         </p>
       </div>
 
@@ -144,10 +148,13 @@ export function SiteFooter() {
             {item.label}
           </Link>
         ))}
+        <Link href={navCta.href}>{navCta.label}</Link>
       </div>
 
       <div className="footer-col">
         <h2>Studio</h2>
+        <Link href="/about">About</Link>
+        <Link href="/club">Letters</Link>
         <Link href="/contact">Contact</Link>
         <Link href="/privacy">Privacy</Link>
         <a href={`mailto:${site.email}`}>{site.email}</a>

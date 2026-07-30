@@ -1,4 +1,5 @@
 @import url("/fonts/montserrat.css");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
 
 :root {
   --paper: #f7f3ec;
@@ -20,6 +21,8 @@
   --arch: 999px 999px 0 0 / 56% 56% 0 0;
   --font-sans: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
+  --font-display: "Libre Baskerville", "Iowan Old Style", "Palatino Linotype",
+    Palatino, Georgia, serif;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-sans);

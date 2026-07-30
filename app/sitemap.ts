@@ -1,11 +1,20 @@
 import type { MetadataRoute } from "next";
-import { destinationBlogArticles, destinations, guides, itineraries } from "./data";
+import {
+  destinationBlogArticles,
+  destinations,
+  guides,
+  itineraries,
+} from "./data";
+import { journeys } from "./journeys-data";
 
 const routes = [
   "",
+  "/journeys",
   "/destinations",
   "/routes",
   "/travel-guides",
+  "/plan-a-trip",
+  "/about",
   "/club",
   "/community",
   "/travel-consultations",
@@ -15,7 +24,10 @@ const routes = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://flowertravel.studio";
-  const routeRoutes = itineraries.map((itinerary) => `/routes/${itinerary.slug}`);
+  const journeyRoutes = journeys.map((journey) => `/journeys/${journey.slug}`);
+  const routeRoutes = itineraries.map(
+    (itinerary) => `/routes/${itinerary.slug}`,
+  );
   const guideRoutes = guides.map((guide) => `/travel-guides/${guide.slug}`);
   const destinationRoutes = destinations.map(
     (destination) => `/destinations/${destination.slug}`,
@@ -27,15 +39,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...routes,
+    ...journeyRoutes,
     ...destinationRoutes,
     ...destinationArticleRoutes,
     ...routeRoutes,
     ...guideRoutes,
   ].map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date("2026-07-21"),
+    lastModified: new Date("2026-07-30"),
     changeFrequency:
       route === "" ||
+      route.startsWith("/journeys") ||
       route.startsWith("/routes/") ||
       route.startsWith("/destinations/") ||
       route.startsWith("/travel-guides/")
@@ -44,9 +58,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority:
       route === ""
         ? 1
-        : route === "/destinations/portugal"
+        : route === "/journeys" || route === "/plan-a-trip"
           ? 0.95
-          : route.startsWith("/routes/") ||
+          : route.startsWith("/journeys/") ||
+              route.startsWith("/routes/") ||
               route.startsWith("/destinations/") ||
               route.startsWith("/travel-guides/")
             ? 0.75

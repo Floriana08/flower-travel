@@ -1,0 +1,164 @@
+import Link from "next/link";
+import type { ReactNode } from "react";
+import type { Journey } from "./journeys-data";
+import { guides } from "./data";
+
+type Guide = (typeof guides)[number];
+
+export function PageIntro({
+  eyebrow,
+  title,
+  children,
+}: {
+  eyebrow?: string;
+  title: string;
+  children?: ReactNode;
+}) {
+  return (
+    <header className="page-intro">
+      {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
+      <h1 className="display-title">{title}</h1>
+      {children ? <div className="page-intro-body">{children}</div> : null}
+    </header>
+  );
+}
+
+export function JourneyCard({
+  journey,
+  ctaLabel,
+}: {
+  journey: Journey;
+  ctaLabel?: string;
+}) {
+  const label =
+    ctaLabel ??
+    (journey.status === "available" ? "Explore the journey" : "View details");
+
+  return (
+    <article className="journey-card">
+      <Link
+        className="journey-card-media"
+        href={`/journeys/${journey.slug}`}
+        aria-label={journey.title}
+      >
+        <img src={journey.image} alt={journey.alt} loading="lazy" />
+      </Link>
+      <div className="journey-card-body">
+        <div className="journey-card-meta">
+          <span>{journey.destination}</span>
+          <span>{journey.duration}</span>
+        </div>
+        <p className="journey-status">{journey.statusLabel}</p>
+        <h3>
+          <Link href={`/journeys/${journey.slug}`}>{journey.title}</Link>
+        </h3>
+        <p>{journey.summary}</p>
+        <Link className="text-link" href={`/journeys/${journey.slug}`}>
+          {label}
+        </Link>
+      </div>
+    </article>
+  );
+}
+
+export function DestinationFeature({
+  title,
+  href,
+  image,
+  alt,
+  children,
+}: {
+  title: string;
+  href: string;
+  image: string;
+  alt: string;
+  children: ReactNode;
+}) {
+  return (
+    <article className="destination-feature">
+      <Link className="destination-feature-media" href={href} aria-label={title}>
+        <img src={image} alt={alt} loading="lazy" />
+      </Link>
+      <div className="destination-feature-copy">
+        <h3>
+          <Link href={href}>{title}</Link>
+        </h3>
+        <div>{children}</div>
+        <Link className="text-link" href={href}>
+          Explore {title}
+        </Link>
+      </div>
+    </article>
+  );
+}
+
+export function EditorialStoryCard({ guide }: { guide: Guide }) {
+  return (
+    <article className="editorial-story-card">
+      <Link
+        className="editorial-story-card-link"
+        href={`/travel-guides/${guide.slug}`}
+      >
+        <img src={guide.image} alt={guide.alt} loading="lazy" />
+        <div>
+          <p className="story-card-meta">
+            <span>{guide.category}</span>
+            <span>{guide.readTime}</span>
+          </p>
+          <h3>{guide.title}</h3>
+          <p>{guide.excerpt}</p>
+        </div>
+      </Link>
+    </article>
+  );
+}
+
+export function EnquiryCta({
+  eyebrow = "Plan a trip",
+  title,
+  children,
+  href = "/plan-a-trip",
+  cta = "Tell us about your trip",
+}: {
+  eyebrow?: string;
+  title: string;
+  children?: ReactNode;
+  href?: string;
+  cta?: string;
+}) {
+  return (
+    <section className="enquiry-cta">
+      <div>
+        <p className="eyebrow">{eyebrow}</p>
+        <h2 className="display-title">{title}</h2>
+        {children ? <div className="enquiry-cta-copy">{children}</div> : null}
+      </div>
+      <Link className="button dark" href={href}>
+        {cta}
+      </Link>
+    </section>
+  );
+}
+
+export function StudioNewsletter({
+  title = "Letters from Altrove",
+  description = "Occasional travel notes, new journeys and places worth making time for—sent without unnecessary noise.",
+  children,
+}: {
+  title?: string;
+  description?: string;
+  children: ReactNode;
+}) {
+  return (
+    <section className="studio-newsletter section-shell">
+      <div className="studio-newsletter-inner">
+        <div>
+          <p className="eyebrow">Correspondence</p>
+          <h2 className="display-title">{title}</h2>
+          <p>{description}</p>
+        </div>
+        <div>{children}</div>
+      </div>
+    </section>
+  );
+}
