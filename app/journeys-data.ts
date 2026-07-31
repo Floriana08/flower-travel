@@ -42,7 +42,7 @@ export const journeys: Journey[] = [
     status: "available",
     statusLabel: "Open to explore",
     image:
-      "https://images.unsplash.com/photo-1555881400-74d7acaacd1b?auto=format&fit=crop&w=2000&q=84",
+      "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1600&q=80",
     alt: "A train moving through a scenic railway landscape",
     overview: [
       "Lisbon to Porto by rail, with room for Coimbra or a Douro day without turning the trip into a scramble.",
@@ -85,8 +85,8 @@ export const journeys: Journey[] = [
     status: "in-development",
     statusLabel: "Currently Curating",
     image:
-      "https://images.unsplash.com/photo-1513735492246-483525079686?auto=format&fit=crop&w=2000&q=84",
-    alt: "A quiet Lisbon street with tiled facades and balconies",
+      "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=1600&q=80",
+    alt: "Lisbon’s yellow Tram 28 on a narrow tiled street",
     overview: [
       "A short stay shaped around one calm neighbourhood base, long lunches and viewpoint mornings that do not fight the heat or the crowds.",
       "The itinerary is being written from first-hand time in Lisbon, with hotel and restaurant notes that favour character over the obvious tourist strip.",
@@ -132,7 +132,7 @@ export const journeys: Journey[] = [
     status: "in-development",
     statusLabel: "In Research",
     image:
-      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=2000&q=84",
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=80",
     alt: "Cliffside villages on the Amalfi Coast above blue Mediterranean water",
     overview: [
       "Start in Naples for food, neighbourhoods and the working city’s energy. Then move to one coastal base rather than hopping every town on the Amalfi strip.",

@@ -2033,7 +2033,7 @@ export const guides = [
     date: "July 8, 2026",
     readTime: "7 min read",
     image:
-      "https://images.unsplash.com/photo-1513735492246-483525079686?auto=format&fit=crop&w=1600&q=84",
+      "https://images.unsplash.com/photo-1513735492246-483525079686?auto=format&fit=crop&w=1600&q=80",
     alt: "A quiet Lisbon street with tiled facades and balconies",
     excerpt:
       "The best base depends on whether you want river light, nightlife, hills, design hotels, or easy day trips.",
@@ -2047,8 +2047,8 @@ export const guides = [
     date: "July 2, 2026",
     readTime: "9 min read",
     image:
-      "https://images.unsplash.com/photo-1579005995445-1c0a9c9b5c42?auto=format&fit=crop&w=1600&q=84",
-    alt: "A dramatic green coastline on Madeira",
+      "https://images.unsplash.com/photo-1635181738174-9bcd6b93f46e?auto=format&fit=crop&w=1600&q=80",
+    alt: "Madeira’s Ponta de São Lourenço cliffs above the Atlantic",
     excerpt:
       "How to choose a base, when to hire a driver, which hikes need planning, and where comfort is worth the splurge.",
   },
@@ -2089,8 +2089,8 @@ export const guides = [
     date: "June 9, 2026",
     readTime: "8 min read",
     image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=84",
-    alt: "Soft waves on a pale beach",
+      "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1600&q=80",
+    alt: "Warm evening light along a European riverside",
     excerpt:
       "A gentler way to plan a memorable honeymoon, with fewer hotel changes, more time in each place and enough space for the trip to feel spontaneous.",
   },
@@ -2332,8 +2332,8 @@ export const guideProducts = [
     price: "€16",
     destination: "Madeira",
     image:
-      "https://images.unsplash.com/photo-1579005995445-1c0a9c9b5c42?auto=format&fit=crop&w=1600&q=84",
-    alt: "A dramatic green coastline on Madeira",
+      "https://images.unsplash.com/photo-1635181738174-9bcd6b93f46e?auto=format&fit=crop&w=1600&q=80",
+    alt: "Madeira’s Ponta de São Lourenço cliffs above the Atlantic",
     excerpt:
       "A clear Madeira planning companion for bases, levada pacing, weather-flex days, ocean pools, scenic drives, and comfort-first logistics.",
     includes: ["Base chooser", "Soft adventure days", "Driver notes"],
