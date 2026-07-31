@@ -14,14 +14,14 @@ import {
 } from "./studio-components";
 
 export const metadata: Metadata = {
-  title: "Altrove | Journeys worth travelling slowly",
+  title: "Altrove | Boutique travel studio",
   description:
     "A boutique travel studio creating thoughtful itineraries, independent recommendations and deeply researched journeys through places we know and love.",
   alternates: {
     canonical: "https://flowertravel.studio/",
   },
   openGraph: {
-    title: "Altrove | Journeys worth travelling slowly",
+    title: "Altrove | Boutique travel studio",
     description:
       "Thoughtful itineraries, independent recommendations and a travel studio built destination by destination.",
     type: "website",
@@ -95,12 +95,11 @@ export default function Home() {
         <div className="studio-hero-copy">
           <BrandLockup tone="light" className="hero-lockup" showTagline={false} />
           <p className="eyebrow light">Curated travel, with a sense of place</p>
-          <h1 className="display-title">Journeys worth travelling slowly.</h1>
-          <p>
+          <h1 className="studio-hero-lede">
             Altrove is a boutique travel studio creating thoughtful itineraries,
             independent recommendations and deeply researched journeys through
             places we know and love.
-          </p>
+          </h1>
           <div className="hero-actions">
             <Link className="button light" href="/journeys">
               Explore the journeys

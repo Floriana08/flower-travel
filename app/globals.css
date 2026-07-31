@@ -704,7 +704,7 @@ p {
 .story-card-meta span + span::before {
   margin-right: 6px;
   color: var(--muted);
-  content: "·";
+  content: "Â·";
 }
 
 .story-card h3 {
@@ -3867,10 +3867,15 @@ a.destination-article-card:focus-visible .destination-article-link {
   color: rgba(247, 243, 236, 0.78);
 }
 
-.studio-hero-copy p {
+.studio-hero-copy p,
+.studio-hero-lede {
   max-width: 34rem;
+  margin: 0;
   color: rgba(247, 243, 236, 0.9);
+  font-family: var(--font-sans);
   font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0;
   line-height: 1.7;
 }
 
@@ -4295,5 +4300,95 @@ a.destination-article-card:focus-visible .destination-article-link {
   .journey-card-media img,
   .journey-hero-media img {
     aspect-ratio: 5 / 6;
+  }
+}
+
+/* About page — editorial magazine layout */
+.about-page {
+  padding-bottom: clamp(48px, 8vw, 96px);
+}
+
+.about-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(32px, 6vw, 72px);
+  align-items: end;
+  padding-top: clamp(48px, 8vw, 88px);
+}
+
+.about-hero-copy {
+  display: grid;
+  gap: 16px;
+  max-width: 28rem;
+  padding-bottom: 8px;
+}
+
+.about-hero-lede {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.65;
+}
+
+.about-hero-media {
+  margin: 0;
+}
+
+.about-hero-media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.about-chapter {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: start;
+}
+
+.about-chapter-label h2 {
+  margin: 8px 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.about-prose {
+  display: grid;
+  gap: 1.15rem;
+  max-width: 38rem;
+}
+
+.about-prose p {
+  margin: 0;
+  color: var(--soft-ink);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.about-pull {
+  color: var(--ink) !important;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem) !important;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.45 !important;
+}
+
+.about-closing-link {
+  margin-top: 8px !important;
+}
+
+@media (max-width: 900px) {
+  .about-hero,
+  .about-chapter {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero-media img {
+    aspect-ratio: 5 / 4;
   }
 }
