@@ -1,99 +1,104 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SectionHeading } from "../components";
-import {
-  getJourneysByStatus,
-  journeys,
-} from "../journeys-data";
-import { EnquiryCta, JourneyCard, PageIntro } from "../studio-components";
+import { getCatalogueJourneys, type Journey } from "../journeys-data";
 
 export const metadata: Metadata = {
   title: "Journeys",
   description:
-    "A limited collection of Altrove itineraries based on personal experience and in-depth research — available to explore or still in development.",
+    "A small collection of Altrove journeys — curated itineraries through places personally explored. Not many. Worth taking.",
   alternates: {
     canonical: "https://flowertravel.studio/journeys",
   },
 };
 
+function JourneyFeature({
+  journey,
+  signature = false,
+}: {
+  journey: Journey;
+  signature?: boolean;
+}) {
+  return (
+    <article
+      className={`journey-feature ${signature ? "is-signature" : ""}`}
+    >
+      <Link
+        className="journey-feature-media"
+        href={`/journeys/${journey.slug}`}
+        aria-label={journey.title}
+      >
+        <img src={journey.image} alt={journey.alt} loading={signature ? "eager" : "lazy"} />
+      </Link>
+      <div className="journey-feature-copy">
+        <p className="journey-feature-status">{journey.statusLabel}</p>
+        {signature ? <p className="journey-feature-kicker">Signature journey</p> : null}
+        <h2 className="display-title">
+          <Link href={`/journeys/${journey.slug}`}>{journey.title}</Link>
+        </h2>
+        <p className="journey-feature-meta">
+          <span>{journey.destination}</span>
+          <span>{journey.duration}</span>
+          <span>{journey.bestTime}</span>
+        </p>
+        <p className="journey-feature-summary">{journey.summary}</p>
+        <Link className="text-link" href={`/journeys/${journey.slug}`}>
+          {signature ? "Enter the journey" : "View journey"}
+        </Link>
+      </div>
+    </article>
+  );
+}
+
 export default function JourneysPage() {
-  const available = getJourneysByStatus("available");
-  const inDevelopment = getJourneysByStatus("in-development");
+  const catalogue = getCatalogueJourneys();
+  const signature = catalogue.find((journey) => journey.signature) ?? catalogue[0];
+  const supporting = catalogue.filter((journey) => journey.slug !== signature?.slug);
 
   return (
-    <main>
-      <section className="section-shell page-top">
-        <PageIntro
-          eyebrow="Journeys"
-          title="A small collection, built with care."
-        >
-          <p>
-            Altrove is creating a limited set of itineraries shaped by personal
-            experience and careful research. We do not offer the whole world —
-            only destinations we know well enough to recommend with honesty.
-          </p>
-        </PageIntro>
-      </section>
+    <main className="journeys-catalogue">
+      <header className="journeys-catalogue-intro section-shell">
+        <p className="eyebrow">Journeys</p>
+        <h1 className="display-title">
+          Not many.
+          <br />
+          Worth taking.
+        </h1>
+        <p className="journeys-catalogue-lede">
+          Altrove doesn’t create lots of journeys. It creates a small collection
+          shaped by real travel — then edits until each one feels complete.
+        </p>
+      </header>
 
-      <section className="section-shell tinted" id="available">
-        <SectionHeading eyebrow="Available" title="Ready to explore">
-          <p>
-            Editorial journeys you can read now. These are not bookable packages
-            yet — they are researched routes you can follow or adapt.
-          </p>
-        </SectionHeading>
-        {available.length ? (
-          <div className="journey-grid">
-            {available.map((journey) => (
-              <JourneyCard key={journey.slug} journey={journey} />
+      {signature ? (
+        <section className="section-shell journeys-signature" aria-label="Signature journey">
+          <JourneyFeature journey={signature} signature />
+        </section>
+      ) : null}
+
+      {supporting.length ? (
+        <section
+          className="section-shell tinted journeys-supporting"
+          aria-label="Supporting journeys"
+        >
+          <div className="journeys-supporting-list">
+            {supporting.map((journey) => (
+              <JourneyFeature key={journey.slug} journey={journey} />
             ))}
           </div>
-        ) : (
-          <p className="empty-note">New available journeys will appear here.</p>
-        )}
-      </section>
+        </section>
+      ) : null}
 
-      <section className="section-shell" id="in-development">
-        <SectionHeading eyebrow="In development" title="Being written now">
-          <p>
-            Journeys currently taking shape. Join the list or enquire if your
-            dates align with these destinations.
-          </p>
-        </SectionHeading>
-        <div className="journey-grid">
-          {inDevelopment.map((journey) => (
-            <JourneyCard key={journey.slug} journey={journey} />
-          ))}
-        </div>
-      </section>
-
-      <section className="section-shell tinted" id="custom">
-        <SectionHeading
-          eyebrow="Custom planning"
-          title="A journey designed around you"
-        >
-          <p>
-            Personalised itinerary design is opening gradually. Tell us about the
-            trip you have in mind — we will respond when it matches the places
-            and capacity Altrove is developing.
-          </p>
-        </SectionHeading>
-        <EnquiryCta
-          title="Start a custom enquiry"
-          cta="Plan a trip"
-          href="/plan-a-trip"
-        >
-          <p>
-            Honeymoons, slow European routes, city breaks and special occasions —
-            beginning with Portugal, Italy and Spain.
-          </p>
-        </EnquiryCta>
-        <p className="section-footer-link">
-          <Link className="text-link" href="/routes">
-            Browse the wider route library
-          </Link>
-          <span> ({journeys.length} featured journeys above)</span>
+      <section className="section-shell journeys-enquire">
+        <p className="eyebrow">Personal itineraries</p>
+        <h2 className="display-title">Looking for something else?</h2>
+        <p>
+          If this collection doesn’t match the trip you have in mind, tell us
+          where you want to go. Altrove can shape a personalised itinerary around
+          the places we know well.
         </p>
+        <Link className="button dark" href="/plan-a-trip">
+          Enquire about a personalised itinerary
+        </Link>
       </section>
     </main>
   );

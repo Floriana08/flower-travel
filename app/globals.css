@@ -4392,3 +4392,157 @@ a.destination-article-card:focus-visible .destination-article-link {
     aspect-ratio: 5 / 4;
   }
 }
+
+/* Journeys catalogue — lookbook */
+.journeys-catalogue {
+  padding-bottom: clamp(56px, 10vw, 120px);
+}
+
+.journeys-catalogue-intro {
+  max-width: 36rem;
+  padding-top: clamp(56px, 10vw, 104px);
+  padding-bottom: clamp(40px, 7vw, 72px);
+}
+
+.journeys-catalogue-intro .display-title {
+  margin: 12px 0 20px;
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  line-height: 1.05;
+}
+
+.journeys-catalogue-lede {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.journey-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(32px, 6vw, 80px);
+  align-items: center;
+}
+
+.journey-feature.is-signature {
+  gap: clamp(40px, 7vw, 96px);
+}
+
+.journey-feature-media {
+  display: block;
+  overflow: hidden;
+}
+
+.journey-feature-media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform 700ms ease;
+}
+
+.journey-feature.is-signature .journey-feature-media img {
+  aspect-ratio: 5 / 6;
+}
+
+.journey-feature:hover .journey-feature-media img {
+  transform: scale(1.02);
+}
+
+.journey-feature-copy {
+  display: grid;
+  gap: 14px;
+  max-width: 26rem;
+}
+
+.journey-feature-status {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.journey-feature-kicker {
+  margin: 0;
+  color: var(--soft-ink);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.journey-feature-copy .display-title {
+  margin: 0;
+  font-size: clamp(2rem, 3.8vw, 3.1rem);
+}
+
+.journey-feature-copy .display-title a:hover {
+  opacity: 0.75;
+}
+
+.journey-feature-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.journey-feature-summary {
+  margin: 0;
+  color: var(--soft-ink);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.journeys-supporting-list {
+  display: grid;
+  gap: clamp(64px, 10vw, 120px);
+}
+
+.journeys-supporting .journey-feature:nth-child(even) {
+  direction: rtl;
+}
+
+.journeys-supporting .journey-feature:nth-child(even) > * {
+  direction: ltr;
+}
+
+.journeys-enquire {
+  display: grid;
+  gap: 18px;
+  max-width: 32rem;
+  margin-top: clamp(24px, 4vw, 40px);
+  padding-top: clamp(48px, 8vw, 80px);
+  border-top: 1px solid var(--line);
+}
+
+.journeys-enquire .display-title {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+.journeys-enquire p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.journeys-enquire .button {
+  justify-self: start;
+  margin-top: 8px;
+}
+
+@media (max-width: 900px) {
+  .journey-feature,
+  .journeys-supporting .journey-feature:nth-child(even) {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+
+  .journey-feature.is-signature .journey-feature-media img,
+  .journey-feature-media img {
+    aspect-ratio: 5 / 4;
+  }
+}
