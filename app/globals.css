@@ -5396,85 +5396,446 @@ a.destination-article-card:focus-visible .destination-article-link {
   max-width: 40rem;
 }
 
-.italy-info-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(28px, 4vw, 48px) clamp(32px, 5vw, 56px);
-  max-width: 960px;
+/* Italy — magazine / coffee-table layout */
+.italy-mag {
+  color: var(--ink);
+  background: var(--paper);
 }
 
-.italy-info-card {
-  display: grid;
-  gap: 10px;
+.italy-mag-pad {
+  padding-left: max(24px, calc((100% - var(--max)) / 2));
+  padding-right: max(24px, calc((100% - var(--max)) / 2));
 }
 
-.italy-info-card h3 {
+.italy-mag-kicker {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.italy-mag-meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.italy-mag-deck {
+  margin: 0;
+  max-width: 28rem;
+  color: var(--soft-ink);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.italy-mag-link {
+  justify-self: start;
+  color: var(--ink);
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-underline-offset: 0.28em;
+}
+
+.italy-mag-hero {
+  position: relative;
+  min-height: 92vh;
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  color: var(--paper);
+}
+
+.italy-mag-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.italy-mag-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 18, 18, 0.08) 0%,
+    rgba(18, 18, 18, 0.55) 100%
+  );
+}
+
+.italy-mag-hero-copy {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 14px;
+  max-width: 18rem;
+  padding: clamp(40px, 8vw, 88px) max(24px, calc((100% - var(--max)) / 2));
+}
+
+.italy-mag-hero-copy .italy-mag-kicker {
+  color: rgba(247, 243, 236, 0.72);
+}
+
+.italy-mag-hero-copy h1 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  font-size: clamp(2.6rem, 6vw, 4.4rem);
   font-weight: 400;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
 }
 
-.italy-info-card p {
+.italy-mag-lede {
   margin: 0;
+  padding-top: clamp(56px, 10vw, 104px);
+  padding-bottom: clamp(56px, 10vw, 104px);
+  max-width: 34rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+  font-weight: 400;
+  line-height: 1.55;
   color: var(--soft-ink);
-  line-height: 1.65;
 }
 
-.italy-article-feature {
+.italy-mag-cover {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.9fr);
-  gap: clamp(28px, 5vw, 64px);
-  align-items: center;
+  gap: clamp(32px, 5vw, 56px);
+  padding-bottom: clamp(72px, 12vw, 140px);
 }
 
-.italy-article-media {
+.italy-mag-cover-media {
   display: block;
   overflow: hidden;
 }
 
-.italy-article-media img {
+.italy-mag-cover-media img {
   display: block;
   width: 100%;
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
 }
 
-.italy-article-copy {
+.italy-mag-cover-copy {
   display: grid;
-  gap: 14px;
-  max-width: 28rem;
+  gap: 16px;
+  max-width: 40rem;
 }
 
-.italy-article-copy h3 {
+.italy-mag-cover-copy h2 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
   font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
 }
 
-.italy-article-copy h3 a {
+.italy-mag-cover-copy h2 a {
   color: inherit;
   text-decoration: none;
 }
 
-.italy-article-copy h3 a:hover {
-  opacity: 0.75;
+.italy-mag-cover-copy h2 a:hover {
+  opacity: 0.72;
 }
 
-.italy-article-copy > p {
+.italy-mag-notes {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(40px, 8vw, 96px);
+  padding-top: clamp(72px, 12vw, 128px);
+  padding-bottom: clamp(72px, 12vw, 128px);
+  border-top: 1px solid var(--line);
+}
+
+.italy-mag-notes-rail {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+  position: sticky;
+  top: calc(var(--header-height) + 24px);
+}
+
+.italy-mag-notes-rail h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.italy-mag-notes-list {
+  margin: 0;
+  display: grid;
+  gap: 0;
+}
+
+.italy-mag-notes-list > div {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.4fr) minmax(0, 1fr);
+  gap: 20px 28px;
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+}
+
+.italy-mag-notes-list > div:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.italy-mag-notes-list dt {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+.italy-mag-notes-list dd {
   margin: 0;
   color: var(--soft-ink);
   line-height: 1.7;
 }
 
+.italy-mag-loved {
+  padding-top: clamp(40px, 8vw, 80px);
+  padding-bottom: clamp(40px, 8vw, 80px);
+}
+
+.italy-mag-loved-intro {
+  display: grid;
+  gap: 14px;
+  margin-bottom: clamp(48px, 8vw, 88px);
+  max-width: 28rem;
+}
+
+.italy-mag-loved-intro h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.italy-mag-loved-list {
+  display: grid;
+  gap: clamp(72px, 12vw, 140px);
+}
+
+.italy-mag-loved-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.75fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
+  padding-left: max(24px, calc((100% - var(--max)) / 2));
+  padding-right: max(24px, calc((100% - var(--max)) / 2));
+}
+
+.italy-mag-loved-item.is-flip {
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.35fr);
+}
+
+.italy-mag-loved-item.is-flip .italy-mag-loved-media {
+  order: 2;
+}
+
+.italy-mag-loved-item.is-flip .italy-mag-loved-copy {
+  order: 1;
+}
+
+.italy-mag-loved-media {
+  margin: 0;
+  overflow: hidden;
+}
+
+.italy-mag-loved-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.italy-mag-loved-copy {
+  display: grid;
+  gap: 14px;
+  max-width: 22rem;
+}
+
+.italy-mag-loved-copy h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+
+.italy-mag-loved-copy > p:last-child {
+  margin: 0;
+  color: var(--soft-ink);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.italy-mag-journal {
+  padding-top: clamp(72px, 12vw, 128px);
+  padding-bottom: clamp(72px, 12vw, 128px);
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 18px;
+}
+
+.italy-mag-journal > h2 {
+  margin: 0 0 clamp(28px, 5vw, 48px);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.italy-mag-journal-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.7fr);
+  gap: clamp(36px, 6vw, 80px);
+  align-items: start;
+}
+
+.italy-mag-journal-lead {
+  display: grid;
+  gap: 14px;
+  max-width: 40rem;
+}
+
+.italy-mag-journal-lead img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.italy-mag-journal-lead h3,
+.italy-mag-journal-side h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.italy-mag-journal-lead h3 {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+}
+
+.italy-mag-journal-side h3 {
+  font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+}
+
+.italy-mag-journal-lead h3 a,
+.italy-mag-journal-side h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.italy-mag-journal-lead h3 a:hover,
+.italy-mag-journal-side h3 a:hover {
+  opacity: 0.72;
+}
+
+.italy-mag-journal-lead p,
+.italy-mag-journal-side p {
+  margin: 0;
+  color: var(--soft-ink);
+  line-height: 1.65;
+}
+
+.italy-mag-journal-side {
+  display: grid;
+  gap: 12px;
+  padding-top: 8px;
+  max-width: 22rem;
+}
+
+.italy-mag-pause {
+  position: relative;
+  min-height: clamp(50vh, 62vh, 70vh);
+  overflow: hidden;
+}
+
+.italy-mag-pause img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.italy-mag-plan {
+  display: grid;
+  gap: 18px;
+  max-width: 34rem;
+  padding-top: clamp(88px, 14vw, 160px);
+  padding-bottom: clamp(96px, 16vw, 180px);
+}
+
+.italy-mag-plan h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+
+.italy-mag-plan p {
+  margin: 0;
+  color: var(--soft-ink);
+  line-height: 1.7;
+}
+
+.italy-mag-plan .button {
+  justify-self: start;
+  margin-top: 12px;
+}
+
 @media (max-width: 900px) {
-  .italy-info-grid,
-  .italy-article-feature {
+  .italy-mag-hero {
+    min-height: 78vh;
+  }
+
+  .italy-mag-notes,
+  .italy-mag-loved-item,
+  .italy-mag-loved-item.is-flip,
+  .italy-mag-journal-layout {
     grid-template-columns: 1fr;
+  }
+
+  .italy-mag-notes-rail {
+    position: static;
+  }
+
+  .italy-mag-notes-list > div {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .italy-mag-loved-item.is-flip .italy-mag-loved-media,
+  .italy-mag-loved-item.is-flip .italy-mag-loved-copy {
+    order: unset;
+  }
+
+  .italy-mag-loved-media img {
+    aspect-ratio: 5 / 4;
+  }
+
+  .italy-mag-pause {
+    min-height: 42vh;
   }
 }
 

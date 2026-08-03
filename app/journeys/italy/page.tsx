@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { itineraries } from "../../data";
+import { guides, itineraries } from "../../data";
 import { getJourney } from "../../journeys-data";
-import { EnquiryCta } from "../../studio-components";
 import { getStudioCountry } from "../../studio-structure";
 
 const country = getStudioCountry("italy")!;
@@ -10,6 +9,8 @@ const featured = getJourney("naples-amalfi")!;
 const amalfiArticle = itineraries.find(
   (item) => item.slug === "amalfi-coast-tours",
 );
+const journalLead = amalfiArticle;
+const journalSupport = guides.find((guide) => guide.slug === "rome-food-walk");
 
 export const metadata: Metadata = {
   title: "Italy",
@@ -47,162 +48,181 @@ const travelNotes = [
   },
 ];
 
+/** Same Places We Love copy — fewer features, larger photographs. */
+const lovedPlaces = [
+  {
+    kind: "Hotels",
+    name: "A Naples neighbourhood base",
+    note: "Quiet enough to sleep, close enough to walk to dinner.",
+    image:
+      "https://images.unsplash.com/photo-1775188693558-31c7f14790f5?auto=format&fit=crop&w=1800&q=84",
+    alt: "Naples bay with Mount Vesuvius in the distance",
+  },
+  {
+    kind: "Hotels",
+    name: "One coastal stay",
+    note: "A single Amalfi or Sorrento bed — not five hotel changes.",
+    image:
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1800&q=84",
+    alt: "Cliffside villages on the Amalfi Coast above blue Mediterranean water",
+  },
+  {
+    kind: "Restaurants",
+    name: "Neighbourhood pizza",
+    note: "The table you’d send a friend to without hesitating.",
+    image:
+      "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1800&q=84",
+    alt: "Wood-fired pizza on a simple table",
+  },
+  {
+    kind: "Experiences",
+    name: "Ravello gardens",
+    note: "Height, quiet, and a slower afternoon above the coast.",
+    image:
+      "https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=1800&q=80",
+    alt: "Colourful boats in a harbour on the Amalfi Coast",
+  },
+];
+
 export default function ItalyJourneysPage() {
   return (
-    <main className="country-hub italy-hub">
-      <section className="country-hub-hero">
-        <div className="country-hub-hero-media" aria-hidden="true">
-          <img src={country.image} alt="" />
-        </div>
-        <div className="country-hub-hero-copy">
-          <p className="eyebrow light">Italy</p>
-          <h1 className="studio-hero-lede">How we experience Italy.</h1>
-          <p className="country-hub-hero-lede">{country.hubLede}</p>
+    <main className="italy-mag">
+      <section className="italy-mag-hero">
+        <img src={country.image} alt={country.alt} />
+        <div className="italy-mag-hero-copy">
+          <p className="italy-mag-kicker">Italy</p>
+          <h1>How we experience Italy.</h1>
         </div>
       </section>
 
-      <section
-        className="section-shell country-hub-featured"
-        aria-label="Featured journey"
-      >
-        <div className="home-section-head">
-          <p className="eyebrow">Featured journey</p>
-          <h2 className="display-title">{featured.title}</h2>
-        </div>
-        <article className="country-hub-feature">
-          <Link
-            className="country-hub-feature-media"
-            href={`/journeys/${featured.slug}`}
-            aria-label={featured.title}
-          >
-            <img src={featured.image} alt={featured.alt} />
+      <p className="italy-mag-lede italy-mag-pad">{country.hubLede}</p>
+
+      <section className="italy-mag-cover" aria-label="Featured journey">
+        <Link
+          className="italy-mag-cover-media"
+          href={`/journeys/${featured.slug}`}
+        >
+          <img src={featured.image} alt={featured.alt} />
+        </Link>
+        <div className="italy-mag-cover-copy italy-mag-pad">
+          <p className="italy-mag-kicker">Featured journey</p>
+          <h2>
+            <Link href={`/journeys/${featured.slug}`}>{featured.title}</Link>
+          </h2>
+          <p className="italy-mag-meta">
+            {featured.duration} · {featured.destination}
+          </p>
+          <p className="italy-mag-deck">{featured.summary}</p>
+          <Link className="italy-mag-link" href={`/journeys/${featured.slug}`}>
+            Open the journey
           </Link>
-          <div className="country-hub-feature-copy">
-            <p className="home-journey-status">{featured.statusLabel}</p>
-            <p className="home-journey-meta">
-              <span>{featured.duration}</span>
-              <span>{featured.destination}</span>
-            </p>
-            <p>{featured.summary}</p>
-            <p className="country-hub-feature-overview">{featured.overview[0]}</p>
-            <div className="country-hub-feature-actions">
-              <Link className="button dark" href={`/journeys/${featured.slug}`}>
-                Open the journey
-              </Link>
-              <Link className="text-link" href="/plan-a-trip">
-                Plan a version of this
-              </Link>
-            </div>
-          </div>
-        </article>
+        </div>
       </section>
 
-      <section
-        className="section-shell tinted italy-travel-info"
-        aria-label="Useful travel information"
-      >
-        <div className="home-section-head">
-          <p className="eyebrow">Travel notes</p>
-          <h2 className="display-title">Useful information</h2>
-          <p className="home-section-dek">
+      <section className="italy-mag-notes italy-mag-pad" aria-label="Travel notes">
+        <div className="italy-mag-notes-rail">
+          <p className="italy-mag-kicker">Travel notes</p>
+          <h2>Useful information</h2>
+          <p className="italy-mag-deck">
             Practical advice for Campania — written from how we actually travel
             here, not a checklist of every town on the map.
           </p>
         </div>
-        <div className="italy-info-grid">
+        <dl className="italy-mag-notes-list">
           {travelNotes.map((note) => (
-            <article key={note.title} className="italy-info-card">
-              <h3>{note.title}</h3>
-              <p>{note.body}</p>
+            <div key={note.title}>
+              <dt>{note.title}</dt>
+              <dd>{note.body}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <section className="italy-mag-loved" aria-label="Places we love">
+        <div className="italy-mag-pad italy-mag-loved-intro">
+          <p className="italy-mag-kicker">Places we love</p>
+          <h2>Taste notes</h2>
+        </div>
+        <div className="italy-mag-loved-list">
+          {lovedPlaces.map((place, index) => (
+            <article
+              key={place.name}
+              className={`italy-mag-loved-item${index % 2 ? " is-flip" : ""}`}
+            >
+              <figure className="italy-mag-loved-media">
+                <img src={place.image} alt={place.alt} loading="lazy" />
+              </figure>
+              <div className="italy-mag-loved-copy">
+                <p className="italy-mag-kicker">{place.kind}</p>
+                <h3>{place.name}</h3>
+                <p>{place.note}</p>
+              </div>
             </article>
           ))}
         </div>
       </section>
 
-      {amalfiArticle ? (
-        <section
-          className="section-shell italy-article"
-          aria-label="Naples and Amalfi Coast article"
-        >
-          <div className="home-section-head">
-            <p className="eyebrow">From the notes</p>
-            <h2 className="display-title">Naples and the Amalfi Coast</h2>
+      {(journalLead || journalSupport) && (
+        <section className="italy-mag-journal italy-mag-pad" aria-label="Journal">
+          <p className="italy-mag-kicker">Journal</p>
+          <h2>From the notes</h2>
+          <div className="italy-mag-journal-layout">
+            {journalLead ? (
+              <article className="italy-mag-journal-lead">
+                <Link href={`/routes/${journalLead.slug}`}>
+                  <img
+                    src={journalLead.image}
+                    alt={journalLead.alt}
+                    loading="lazy"
+                  />
+                </Link>
+                <p className="italy-mag-meta">
+                  {journalLead.days} · {journalLead.region}
+                </p>
+                <h3>
+                  <Link href={`/routes/${journalLead.slug}`}>
+                    {journalLead.title}
+                  </Link>
+                </h3>
+                <p>{journalLead.summary}</p>
+              </article>
+            ) : null}
+            {journalSupport ? (
+              <article className="italy-mag-journal-side">
+                <p className="italy-mag-meta">
+                  {journalSupport.category} · {journalSupport.readTime}
+                </p>
+                <h3>
+                  <Link href={`/travel-guides/${journalSupport.slug}`}>
+                    {journalSupport.title}
+                  </Link>
+                </h3>
+                <p>{journalSupport.excerpt}</p>
+              </article>
+            ) : null}
           </div>
-          <article className="italy-article-feature">
-            <Link
-              className="italy-article-media"
-              href={`/routes/${amalfiArticle.slug}`}
-              aria-label={amalfiArticle.title}
-            >
-              <img src={amalfiArticle.image} alt={amalfiArticle.alt} />
-            </Link>
-            <div className="italy-article-copy">
-              <p className="home-journey-meta">
-                <span>{amalfiArticle.days}</span>
-                <span>{amalfiArticle.region}</span>
-              </p>
-              <h3>
-                <Link href={`/routes/${amalfiArticle.slug}`}>
-                  {amalfiArticle.title}
-                </Link>
-              </h3>
-              <p>{amalfiArticle.summary}</p>
-              <p>
-                How to choose between Positano, Ravello and the Path of the Gods
-                — without turning the coast into a transfer marathon. Pair it
-                with a few days in Naples first, so the city gets its own time.
-              </p>
-              <div className="country-hub-feature-actions">
-                <Link
-                  className="button dark"
-                  href={`/routes/${amalfiArticle.slug}`}
-                >
-                  Read the Amalfi notes
-                </Link>
-                <Link className="text-link" href={`/journeys/${featured.slug}`}>
-                  See the full journey
-                </Link>
-              </div>
-            </div>
-          </article>
         </section>
-      ) : null}
+      )}
 
-      <section
-        className="section-shell tinted country-hub-places"
-        aria-label="Places we love"
-      >
-        <div className="home-section-head">
-          <p className="eyebrow">Places we love</p>
-          <h2 className="display-title">Taste notes</h2>
-        </div>
-        <div className="country-hub-places-grid">
-          {country.placesWeLove.map((group) => (
-            <div key={group.kind} className="country-hub-place-group">
-              <h3>{group.kind}</h3>
-              <ul>
-                {group.items.map((item) => (
-                  <li key={item.name}>
-                    <strong>{item.name}</strong>
-                    <span>{item.note}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+      <section className="italy-mag-pause" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=2200&q=84"
+          alt=""
+        />
       </section>
 
-      <section className="section-shell country-hub-plan">
-        <EnquiryCta
-          title="If this is how you’d like to experience Italy, ask us to plan yours."
-          cta="Plan My Trip"
-        >
-          <p>
-            Personalised itinerary design around Naples, the coast and the
-            pacing that makes Campania memorable.
-          </p>
-        </EnquiryCta>
+      <section className="italy-mag-plan italy-mag-pad" aria-label="Plan a trip">
+        <p className="italy-mag-kicker">Plan a trip</p>
+        <h2>
+          If this is how you’d like to experience Italy, ask us to plan yours.
+        </h2>
+        <p>
+          Personalised itinerary design around Naples, the coast and the pacing
+          that makes Campania memorable.
+        </p>
+        <Link className="button dark" href="/plan-a-trip">
+          Plan My Trip
+        </Link>
       </section>
     </main>
   );
