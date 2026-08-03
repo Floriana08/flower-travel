@@ -10,6 +10,7 @@ import {
   site,
 } from "./data";
 import { NewsletterForm } from "./newsletter-form";
+import { getDestinationHubHref } from "./studio-structure";
 
 type SectionHeadingProps = {
   eyebrow: string;
@@ -258,7 +259,7 @@ export function DestinationCard({
   return (
     <article className={`destination-card card ${featured ? "featured" : ""}`}>
       <Link
-        href={`/destinations/${destination.slug}`}
+        href={getDestinationHubHref(destination.slug)}
         aria-label={destination.title}
       >
         <img src={destination.image} alt={destination.alt} loading="lazy" />
@@ -278,7 +279,10 @@ export function DestinationCard({
             <li key={item}>{item}</li>
           ))}
         </ul>
-        <Link className="text-link" href={`/destinations/${destination.slug}`}>
+        <Link
+          className="text-link"
+          href={getDestinationHubHref(destination.slug)}
+        >
           {ctaLabel ?? `Explore ${destination.title.split(",")[0]}`}
         </Link>
       </div>

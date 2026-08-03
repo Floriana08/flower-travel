@@ -10,7 +10,6 @@ export const site = {
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/journeys", label: "Journeys" },
-  { href: "/destinations", label: "Destinations" },
   { href: "/travel-guides", label: "Journal" },
   { href: "/about", label: "About" },
 ];

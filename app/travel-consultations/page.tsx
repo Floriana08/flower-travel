@@ -124,7 +124,7 @@ export default function TravelConsultationsPage() {
           consultations. Curated planning, honeymoon design, downloadable
           resources, and packaged edits can grow from real reader behavior.
         </p>
-        <Link className="button dark" href="/destinations">
+        <Link className="button dark" href="/journeys">
           Read the editorial work
         </Link>
       </section>

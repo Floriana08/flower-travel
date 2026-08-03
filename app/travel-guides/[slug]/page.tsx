@@ -144,8 +144,8 @@ export default async function GuideArticlePage({ params }: PageProps) {
             <div className="article-panel">
               <h2>Continue in the journal</h2>
               <p>
-                <Link className="text-link" href="/destinations/portugal">
-                  Portugal destination guide
+                <Link className="text-link" href="/journeys/portugal">
+                  Portugal journeys
                 </Link>
               </p>
               <p>
@@ -189,8 +189,8 @@ export default async function GuideArticlePage({ params }: PageProps) {
                         Portugal journeys
                       </Link>{" "}
                       or the{" "}
-                      <Link href="/destinations/portugal">
-                        Portugal destination page
+                      <Link href="/journeys/portugal">
+                        Portugal destination hub
                       </Link>
                       .
                     </p>

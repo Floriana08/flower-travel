@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BrandLockup } from "./components";
 import { NewsletterForm } from "./newsletter-form";
-import { guides, site } from "./data";
-import { getCatalogueJourneys } from "./journeys-data";
+import { site } from "./data";
 import { HeroOceanVideo } from "./hero-ocean-video";
-import { EditorialStoryCard, StudioNewsletter } from "./studio-components";
+import { StudioNewsletter } from "./studio-components";
+import { studioCountries } from "./studio-structure";
 
 export const metadata: Metadata = {
   title: "Altrove | Boutique travel studio",
@@ -29,12 +29,6 @@ export const metadata: Metadata = {
     ],
   },
 };
-
-const journalSlugs = [
-  "where-to-stay-lisbon",
-  "madeira-first-timers",
-  "choosing-a-honeymoon-route",
-];
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -60,12 +54,6 @@ const structuredData = {
 };
 
 export default function Home() {
-  const catalogue = getCatalogueJourneys().slice(0, 3);
-  const journalStories = journalSlugs
-    .map((slug) => guides.find((guide) => guide.slug === slug))
-    .filter((item): item is NonNullable<typeof item> => Boolean(item))
-    .slice(0, 3);
-
   return (
     <main className="home-edit">
       <script
@@ -83,7 +71,7 @@ export default function Home() {
           </h1>
           <div className="hero-actions">
             <Link className="button light" href="/journeys">
-              Explore the journeys
+              Explore journeys
             </Link>
             <Link className="button ghost-on-dark" href="/plan-a-trip">
               Plan a trip
@@ -92,40 +80,31 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-shell home-journeys" id="journeys">
+      <section className="section-shell home-collections" id="destinations">
         <div className="home-section-head">
-          <p className="eyebrow">Journeys</p>
-          <h2 className="display-title">Worth taking</h2>
+          <p className="eyebrow">Destinations</p>
+          <h2 className="display-title">Where we travel</h2>
+          <p className="home-section-dek">
+            Three places Altrove knows well enough to shape a journey around.
+          </p>
         </div>
-        <div className="home-journey-list">
-          {catalogue.map((journey) => (
-            <article className="home-journey" key={journey.slug}>
-              <Link
-                className="home-journey-media"
-                href={`/journeys/${journey.slug}`}
-                aria-label={journey.title}
-              >
-                <img src={journey.image} alt={journey.alt} loading="lazy" />
-              </Link>
-              <div className="home-journey-copy">
-                <p className="home-journey-status">{journey.statusLabel}</p>
-                <h3>
-                  <Link href={`/journeys/${journey.slug}`}>{journey.title}</Link>
-                </h3>
-                <p className="home-journey-meta">
-                  <span>{journey.destination}</span>
-                  <span>{journey.duration}</span>
-                </p>
-                <p>{journey.summary}</p>
-              </div>
-            </article>
+        <div className="home-collection-grid">
+          {studioCountries.map((country) => (
+            <Link
+              key={country.slug}
+              className="home-collection-card"
+              href={`/journeys/${country.slug}`}
+            >
+              <span className="home-collection-media">
+                <img src={country.image} alt={country.alt} loading="lazy" />
+              </span>
+              <span className="home-collection-copy">
+                <span className="home-collection-title">{country.title}</span>
+                <span className="home-collection-short">{country.short}</span>
+              </span>
+            </Link>
           ))}
         </div>
-        <p className="home-section-link">
-          <Link className="text-link" href="/journeys">
-            View the collection
-          </Link>
-        </p>
       </section>
 
       <section className="section-shell tinted home-philosophy" id="philosophy">
@@ -133,31 +112,18 @@ export default function Home() {
           Altrove isn’t about travelling more. It’s about travelling better.
         </p>
         <p>
-          Fewer places. More attention. Journeys shaped by real stays,
-          neighbourhoods worth returning to, and the kind of pacing that lets a
-          place settle in.
+          Every itinerary begins with a real journey — hotels, neighbourhoods and
+          routes experienced before they are recommended.
         </p>
       </section>
 
       <section className="section-shell home-plan" id="plan">
         <p className="eyebrow">Plan a trip</p>
-        <h2 className="display-title">Tell us where you want to go.</h2>
-        <p>If the collection isn’t quite right, we’ll help shape something that is.</p>
+        <h2 className="display-title">Tell us how you like to travel.</h2>
+        <p>We’ll shape a personalised itinerary around the places we know well.</p>
         <Link className="button dark" href="/plan-a-trip">
-          Enquire
+          Plan My Trip
         </Link>
-      </section>
-
-      <section className="section-shell tinted home-journal" id="journal">
-        <div className="home-section-head">
-          <p className="eyebrow">Journal</p>
-          <h2 className="display-title">Notes from elsewhere</h2>
-        </div>
-        <div className="editorial-story-grid home-journal-grid">
-          {journalStories.map((guide) => (
-            <EditorialStoryCard key={guide.slug} guide={guide} />
-          ))}
-        </div>
       </section>
 
       <StudioNewsletter>
