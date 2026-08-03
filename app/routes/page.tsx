@@ -13,26 +13,26 @@ export default function RoutesPage() {
   return (
     <main>
       <PageHero
-        eyebrow="Route ideas"
-        title="Routes designed for days that feel spacious."
+        eyebrow="Routes"
+        title="Day-by-day notes behind the collections."
         image="https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1800&q=84"
         alt="A train traveling through a mountain valley"
       >
         <p>
-          The wider editorial route library. For the curated studio collection,
-          start with{" "}
-          <Link href="/journeys">Journeys</Link>.
+          Supporting detail for the curated journeys. Start with{" "}
+          <Link href="/journeys">Journeys</Link> if you want the collection
+          view.
         </p>
       </PageHero>
 
       <section className="section-shell">
         <SectionHeading
-          eyebrow="Route library"
-          title="Built around pacing, not pressure."
+          eyebrow="Pacing notes"
+          title="Built around days that feel spacious."
         >
           <p>
-            Open any route for stops, suggested rhythm and practical planning
-            notes.
+            Open any route for stops, rhythm and the small decisions that shape
+            a trip.
           </p>
         </SectionHeading>
         <div className="itinerary-grid wide">

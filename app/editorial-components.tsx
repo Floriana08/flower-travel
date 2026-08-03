@@ -87,7 +87,7 @@ export function ComingSoonBlock({
 }) {
   return (
     <article className="coming-soon-block">
-      <p className="eyebrow">Coming soon</p>
+      <p className="eyebrow">Opening Next</p>
       <h3>{title}</h3>
       <p>{body}</p>
       <Link className="text-link" href={href}>

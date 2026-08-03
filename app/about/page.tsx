@@ -73,8 +73,8 @@ export default function AboutPage() {
             less, and mean it.
           </p>
           <p>
-            The journal builds trust. The journeys are the product. If the way I
-            travel resonates, you can ask me to help plan yours.
+            If the way I travel feels like yours, start with the journeys — or
+            ask me to help plan one around your dates.
           </p>
           <p className="about-closing-link">
             <Link className="text-link" href="/journeys">

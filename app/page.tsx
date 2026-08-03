@@ -149,7 +149,7 @@ export default function Home() {
       <section className="section-shell tinted home-journal" id="journal">
         <div className="home-section-head">
           <p className="eyebrow">Journal</p>
-          <h2 className="display-title">Notes that build trust</h2>
+          <h2 className="display-title">Taste before the itinerary</h2>
         </div>
         <div className="editorial-story-grid home-journal-grid">
           {journalStories.map((guide) => (

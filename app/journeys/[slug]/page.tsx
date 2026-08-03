@@ -132,10 +132,10 @@ export default async function JourneyDetailPage({ params }: PageProps) {
       </section>
 
       <section className="section-shell tinted">
-        <EnquiryCta title="Interested in this journey?">
+        <EnquiryCta title="Want this journey shaped for you?">
           <p>
-            Tell us your dates and what you are hoping for. We will review
-            enquiries that match destinations Altrove is currently developing.
+            Tell us your dates and how you like to travel. We’ll design a
+            personalised version around the places we know well.
           </p>
         </EnquiryCta>
       </section>

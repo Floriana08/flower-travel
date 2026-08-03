@@ -32,9 +32,8 @@ export default function TravelConsultationsPage() {
             title="Bring the messy middle of planning."
           >
             <p>
-              This is advice and route editing, not a packaged holiday. The aim
-              is to make your independent trip feel more intentional,
-              beautiful, and realistic.
+              Personal advice and route editing — so your trip feels intentional,
+              beautiful, and realistic before you commit.
             </p>
           </SectionHeading>
           <ul className="check-list">
@@ -55,8 +54,11 @@ export default function TravelConsultationsPage() {
             Email to book
           </a>
           <p className="small-print">
-            Future versions can add calendar booking, paid itinerary audits,
-            honeymoon planning, and curated package requests.
+            Prefer a fuller itinerary?{" "}
+            <Link className="text-link" href="/plan-a-trip">
+              Plan a trip
+            </Link>
+            .
           </p>
         </aside>
       </section>

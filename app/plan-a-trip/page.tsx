@@ -22,13 +22,13 @@ export default function PlanATripPage() {
             title="If you love the way Altrove travels, ask us to plan yours."
           >
             <p>
-              Personalised itinerary design — shaped around neighbourhoods, hotels
-              and the pacing that makes a place memorable.
+              Personalised itinerary design — hotels, neighbourhoods and pacing
+              shaped around how you like to travel.
             </p>
             <p>
-              We begin with Portugal, Italy and Spain: places researched in person
-              and written with care. Tell us how you like to travel. We’ll reply
-              if your trip matches what we can stand behind.
+              We begin with Portugal, Italy and Spain: places known in person,
+              written with care. Tell us your dates and taste. We’ll design a
+              trip you can trust.
             </p>
             <p className="plan-trip-aside">
               Prefer to browse first?{" "}

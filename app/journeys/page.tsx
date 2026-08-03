@@ -6,7 +6,7 @@ import { studioCountries } from "../studio-structure";
 export const metadata: Metadata = {
   title: "Journeys",
   description:
-    "Curated Altrove journeys — hotels, neighbourhoods and routes experienced before they are recommended.",
+    "Curated Altrove journeys — collections of hotels, neighbourhoods and routes worth remembering.",
   alternates: {
     canonical: "https://flowertravel.studio/journeys",
   },
@@ -18,13 +18,13 @@ export default function JourneysPage() {
       <header className="section-shell page-top journeys-studio-hero">
         <p className="eyebrow">Journeys</p>
         <h1 className="display-title">
-          Every itinerary begins
+          Curated collections,
           <br />
-          with a real journey.
+          not checklists.
         </h1>
         <p className="journeys-studio-single-lede">
-          Hotels, neighbourhoods, restaurants and routes — experienced before
-          they are recommended. Fewer bases. More attention.
+          Hotels, neighbourhoods and routes — chosen with taste, paced with
+          care. Fewer bases. More to remember.
         </p>
       </header>
 
@@ -51,11 +51,11 @@ export default function JourneysPage() {
 
       <section
         className="section-shell tinted journeys-studio-examples"
-        aria-label="Example itineraries by destination"
+        aria-label="How a journey unfolds"
       >
         <div className="home-section-head">
-          <p className="eyebrow">How an Altrove journey moves</p>
-          <h2 className="display-title">An editorial example</h2>
+          <p className="eyebrow">Inside a journey</p>
+          <h2 className="display-title">How the days unfold</h2>
         </div>
         <DestinationItineraryTabs />
       </section>

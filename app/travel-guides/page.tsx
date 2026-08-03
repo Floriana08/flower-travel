@@ -15,7 +15,7 @@ import {
 export const metadata: Metadata = {
   title: "Journal",
   description:
-    "Notes from Altrove — editorial collections that build trust before you plan a journey.",
+    "Notes from Altrove — hotels, neighbourhoods, food and pacing, gathered with care.",
   alternates: {
     canonical: "https://flowertravel.studio/travel-guides",
   },
@@ -35,8 +35,8 @@ export default function TravelJournalPage() {
       <section className="section-shell page-top">
         <PageIntro eyebrow="Journal" title="Notes from elsewhere.">
           <p>
-            Editorial collections that build trust — hotels, neighbourhoods, food
-            and pacing. Inspiration lives here. Journeys and planning live next.
+            Hotels, neighbourhoods, food and pacing — written so you can feel
+            the way Altrove travels before you plan a journey.
           </p>
         </PageIntro>
       </section>

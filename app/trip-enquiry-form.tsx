@@ -62,7 +62,7 @@ export function TripEnquiryForm() {
       )}&body=${encodeURIComponent(body)}`;
       setStatus("success");
       setMessage(
-        "Thank you. Your email client should open so you can send the enquiry. We will review requests that match the destinations and services Altrove is currently developing.",
+        "Thank you. Your email client should open so you can send the enquiry. We’ll reply with next steps for your trip.",
       );
       form.reset();
     } catch {

@@ -40,13 +40,13 @@ export const journeys: Journey[] = [
     summary:
       "Lisbon to Porto by rail — tiled stations, river light, one Atlantic pause.",
     status: "available",
-    statusLabel: "Open to explore",
+    statusLabel: "Signature",
     image:
       "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1600&q=80",
     alt: "A train moving through a scenic railway landscape",
     overview: [
-      "Lisbon to Porto by rail, with room for Coimbra or a Douro day without turning the trip into a scramble.",
-      "This is currently the most complete mainland Portugal route in the Altrove library — still editorial, not a bookable package.",
+      "Lisbon to Porto by rail, with room for Coimbra or a Douro day — paced so the journey itself becomes part of the trip.",
+      "The most complete mainland Portugal route in the collection: neighbourhood bases, train light, and time to linger.",
     ],
     forWhom: [
       "First Portugal trips",
@@ -59,7 +59,7 @@ export const journeys: Journey[] = [
     hotels: [
       {
         name: "Lisbon and Porto bases",
-        note: "See the Portugal destination notes and Lisbon stay guide for neighbourhood direction. Hotel names are recommendations, not bookings.",
+        note: "Start with the Portugal collection and Lisbon stay notes for neighbourhood direction worth waking up in.",
       },
     ],
     experiences: [
@@ -68,8 +68,8 @@ export const journeys: Journey[] = [
       "Cascais Atlantic pause",
     ],
     practicalNotes: [
-      "Open the full day-by-day route for pacing detail.",
-      "Personalised planning for this corridor is opening gradually via Plan a Trip.",
+      "Open the full day-by-day for pacing detail.",
+      "Ask us to shape this corridor around your dates via Plan a Trip.",
     ],
     signature: true,
     catalogue: true,
@@ -154,7 +154,7 @@ export const journeys: Journey[] = [
     hotels: [
       {
         name: "One Naples neighbourhood, one coast base",
-        note: "Two hotel changes at most. Named properties will be listed when the journey is ready — no invented partnerships.",
+        note: "Two hotel changes at most. Named properties will be listed when the journey is ready.",
       },
     ],
     experiences: [
@@ -182,8 +182,8 @@ export const journeys: Journey[] = [
       "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=1600&q=84",
     alt: "Warm evening light over a historic Spanish city square",
     overview: [
-      "A draft direction for northern Spain — cities, coast and food culture — still being researched into a finished Altrove journey.",
-      "Andalusia notes already in the journal may inform a southern companion route later; this card is intentionally labelled as early.",
+      "Cities, coast and food culture across northern Spain — shaped for travellers who prefer depth over checklists.",
+      "The route is being researched into a finished Altrove journey, with room for one slower town pause.",
     ],
     forWhom: [
       "Food travellers",
@@ -195,12 +195,12 @@ export const journeys: Journey[] = [
     hotels: [
       {
         name: "Shortlist forthcoming",
-        note: "No hotel partnerships are claimed. Recommendations will follow real stays and research.",
+        note: "Recommendations will follow real stays and careful research.",
       },
     ],
     experiences: ["Regional food focus", "Landscape days", "One slower town pause"],
     practicalNotes: [
-      "Draft concept only. Join the list to hear when the route is ready.",
+      "Join the list to hear when this journey is ready.",
     ],
     catalogue: false,
   },
