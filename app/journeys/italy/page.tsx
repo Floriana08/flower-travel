@@ -5,7 +5,7 @@ import { getStudioCountry } from "../../studio-structure";
 const country = getStudioCountry("italy")!;
 
 export const metadata: Metadata = {
-  title: "Italy Journeys",
+  title: "Italy",
   description: country.hubLede,
   alternates: {
     canonical: "https://flowertravel.studio/journeys/italy",
