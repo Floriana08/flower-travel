@@ -4937,11 +4937,11 @@ a.destination-article-card:focus-visible .destination-article-link {
   inset: 0;
   z-index: 0;
   overflow: hidden;
-  background: #7eb8d4;
+  background: #8ec4d6;
 }
 
 .journeys-days-video .hero-video {
-  filter: saturate(1.25) contrast(1.06) brightness(1.28) !important;
+  filter: saturate(1.06) contrast(1.02) brightness(1.02) !important;
 }
 
 .journeys-days-cinema::after {
@@ -4952,9 +4952,9 @@ a.destination-article-card:focus-visible .destination-article-link {
   pointer-events: none;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.22) 0%,
-    rgba(255, 255, 255, 0.08) 40%,
-    rgba(255, 252, 245, 0.35) 100%
+    rgba(255, 252, 247, 0.28) 0%,
+    rgba(255, 252, 247, 0.12) 38%,
+    rgba(250, 246, 238, 0.42) 100%
   );
 }
 
@@ -5170,7 +5170,7 @@ a.destination-article-card:focus-visible .destination-article-link {
 
 @media (prefers-reduced-motion: reduce) {
   .journeys-days-video .hero-video {
-    filter: saturate(1.2) contrast(1.04) brightness(1.25) !important;
+    filter: saturate(1.04) contrast(1.02) brightness(1.02) !important;
   }
 
   .journey-dest-panel-head,

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DestinationItineraryTabs } from "../destination-itinerary-tabs";
-import { HeroOceanVideo } from "../hero-ocean-video";
+import { HeroOceanVideo, mediterraneanVideo } from "../hero-ocean-video";
 import { studioCountries } from "../studio-structure";
 
 export const metadata: Metadata = {
@@ -54,7 +54,11 @@ export default function JourneysPage() {
         className="journeys-days-cinema"
         aria-label="How a journey unfolds"
       >
-        <HeroOceanVideo className="journeys-days-video" />
+        <HeroOceanVideo
+          className="journeys-days-video"
+          src={mediterraneanVideo.src}
+          poster={mediterraneanVideo.poster}
+        />
         <div className="journeys-days-cinema-inner section-shell">
           <div className="home-section-head journeys-days-head">
             <p className="eyebrow">Inside a journey</p>
