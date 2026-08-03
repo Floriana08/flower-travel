@@ -31,7 +31,7 @@ export default function JourneysPage() {
 
       <section
         className="section-shell journeys-collection-strip"
-        aria-label="Collections"
+        aria-label="Countries"
       >
         <div className="journeys-collection-grid">
           {studioCountries.map((country) => (
@@ -43,7 +43,7 @@ export default function JourneysPage() {
               <img src={country.image} alt={country.alt} loading="lazy" />
               <span>
                 <strong>{country.title}</strong>
-                <em>Collection</em>
+                <em>Explore</em>
               </span>
             </Link>
           ))}

@@ -6,7 +6,6 @@ import {
 import {
   getFeaturedJourneyForCountry,
   getHubJournalStories,
-  type RegionalCollection,
   type StudioCountry,
 } from "./studio-structure";
 
@@ -68,21 +67,6 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
       ) : null}
 
       <section
-        className="section-shell tinted country-hub-collections"
-        aria-label="Collections"
-      >
-        <div className="home-section-head">
-          <p className="eyebrow">Collections</p>
-          <h2 className="display-title">Regions we return to</h2>
-        </div>
-        <ul className="country-hub-collection-list">
-          {country.collections.map((collection) => (
-            <CollectionRow key={collection.title} collection={collection} />
-          ))}
-        </ul>
-      </section>
-
-      <section
         className="section-shell country-hub-places"
         aria-label="Places we love"
       >
@@ -141,34 +125,5 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
         </EnquiryCta>
       </section>
     </main>
-  );
-}
-
-function CollectionRow({ collection }: { collection: RegionalCollection }) {
-  const body = (
-    <>
-      <span className="country-hub-collection-media">
-        <img src={collection.image} alt={collection.alt} loading="lazy" />
-      </span>
-      <span className="country-hub-collection-copy">
-        {collection.status ? (
-          <span className="home-journey-status">{collection.status}</span>
-        ) : null}
-        <strong>{collection.title}</strong>
-        <em>{collection.note}</em>
-      </span>
-    </>
-  );
-
-  return (
-    <li>
-      {collection.href ? (
-        <Link className="country-hub-collection-row" href={collection.href}>
-          {body}
-        </Link>
-      ) : (
-        <div className="country-hub-collection-row is-static">{body}</div>
-      )}
-    </li>
   );
 }

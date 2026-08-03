@@ -5396,6 +5396,88 @@ a.destination-article-card:focus-visible .destination-article-link {
   max-width: 40rem;
 }
 
+.italy-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 48px) clamp(32px, 5vw, 56px);
+  max-width: 960px;
+}
+
+.italy-info-card {
+  display: grid;
+  gap: 10px;
+}
+
+.italy-info-card h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.italy-info-card p {
+  margin: 0;
+  color: var(--soft-ink);
+  line-height: 1.65;
+}
+
+.italy-article-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.9fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+}
+
+.italy-article-media {
+  display: block;
+  overflow: hidden;
+}
+
+.italy-article-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+}
+
+.italy-article-copy {
+  display: grid;
+  gap: 14px;
+  max-width: 28rem;
+}
+
+.italy-article-copy h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.italy-article-copy h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.italy-article-copy h3 a:hover {
+  opacity: 0.75;
+}
+
+.italy-article-copy > p {
+  margin: 0;
+  color: var(--soft-ink);
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .italy-info-grid,
+  .italy-article-feature {
+    grid-template-columns: 1fr;
+  }
+}
+
 .journal-browse-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
