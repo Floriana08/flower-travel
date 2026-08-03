@@ -12,7 +12,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,11 +23,26 @@ jobs:
           node-version: "22"
           cache: npm
 
-      - name: Install
-        run: npm ci
+      - name: Check Cloudflare token
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::error::CLOUDFLARE_API_TOKEN secret is missing or empty."
+            echo "GitHub → Settings → Secrets and variables → Actions → New repository secret"
+            echo "Name must be exactly: CLOUDFLARE_API_TOKEN"
+            exit 1
+          fi
+          echo "CLOUDFLARE_API_TOKEN is present."
 
-      - name: Deploy Worker
+      - name: Install dependencies
+        # npm ci can fail when both package-lock.json and pnpm-lock.yaml exist
+        run: npm install --no-fund --no-audit
+
+      - name: Deploy to Cloudflare Workers
         run: npm run deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: 83ee682c25e1f0316a8c016de3a237dd
+          CI: true
+          WRANGLER_SEND_METRICS: "false"
