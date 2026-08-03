@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "flower-travel",
+  "account_id": "83ee682c25e1f0316a8c016de3a237dd",
   "compatibility_date": "2026-08-03",
   "compatibility_flags": [
     "nodejs_compat"
