@@ -1,8 +1,9 @@
 name: Deploy to Cloudflare
 
+# Manual only until the Cloudflare token/deploy path is confirmed green.
+# This stops GitHub from emailing on every push to main while the job fails.
+# Re-enable push triggers after a successful manual run.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 concurrency:
@@ -36,8 +37,7 @@ jobs:
           echo "CLOUDFLARE_API_TOKEN is present."
 
       - name: Install dependencies
-        # npm ci can fail when both package-lock.json and pnpm-lock.yaml exist
-        run: npm install --no-fund --no-audit
+        run: npm ci --no-fund --no-audit
 
       - name: Deploy to Cloudflare Workers
         run: npm run deploy
