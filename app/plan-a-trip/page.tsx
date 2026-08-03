@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageIntro } from "../studio-components";
 import { TripEnquiryForm } from "../trip-enquiry-form";
 
 export const metadata: Metadata = {
   title: "Plan a Trip",
   description:
-    "Tell Altrove about the journey you have in mind. Personalised travel planning is opening gradually for Portugal, Italy, Spain and related routes.",
+    "Ask Altrove to design a personalised itinerary around the way you like to travel — beginning with Portugal, Italy and Spain.",
   alternates: {
     canonical: "https://flowertravel.studio/plan-a-trip",
   },
@@ -18,18 +19,23 @@ export default function PlanATripPage() {
         <div>
           <PageIntro
             eyebrow="Plan a trip"
-            title="Let’s begin with the trip you have in mind."
+            title="If you love the way Altrove travels, ask us to plan yours."
           >
             <p>
-              Altrove is gradually opening its personal itinerary service. Tell
-              us a little about the journey you are considering. We will review
-              your request and contact you if it matches the destinations and
-              services Altrove is currently developing.
+              Personalised itinerary design — shaped around neighbourhoods, hotels
+              and the pacing that makes a place memorable.
             </p>
             <p>
-              We begin with Portugal, Italy and Spain — places researched in
-              person and written with care. Complete trip booking is not offered
-              yet; this form is for thoughtful early enquiries.
+              We begin with Portugal, Italy and Spain: places researched in person
+              and written with care. Tell us how you like to travel. We’ll reply
+              if your trip matches what we can stand behind.
+            </p>
+            <p className="plan-trip-aside">
+              Prefer to browse first?{" "}
+              <Link className="text-link" href="/journeys">
+                Explore the journeys
+              </Link>
+              .
             </p>
           </PageIntro>
         </div>

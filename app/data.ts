@@ -3,7 +3,7 @@ export const site = {
   fullName: "Altrove Travel Studio",
   strapline: "thoughtful journeys, with a sense of place",
   studioLine:
-    "A boutique travel studio creating thoughtful itineraries, independent recommendations and deeply researched journeys.",
+    "A boutique travel studio for travellers who would rather remember a place than rush through it.",
   email: "hello@altrove.studio",
 };
 

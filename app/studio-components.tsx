@@ -142,7 +142,7 @@ export function EnquiryCta({
 
 export function StudioNewsletter({
   title = "Letters from Altrove",
-  description = "Occasional travel notes, new journeys and places worth making time for—sent without unnecessary noise.",
+  description = "Occasional notes on journeys, places and the way we like to travel — sent without noise.",
   children,
 }: {
   title?: string;

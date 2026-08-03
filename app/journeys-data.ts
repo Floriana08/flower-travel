@@ -130,7 +130,7 @@ export const journeys: Journey[] = [
     summary:
       "Flor’s home region — city intensity, then one coastal base and ferry light.",
     status: "in-development",
-    statusLabel: "In Research",
+    statusLabel: "In Development",
     image:
       "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=80",
     alt: "Cliffside villages on the Amalfi Coast above blue Mediterranean water",
@@ -177,7 +177,7 @@ export const journeys: Journey[] = [
     summary:
       "Food, landscape and character across a route designed for travellers who prefer depth over checklists.",
     status: "in-development",
-    statusLabel: "In Research",
+    statusLabel: "Currently Curating",
     image:
       "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=1600&q=84",
     alt: "Warm evening light over a historic Spanish city square",

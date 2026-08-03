@@ -17,12 +17,12 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
   return (
     <main className="destination-hub">
       <header className="section-shell page-top destination-hub-intro">
-        <p className="eyebrow">Journeys · {country.title}</p>
+        <p className="eyebrow">{country.title} Collection</p>
         <h1 className="display-title">{country.title}</h1>
         <p className="destination-hub-lede">{country.hubLede}</p>
         <p className="destination-hub-back">
           <Link className="text-link" href="/journeys">
-            All destinations
+            All journeys
           </Link>
         </p>
       </header>
@@ -30,7 +30,7 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
       <section className="section-shell tinted" aria-label="Example itinerary">
         <div className="destination-hub-example">
           <div>
-            <p className="eyebrow">Example itinerary</p>
+            <p className="eyebrow">Signature shape</p>
             <h2 className="display-title">{country.example.title}</h2>
             <p className="journey-dest-meta">{country.example.duration}</p>
             <p>{country.example.lede}</p>
@@ -48,10 +48,10 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
       </section>
 
       {journeys.length ? (
-        <section className="section-shell" aria-label="Curated journeys">
+        <section className="section-shell" aria-label="Journeys in this collection">
           <div className="home-section-head">
-            <p className="eyebrow">Curated journeys</p>
-            <h2 className="display-title">Routes taking shape</h2>
+            <p className="eyebrow">In this collection</p>
+            <h2 className="display-title">Journeys</h2>
           </div>
           <div className="destination-hub-journey-grid">
             {journeys.map((journey) => (
@@ -82,8 +82,8 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
 
       <section className="section-shell tinted" aria-label="Recommendations">
         <div className="home-section-head">
-          <p className="eyebrow">How we travel here</p>
-          <h2 className="display-title">Notes before you plan</h2>
+          <p className="eyebrow">Taste notes</p>
+          <h2 className="display-title">How we travel here</h2>
         </div>
         <ul className="destination-hub-notes">
           {country.recommendations.map((note) => (
@@ -96,10 +96,10 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
         <section className="section-shell" aria-label="Journal">
           <EditorialCarousel
             eyebrow="Journal"
-            title={`Notes on ${country.title}`}
+            title={`From the ${country.title} notes`}
             ariaLabel={`${country.title} journal stories`}
             viewAllHref={`/travel-guides/${country.slug}`}
-            viewAllLabel="Open the collection"
+            viewAllLabel="Open the journal"
           >
             {articles.map((guide) => (
               <EditorialStoryCard key={guide.slug} guide={guide} />
@@ -110,7 +110,7 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
 
       <section className="section-shell">
         <EnquiryCta
-          title="Looking for something more personal?"
+          title="If you love this collection, ask us to plan yours."
           cta="Plan My Trip"
         >
           <p>We’ll design a journey around the way you like to travel.</p>

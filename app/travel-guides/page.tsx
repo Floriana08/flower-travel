@@ -15,7 +15,7 @@ import {
 export const metadata: Metadata = {
   title: "Journal",
   description:
-    "A curated editorial magazine from Altrove — browse by destination or mood, not a chronological blog.",
+    "Notes from Altrove — editorial collections that build trust before you plan a journey.",
   alternates: {
     canonical: "https://flowertravel.studio/travel-guides",
   },
@@ -35,16 +35,16 @@ export default function TravelJournalPage() {
       <section className="section-shell page-top">
         <PageIntro eyebrow="Journal" title="Notes from elsewhere.">
           <p>
-            A curated magazine for travellers who prefer taste and pacing over a
-            feed. Inspiration lives here. Planning lives in Journeys.
+            Editorial collections that build trust — hotels, neighbourhoods, food
+            and pacing. Inspiration lives here. Journeys and planning live next.
           </p>
         </PageIntro>
       </section>
 
-      <section className="section-shell tinted" aria-label="Browse by destination">
+      <section className="section-shell tinted" aria-label="Collections">
         <div className="home-section-head">
-          <p className="eyebrow">Browse by destination</p>
-          <h2 className="display-title">Italy, Portugal, Spain</h2>
+          <p className="eyebrow">Collections</p>
+          <h2 className="display-title">Browse by place</h2>
         </div>
         <div className="journal-browse-grid">
           {studioCountries.map((country) => (
@@ -67,7 +67,7 @@ export default function TravelJournalPage() {
 
       <section className="section-shell" aria-label="Browse by mood">
         <div className="home-section-head">
-          <p className="eyebrow">Browse by mood</p>
+          <p className="eyebrow">By mood</p>
           <h2 className="display-title">How you like to travel</h2>
         </div>
         <ul className="journal-mood-list">
@@ -93,6 +93,11 @@ export default function TravelJournalPage() {
               <EditorialStoryCard key={guide.slug} guide={guide} />
             ))}
           </div>
+          <p className="home-section-link">
+            <Link className="text-link" href="/journeys">
+              When you’re ready, explore the journeys
+            </Link>
+          </p>
         </section>
       ) : null}
 

@@ -84,12 +84,12 @@ export function JournalDestinationPage({ slug }: { slug: StudioCountrySlug }) {
 
       <section className="section-shell">
         <EnquiryCta
-          title="Ready to turn reading into a route?"
+          title="If these notes feel like your kind of travel, ask us to plan yours."
           cta="Plan My Trip"
         >
           <p>
-            When a story sparks a trip, Altrove can shape a personalised itinerary
-            around {country.title}.
+            Personalised itinerary design around {country.title} — and the pacing
+            you prefer.
           </p>
         </EnquiryCta>
       </section>

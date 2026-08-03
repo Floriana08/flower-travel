@@ -76,15 +76,17 @@ function ItineraryPanel({ country }: { country: StudioCountry }) {
       </ol>
 
       <div className="journey-dest-cta">
-        <p className="eyebrow">Personal itineraries</p>
-        <h3 className="display-title">Looking for something more personal?</h3>
-        <p>We’ll design a journey around the way you like to travel.</p>
+        <p className="eyebrow">Plan a trip</p>
+        <h3 className="display-title">
+          If you love this rhythm, ask us to plan yours.
+        </h3>
+        <p>Personalised itinerary design around the way you like to travel.</p>
         <div className="journey-dest-cta-actions">
           <Link className="button dark" href="/plan-a-trip">
             Plan My Trip
           </Link>
           <Link className="text-link" href={`/journeys/${country.slug}`}>
-            Explore {country.title}
+            {country.title} Collection
           </Link>
         </div>
       </div>

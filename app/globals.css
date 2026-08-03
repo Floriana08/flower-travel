@@ -4144,6 +4144,11 @@ a.destination-article-card:focus-visible .destination-article-link {
   background: var(--warm-paper);
 }
 
+.plan-trip-aside {
+  margin-top: 8px !important;
+  color: var(--muted) !important;
+}
+
 .trip-enquiry-form,
 .form-grid {
   display: grid;
@@ -4360,6 +4365,14 @@ a.destination-article-card:focus-visible .destination-article-link {
   display: grid;
   gap: 1.15rem;
   max-width: 38rem;
+}
+
+.about-chapter:has(.about-prose-wide) {
+  grid-template-columns: 1fr;
+}
+
+.about-prose-wide {
+  max-width: 40rem;
 }
 
 .about-prose p {
@@ -4700,7 +4713,65 @@ a.destination-article-card:focus-visible .destination-article-link {
   }
 }
 
-/* Simplified studio structure — home collections, journeys tabs, journal magazine */
+/* Brand alignment — featured journeys, collections, breathing room */
+.home-featured-list {
+  display: grid;
+  gap: clamp(56px, 9vw, 104px);
+}
+
+.home-featured-journey {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.75fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+}
+
+.home-featured-journey:nth-child(even) {
+  direction: rtl;
+}
+
+.home-featured-journey:nth-child(even) > * {
+  direction: ltr;
+}
+
+.home-featured-media {
+  display: block;
+  overflow: hidden;
+}
+
+.home-featured-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+  transition: transform 800ms ease;
+}
+
+.home-featured-journey:hover .home-featured-media img {
+  transform: scale(1.025);
+}
+
+.home-featured-copy {
+  display: grid;
+  gap: 12px;
+  max-width: 22rem;
+}
+
+.home-featured-copy h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+
+.home-featured-copy > p:last-child {
+  margin: 0;
+  color: var(--soft-ink);
+  line-height: 1.65;
+}
+
 .home-section-dek {
   margin: 4px 0 0;
   color: var(--muted);
@@ -4760,7 +4831,15 @@ a.destination-article-card:focus-visible .destination-article-link {
 }
 
 .journeys-studio-hero {
-  max-width: 42rem;
+  max-width: 40rem;
+}
+
+.journeys-studio-single-lede {
+  margin: clamp(20px, 3vw, 28px) 0 0;
+  max-width: 32rem;
+  color: var(--soft-ink);
+  font-size: 1.08rem;
+  line-height: 1.75;
 }
 
 .journeys-studio-lede {
@@ -4774,6 +4853,75 @@ a.destination-article-card:focus-visible .destination-article-link {
   color: var(--soft-ink);
   font-size: 1.08rem;
   line-height: 1.75;
+}
+
+.journeys-collection-strip {
+  padding-top: 0;
+}
+
+.journeys-collection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2.5vw, 28px);
+}
+
+.journeys-collection-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  color: #fff;
+  text-decoration: none;
+  min-height: clamp(240px, 32vw, 360px);
+}
+
+.journeys-collection-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 800ms ease;
+}
+
+.journeys-collection-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(21, 21, 21, 0.55) 0%,
+    rgba(21, 21, 21, 0.08) 55%,
+    transparent 100%
+  );
+}
+
+.journeys-collection-card:hover img {
+  transform: scale(1.03);
+}
+
+.journeys-collection-card span {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1;
+  display: grid;
+  gap: 4px;
+}
+
+.journeys-collection-card strong {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.journeys-collection-card em {
+  font-style: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.85;
 }
 
 .journeys-studio-examples {
@@ -5087,15 +5235,24 @@ a.destination-article-card:focus-visible .destination-article-link {
 }
 
 @media (max-width: 900px) {
+  .home-featured-journey,
+  .home-featured-journey:nth-child(even),
   .home-collection-grid,
+  .journeys-collection-grid,
   .journal-browse-grid,
   .destination-hub-example,
   .destination-hub-journey {
     grid-template-columns: 1fr;
+    direction: ltr;
   }
 
+  .home-featured-media img,
   .home-collection-media img,
   .journal-browse-media img {
     aspect-ratio: 4 / 3;
+  }
+
+  .journeys-collection-card {
+    min-height: 220px;
   }
 }

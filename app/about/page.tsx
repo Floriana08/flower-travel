@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Meet Flor, founder of Altrove — an Italian traveller living in Portugal, collecting the places, hotels and routes worth returning to.",
+    "Meet Flor, founder of Altrove — an Italian traveller living in Portugal, writing journeys for people who prefer to remember what they see.",
   alternates: {
     canonical: "https://flowertravel.studio/about",
   },
@@ -18,7 +18,8 @@ export default function AboutPage() {
           <p className="eyebrow">About</p>
           <h1 className="display-title">Meet Flor.</h1>
           <p className="about-hero-lede">
-            The person behind Altrove — and a quieter way of travelling.
+            Italian by birth. Living in Portugal. Collecting the places worth
+            returning to.
           </p>
         </div>
         <figure className="about-hero-media">
@@ -30,91 +31,50 @@ export default function AboutPage() {
       </header>
 
       <section className="about-chapter section-shell" id="meet-flor">
-        <div className="about-chapter-label">
-          <p className="eyebrow">01</p>
-          <h2>Meet Flor</h2>
-        </div>
-        <div className="about-prose">
+        <div className="about-prose about-prose-wide">
           <p>
-            I’m Flor. I’m Italian, and I now live in Portugal — two places that
-            have shaped how I move through the world, and how I write about it.
+            I’ve always travelled by collecting notes. Hotels I’d return to without
+            thinking twice. Neighbourhoods worth waking up in. Restaurants I’d
+            recommend to a friend without hesitation. Routes that quietly changed
+            how I saw a city or a stretch of coast.
           </p>
           <p>
-            I’ve always travelled by collecting notes. Hotels I’d return to
-            without thinking twice. Neighbourhoods that felt worth waking up in.
-            Restaurants I’d recommend to a friend without hesitation. Routes that
-            quietly changed how I saw a city or a stretch of coast.
-          </p>
-          <p>
-            For years those recommendations lived in notebooks, saved maps and
-            long messages to people I care about. Altrove grew out of that habit:
-            a place to gather what was worth keeping, and to share it with more
-            care than a hurried list ever could.
+            For years those recommendations lived in notebooks and long messages
+            to people I care about. Altrove grew out of that habit — a place to
+            gather what was worth keeping, and to share it with more care than a
+            hurried list ever could.
           </p>
         </div>
       </section>
 
       <section className="about-chapter section-shell tinted" id="philosophy">
-        <div className="about-chapter-label">
-          <p className="eyebrow">02</p>
-          <h2>Our philosophy</h2>
-        </div>
-        <div className="about-prose">
+        <div className="about-prose about-prose-wide">
           <p className="about-pull">
             Altrove isn’t about travelling more. It’s about travelling better.
           </p>
           <p>
-            Travelling well is not a race through landmarks. It’s learning the
-            rhythm of a place — when the streets soften, where lunch still feels
-            local, which corner you’d choose again on a second visit.
+            I don’t want to see everything. I want to remember what I see —
+            four days in one city over a rush through four countries. Thoughtful
+            hotels. Neighbourhood lunches. Atmosphere. Someone else’s taste, not
+            endless options.
           </p>
           <p>
-            It means slowing down. Choosing quality over quantity. Coming home
-            with a neighbourhood in mind, not a checklist. The journeys and notes
-            on Altrove are shaped by that idea: fewer places, held with more
-            attention.
+            That is how I travel. That is how Altrove is written.
           </p>
         </div>
       </section>
 
-      <section className="about-chapter section-shell" id="how">
-        <div className="about-chapter-label">
-          <p className="eyebrow">03</p>
-          <h2>How Altrove works</h2>
-        </div>
-        <div className="about-prose">
+      <section className="about-chapter section-shell" id="trust">
+        <div className="about-prose about-prose-wide">
           <p>
             Every destination begins with a real journey. I write from places I
-            have visited, stayed in and returned to in thought long after the
-            trip ended — then I research with the same care I’d want from someone
-            planning for me.
+            have visited, stayed in and returned to in thought long after the trip
+            ended. The collection grows slowly on purpose. I’d rather recommend
+            less, and mean it.
           </p>
           <p>
-            Only those places become part of Altrove. The collection grows slowly
-            on purpose. I’d rather recommend less, and mean it, than cover more
-            ground than I can stand behind.
-          </p>
-        </div>
-      </section>
-
-      <section className="about-chapter section-shell tinted" id="ahead">
-        <div className="about-chapter-label">
-          <p className="eyebrow">04</p>
-          <h2>Looking ahead</h2>
-        </div>
-        <div className="about-prose">
-          <p>
-            Altrove began as a travel journal. It is growing into a boutique
-            travel studio — curated itineraries, personal planning and
-            recommendations chosen with the same eye as the writing.
-          </p>
-          <p>
-            It will only grow when those offerings meet the same standard as the
-            editorial work. Until then, the focus stays simple: honest notes,
-            carefully shaped journeys, and a clearer sense of place.
-          </p>
-          <p>
-            If that way of travelling resonates, you’re in the right company.
+            The journal builds trust. The journeys are the product. If the way I
+            travel resonates, you can ask me to help plan yours.
           </p>
           <p className="about-closing-link">
             <Link className="text-link" href="/journeys">
