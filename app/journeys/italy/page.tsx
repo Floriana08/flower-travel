@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { guides, itineraries } from "../../data";
+import { guides, itineraries, routeDetails } from "../../data";
 import { getJourney } from "../../journeys-data";
 import { getStudioCountry } from "../../studio-structure";
 
@@ -9,8 +9,11 @@ const featured = getJourney("naples-amalfi")!;
 const amalfiArticle = itineraries.find(
   (item) => item.slug === "amalfi-coast-tours",
 );
-const journalLead = amalfiArticle;
+const amalfiDetail = routeDetails.find(
+  (detail) => detail.slug === "amalfi-coast-tours",
+);
 const journalSupport = guides.find((guide) => guide.slug === "rome-food-walk");
+const coastDays = country.example.days;
 
 export const metadata: Metadata = {
   title: "Italy",
@@ -149,56 +152,64 @@ export default function ItalyJourneysPage() {
         </div>
       </section>
 
-      {(journalLead || journalSupport) && (
-        <section className="italy-mag-journal italy-mag-pad" aria-label="Journal">
-          <div className="italy-mag-journal-intro">
-            <p className="italy-mag-kicker">Journal</p>
-            <h2>From the notes</h2>
+      {amalfiArticle ? (
+        <section
+          className="italy-mag-coast italy-mag-pad"
+          aria-label="Naples and the Amalfi Coast"
+        >
+          <div className="italy-mag-coast-head">
+            <p className="italy-mag-kicker">From the notes</p>
+            <h2>Naples and the Amalfi Coast</h2>
+            <p className="italy-mag-meta">
+              {country.example.duration} · {amalfiArticle.region}
+            </p>
+            <p className="italy-mag-deck">
+              {amalfiDetail?.intro ?? amalfiArticle.summary}
+            </p>
           </div>
-          <div className="italy-mag-journal-row">
-            {journalLead ? (
-              <article>
-                <Link href={`/routes/${journalLead.slug}`}>
-                  <img
-                    src={journalLead.image}
-                    alt={journalLead.alt}
-                    loading="lazy"
-                  />
-                </Link>
-                <p className="italy-mag-meta">
-                  {journalLead.days} · {journalLead.region}
-                </p>
-                <h3>
-                  <Link href={`/routes/${journalLead.slug}`}>
-                    {journalLead.title}
-                  </Link>
-                </h3>
-                <p>{journalLead.summary}</p>
-              </article>
-            ) : null}
+
+          <div className="italy-mag-coast-body">
+            <Link
+              className="italy-mag-coast-media"
+              href={`/journeys/${featured.slug}`}
+            >
+              <img
+                src={amalfiArticle.image}
+                alt={amalfiArticle.alt}
+                loading="lazy"
+              />
+            </Link>
+            <p className="italy-mag-coast-lede">{country.example.lede}</p>
+          </div>
+
+          <ol className="italy-mag-days">
+            {coastDays.map((day, index) => (
+              <li
+                key={`${day.label}-${day.title}`}
+                style={{ ["--day-index" as string]: index }}
+              >
+                <p className="italy-mag-day-label">{day.label}</p>
+                <h3>{day.title}</h3>
+                {day.note ? <p>{day.note}</p> : null}
+              </li>
+            ))}
+          </ol>
+
+          <div className="italy-mag-coast-links">
+            <Link className="italy-mag-link" href={`/journeys/${featured.slug}`}>
+              Open the journey
+            </Link>
             {journalSupport ? (
-              <article>
-                <Link href={`/travel-guides/${journalSupport.slug}`}>
-                  <img
-                    src={journalSupport.image}
-                    alt={journalSupport.alt}
-                    loading="lazy"
-                  />
-                </Link>
-                <p className="italy-mag-meta">
-                  {journalSupport.category} · {journalSupport.readTime}
-                </p>
-                <h3>
-                  <Link href={`/travel-guides/${journalSupport.slug}`}>
-                    {journalSupport.title}
-                  </Link>
-                </h3>
-                <p>{journalSupport.excerpt}</p>
-              </article>
+              <Link
+                className="italy-mag-link"
+                href={`/travel-guides/${journalSupport.slug}`}
+              >
+                {journalSupport.title}
+              </Link>
             ) : null}
           </div>
         </section>
-      )}
+      ) : null}
 
       <section className="italy-mag-plan italy-mag-pad" aria-label="Plan a trip">
         <div className="italy-mag-plan-media" aria-hidden="true">

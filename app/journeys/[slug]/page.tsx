@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { routeDetails } from "../../data";
 import { EnquiryCta, PageIntro } from "../../studio-components";
 import { getJourney, journeys } from "../../journeys-data";
-import { getDestinationHubHref } from "../../studio-structure";
+import {
+  getDestinationHubHref,
+  getStudioCountry,
+} from "../../studio-structure";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -40,6 +44,14 @@ export default async function JourneyDetailPage({ params }: PageProps) {
 
   if (!journey) notFound();
 
+  const italy = getStudioCountry("italy");
+  const coastDays =
+    journey.slug === "naples-amalfi" ? italy?.example.days : undefined;
+  const amalfiDetail =
+    journey.routeSlug === "amalfi-coast-tours"
+      ? routeDetails.find((detail) => detail.slug === "amalfi-coast-tours")
+      : undefined;
+
   return (
     <main>
       <section className="journey-hero section-shell">
@@ -64,6 +76,32 @@ export default async function JourneyDetailPage({ params }: PageProps) {
         </div>
       </section>
 
+      {coastDays?.length ? (
+        <section
+          className="section-shell journey-merged-days"
+          aria-label="How the days unfold"
+        >
+          {amalfiDetail ? (
+            <p className="journey-merged-intro">{amalfiDetail.intro}</p>
+          ) : null}
+          {italy?.example.lede ? (
+            <p className="journey-merged-lede">{italy.example.lede}</p>
+          ) : null}
+          <ol className="italy-mag-days">
+            {coastDays.map((day, index) => (
+              <li
+                key={`${day.label}-${day.title}`}
+                style={{ ["--day-index" as string]: index }}
+              >
+                <p className="italy-mag-day-label">{day.label}</p>
+                <h3>{day.title}</h3>
+                {day.note ? <p>{day.note}</p> : null}
+              </li>
+            ))}
+          </ol>
+        </section>
+      ) : null}
+
       <section className="section-shell journey-detail-grid">
         <div className="story-copy">
           <h2>Overview</h2>
@@ -84,14 +122,6 @@ export default async function JourneyDetailPage({ params }: PageProps) {
               <span key={stop}>{stop}</span>
             ))}
           </div>
-
-          {journey.routeSlug ? (
-            <p>
-              <Link className="text-link" href={`/routes/${journey.routeSlug}`}>
-                Open the detailed day-by-day notes
-              </Link>
-            </p>
-          ) : null}
         </div>
 
         <aside className="journey-aside">

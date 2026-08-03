@@ -5664,61 +5664,124 @@ a.destination-article-card:focus-visible .destination-article-link {
   line-height: 1.55;
 }
 
-.italy-mag-journal {
+.italy-mag-coast {
   padding-top: clamp(56px, 9vw, 96px);
   padding-bottom: clamp(56px, 9vw, 96px);
   border-top: 1px solid var(--line);
+  display: grid;
+  gap: clamp(28px, 4vw, 40px);
 }
 
-.italy-mag-journal-intro {
+.italy-mag-coast-head {
   display: grid;
-  gap: 10px;
-  margin-bottom: clamp(28px, 4vw, 40px);
+  gap: 12px;
+  max-width: 40rem;
 }
 
-.italy-mag-journal-row {
+.italy-mag-coast-head h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.italy-mag-coast-body {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: clamp(24px, 4vw, 48px);
+  align-items: end;
 }
 
-.italy-mag-journal-row article {
-  display: grid;
-  gap: 10px;
-  align-content: start;
+.italy-mag-coast-media {
+  display: block;
+  overflow: hidden;
 }
 
-.italy-mag-journal-row img {
+.italy-mag-coast-media img {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 11;
   object-fit: cover;
-  margin-bottom: 4px;
 }
 
-.italy-mag-journal-row h3 {
+.italy-mag-coast-lede {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--soft-ink);
+  max-width: 22rem;
+}
+
+.italy-mag-days {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(16px, 2.5vw, 28px);
+}
+
+.italy-mag-days li {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.italy-mag-day-label {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.italy-mag-days h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
   font-weight: 400;
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
-.italy-mag-journal-row h3 a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.italy-mag-journal-row h3 a:hover {
-  opacity: 0.72;
-}
-
-.italy-mag-journal-row article > p:last-child {
+.italy-mag-days p {
   margin: 0;
   color: var(--soft-ink);
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.italy-mag-coast-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+}
+
+.journey-merged-days {
+  display: grid;
+  gap: 20px;
+  padding-top: clamp(40px, 6vw, 64px);
+  padding-bottom: clamp(40px, 6vw, 64px);
+}
+
+.journey-merged-intro,
+.journey-merged-lede {
+  margin: 0;
+  max-width: 40rem;
+  color: var(--soft-ink);
+  line-height: 1.7;
+}
+
+.journey-merged-lede {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  line-height: 1.45;
 }
 
 .italy-mag-plan {
@@ -5775,7 +5838,7 @@ a.destination-article-card:focus-visible .destination-article-link {
 
   .italy-mag-notes,
   .italy-mag-loved-row,
-  .italy-mag-journal-row,
+  .italy-mag-coast-body,
   .italy-mag-plan {
     grid-template-columns: 1fr;
   }
@@ -5791,6 +5854,25 @@ a.destination-article-card:focus-visible .destination-article-link {
 
   .italy-mag-loved-col img {
     aspect-ratio: 5 / 4;
+  }
+
+  .italy-mag-days {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .italy-mag-days {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 6px;
+  }
+
+  .italy-mag-days li {
+    flex: 0 0 min(70vw, 200px);
+    scroll-snap-align: start;
   }
 }
 
