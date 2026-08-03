@@ -6,7 +6,7 @@ const DEFAULT_POSTER =
   "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=80";
 
 const MED_POSTER =
-  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=80";
+  "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=2200&q=80";
 
 export function HeroOceanVideo({
   className = "hero-media",
@@ -26,6 +26,7 @@ export function HeroOceanVideo({
     video.muted = true;
     video.defaultMuted = true;
     video.playsInline = true;
+    video.load();
 
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -52,13 +53,14 @@ export function HeroOceanVideo({
   return (
     <div className={className} aria-hidden="true">
       <video
+        key={src}
         ref={videoRef}
         className="hero-video"
         autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
         poster={poster}
         src={src}
       />
@@ -67,6 +69,7 @@ export function HeroOceanVideo({
 }
 
 export const mediterraneanVideo = {
-  src: "/videos/mediterranean-coast.mp4",
+  // Cache-bust so browsers don't keep the old ocean clip
+  src: "/videos/mediterranean-coast.mp4?v=3",
   poster: MED_POSTER,
 } as const;
