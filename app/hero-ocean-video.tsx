@@ -5,7 +5,11 @@ import { useEffect, useRef } from "react";
 const POSTER =
   "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=80";
 
-export function HeroOceanVideo() {
+export function HeroOceanVideo({
+  className = "hero-media",
+}: {
+  className?: string;
+}) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -39,7 +43,7 @@ export function HeroOceanVideo() {
   }, []);
 
   return (
-    <div className="hero-media" aria-hidden="true">
+    <div className={className} aria-hidden="true">
       <video
         ref={videoRef}
         className="hero-video"
@@ -47,7 +51,7 @@ export function HeroOceanVideo() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         poster={POSTER}
         src="/videos/ocean-waves.mp4"
       />

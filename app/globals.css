@@ -4924,8 +4924,49 @@ a.destination-article-card:focus-visible .destination-article-link {
   opacity: 0.85;
 }
 
-.journeys-studio-examples {
-  padding-top: clamp(48px, 8vw, 80px);
+/* Journeys — cinematic day unfold */
+.journeys-days-cinema {
+  position: relative;
+  isolation: isolate;
+  color: var(--paper);
+  overflow: hidden;
+}
+
+.journeys-days-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #1a2428;
+}
+
+.journeys-days-video .hero-video {
+  filter: saturate(0.88) contrast(1.05) brightness(0.72);
+}
+
+.journeys-days-cinema::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 22, 26, 0.42) 0%,
+    rgba(18, 22, 26, 0.58) 42%,
+    rgba(18, 22, 26, 0.78) 100%
+  );
+}
+
+.journeys-days-cinema-inner {
+  position: relative;
+  z-index: 2;
+  padding-top: clamp(72px, 12vw, 128px);
+  padding-bottom: clamp(80px, 12vw, 140px);
+}
+
+.journeys-days-head .display-title {
+  color: var(--paper);
 }
 
 .journey-dest-tabs {
@@ -4938,7 +4979,7 @@ a.destination-article-card:focus-visible .destination-article-link {
   display: flex;
   flex-wrap: wrap;
   gap: 10px 18px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(247, 243, 236, 0.28);
   padding-bottom: 4px;
 }
 
@@ -4947,18 +4988,23 @@ a.destination-article-card:focus-visible .destination-article-link {
   border: 0;
   background: transparent;
   padding: 10px 2px 14px;
-  color: var(--muted);
+  color: rgba(247, 243, 236, 0.62);
   font: inherit;
   font-size: 1rem;
   letter-spacing: 0.04em;
   cursor: pointer;
   border-bottom: 1px solid transparent;
   margin-bottom: -5px;
+  transition: color 240ms ease;
+}
+
+.journey-dest-tab:hover {
+  color: rgba(247, 243, 236, 0.88);
 }
 
 .journey-dest-tab.is-active {
-  color: var(--ink);
-  border-bottom-color: var(--ink);
+  color: var(--paper);
+  border-bottom-color: var(--paper);
 }
 
 .journey-dest-panel {
@@ -4970,11 +5016,18 @@ a.destination-article-card:focus-visible .destination-article-link {
   display: grid;
   gap: 12px;
   max-width: 34rem;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: journeyDayReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.08s forwards;
+}
+
+.journey-dest-panel-head .display-title {
+  color: var(--paper);
 }
 
 .journey-dest-meta {
   margin: 0;
-  color: var(--muted);
+  color: rgba(247, 243, 236, 0.62);
   font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -4982,7 +5035,7 @@ a.destination-article-card:focus-visible .destination-article-link {
 
 .journey-dest-lede {
   margin: 0;
-  color: var(--soft-ink);
+  color: rgba(247, 243, 236, 0.86);
   line-height: 1.7;
 }
 
@@ -4992,19 +5045,23 @@ a.destination-article-card:focus-visible .destination-article-link {
   padding: 0;
   display: grid;
   gap: 0;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(247, 243, 236, 0.22);
 }
 
 .journey-day-list li {
   display: grid;
   gap: 6px;
   padding: 22px 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(247, 243, 236, 0.18);
+  opacity: 0;
+  transform: translateY(22px);
+  animation: journeyDayReveal 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(0.28s + (var(--day-index, 0) * 0.38s));
 }
 
 .journey-day-label {
   margin: 0;
-  color: var(--muted);
+  color: rgba(247, 243, 236, 0.58);
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -5016,11 +5073,12 @@ a.destination-article-card:focus-visible .destination-article-link {
   font-size: clamp(1.35rem, 2.4vw, 1.75rem);
   font-weight: 400;
   letter-spacing: -0.02em;
+  color: var(--paper);
 }
 
 .journey-day-list p {
   margin: 0;
-  color: var(--muted);
+  color: rgba(247, 243, 236, 0.72);
   line-height: 1.6;
 }
 
@@ -5029,15 +5087,19 @@ a.destination-article-card:focus-visible .destination-article-link {
   gap: 14px;
   max-width: 28rem;
   padding-top: 8px;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: journeyDayReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 1.7s forwards;
 }
 
 .journey-dest-cta .display-title {
   font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+  color: var(--paper);
 }
 
 .journey-dest-cta p {
   margin: 0;
-  color: var(--muted);
+  color: rgba(247, 243, 236, 0.74);
   line-height: 1.65;
 }
 
@@ -5047,6 +5109,39 @@ a.destination-article-card:focus-visible .destination-article-link {
   align-items: center;
   gap: 18px;
   margin-top: 8px;
+}
+
+.journey-dest-cta .text-link.on-dark {
+  color: rgba(247, 243, 236, 0.9);
+}
+
+.journey-dest-cta .text-link.on-dark:hover {
+  color: var(--paper);
+}
+
+@keyframes journeyDayReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journeys-days-video .hero-video {
+    filter: saturate(0.85) contrast(1.02) brightness(0.7);
+  }
+
+  .journey-dest-panel-head,
+  .journey-day-list li,
+  .journey-dest-cta {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
 }
 
 .destination-hub-back {

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DestinationItineraryTabs } from "../destination-itinerary-tabs";
+import { HeroOceanVideo } from "../hero-ocean-video";
 import { studioCountries } from "../studio-structure";
 
 export const metadata: Metadata = {
@@ -50,14 +51,17 @@ export default function JourneysPage() {
       </section>
 
       <section
-        className="section-shell tinted journeys-studio-examples"
+        className="journeys-days-cinema"
         aria-label="How a journey unfolds"
       >
-        <div className="home-section-head">
-          <p className="eyebrow">Inside a journey</p>
-          <h2 className="display-title">How the days unfold</h2>
+        <HeroOceanVideo className="journeys-days-video" />
+        <div className="journeys-days-cinema-inner section-shell">
+          <div className="home-section-head journeys-days-head">
+            <p className="eyebrow light">Inside a journey</p>
+            <h2 className="display-title">How the days unfold</h2>
+          </div>
+          <DestinationItineraryTabs />
         </div>
-        <DestinationItineraryTabs />
       </section>
     </main>
   );
