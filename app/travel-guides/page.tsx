@@ -1,169 +1,100 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SectionHeading } from "../components";
 import { NewsletterForm } from "../newsletter-form";
-import { guides } from "../data";
 import {
   EditorialStoryCard,
   PageIntro,
   StudioNewsletter,
 } from "../studio-components";
+import {
+  journalMoods,
+  storiesFromSlugs,
+  studioCountries,
+} from "../studio-structure";
 
 export const metadata: Metadata = {
   title: "Journal",
   description:
-    "Notes from elsewhere — places, routes, hotels, food and practical guides from the Altrove journal.",
+    "A curated editorial magazine from Altrove — browse by destination or mood, not a chronological blog.",
   alternates: {
     canonical: "https://flowertravel.studio/travel-guides",
   },
 };
 
-const collections = [
-  {
-    id: "places",
-    label: "Places",
-    slugs: ["madeira-first-timers", "rome-food-walk", "solo-paris-weekend"],
-  },
-  {
-    id: "routes",
-    label: "Routes",
-    slugs: ["train-travel-europe", "japan-rail-first-edit"],
-  },
-  {
-    id: "hotels",
-    label: "Hotels",
-    slugs: ["where-to-stay-lisbon", "morocco-riad-first-edit"],
-  },
-  {
-    id: "food",
-    label: "Food",
-    slugs: ["rome-food-walk"],
-  },
-  {
-    id: "notes",
-    label: "Notes",
-    slugs: ["choosing-a-honeymoon-route", "galapagos-twelve-days"],
-  },
-  {
-    id: "practical",
-    label: "Practical Guides",
-    slugs: [
-      "travel-insurance-worth-it",
-      "sustainable-travel-basics",
-      "carry-on-packing-edit",
-    ],
-  },
+const featuredSlugs = [
+  "where-to-stay-lisbon",
+  "rome-food-walk",
+  "madeira-first-timers",
 ] as const;
 
-const leadSlug = "where-to-stay-lisbon";
-const secondarySlugs = ["madeira-first-timers", "choosing-a-honeymoon-route"];
-
-function storiesFromSlugs(slugs: readonly string[]) {
-  return slugs
-    .map((slug) => guides.find((guide) => guide.slug === slug))
-    .filter((guide): guide is (typeof guides)[number] => Boolean(guide));
-}
-
 export default function TravelJournalPage() {
-  const lead = guides.find((guide) => guide.slug === leadSlug);
-  const secondary = storiesFromSlugs(secondarySlugs);
-  const archive = guides.filter(
-    (guide) =>
-      guide.slug !== leadSlug && !secondarySlugs.includes(guide.slug),
-  );
+  const featured = storiesFromSlugs(featuredSlugs);
 
   return (
-    <main>
+    <main className="journal-magazine">
       <section className="section-shell page-top">
-        <PageIntro
-          eyebrow="Journal"
-          title="Notes from elsewhere."
-        >
+        <PageIntro eyebrow="Journal" title="Notes from elsewhere.">
           <p>
-            Editorial notes that support the studio — not a feed of everything at
-            once. Read for taste, pacing and practical detail.
+            A curated magazine for travellers who prefer taste and pacing over a
+            feed. Inspiration lives here. Planning lives in Journeys.
           </p>
         </PageIntro>
       </section>
 
-      {lead ? (
-        <section className="section-shell tinted journal-lead">
-          <p className="eyebrow">Lead story</p>
-          <div className="journal-lead-grid">
+      <section className="section-shell tinted" aria-label="Browse by destination">
+        <div className="home-section-head">
+          <p className="eyebrow">Browse by destination</p>
+          <h2 className="display-title">Italy, Portugal, Spain</h2>
+        </div>
+        <div className="journal-browse-grid">
+          {studioCountries.map((country) => (
             <Link
-              href={`/travel-guides/${lead.slug}`}
-              aria-label={lead.title}
+              key={country.slug}
+              className="journal-browse-card"
+              href={`/travel-guides/${country.slug}`}
             >
-              <img src={lead.image} alt={lead.alt} />
+              <span className="journal-browse-media">
+                <img src={country.image} alt={country.alt} loading="lazy" />
+              </span>
+              <span className="journal-browse-copy">
+                <span className="journal-browse-title">{country.title}</span>
+                <span>{country.short}</span>
+              </span>
             </Link>
-            <div>
-              <p className="story-card-meta">
-                <span>{lead.category}</span>
-                <span>{lead.readTime}</span>
-              </p>
-              <h2 className="display-title">{lead.title}</h2>
-              <p>{lead.excerpt}</p>
-              <Link className="button dark" href={`/travel-guides/${lead.slug}`}>
-                Read the story
-              </Link>
-            </div>
-          </div>
-        </section>
-      ) : null}
-
-      <section className="section-shell">
-        <SectionHeading eyebrow="Also reading" title="Selected notes" />
-        <div className="editorial-story-grid">
-          {secondary.map((guide) => (
-            <EditorialStoryCard key={guide.slug} guide={guide} />
           ))}
         </div>
       </section>
 
-      <section className="section-shell tinted" id="collections">
-        <SectionHeading eyebrow="Collections" title="Browse by subject">
-          <p>A quieter way into the archive than a long chronological list.</p>
-        </SectionHeading>
-        <div className="journal-collection-grid">
-          {collections.map((collection) => {
-            const items = storiesFromSlugs(collection.slugs);
-            if (!items.length) return null;
-            return (
-              <article key={collection.id} id={collection.id}>
-                <h3>{collection.label}</h3>
-                <ul>
-                  {items.map((guide) => (
-                    <li key={guide.slug}>
-                      <Link href={`/travel-guides/${guide.slug}`}>
-                        {guide.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            );
-          })}
+      <section className="section-shell" aria-label="Browse by mood">
+        <div className="home-section-head">
+          <p className="eyebrow">Browse by mood</p>
+          <h2 className="display-title">How you like to travel</h2>
         </div>
-      </section>
-
-      <section className="section-shell" id="archive">
-        <SectionHeading eyebrow="Archive" title="Further reading">
-          <p>
-            Kept for readers who want more depth. Some pieces may later merge —
-            see the content audit for priorities.
-          </p>
-        </SectionHeading>
-        <ul className="journal-archive-list">
-          {archive.map((guide) => (
-            <li key={guide.slug}>
-              <Link href={`/travel-guides/${guide.slug}`}>
-                <span>{guide.category}</span>
-                <strong>{guide.title}</strong>
+        <ul className="journal-mood-list">
+          {journalMoods.map((mood) => (
+            <li key={mood.slug}>
+              <Link href={`/travel-guides/mood/${mood.slug}`}>
+                <strong>{mood.title}</strong>
+                <span>{mood.description}</span>
               </Link>
             </li>
           ))}
         </ul>
       </section>
+
+      {featured.length ? (
+        <section className="section-shell tinted" aria-label="Selected stories">
+          <div className="home-section-head">
+            <p className="eyebrow">Selected</p>
+            <h2 className="display-title">Worth reading now</h2>
+          </div>
+          <div className="editorial-story-grid home-journal-grid">
+            {featured.map((guide) => (
+              <EditorialStoryCard key={guide.slug} guide={guide} />
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <StudioNewsletter>
         <NewsletterForm buttonLabel="Join the list" />

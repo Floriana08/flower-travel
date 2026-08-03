@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { EnquiryCta, PageIntro } from "../../studio-components";
 import { getJourney, journeys } from "../../journeys-data";
+import { getDestinationHubHref } from "../../studio-structure";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -122,9 +123,9 @@ export default async function JourneyDetailPage({ params }: PageProps) {
           {journey.destinationSlug ? (
             <Link
               className="text-link"
-              href={`/destinations/${journey.destinationSlug}`}
+              href={getDestinationHubHref(journey.destinationSlug)}
             >
-              Destination guide
+              Destination hub
             </Link>
           ) : null}
         </aside>
