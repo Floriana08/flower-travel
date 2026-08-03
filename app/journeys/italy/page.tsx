@@ -52,14 +52,6 @@ const travelNotes = [
 const lovedPlaces = [
   {
     kind: "Hotels",
-    name: "A Naples neighbourhood base",
-    note: "Quiet enough to sleep, close enough to walk to dinner.",
-    image:
-      "https://images.unsplash.com/photo-1775188693558-31c7f14790f5?auto=format&fit=crop&w=1800&q=84",
-    alt: "Naples bay with Mount Vesuvius in the distance",
-  },
-  {
-    kind: "Hotels",
     name: "One coastal stay",
     note: "A single Amalfi or Sorrento bed — not five hotel changes.",
     image:
@@ -138,25 +130,20 @@ export default function ItalyJourneysPage() {
         </dl>
       </section>
 
-      <section className="italy-mag-loved" aria-label="Places we love">
-        <div className="italy-mag-pad italy-mag-loved-intro">
+      <section className="italy-mag-loved italy-mag-pad" aria-label="Places we love">
+        <div className="italy-mag-loved-intro">
           <p className="italy-mag-kicker">Places we love</p>
           <h2>Taste notes</h2>
         </div>
-        <div className="italy-mag-loved-list">
-          {lovedPlaces.map((place, index) => (
-            <article
-              key={place.name}
-              className={`italy-mag-loved-item${index % 2 ? " is-flip" : ""}`}
-            >
-              <figure className="italy-mag-loved-media">
+        <div className="italy-mag-loved-row">
+          {lovedPlaces.map((place) => (
+            <article key={place.name} className="italy-mag-loved-col">
+              <figure>
                 <img src={place.image} alt={place.alt} loading="lazy" />
               </figure>
-              <div className="italy-mag-loved-copy">
-                <p className="italy-mag-kicker">{place.kind}</p>
-                <h3>{place.name}</h3>
-                <p>{place.note}</p>
-              </div>
+              <p className="italy-mag-kicker">{place.kind}</p>
+              <h3>{place.name}</h3>
+              <p>{place.note}</p>
             </article>
           ))}
         </div>
@@ -164,11 +151,13 @@ export default function ItalyJourneysPage() {
 
       {(journalLead || journalSupport) && (
         <section className="italy-mag-journal italy-mag-pad" aria-label="Journal">
-          <p className="italy-mag-kicker">Journal</p>
-          <h2>From the notes</h2>
-          <div className="italy-mag-journal-layout">
+          <div className="italy-mag-journal-intro">
+            <p className="italy-mag-kicker">Journal</p>
+            <h2>From the notes</h2>
+          </div>
+          <div className="italy-mag-journal-row">
             {journalLead ? (
-              <article className="italy-mag-journal-lead">
+              <article>
                 <Link href={`/routes/${journalLead.slug}`}>
                   <img
                     src={journalLead.image}
@@ -188,7 +177,14 @@ export default function ItalyJourneysPage() {
               </article>
             ) : null}
             {journalSupport ? (
-              <article className="italy-mag-journal-side">
+              <article>
+                <Link href={`/travel-guides/${journalSupport.slug}`}>
+                  <img
+                    src={journalSupport.image}
+                    alt={journalSupport.alt}
+                    loading="lazy"
+                  />
+                </Link>
                 <p className="italy-mag-meta">
                   {journalSupport.category} · {journalSupport.readTime}
                 </p>
@@ -204,25 +200,26 @@ export default function ItalyJourneysPage() {
         </section>
       )}
 
-      <section className="italy-mag-pause" aria-hidden="true">
-        <img
-          src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=2200&q=84"
-          alt=""
-        />
-      </section>
-
       <section className="italy-mag-plan italy-mag-pad" aria-label="Plan a trip">
-        <p className="italy-mag-kicker">Plan a trip</p>
-        <h2>
-          If this is how you’d like to experience Italy, ask us to plan yours.
-        </h2>
-        <p>
-          Personalised itinerary design around Naples, the coast and the pacing
-          that makes Campania memorable.
-        </p>
-        <Link className="button dark" href="/plan-a-trip">
-          Plan My Trip
-        </Link>
+        <div className="italy-mag-plan-media" aria-hidden="true">
+          <img
+            src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1400&q=84"
+            alt=""
+          />
+        </div>
+        <div className="italy-mag-plan-copy">
+          <p className="italy-mag-kicker">Plan a trip</p>
+          <h2>
+            If this is how you’d like to experience Italy, ask us to plan yours.
+          </h2>
+          <p>
+            Personalised itinerary design around Naples, the coast and the pacing
+            that makes Campania memorable.
+          </p>
+          <Link className="button dark" href="/plan-a-trip">
+            Plan My Trip
+          </Link>
+        </div>
       </section>
     </main>
   );
