@@ -61,7 +61,7 @@ function ItineraryPanel({ country }: { country: StudioCountry }) {
       aria-labelledby={`tab-${country.slug}`}
     >
       <div className="journey-dest-panel-head">
-        <p className="eyebrow light">{country.title}</p>
+        <p className="eyebrow">{country.title}</p>
         <h2 className="display-title">{example.title}</h2>
         <p className="journey-dest-meta">{example.duration}</p>
         <p className="journey-dest-lede">{example.lede}</p>
@@ -81,16 +81,16 @@ function ItineraryPanel({ country }: { country: StudioCountry }) {
       </ol>
 
       <div className="journey-dest-cta">
-        <p className="eyebrow light">Plan a trip</p>
+        <p className="eyebrow">Plan a trip</p>
         <h3 className="display-title">
           If you love this rhythm, ask us to plan yours.
         </h3>
         <p>Personalised itinerary design around the way you like to travel.</p>
         <div className="journey-dest-cta-actions">
-          <Link className="button light" href="/plan-a-trip">
+          <Link className="button dark" href="/plan-a-trip">
             Plan My Trip
           </Link>
-          <Link className="text-link on-dark" href={`/journeys/${country.slug}`}>
+          <Link className="text-link" href={`/journeys/${country.slug}`}>
             {country.title} Collection
           </Link>
         </div>

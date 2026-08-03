@@ -57,7 +57,7 @@ export default function JourneysPage() {
         <HeroOceanVideo className="journeys-days-video" />
         <div className="journeys-days-cinema-inner section-shell">
           <div className="home-section-head journeys-days-head">
-            <p className="eyebrow light">Inside a journey</p>
+            <p className="eyebrow">Inside a journey</p>
             <h2 className="display-title">How the days unfold</h2>
           </div>
           <DestinationItineraryTabs />
