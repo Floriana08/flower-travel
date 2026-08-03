@@ -4972,7 +4972,7 @@ a.destination-article-card:focus-visible .destination-article-link {
 .journey-dest-tabs {
   display: grid;
   gap: clamp(36px, 6vw, 64px);
-  max-width: 720px;
+  max-width: 1100px;
 }
 
 .journey-dest-tablist {
@@ -5017,8 +5017,8 @@ a.destination-article-card:focus-visible .destination-article-link {
   gap: 12px;
   max-width: 34rem;
   opacity: 0;
-  transform: translateY(16px);
-  animation: journeyDayReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.08s forwards;
+  transform: translateX(20px);
+  animation: journeyDayReveal 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards;
 }
 
 .journey-dest-panel-head .display-title {
@@ -5044,19 +5044,20 @@ a.destination-article-card:focus-visible .destination-article-link {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 0;
-  border-top: 1px solid rgba(247, 243, 236, 0.22);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(18px, 2.5vw, 32px);
+  align-items: start;
 }
 
 .journey-day-list li {
   display: grid;
-  gap: 6px;
-  padding: 22px 0;
-  border-bottom: 1px solid rgba(247, 243, 236, 0.18);
+  gap: 8px;
+  min-width: 0;
+  padding: 0;
   opacity: 0;
-  transform: translateY(22px);
-  animation: journeyDayReveal 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: calc(0.28s + (var(--day-index, 0) * 0.38s));
+  transform: translateX(28px);
+  animation: journeyDayReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(0.35s + (var(--day-index, 0) * 0.55s));
 }
 
 .journey-day-label {
@@ -5070,16 +5071,18 @@ a.destination-article-card:focus-visible .destination-article-link {
 .journey-day-list h3 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
   font-weight: 400;
   letter-spacing: -0.02em;
+  line-height: 1.2;
   color: var(--paper);
 }
 
 .journey-day-list p {
   margin: 0;
   color: rgba(247, 243, 236, 0.72);
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
 
 .journey-dest-cta {
@@ -5088,8 +5091,8 @@ a.destination-article-card:focus-visible .destination-article-link {
   max-width: 28rem;
   padding-top: 8px;
   opacity: 0;
-  transform: translateY(16px);
-  animation: journeyDayReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) 1.7s forwards;
+  transform: translateX(20px);
+  animation: journeyDayReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) 2.6s forwards;
 }
 
 .journey-dest-cta .display-title {
@@ -5122,11 +5125,34 @@ a.destination-article-card:focus-visible .destination-article-link {
 @keyframes journeyDayReveal {
   from {
     opacity: 0;
-    transform: translateY(22px);
+    transform: translateX(28px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .journey-day-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 20px;
+  }
+}
+
+@media (max-width: 560px) {
+  .journey-day-list {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .journey-day-list li {
+    flex: 0 0 min(72vw, 220px);
+    scroll-snap-align: start;
   }
 }
 
