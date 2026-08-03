@@ -76,7 +76,7 @@ export default function Home() {
         <HeroOceanVideo />
         <div className="studio-hero-copy">
           <BrandLockup tone="light" className="hero-lockup" showTagline={false} />
-          <p className="eyebrow light">Boutique travel studio</p>
+          <p className="eyebrow light">Travel studio</p>
           <h1 className="studio-hero-lede">
             Travelling better, not more.
           </h1>
