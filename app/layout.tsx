@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "editorial travel",
     "Europe journeys",
   ],
-  metadataBase: new URL("https://flowertravel.studio"),
+  metadataBase: new URL("https://altrove.studio"),
   openGraph: {
     title: "Altrove | Boutique travel studio",
     description:

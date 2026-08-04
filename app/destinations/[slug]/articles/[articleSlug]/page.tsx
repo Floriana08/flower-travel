@@ -9,6 +9,7 @@ import {
   getDestinationArticles,
   site,
 } from "../../../../data";
+import { defaultImageSizes, unsplashSrcSet } from "../../../../image-utils";
 
 type PageProps = {
   params: Promise<{ slug: string; articleSlug: string }>;
@@ -79,10 +80,10 @@ export default async function DestinationArticlePage({ params }: PageProps) {
       name: site.name,
       logo: {
         "@type": "ImageObject",
-        url: "https://flowertravel.studio/logo-altrove.png",
+        url: "https://altrove.studio/logo-altrove.png",
       },
     },
-    mainEntityOfPage: `https://flowertravel.studio/destinations/${destination.slug}/articles/${article.slug}`,
+    mainEntityOfPage: `https://altrove.studio/destinations/${destination.slug}/articles/${article.slug}`,
   };
 
   return (
@@ -111,7 +112,12 @@ export default async function DestinationArticlePage({ params }: PageProps) {
             </div>
           </div>
           <figure className="article-hero-image reveal delay-1">
-            <img src={destination.image} alt={destination.alt} />
+            <img
+              src={destination.image}
+              srcSet={unsplashSrcSet(destination.image)}
+              sizes={defaultImageSizes}
+              alt={destination.alt}
+            />
           </figure>
         </header>
 

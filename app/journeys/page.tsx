@@ -3,13 +3,14 @@ import Link from "next/link";
 import { DestinationItineraryTabs } from "../destination-itinerary-tabs";
 import { JourneysCinemaVideo } from "../journeys-cinema-video";
 import { studioCountries } from "../studio-structure";
+import { defaultImageSizes, unsplashSrcSet } from "../image-utils";
 
 export const metadata: Metadata = {
   title: "Journeys",
   description:
     "Curated Altrove journeys — collections of hotels, neighbourhoods and routes worth remembering.",
   alternates: {
-    canonical: "https://flowertravel.studio/journeys",
+    canonical: "https://altrove.studio/journeys",
   },
 };
 
@@ -40,7 +41,13 @@ export default function JourneysPage() {
               className="journeys-collection-card"
               href={`/journeys/${country.slug}`}
             >
-              <img src={country.image} alt={country.alt} loading="lazy" />
+              <img
+                src={country.image}
+                srcSet={unsplashSrcSet(country.image)}
+                sizes={defaultImageSizes}
+                alt={country.alt}
+                loading="lazy"
+              />
               <span>
                 <strong>{country.title}</strong>
                 <em>Explore</em>

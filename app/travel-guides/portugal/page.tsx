@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Curated Altrove journal notes on Portugal — Lisbon stays, Madeira and slow rail days.",
   alternates: {
-    canonical: "https://flowertravel.studio/travel-guides/portugal",
+    canonical: "https://altrove.studio/travel-guides/portugal",
   },
 };
 

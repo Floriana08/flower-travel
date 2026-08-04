@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import type { Journey } from "./journeys-data";
 import { guides } from "./data";
+import { defaultImageSizes, unsplashSrcSet } from "./image-utils";
 
 type Guide = (typeof guides)[number];
 
@@ -41,7 +42,13 @@ export function JourneyCard({
         href={`/journeys/${journey.slug}`}
         aria-label={journey.title}
       >
-        <img src={journey.image} alt={journey.alt} loading="lazy" />
+        <img
+          src={journey.image}
+          srcSet={unsplashSrcSet(journey.image)}
+          sizes={defaultImageSizes}
+          alt={journey.alt}
+          loading="lazy"
+        />
       </Link>
       <div className="journey-card-body">
         <div className="journey-card-meta">
@@ -77,7 +84,13 @@ export function DestinationFeature({
   return (
     <article className="destination-feature">
       <Link className="destination-feature-media" href={href} aria-label={title}>
-        <img src={image} alt={alt} loading="lazy" />
+        <img
+          src={image}
+          srcSet={unsplashSrcSet(image)}
+          sizes={defaultImageSizes}
+          alt={alt}
+          loading="lazy"
+        />
       </Link>
       <div className="destination-feature-copy">
         <h3>
@@ -99,7 +112,13 @@ export function EditorialStoryCard({ guide }: { guide: Guide }) {
         className="editorial-story-card-link"
         href={`/travel-guides/${guide.slug}`}
       >
-        <img src={guide.image} alt={guide.alt} loading="lazy" />
+        <img
+          src={guide.image}
+          srcSet={unsplashSrcSet(guide.image)}
+          sizes={defaultImageSizes}
+          alt={guide.alt}
+          loading="lazy"
+        />
         <div>
           <p className="story-card-meta">
             <span>{guide.category}</span>

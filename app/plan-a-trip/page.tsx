@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Ask Altrove to design a personalised itinerary around the way you like to travel — beginning with Portugal, Italy and Spain.",
   alternates: {
-    canonical: "https://flowertravel.studio/plan-a-trip",
+    canonical: "https://altrove.studio/plan-a-trip",
   },
 };
 

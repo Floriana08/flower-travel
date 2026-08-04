@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getFeaturedJourneyForCountry, type StudioCountry } from "./studio-structure";
+import { defaultImageSizes, heroImageSizes, unsplashSrcSet } from "./image-utils";
 
 export function DestinationHub({ country }: { country: StudioCountry }) {
   const featured = getFeaturedJourneyForCountry(country.slug);
@@ -8,7 +9,12 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
   return (
     <main className="country-mag">
       <section className="country-mag-hero">
-        <img src={country.image} alt={country.alt} />
+        <img
+          src={country.image}
+          srcSet={unsplashSrcSet(country.image)}
+          sizes={heroImageSizes}
+          alt={country.alt}
+        />
         <div className="country-mag-hero-copy">
           <p className="country-mag-kicker">{country.title}</p>
           <h1>How we experience {country.title}.</h1>
@@ -60,7 +66,13 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
           {country.tasteNotes.map((place) => (
             <article key={place.name} className="country-mag-loved-col">
               <figure>
-                <img src={place.image} alt={place.alt} loading="lazy" />
+                <img
+                  src={place.image}
+                  srcSet={unsplashSrcSet(place.image)}
+                  sizes={defaultImageSizes}
+                  alt={place.alt}
+                  loading="lazy"
+                />
               </figure>
               <p className="country-mag-kicker">{place.kind}</p>
               <h3>{place.name}</h3>
@@ -84,6 +96,8 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
           <figure className="country-mag-coast-side">
             <img
               src={country.exampleImage}
+              srcSet={unsplashSrcSet(country.exampleImage)}
+              sizes={defaultImageSizes}
               alt={country.exampleImageAlt}
               loading="lazy"
             />
@@ -114,7 +128,12 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
 
       <section className="country-mag-plan country-mag-pad" aria-label="Plan a trip">
         <div className="country-mag-plan-media" aria-hidden="true">
-          <img src={country.planImage} alt="" />
+          <img
+            src={country.planImage}
+            srcSet={unsplashSrcSet(country.planImage)}
+            sizes={defaultImageSizes}
+            alt=""
+          />
         </div>
         <div className="country-mag-plan-copy">
           <p className="country-mag-kicker">Plan a trip</p>

@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { defaultImageSizes, unsplashSrcSet } from "../image-utils";
+
+const aboutHeroImage =
+  "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=84";
 
 export const metadata: Metadata = {
   title: "About",
   description:
     "Meet Flor, founder of Altrove — an Italian traveller living in Portugal, writing journeys for people who prefer to remember what they see.",
   alternates: {
-    canonical: "https://flowertravel.studio/about",
+    canonical: "https://altrove.studio/about",
   },
 };
 
@@ -24,7 +28,9 @@ export default function AboutPage() {
         </div>
         <figure className="about-hero-media">
           <img
-            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=84"
+            src={aboutHeroImage}
+            srcSet={unsplashSrcSet(aboutHeroImage)}
+            sizes={defaultImageSizes}
             alt="Morning light on a quiet terrace table overlooking the sea"
           />
         </figure>

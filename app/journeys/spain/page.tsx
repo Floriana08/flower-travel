@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Spain",
   description: country.hubLede,
   alternates: {
-    canonical: "https://flowertravel.studio/journeys/spain",
+    canonical: "https://altrove.studio/journeys/spain",
   },
 };
 

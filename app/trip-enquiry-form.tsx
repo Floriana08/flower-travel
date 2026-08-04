@@ -16,8 +16,10 @@ const tripTypes = [
 ];
 
 /**
- * Trip enquiry form. Submissions currently open a mailto draft until a
- * form backend or CRM is connected. UI includes validation and status states.
+ * Trip enquiry form. Submits to `/api/enquiry`, which persists the enquiry
+ * in D1 so it's captured even if the visitor has no configured mail client.
+ * If the request itself fails (offline, database not yet provisioned), we
+ * fall back to opening a mailto draft so the enquiry isn't silently lost.
  */
 export function TripEnquiryForm() {
   const [status, setStatus] = useState<FormStatus>("idle");
@@ -42,34 +44,66 @@ export function TripEnquiryForm() {
     setStatus("loading");
     setMessage("");
 
-    const body = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Destinations: ${destinations}`,
-      `Dates: ${String(data.get("dates") || "").trim() || "—"}`,
-      `Travellers: ${String(data.get("travellers") || "").trim() || "—"}`,
-      `Trip length: ${String(data.get("length") || "").trim() || "—"}`,
-      `Budget: ${String(data.get("budget") || "").trim() || "—"}`,
-      `Trip type: ${String(data.get("tripType") || "").trim() || "—"}`,
-      `What matters most: ${String(data.get("priorities") || "").trim() || "—"}`,
-      `Notes: ${String(data.get("notes") || "").trim() || "—"}`,
-    ].join("\n");
+    const dates = String(data.get("dates") || "").trim();
+    const travellers = String(data.get("travellers") || "").trim();
+    const tripLength = String(data.get("length") || "").trim();
+    const budget = String(data.get("budget") || "").trim();
+    const tripType = String(data.get("tripType") || "").trim();
+    const priorities = String(data.get("priorities") || "").trim();
+    const notes = String(data.get("notes") || "").trim();
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 400));
-      window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(
-        `Trip enquiry — ${destinations}`,
-      )}&body=${encodeURIComponent(body)}`;
+      const response = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          destinations,
+          dates,
+          travellers,
+          tripLength,
+          budget,
+          tripType,
+          priorities,
+          notes,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
+
       setStatus("success");
       setMessage(
-        "Thank you. Your email client should open so you can send the enquiry. We’ll reply with next steps for your trip.",
+        "Thank you. We’ve received your enquiry and will reply with next steps for your trip.",
       );
       form.reset();
     } catch {
-      setStatus("error");
+      // The enquiry couldn't be saved server-side — fall back to mailto so
+      // the details aren't lost, rather than failing silently.
+      const mailBody = [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Destinations: ${destinations}`,
+        `Dates: ${dates || "—"}`,
+        `Travellers: ${travellers || "—"}`,
+        `Trip length: ${tripLength || "—"}`,
+        `Budget: ${budget || "—"}`,
+        `Trip type: ${tripType || "—"}`,
+        `What matters most: ${priorities || "—"}`,
+        `Notes: ${notes || "—"}`,
+      ].join("\n");
+
+      window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(
+        `Trip enquiry — ${destinations}`,
+      )}&body=${encodeURIComponent(mailBody)}`;
+
+      setStatus("success");
       setMessage(
-        `Something went wrong. Please email ${site.email} directly with your trip details.`,
+        "We couldn’t reach our server just now, so your email client should open instead — please send that draft and we’ll reply with next steps.",
       );
+      form.reset();
     }
   }
 

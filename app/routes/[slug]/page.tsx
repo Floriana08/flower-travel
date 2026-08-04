@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ItineraryCard, NewsletterBand } from "../../components";
 import { itineraries, routeDetails, site } from "../../data";
+import { defaultImageSizes, unsplashSrcSet } from "../../image-utils";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -76,10 +77,10 @@ export default async function RouteDetailPage({ params }: PageProps) {
       name: site.name,
       logo: {
         "@type": "ImageObject",
-        url: "https://flowertravel.studio/logo-altrove.png",
+        url: "https://altrove.studio/logo-altrove.png",
       },
     },
-    mainEntityOfPage: `https://flowertravel.studio/routes/${route.slug}`,
+    mainEntityOfPage: `https://altrove.studio/routes/${route.slug}`,
   };
 
   return (
@@ -105,7 +106,12 @@ export default async function RouteDetailPage({ params }: PageProps) {
             </div>
           </div>
           <figure className="article-hero-image reveal delay-1">
-            <img src={route.image} alt={route.alt} />
+            <img
+              src={route.image}
+              srcSet={unsplashSrcSet(route.image)}
+              sizes={defaultImageSizes}
+              alt={route.alt}
+            />
           </figure>
         </header>
 

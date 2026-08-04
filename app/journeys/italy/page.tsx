@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "How Altrove travels Italy — Naples, the Amalfi Coast, pacing notes, and practical advice for a slower Campania journey.",
   alternates: {
-    canonical: "https://flowertravel.studio/journeys/italy",
+    canonical: "https://altrove.studio/journeys/italy",
   },
 };
 

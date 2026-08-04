@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Curated Altrove journal notes on Italy — food, cities and coastal pacing.",
   alternates: {
-    canonical: "https://flowertravel.studio/travel-guides/italy",
+    canonical: "https://altrove.studio/travel-guides/italy",
   },
 };
 

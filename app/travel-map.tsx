@@ -66,9 +66,6 @@ export function TravelMap({
   const mapNodeRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<import("maplibre-gl").Map | null>(null);
   const markersRef = useRef<import("maplibre-gl").Marker[]>([]);
-  const selectedIdRef = useRef(selectedId);
-
-  selectedIdRef.current = selectedId;
 
   const categories = useMemo(() => {
     const set = new Set(locations.map((item) => item.category));

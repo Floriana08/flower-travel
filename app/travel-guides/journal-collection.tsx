@@ -6,6 +6,7 @@ import {
   EnquiryCta,
   PageIntro,
 } from "../studio-components";
+import { defaultImageSizes, unsplashSrcSet } from "../image-utils";
 import {
   getGuidesForCountry,
   getGuidesForMood,
@@ -40,7 +41,12 @@ export function JournalDestinationPage({ slug }: { slug: StudioCountrySlug }) {
         <section className="section-shell tinted journal-lead">
           <div className="journal-lead-grid">
             <Link href={`/travel-guides/${lead.slug}`} aria-label={lead.title}>
-              <img src={lead.image} alt={lead.alt} />
+              <img
+                src={lead.image}
+                srcSet={unsplashSrcSet(lead.image)}
+                sizes={defaultImageSizes}
+                alt={lead.alt}
+              />
             </Link>
             <div>
               <p className="story-card-meta">

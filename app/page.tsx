@@ -6,13 +6,14 @@ import { guides, site } from "./data";
 import { getCatalogueJourneys } from "./journeys-data";
 import { HeroOceanVideo } from "./hero-ocean-video";
 import { EditorialStoryCard, StudioNewsletter } from "./studio-components";
+import { defaultImageSizes, unsplashSrcSet } from "./image-utils";
 
 export const metadata: Metadata = {
-  title: "Altrove | Boutique travel studio",
+  title: "Boutique travel studio",
   description:
     "A boutique travel studio for travellers who would rather remember a place than rush through it.",
   alternates: {
-    canonical: "https://flowertravel.studio/",
+    canonical: "https://altrove.studio/",
   },
   openGraph: {
     title: "Altrove | Boutique travel studio",
@@ -42,7 +43,7 @@ const structuredData = {
     {
       "@type": "TravelAgency",
       name: site.name,
-      url: "https://flowertravel.studio/",
+      url: "https://altrove.studio/",
       description: site.studioLine,
       email: site.email,
     },
@@ -54,7 +55,7 @@ const structuredData = {
         "@type": "Organization",
         name: site.name,
       },
-      url: "https://flowertravel.studio/about",
+      url: "https://altrove.studio/about",
     },
   ],
 };
@@ -104,7 +105,13 @@ export default function Home() {
                 href={`/journeys/${journey.slug}`}
                 aria-label={journey.title}
               >
-                <img src={journey.image} alt={journey.alt} loading="lazy" />
+                <img
+                  src={journey.image}
+                  srcSet={unsplashSrcSet(journey.image)}
+                  sizes={defaultImageSizes}
+                  alt={journey.alt}
+                  loading="lazy"
+                />
               </Link>
               <div className="home-featured-copy">
                 <p className="home-journey-status">{journey.statusLabel}</p>

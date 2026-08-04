@@ -9,6 +9,7 @@ import {
   WorthKnowing,
 } from "../../editorial-components";
 import { guides, site } from "../../data";
+import { defaultImageSizes, unsplashSrcSet } from "../../image-utils";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -74,17 +75,17 @@ export default async function GuideArticlePage({ params }: PageProps) {
     author: {
       "@type": "Person",
       name: "Flor",
-      url: "https://flowertravel.studio/",
+      url: "https://altrove.studio/",
     },
     publisher: {
       "@type": "Organization",
       name: site.name,
       logo: {
         "@type": "ImageObject",
-        url: "https://flowertravel.studio/logo-altrove.png",
+        url: "https://altrove.studio/logo-altrove.png",
       },
     },
-    mainEntityOfPage: `https://flowertravel.studio/travel-guides/${guide.slug}`,
+    mainEntityOfPage: `https://altrove.studio/travel-guides/${guide.slug}`,
   };
 
   return (
@@ -119,7 +120,12 @@ export default async function GuideArticlePage({ params }: PageProps) {
             />
           </div>
           <figure className="article-hero-image reveal delay-1">
-            <img src={guide.image} alt={guide.alt} />
+            <img
+              src={guide.image}
+              srcSet={unsplashSrcSet(guide.image)}
+              sizes={defaultImageSizes}
+              alt={guide.alt}
+            />
           </figure>
         </header>
 

@@ -12,13 +12,14 @@ import {
   storiesFromSlugs,
   studioCountries,
 } from "../studio-structure";
+import { defaultImageSizes, unsplashSrcSet } from "../image-utils";
 
 export const metadata: Metadata = {
   title: "Journal",
   description:
     "Notes from Altrove — hotels, neighbourhoods, food and pacing, gathered with care.",
   alternates: {
-    canonical: "https://flowertravel.studio/travel-guides",
+    canonical: "https://altrove.studio/travel-guides",
   },
 };
 
@@ -55,7 +56,13 @@ export default function TravelJournalPage() {
               href={`/travel-guides/${country.slug}`}
             >
               <span className="journal-browse-media">
-                <img src={country.image} alt={country.alt} loading="lazy" />
+                <img
+                  src={country.image}
+                  srcSet={unsplashSrcSet(country.image)}
+                  sizes={defaultImageSizes}
+                  alt={country.alt}
+                  loading="lazy"
+                />
               </span>
               <span className="journal-browse-copy">
                 <span className="journal-browse-title">{country.title}</span>

@@ -11,6 +11,7 @@ import {
 import { EditorialCarousel } from "./EditorialCarousel";
 import { getDestination, guides, itineraries } from "./data";
 import { portugalGuide } from "./portugal-content";
+import { defaultImageSizes, unsplashSrcSet } from "./image-utils";
 
 const portugalCarouselSlugs = [
   "lisbon-food-tour",
@@ -77,19 +78,19 @@ export function PortugalDestinationGuide() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://flowertravel.studio/",
+        item: "https://altrove.studio/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Destinations",
-        item: "https://flowertravel.studio/destinations",
+        item: "https://altrove.studio/destinations",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Portugal",
-        item: "https://flowertravel.studio/destinations/portugal",
+        item: "https://altrove.studio/destinations/portugal",
       },
     ],
   };
@@ -127,7 +128,12 @@ export function PortugalDestinationGuide() {
           </div>
         </div>
         <div className="portugal-hero-media">
-          <img src={destination.image} alt={destination.alt} />
+          <img
+            src={destination.image}
+            srcSet={unsplashSrcSet(destination.image)}
+            sizes={defaultImageSizes}
+            alt={destination.alt}
+          />
         </div>
       </section>
 
@@ -185,7 +191,12 @@ export function PortugalDestinationGuide() {
             <p>{featuredStory.excerpt}</p>
           </SectionHeading>
           <article className="featured-story-row">
-            <img src={featuredStory.image} alt={featuredStory.alt} />
+            <img
+              src={featuredStory.image}
+              srcSet={unsplashSrcSet(featuredStory.image)}
+              sizes={defaultImageSizes}
+              alt={featuredStory.alt}
+            />
             <div>
               <p className="story-card-meta">
                 <span>{featuredStory.category}</span>
@@ -219,7 +230,13 @@ export function PortugalDestinationGuide() {
           {journalCarousel.map((item) => (
             <article className="story-card" key={item.slug}>
               <Link className="story-card-link" href={item.href}>
-                <img src={item.image} alt={item.alt} loading="lazy" />
+                <img
+                  src={item.image}
+                  srcSet={unsplashSrcSet(item.image)}
+                  sizes={defaultImageSizes}
+                  alt={item.alt}
+                  loading="lazy"
+                />
                 <div className="story-card-body">
                   <p className="story-card-meta">
                     <span>{item.meta}</span>
@@ -242,7 +259,13 @@ export function PortugalDestinationGuide() {
               key={story.slug}
               href={`/travel-guides/${story.slug}`}
             >
-              <img src={story.image} alt={story.alt} loading="lazy" />
+              <img
+                src={story.image}
+                srcSet={unsplashSrcSet(story.image)}
+                sizes={defaultImageSizes}
+                alt={story.alt}
+                loading="lazy"
+              />
               <div className="card-body">
                 <div className="meta-line">
                   <span>{story.category}</span>

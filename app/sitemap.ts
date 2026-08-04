@@ -13,7 +13,7 @@ const routes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://flowertravel.studio";
+  const baseUrl = "https://altrove.studio";
   const journeyRoutes = [
     ...studioCountries.map((country) => `/journeys/${country.slug}`),
     ...journeys.map((journey) => `/journeys/${journey.slug}`),

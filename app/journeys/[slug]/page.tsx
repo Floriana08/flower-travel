@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { routeDetails } from "../../data";
 import { EnquiryCta, PageIntro } from "../../studio-components";
 import { getJourney, journeys } from "../../journeys-data";
+import { defaultImageSizes, unsplashSrcSet } from "../../image-utils";
 import {
   getDestinationHubHref,
   getStudioCountry,
@@ -28,7 +29,7 @@ export async function generateMetadata({
     title: journey.title,
     description: journey.summary,
     alternates: {
-      canonical: `https://flowertravel.studio/journeys/${journey.slug}`,
+      canonical: `https://altrove.studio/journeys/${journey.slug}`,
     },
     openGraph: {
       title: `${journey.title} | Altrove`,
@@ -72,7 +73,12 @@ export default async function JourneyDetailPage({ params }: PageProps) {
           </PageIntro>
         </div>
         <div className="journey-hero-media">
-          <img src={journey.image} alt={journey.alt} />
+          <img
+            src={journey.image}
+            srcSet={unsplashSrcSet(journey.image)}
+            sizes={defaultImageSizes}
+            alt={journey.alt}
+          />
         </div>
       </section>
 

@@ -11,6 +11,7 @@ import {
 } from "./data";
 import { NewsletterForm } from "./newsletter-form";
 import { getDestinationHubHref } from "./studio-structure";
+import { defaultImageSizes, heroImageSizes, unsplashSrcSet } from "./image-utils";
 
 type SectionHeadingProps = {
   eyebrow: string;
@@ -215,6 +216,8 @@ export function PageHero({
         <figure className="page-hero-image reveal delay-1">
           <img
             src={image}
+            srcSet={unsplashSrcSet(image)}
+            sizes={heroImageSizes}
             alt={alt ?? ""}
             style={
               imageObjectPosition
@@ -241,7 +244,13 @@ export function DestinationTile({
 }) {
   return (
     <Link className="destination-tile" href={href} aria-label={label}>
-      <img src={image} alt={alt} loading="lazy" />
+      <img
+        src={image}
+        srcSet={unsplashSrcSet(image)}
+        sizes={defaultImageSizes}
+        alt={alt}
+        loading="lazy"
+      />
       <span className="destination-tile-label">{label}</span>
     </Link>
   );
@@ -262,7 +271,13 @@ export function DestinationCard({
         href={getDestinationHubHref(destination.slug)}
         aria-label={destination.title}
       >
-        <img src={destination.image} alt={destination.alt} loading="lazy" />
+        <img
+          src={destination.image}
+          srcSet={unsplashSrcSet(destination.image)}
+          sizes={defaultImageSizes}
+          alt={destination.alt}
+          loading="lazy"
+        />
       </Link>
       <div className="card-body">
         <div className="meta-line">
@@ -300,7 +315,13 @@ export function ItineraryCard({
   return (
     <article className="itinerary-card card">
       <Link href={`/routes/${itinerary.slug}`} aria-label={itinerary.title}>
-        <img src={itinerary.image} alt={itinerary.alt} loading="eager" />
+        <img
+          src={itinerary.image}
+          srcSet={unsplashSrcSet(itinerary.image)}
+          sizes={defaultImageSizes}
+          alt={itinerary.alt}
+          loading="eager"
+        />
       </Link>
       <div className="card-body">
         <div className="meta-line">
@@ -333,7 +354,13 @@ export function GuideCard({
 }) {
   return (
     <article className={`guide-card card ${compact ? "compact" : ""}`}>
-      <img src={guide.image} alt={guide.alt} loading="lazy" />
+      <img
+        src={guide.image}
+        srcSet={unsplashSrcSet(guide.image)}
+        sizes={defaultImageSizes}
+        alt={guide.alt}
+        loading="lazy"
+      />
       <div className="card-body">
         <div className="meta-line">
           <span>{guide.category}</span>
@@ -356,7 +383,13 @@ export function GuideProductCard({
 }) {
   return (
     <article className="guide-product-card card">
-      <img src={product.image} alt={product.alt} loading="lazy" />
+      <img
+        src={product.image}
+        srcSet={unsplashSrcSet(product.image)}
+        sizes={defaultImageSizes}
+        alt={product.alt}
+        loading="lazy"
+      />
       <div className="card-body">
         <div className="meta-line">
           <span>{product.format}</span>

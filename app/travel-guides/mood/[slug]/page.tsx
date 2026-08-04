@@ -26,7 +26,7 @@ export async function generateMetadata({
     title: `${mood.title} | Journal`,
     description: mood.description,
     alternates: {
-      canonical: `https://flowertravel.studio/travel-guides/mood/${mood.slug}`,
+      canonical: `https://altrove.studio/travel-guides/mood/${mood.slug}`,
     },
   };
 }

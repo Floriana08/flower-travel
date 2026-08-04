@@ -14,5 +14,16 @@
   },
   "images": {
     "binding": "IMAGES"
-  }
+  },
+  // Placeholder — replace database_id with the id printed by
+  // `wrangler d1 create flower-travel-db`, then run:
+  //   npm run db:generate
+  //   wrangler d1 migrations apply flower-travel-db --remote
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "flower-travel-db",
+      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+    }
+  ]
 }
