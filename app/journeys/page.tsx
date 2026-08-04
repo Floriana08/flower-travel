@@ -3,6 +3,7 @@ import Link from "next/link";
 import { DestinationItineraryTabs } from "../destination-itinerary-tabs";
 import { JourneysCinemaVideo } from "../journeys-cinema-video";
 import { studioCountries } from "../studio-structure";
+import { getCatalogueJourneys } from "../journeys-data";
 import { defaultImageSizes, unsplashSrcSet } from "../image-utils";
 
 export const metadata: Metadata = {
@@ -15,6 +16,8 @@ export const metadata: Metadata = {
 };
 
 export default function JourneysPage() {
+  const featured = getCatalogueJourneys().slice(0, 3);
+
   return (
     <main className="journeys-studio">
       <header className="section-shell page-top journeys-studio-hero">
@@ -30,10 +33,50 @@ export default function JourneysPage() {
         </p>
       </header>
 
+      <section className="section-shell home-featured" aria-label="Signature journeys">
+        <div className="home-section-head">
+          <p className="eyebrow">Signature journeys</p>
+          <h2 className="display-title">Start here</h2>
+        </div>
+        <div className="home-featured-list">
+          {featured.map((journey) => (
+            <article className="home-featured-journey" key={journey.slug}>
+              <Link
+                className="home-featured-media"
+                href={`/journeys/${journey.slug}`}
+                aria-label={journey.title}
+              >
+                <img
+                  src={journey.image}
+                  srcSet={unsplashSrcSet(journey.image)}
+                  sizes={defaultImageSizes}
+                  alt={journey.alt}
+                  loading="lazy"
+                />
+              </Link>
+              <div className="home-featured-copy">
+                <p className="home-journey-status">{journey.statusLabel}</p>
+                <h3>
+                  <Link href={`/journeys/${journey.slug}`}>{journey.title}</Link>
+                </h3>
+                <p className="home-journey-meta">
+                  <span>{journey.destination}</span>
+                  <span>{journey.duration}</span>
+                </p>
+                <p>{journey.summary}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section
         className="section-shell journeys-collection-strip"
         aria-label="Countries"
       >
+        <div className="home-section-head">
+          <p className="eyebrow">Or browse by country</p>
+        </div>
         <div className="journeys-collection-grid">
           {studioCountries.map((country) => (
             <Link
