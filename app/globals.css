@@ -5507,39 +5507,22 @@ h1.studio-hero-lede {
   line-height: 1.05;
 }
 
+.country-mag-intro {
+  display: grid;
+  gap: clamp(40px, 6vw, 72px);
+  padding-top: clamp(56px, 10vw, 104px);
+  padding-bottom: clamp(56px, 9vw, 96px);
+}
+
 .country-mag-lede {
   margin: 0;
-  padding-top: clamp(56px, 10vw, 104px);
-  padding-bottom: clamp(56px, 10vw, 104px);
-  max-width: 11rem;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 0.12em;
+  max-width: 40rem;
   font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.55;
   color: var(--soft-ink);
-}
-
-.country-mag-lede span {
-  display: block;
-  width: 100%;
-  text-align: justify;
-  text-align-last: justify;
-}
-
-.country-mag-lede span::after {
-  content: "";
-  display: inline-block;
-  width: 100%;
-}
-
-.country-mag-cover {
-  display: grid;
-  gap: clamp(24px, 4vw, 40px);
-  padding-bottom: clamp(56px, 9vw, 96px);
+  text-align: left;
 }
 
 .country-mag-cover-copy {

@@ -1,18 +1,6 @@
 import Link from "next/link";
 import { getFeaturedJourneyForCountry, type StudioCountry } from "./studio-structure";
 
-function StackedLede({ text }: { text: string }) {
-  const words = text.trim().split(/\s+/).filter(Boolean);
-
-  return (
-    <p className="country-mag-lede country-mag-pad" aria-label={text}>
-      {words.map((word, index) => (
-        <span key={`${word}-${index}`}>{word}</span>
-      ))}
-    </p>
-  );
-}
-
 export function DestinationHub({ country }: { country: StudioCountry }) {
   const featured = getFeaturedJourneyForCountry(country.slug);
   const days = country.example.days;
@@ -27,11 +15,11 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
         </div>
       </section>
 
-      <StackedLede text={country.hubLede} />
+      <section className="country-mag-intro country-mag-pad">
+        <p className="country-mag-lede">{country.hubLede}</p>
 
-      {featured ? (
-        <section className="country-mag-cover" aria-label="Featured journey">
-          <div className="country-mag-cover-copy country-mag-pad">
+        {featured ? (
+          <div className="country-mag-cover-copy" aria-label="Featured journey">
             <p className="country-mag-kicker">Featured journey</p>
             <h2>
               <Link href={`/journeys/${featured.slug}`}>{featured.title}</Link>
@@ -44,8 +32,8 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
               Open the journey
             </Link>
           </div>
-        </section>
-      ) : null}
+        ) : null}
+      </section>
 
       <section className="country-mag-notes country-mag-pad" aria-label="Travel notes">
         <div className="country-mag-notes-rail">
