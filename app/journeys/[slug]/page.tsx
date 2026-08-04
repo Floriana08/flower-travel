@@ -87,13 +87,13 @@ export default async function JourneyDetailPage({ params }: PageProps) {
           {italy?.example.lede ? (
             <p className="journey-merged-lede">{italy.example.lede}</p>
           ) : null}
-          <ol className="italy-mag-days">
+          <ol className="country-mag-days">
             {coastDays.map((day, index) => (
               <li
                 key={`${day.label}-${day.title}`}
                 style={{ ["--day-index" as string]: index }}
               >
-                <p className="italy-mag-day-label">{day.label}</p>
+                <p className="country-mag-day-label">{day.label}</p>
                 <h3>{day.title}</h3>
                 {day.note ? <p>{day.note}</p> : null}
               </li>

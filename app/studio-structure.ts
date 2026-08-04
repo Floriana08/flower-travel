@@ -41,6 +41,19 @@ export type PlaceLove = {
   items: { name: string; note: string }[];
 };
 
+export type TravelNote = {
+  title: string;
+  body: string;
+};
+
+export type TasteNote = {
+  kind: PlaceLoveKind;
+  name: string;
+  note: string;
+  image: string;
+  alt: string;
+};
+
 export type StudioCountry = {
   slug: StudioCountrySlug;
   title: string;
@@ -52,6 +65,15 @@ export type StudioCountry = {
   featuredJourneySlug: string;
   collections: RegionalCollection[];
   placesWeLove: PlaceLove[];
+  /** Practical side-rail notes on the country hub */
+  notesIntro: string;
+  travelNotes: TravelNote[];
+  /** Three photographed taste notes for the hub grid */
+  tasteNotes: TasteNote[];
+  /** Image beside the example-itinerary heading */
+  exampleImage: string;
+  exampleImageAlt: string;
+  planImage: string;
   /** Max three carefully selected journal stories */
   journalSlugs: string[];
   /** Used by the Journeys index day tabs */
@@ -158,9 +180,68 @@ export const studioCountries: StudioCountry[] = [
         ],
       },
     ],
+    notesIntro:
+      "Practical advice for Campania — written from how we actually travel here, not a checklist of every town on the map.",
+    travelNotes: [
+      {
+        title: "Best time to go",
+        body: "May–June and September. Warm enough for the coast, cooler for walking Naples, and easier than midsummer crowds and heat.",
+      },
+      {
+        title: "How to pace it",
+        body: "Two bases at most: a Naples neighbourhood, then one coastal stay. Day-trip the towns — don’t change hotels every night.",
+      },
+      {
+        title: "Getting around",
+        body: "Walk Naples. Train to Pompeii. Ferries along the Amalfi Coast whenever you can — boats usually beat summer buses for both views and sanity.",
+      },
+      {
+        title: "Where to stay",
+        body: "In Naples, prefer Chiaia or Vomero for a calmer base. On the coast, choose one town and stay put — Sorrento or Salerno can be more practical than Positano prices.",
+      },
+      {
+        title: "Food first",
+        body: "Let meals set the day. Pizza and pastry in Naples; a long coastal lunch with nowhere else to be. Reserve the one dinner that matters.",
+      },
+      {
+        title: "What to leave out",
+        body: "Five towns in three days. Capri, Pompeii and the full Amalfi strip on the same short trip. Pick one clean escape and keep evening free.",
+      },
+    ],
+    tasteNotes: [
+      {
+        kind: "Hotels",
+        name: "One coastal stay",
+        note: "A single Amalfi or Sorrento bed — not five hotel changes.",
+        image:
+          "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1800&q=84",
+        alt: "Cliffside villages on the Amalfi Coast above blue Mediterranean water",
+      },
+      {
+        kind: "Restaurants",
+        name: "Neighbourhood pizza",
+        note: "The table you’d send a friend to without hesitating.",
+        image:
+          "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1800&q=84",
+        alt: "Wood-fired pizza on a simple table",
+      },
+      {
+        kind: "Experiences",
+        name: "Ravello gardens",
+        note: "Height, quiet, and a slower afternoon above the coast.",
+        image:
+          "https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=1800&q=80",
+        alt: "Colourful boats in a harbour on the Amalfi Coast",
+      },
+    ],
+    exampleImage:
+      "https://images.unsplash.com/photo-1595877244574-e90ce41ce089?auto=format&fit=crop&w=1400&q=84",
+    exampleImageAlt: "Positano stacked above the Mediterranean on the Amalfi Coast",
+    planImage:
+      "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1400&q=84",
     journalSlugs: ["rome-food-walk"],
     example: {
-      title: "Naples and the Coast",
+      title: "Naples and the Amalfi Coast",
       duration: "6 days",
       lede: "Arrive in the city. Settle on the coast. Leave room for the sea.",
       days: [
@@ -269,6 +350,65 @@ export const studioCountries: StudioCountry[] = [
         ],
       },
     ],
+    notesIntro:
+      "How we pace Portugal — rail days, neighbourhood bases, and Atlantic pauses without packing the map.",
+    travelNotes: [
+      {
+        title: "Best time to go",
+        body: "April–June and September–October. Soft light, fewer crowds, and weather that still suits outdoor lunches.",
+      },
+      {
+        title: "How to pace it",
+        body: "Two bases at most: Lisbon, then Porto. Leave room for one Atlantic day — Cascais or the coast near Porto.",
+      },
+      {
+        title: "Getting around",
+        body: "Trains between cities. Walk the hills. Save taxis for late nights or luggage, not every miradouro hop.",
+      },
+      {
+        title: "Where to stay",
+        body: "A hill neighbourhood in Lisbon; riverside or Cedofeita in Porto. Skip hotel-hopping for the sake of variety.",
+      },
+      {
+        title: "Food first",
+        body: "Let lunch organise the day. A neighbourhood tasca beats three rushed sightseeing stops.",
+      },
+      {
+        title: "What to leave out",
+        body: "Five cities in a week. Madeira bolted onto a Lisbon–Porto sprint. Give each base enough nights to settle.",
+      },
+    ],
+    tasteNotes: [
+      {
+        kind: "Hotels",
+        name: "A Lisbon hill base",
+        note: "Graça, Estrela or a calm corner of Príncipe Real.",
+        image:
+          "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1800&q=84",
+        alt: "Lisbon tram climbing a steep tiled street",
+      },
+      {
+        kind: "Restaurants",
+        name: "Neighbourhood tasca",
+        note: "The lunch that becomes the day’s main event.",
+        image:
+          "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1800&q=84",
+        alt: "Simple Portuguese dishes on a restaurant table",
+      },
+      {
+        kind: "Experiences",
+        name: "Train north",
+        note: "Lisbon to Porto with the landscape as the show.",
+        image:
+          "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1800&q=84",
+        alt: "Train travelling through green European countryside",
+      },
+    ],
+    exampleImage:
+      "https://images.unsplash.com/photo-1555881407-bb2d4e463a49?auto=format&fit=crop&w=1400&q=84",
+    exampleImageAlt: "Ribeira waterfront houses along the Douro in Porto",
+    planImage:
+      "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=1400&q=80",
     journalSlugs: ["where-to-stay-lisbon", "madeira-first-timers", "train-travel-europe"],
     example: {
       title: "Portugal by Train",
@@ -381,6 +521,65 @@ export const studioCountries: StudioCountry[] = [
         ],
       },
     ],
+    notesIntro:
+      "How we think about Spain — food first, one barrio as home, and a second region only when the first has had enough time.",
+    travelNotes: [
+      {
+        title: "Best time to go",
+        body: "April–June and September–October for most routes. Shoulder seasons keep heat and crowds in check.",
+      },
+      {
+        title: "How to pace it",
+        body: "One city base, then one regional stay. Don’t change hotels every night for the sake of ticking boxes.",
+      },
+      {
+        title: "Getting around",
+        body: "Walk the barrio. Trains between regions when you can. Save driving for landscape days that need it.",
+      },
+      {
+        title: "Where to stay",
+        body: "A courtyard hotel with character in the city; one quieter second base on the coast or in the countryside.",
+      },
+      {
+        title: "Food first",
+        body: "Markets and meals organise the day. A late dinner is part of the itinerary, not an afterthought.",
+      },
+      {
+        title: "What to leave out",
+        body: "Three cities in five days. A checklist of monuments with no lunch plan. Leave room to return to the same table.",
+      },
+    ],
+    tasteNotes: [
+      {
+        kind: "Hotels",
+        name: "A courtyard city hotel",
+        note: "Somewhere with atmosphere — and a quiet room upstairs.",
+        image:
+          "https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1800&q=84",
+        alt: "A warm Spanish street with historic architecture",
+      },
+      {
+        kind: "Restaurants",
+        name: "Market lunch",
+        note: "The table that explains a city better than a checklist.",
+        image:
+          "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1800&q=84",
+        alt: "Tapas and shared plates on a busy table",
+      },
+      {
+        kind: "Experiences",
+        name: "A landscape day",
+        note: "Coast, hills or wine country — one clean focus.",
+        image:
+          "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=84",
+        alt: "Green mountains and mist over a northern landscape",
+      },
+    ],
+    exampleImage:
+      "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=1400&q=84",
+    exampleImageAlt: "Warm evening light over a historic Spanish square",
+    planImage:
+      "https://images.unsplash.com/photo-1583422403309-80447b2c0d0f?auto=format&fit=crop&w=1400&q=80",
     journalSlugs: [],
     example: {
       title: "A Slow Spain Sketch",

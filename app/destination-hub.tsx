@@ -1,128 +1,147 @@
 import Link from "next/link";
-import {
-  EditorialStoryCard,
-  EnquiryCta,
-} from "./studio-components";
-import {
-  getFeaturedJourneyForCountry,
-  getHubJournalStories,
-  type StudioCountry,
-} from "./studio-structure";
+import { getFeaturedJourneyForCountry, type StudioCountry } from "./studio-structure";
+
+function StackedLede({ text }: { text: string }) {
+  const words = text.trim().split(/\s+/).filter(Boolean);
+
+  return (
+    <p className="country-mag-lede country-mag-pad" aria-label={text}>
+      {words.map((word, index) => (
+        <span key={`${word}-${index}`}>{word}</span>
+      ))}
+    </p>
+  );
+}
 
 export function DestinationHub({ country }: { country: StudioCountry }) {
   const featured = getFeaturedJourneyForCountry(country.slug);
-  const stories = getHubJournalStories(country.slug);
+  const days = country.example.days;
 
   return (
-    <main className="country-hub">
-      <section className="country-hub-hero">
-        <div className="country-hub-hero-media" aria-hidden="true">
-          <img src={country.image} alt="" />
-        </div>
-        <div className="country-hub-hero-copy">
-          <p className="eyebrow light">{country.title}</p>
-          <h1 className="studio-hero-lede">How we experience {country.title}.</h1>
-          <p className="country-hub-hero-lede">{country.hubLede}</p>
+    <main className="country-mag">
+      <section className="country-mag-hero">
+        <img src={country.image} alt={country.alt} />
+        <div className="country-mag-hero-copy">
+          <p className="country-mag-kicker">{country.title}</p>
+          <h1>How we experience {country.title}.</h1>
         </div>
       </section>
 
+      <StackedLede text={country.hubLede} />
+
       {featured ? (
-        <section
-          className="section-shell country-hub-featured"
-          aria-label="Featured journey"
-        >
-          <div className="home-section-head">
-            <p className="eyebrow">Featured journey</p>
-            <h2 className="display-title">{featured.title}</h2>
-          </div>
-          <article className="country-hub-feature">
-            <Link
-              className="country-hub-feature-media"
-              href={`/journeys/${featured.slug}`}
-              aria-label={featured.title}
-            >
-              <img src={featured.image} alt={featured.alt} />
+        <section className="country-mag-cover" aria-label="Featured journey">
+          <div className="country-mag-cover-copy country-mag-pad">
+            <p className="country-mag-kicker">Featured journey</p>
+            <h2>
+              <Link href={`/journeys/${featured.slug}`}>{featured.title}</Link>
+            </h2>
+            <p className="country-mag-meta">
+              {featured.duration} · {featured.destination}
+            </p>
+            <p className="country-mag-deck">{featured.summary}</p>
+            <Link className="country-mag-link" href={`/journeys/${featured.slug}`}>
+              Open the journey
             </Link>
-            <div className="country-hub-feature-copy">
-              <p className="home-journey-status">{featured.statusLabel}</p>
-              <p className="home-journey-meta">
-                <span>{featured.duration}</span>
-                <span>{featured.destination}</span>
-              </p>
-              <p>{featured.summary}</p>
-              <p className="country-hub-feature-overview">
-                {featured.overview[0]}
-              </p>
-              <div className="country-hub-feature-actions">
-                <Link className="button dark" href={`/journeys/${featured.slug}`}>
-                  Open the journey
-                </Link>
-                <Link className="text-link" href="/plan-a-trip">
-                  Plan a version of this
-                </Link>
-              </div>
-            </div>
-          </article>
+          </div>
         </section>
       ) : null}
 
-      <section
-        className="section-shell country-hub-places"
-        aria-label="Places we love"
-      >
-        <div className="home-section-head">
-          <p className="eyebrow">Places we love</p>
-          <h2 className="display-title">Taste notes</h2>
+      <section className="country-mag-notes country-mag-pad" aria-label="Travel notes">
+        <div className="country-mag-notes-rail">
+          <p className="country-mag-kicker">Travel notes</p>
+          <h2>Useful information</h2>
+          <p className="country-mag-deck">{country.notesIntro}</p>
         </div>
-        <div className="country-hub-places-grid">
-          {country.placesWeLove.map((group) => (
-            <div key={group.kind} className="country-hub-place-group">
-              <h3>{group.kind}</h3>
-              <ul>
-                {group.items.map((item) => (
-                  <li key={item.name}>
-                    <strong>{item.name}</strong>
-                    <span>{item.note}</span>
-                  </li>
-                ))}
-              </ul>
+        <dl className="country-mag-notes-list">
+          {country.travelNotes.map((note) => (
+            <div key={note.title}>
+              <dt>{note.title}</dt>
+              <dd>{note.body}</dd>
             </div>
+          ))}
+        </dl>
+      </section>
+
+      <section className="country-mag-loved country-mag-pad" aria-label="Places we love">
+        <div className="country-mag-loved-intro">
+          <p className="country-mag-kicker">Places we love</p>
+          <h2>Taste notes</h2>
+        </div>
+        <div className="country-mag-loved-row">
+          {country.tasteNotes.map((place) => (
+            <article key={place.name} className="country-mag-loved-col">
+              <figure>
+                <img src={place.image} alt={place.alt} loading="lazy" />
+              </figure>
+              <p className="country-mag-kicker">{place.kind}</p>
+              <h3>{place.name}</h3>
+              <p>{place.note}</p>
+            </article>
           ))}
         </div>
       </section>
 
-      {stories.length ? (
-        <section
-          className="section-shell tinted country-hub-journal"
-          aria-label="Journal"
-        >
-          <div className="home-section-head">
-            <p className="eyebrow">Journal</p>
-            <h2 className="display-title">Selected notes</h2>
+      <section
+        className="country-mag-coast country-mag-pad"
+        aria-label={country.example.title}
+      >
+        <div className="country-mag-coast-head">
+          <div className="country-mag-coast-copy">
+            <p className="country-mag-kicker">From the notes</p>
+            <h2>{country.example.title}</h2>
+            <p className="country-mag-meta">{country.example.duration}</p>
+            <p className="country-mag-deck">{country.example.lede}</p>
           </div>
-          <div className="editorial-story-grid home-journal-grid">
-            {stories.map((guide) => (
-              <EditorialStoryCard key={guide.slug} guide={guide} />
-            ))}
-          </div>
-          <p className="home-section-link">
-            <Link className="text-link" href={`/travel-guides/${country.slug}`}>
-              More from the journal
-            </Link>
-          </p>
-        </section>
-      ) : null}
+          <figure className="country-mag-coast-side">
+            <img
+              src={country.exampleImage}
+              alt={country.exampleImageAlt}
+              loading="lazy"
+            />
+          </figure>
+        </div>
 
-      <section className="section-shell country-hub-plan">
-        <EnquiryCta
-          title={`If this is how you’d like to experience ${country.title}, ask us to plan yours.`}
-          cta="Plan My Trip"
-        >
+        <ol className="country-mag-days">
+          {days.map((day, index) => (
+            <li
+              key={`${day.label}-${day.title}`}
+              style={{ ["--day-index" as string]: index }}
+            >
+              <p className="country-mag-day-label">{day.label}</p>
+              <h3>{day.title}</h3>
+              {day.note ? <p>{day.note}</p> : null}
+            </li>
+          ))}
+        </ol>
+
+        {featured ? (
+          <div className="country-mag-coast-links">
+            <Link className="country-mag-link" href={`/journeys/${featured.slug}`}>
+              Open the journey
+            </Link>
+          </div>
+        ) : null}
+      </section>
+
+      <section className="country-mag-plan country-mag-pad" aria-label="Plan a trip">
+        <div className="country-mag-plan-media" aria-hidden="true">
+          <img src={country.planImage} alt="" />
+        </div>
+        <div className="country-mag-plan-copy">
+          <p className="country-mag-kicker">Plan a trip</p>
+          <h2>
+            If this is how you’d like to experience {country.title}, ask us to
+            plan yours.
+          </h2>
           <p>
             Personalised itinerary design around the places we know well —
             hotels, neighbourhoods and pacing included.
           </p>
-        </EnquiryCta>
+          <Link className="button dark" href="/plan-a-trip">
+            Plan My Trip
+          </Link>
+        </div>
       </section>
     </main>
   );
