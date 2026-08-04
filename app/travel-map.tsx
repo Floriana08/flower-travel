@@ -112,7 +112,7 @@ export function TravelMap({
           style: osmStyle,
           center,
           zoom,
-          attributionControl: true,
+          attributionControl: {},
         });
 
         map.addControl(
