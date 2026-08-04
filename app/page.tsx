@@ -128,7 +128,7 @@ export default function Home() {
           ))}
         </div>
         <p className="home-section-link">
-          <Link className="text-link" href="/journeys">
+          <Link className="button ghost" href="/journeys">
             View the collection
           </Link>
         </p>

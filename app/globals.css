@@ -4733,22 +4733,14 @@ h1.studio-hero-lede {
 /* Brand alignment — featured journeys, collections, breathing room */
 .home-featured-list {
   display: grid;
-  gap: clamp(56px, 9vw, 104px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 44px);
 }
 
 .home-featured-journey {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.75fr);
-  gap: clamp(28px, 5vw, 64px);
-  align-items: center;
-}
-
-.home-featured-journey:nth-child(even) {
-  direction: rtl;
-}
-
-.home-featured-journey:nth-child(even) > * {
-  direction: ltr;
+  gap: 18px;
+  align-content: start;
 }
 
 .home-featured-media {
@@ -4759,34 +4751,34 @@ h1.studio-hero-lede {
 .home-featured-media img {
   display: block;
   width: 100%;
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  transition: transform 800ms ease;
+  transition: transform 500ms ease;
 }
 
 .home-featured-journey:hover .home-featured-media img {
-  transform: scale(1.025);
+  transform: scale(1.035);
 }
 
 .home-featured-copy {
   display: grid;
-  gap: 12px;
-  max-width: 22rem;
+  gap: 10px;
 }
 
 .home-featured-copy h3 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-size: clamp(1.25rem, 1.6vw, 1.5rem);
   font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.12;
+  letter-spacing: -0.01em;
+  line-height: 1.22;
 }
 
 .home-featured-copy > p:last-child {
   margin: 0;
   color: var(--soft-ink);
-  line-height: 1.65;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .home-section-dek {
@@ -5964,8 +5956,7 @@ h1.studio-hero-lede {
 }
 
 @media (max-width: 900px) {
-  .home-featured-journey,
-  .home-featured-journey:nth-child(even),
+  .home-featured-list,
   .home-collection-grid,
   .journeys-collection-grid,
   .journal-browse-grid,

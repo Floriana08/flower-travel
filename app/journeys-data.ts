@@ -130,7 +130,7 @@ export const journeys: Journey[] = [
     summary:
       "Flor’s home region — city intensity, then one coastal base and ferry light.",
     status: "in-development",
-    statusLabel: "In Development",
+    statusLabel: "Currently Curating",
     image:
       "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=80",
     alt: "Cliffside villages on the Amalfi Coast above blue Mediterranean water",
