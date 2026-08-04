@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EditorialCarousel } from "../EditorialCarousel";
 import { NewsletterForm } from "../newsletter-form";
 import {
   EditorialStoryCard,
@@ -65,22 +66,23 @@ export default function TravelJournalPage() {
         </div>
       </section>
 
-      <section className="section-shell" aria-label="Browse by mood">
-        <div className="home-section-head">
-          <p className="eyebrow">By mood</p>
-          <h2 className="display-title">How you like to travel</h2>
-        </div>
-        <ul className="journal-mood-list">
-          {journalMoods.map((mood) => (
-            <li key={mood.slug}>
-              <Link href={`/travel-guides/mood/${mood.slug}`}>
-                <strong>{mood.title}</strong>
-                <span>{mood.description}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <EditorialCarousel
+        eyebrow="By mood"
+        title="How you like to travel"
+        ariaLabel="Browse journal stories by travel mood"
+      >
+        {journalMoods.map((mood) => (
+          <article key={mood.slug} className="story-card journal-mood-slide">
+            <Link
+              className="journal-mood-slide-link"
+              href={`/travel-guides/mood/${mood.slug}`}
+            >
+              <strong>{mood.title}</strong>
+              <span>{mood.description}</span>
+            </Link>
+          </article>
+        ))}
+      </EditorialCarousel>
 
       {featured.length ? (
         <section className="section-shell tinted" aria-label="Selected stories">
