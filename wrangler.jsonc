@@ -14,16 +14,11 @@
   },
   "images": {
     "binding": "IMAGES"
-  },
-  // Placeholder — replace database_id with the id printed by
-  // `wrangler d1 create flower-travel-db`, then run:
-  //   npm run db:generate
-  //   wrangler d1 migrations apply flower-travel-db --remote
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "flower-travel-db",
-      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID"
-    }
-  ]
+  }
+  // Note: the D1 "DB" binding is provisioned automatically by the hosting
+  // platform from .openai/hosting.json's "d1": "DB" setting. Do not also
+  // declare a d1_databases block here — the platform's redirected deploy
+  // config (dist/server/wrangler.json) already injects one, and two
+  // bindings named "DB" collide at deploy time ("assigned to multiple D1
+  // Database bindings").
 }
