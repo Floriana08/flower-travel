@@ -8,6 +8,8 @@ const routes = [
   "/journeys",
   "/travel-guides",
   "/plan-a-trip",
+  "/guides",
+  "/guides/campania",
   "/about",
   "/privacy",
 ];

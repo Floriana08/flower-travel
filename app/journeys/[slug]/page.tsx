@@ -156,6 +156,16 @@ export default async function JourneyDetailPage({ params }: PageProps) {
               ))}
             </ul>
           </div>
+          {journey.slug === "naples-amalfi" ? (
+            <div className="article-panel">
+              <h2>Going deeper</h2>
+              <p>
+                <Link className="text-link" href="/guides/campania">
+                  The Altrove Guide to Campania
+                </Link>
+              </p>
+            </div>
+          ) : null}
           {journey.destinationSlug ? (
             <Link
               className="text-link"

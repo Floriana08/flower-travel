@@ -15,7 +15,7 @@ export const navItems = [
 
 export const navCta = {
   href: "/plan-a-trip",
-  label: "Plan a Trip",
+  label: "Journey Blueprint",
 };
 
 export const destinations = [
@@ -2269,75 +2269,19 @@ export function getMoodStories(moodSlug: TravelMoodSlug): MoodStory[] {
 
 export const guideProducts = [
   {
-    slug: "lisbon-food-neighborhoods",
-    title: "Lisbon: Where to Eat, Stay, and Wander",
-    format: "Digital city guide",
-    status: "Waitlist open",
-    price: "€18",
-    destination: "Lisbon",
+    slug: "campania",
+    title: "The Altrove Guide to Campania",
+    format: "Digital guide",
+    status: "Available now",
+    price: "€34",
+    destination: "Campania",
     image:
-      "https://images.unsplash.com/photo-1513735492246-483525079686?auto=format&fit=crop&w=1600&q=84",
-    alt: "A quiet Lisbon street with tiled facades and balconies",
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=84",
+    alt: "Cliffside villages on the Amalfi Coast above blue Mediterranean water",
     excerpt:
-      "A polished Lisbon edit for neighborhood bases, tabernas, seafood lunches, wine bars, tiled walks, and day trips that do not feel rushed.",
-    includes: ["Where to eat", "Best bases", "Slow weekend map"],
-    href: "/travel-guides/where-to-stay-lisbon",
-    cta: "Preview the guide",
+      "Flor’s home region, written in full — Naples bases, one coastal stay, ferry timing, and the pacing that keeps the trip from becoming a checklist.",
+    includes: ["Where to stay", "Full pacing plan", "Restaurant shortlist"],
+    href: "/guides/campania",
+    cta: "See what's inside",
   },
-  {
-    slug: "madeira-first-timer-field-guide",
-    title: "Madeira First-Timer Field Guide",
-    format: "Island planning guide",
-    status: "Waitlist open",
-    price: "€16",
-    destination: "Madeira",
-    image:
-      "https://images.unsplash.com/photo-1635181738174-9bcd6b93f46e?auto=format&fit=crop&w=1600&q=80",
-    alt: "Madeira’s Ponta de São Lourenço cliffs above the Atlantic",
-    excerpt:
-      "A clear Madeira planning companion for bases, levada pacing, weather-flex days, ocean pools, scenic drives, and comfort-first logistics.",
-    includes: ["Base chooser", "Soft adventure days", "Driver notes"],
-    href: "/travel-guides/madeira-first-timers",
-    cta: "Preview the guide",
-  },
-  {
-    slug: "portugal-by-train-route-pack",
-    title: "Portugal by Train Route Pack",
-    format: "Route pack",
-    status: "In research",
-    price: "€22",
-    destination: "Portugal",
-    image:
-      "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1600&q=84",
-    alt: "A train moving through a scenic railway landscape",
-    excerpt:
-      "A north-to-south rail route with realistic transfer days, city bases, beach pauses, station notes, and lower-impact travel choices.",
-    includes: ["10-day route", "Train notes", "Hotel criteria"],
-    href: "/club",
-    cta: "Join the waitlist",
-  },
-  {
-    slug: "sustainable-lisbon-weekend",
-    title: "The Lighter Lisbon Weekend",
-    format: "Mini guide",
-    status: "In research",
-    price: "Free preview",
-    destination: "Lisbon",
-    image:
-      "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1600&q=84",
-    alt: "Lisbon rooftops and tiled buildings in warm evening light",
-    excerpt:
-      "A low-pressure Lisbon weekend built around public transport, independent restaurants, local craft, fewer transfers, and better neighborhood pacing.",
-    includes: ["Low-impact route", "Independent places", "Transit tips"],
-    href: "/club",
-    cta: "Join the waitlist",
-  },
-];
-
-export const consultationTopics = [
-  "Choosing the right destination for your season, budget, and travel mood",
-  "Pressure-testing an itinerary before flights and hotels are booked",
-  "Finding a better base neighborhood or hotel shortlist",
-  "Making a honeymoon or special trip feel elevated without becoming overplanned",
-  "Turning a vague trip idea into a practical route with beautiful breathing room",
 ];

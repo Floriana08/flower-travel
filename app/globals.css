@@ -1897,6 +1897,26 @@ textarea:focus {
   background: rgba(255, 253, 249, 0.78);
 }
 
+.guide-contents-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 3vw, 24px);
+}
+
+.guide-contents-grid .article-panel p {
+  margin: 0 0 10px;
+}
+
+.guide-contents-grid .article-panel p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 720px) {
+  .guide-contents-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .article-panel h2 {
   margin-bottom: 14px;
   font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
@@ -5610,6 +5630,10 @@ h1.studio-hero-lede {
   display: grid;
   gap: 10px;
   margin-bottom: clamp(28px, 4vw, 40px);
+}
+
+.country-mag-loved-more {
+  margin: clamp(28px, 4vw, 40px) 0 0;
 }
 
 .country-mag-loved-intro h2,

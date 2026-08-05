@@ -80,6 +80,14 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
             </article>
           ))}
         </div>
+        {country.slug === "italy" ? (
+          <p className="country-mag-loved-more">
+            Want it written in full?{" "}
+            <Link className="text-link" href="/guides/campania">
+              The Altrove Guide to Campania
+            </Link>
+          </p>
+        ) : null}
       </section>
 
       <section
