@@ -169,7 +169,7 @@ export function StudioNewsletter({
   children: ReactNode;
 }) {
   return (
-    <section className="studio-newsletter section-shell">
+    <section className="studio-newsletter section-shell" id="newsletter">
       <div className="studio-newsletter-inner">
         <div>
           <p className="eyebrow">Correspondence</p>

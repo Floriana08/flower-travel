@@ -155,8 +155,8 @@ export default async function GuideArticlePage({ params }: PageProps) {
                 </Link>
               </p>
               <p>
-                <Link className="text-link" href="/club">
-                  Join the Club
+                <Link className="text-link" href="#newsletter">
+                  Join the list
                 </Link>
               </p>
             </div>

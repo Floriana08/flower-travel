@@ -34,7 +34,7 @@ export default function ContactPage() {
             ideas, press, or destination suggestions.
           </p>
           <div className="contact-links">
-            <Link href="/club">Join the Club</Link>
+            <Link href="/#newsletter">Join the list</Link>
             <Link href="/journeys">Journeys</Link>
           </div>
         </div>

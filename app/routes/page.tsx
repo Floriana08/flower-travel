@@ -64,7 +64,7 @@ export default function RoutesPage() {
 
       <section className="consultation-strip">
         <div>
-          <p className="eyebrow">Club first</p>
+          <p className="eyebrow">The newsletter</p>
           <h2>Want better routes without the packaged-holiday feeling?</h2>
           <p>
             Join the letter for Italy, Spain, Portugal route ideas,
@@ -72,8 +72,8 @@ export default function RoutesPage() {
             learns what readers want.
           </p>
         </div>
-        <Link className="button light" href="/club">
-          Join the Club
+        <Link className="button light" href="/#newsletter">
+          Join the list
         </Link>
       </section>
     </main>
