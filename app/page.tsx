@@ -166,7 +166,7 @@ export default function Home() {
           <p className="eyebrow">Guides</p>
           <h2 className="display-title">When taste turns into a plan</h2>
         </div>
-        <div className="editorial-story-grid">
+        <div className="editorial-story-grid guides-grid">
           {guideProducts.map((product) => (
             <GuideProductCard key={product.slug} product={product} />
           ))}

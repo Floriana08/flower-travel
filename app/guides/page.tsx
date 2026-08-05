@@ -25,7 +25,7 @@ export default function GuidesPage() {
       </section>
 
       <section className="section-shell tinted">
-        <div className="editorial-story-grid">
+        <div className="editorial-story-grid guides-grid">
           {guideProducts.map((product) => (
             <GuideProductCard key={product.slug} product={product} />
           ))}

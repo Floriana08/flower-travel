@@ -4069,6 +4069,11 @@ h1.studio-hero-lede {
   gap: 24px;
 }
 
+.guides-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 420px));
+  justify-content: start;
+}
+
 .editorial-story-card-link {
   display: grid;
   gap: 14px;
