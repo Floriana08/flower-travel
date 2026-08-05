@@ -436,19 +436,19 @@ export function NewsletterBand({
   );
 }
 
-export function ConsultationCta() {
+export function PlanATripBand() {
   return (
     <section className="consultation-strip">
       <div>
-        <p className="eyebrow">The Club</p>
-        <h2>A quieter letter for better trips.</h2>
+        <p className="eyebrow">Plan a trip</p>
+        <h2>If you want this kind of detail in your own trip, ask us to plan it.</h2>
         <p>
-          Destination stories, practical planning notes and hotel discoveries
-          for travellers who prefer character over crowds.
+          Personalised itinerary design around the places we know well —
+          hotels, neighbourhoods and pacing included.
         </p>
       </div>
-      <Link className="button light" href="/club">
-        Join the Club
+      <Link className="button light" href="/plan-a-trip">
+        Plan My Trip
       </Link>
     </section>
   );

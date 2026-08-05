@@ -18,44 +18,6 @@ export const navCta = {
   label: "Plan a Trip",
 };
 
-export const travellerTypes = [
-  "Food & wine",
-  "Nature",
-  "Luxury",
-  "Cities",
-  "Beaches",
-  "Adventure",
-  "Honeymoons",
-  "Sustainable travel",
-];
-
-export const clubBenefits = [
-  {
-    id: "early-access",
-    title: "New destination stories",
-    description:
-      "Read carefully edited guides and route notes as they are published.",
-  },
-  {
-    id: "itineraries",
-    title: "Practical planning advice",
-    description:
-      "Season timing, pacing notes and small decisions that change a trip.",
-  },
-  {
-    id: "recommendations",
-    title: "Hotel and restaurant finds",
-    description:
-      "Boutique stays and tables worth planning around, chosen with care.",
-  },
-  {
-    id: "email",
-    title: "One thoughtful note",
-    description:
-      "Occasional emails. No clutter. Easy to unsubscribe whenever you like.",
-  },
-];
-
 export const destinations = [
   {
     slug: "lisbon",

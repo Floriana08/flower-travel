@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { guideArticles, getGuideArticle } from "../../articles";
-import { ConsultationCta, GuideCard, NewsletterBand } from "../../components";
+import { GuideCard, NewsletterBand, PlanATripBand } from "../../components";
 import {
   ArticleMeta,
   FlorNote,
@@ -251,7 +251,7 @@ export default async function GuideArticlePage({ params }: PageProps) {
         </div>
       </section>
 
-      <ConsultationCta />
+      <PlanATripBand />
       <NewsletterBand />
     </main>
   );

@@ -144,16 +144,7 @@ export default function Home() {
         </p>
       </section>
 
-      <section className="section-shell home-plan" id="plan">
-        <p className="eyebrow">Plan a trip</p>
-        <h2 className="display-title">If you love the way we travel, ask us to plan yours.</h2>
-        <p>Personalised itinerary design around the places we know well.</p>
-        <Link className="button dark" href="/plan-a-trip">
-          Plan My Trip
-        </Link>
-      </section>
-
-      <section className="section-shell tinted home-journal" id="journal">
+      <section className="section-shell home-journal" id="journal">
         <div className="home-section-head">
           <p className="eyebrow">Journal</p>
           <h2 className="display-title">Taste before the itinerary</h2>
@@ -168,6 +159,15 @@ export default function Home() {
             Open the journal
           </Link>
         </p>
+      </section>
+
+      <section className="section-shell tinted home-plan" id="plan">
+        <p className="eyebrow">Plan a trip</p>
+        <h2 className="display-title">If you love the way we travel, ask us to plan yours.</h2>
+        <p>Personalised itinerary design around the places we know well.</p>
+        <Link className="button dark" href="/plan-a-trip">
+          Plan My Trip
+        </Link>
       </section>
 
       <StudioNewsletter>
