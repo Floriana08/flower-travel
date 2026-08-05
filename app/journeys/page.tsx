@@ -4,6 +4,7 @@ import { DestinationItineraryTabs } from "../destination-itinerary-tabs";
 import { JourneysCinemaVideo } from "../journeys-cinema-video";
 import { studioCountries } from "../studio-structure";
 import { getCatalogueJourneys } from "../journeys-data";
+import { guideProducts } from "../data";
 import { defaultImageSizes, unsplashSrcSet } from "../image-utils";
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 
 export default function JourneysPage() {
   const featured = getCatalogueJourneys().slice(0, 3);
+  const campaniaGuide = guideProducts.find((product) => product.slug === "campania");
 
   return (
     <main className="journeys-studio">
@@ -69,6 +71,19 @@ export default function JourneysPage() {
           ))}
         </div>
       </section>
+
+      {campaniaGuide ? (
+        <section className="consultation-strip">
+          <div>
+            <p className="eyebrow">The guide</p>
+            <h2>{campaniaGuide.title} is available now.</h2>
+            <p>{campaniaGuide.excerpt}</p>
+          </div>
+          <Link className="button light" href={campaniaGuide.href}>
+            {campaniaGuide.cta}
+          </Link>
+        </section>
+      ) : null}
 
       <section
         className="section-shell journeys-collection-strip"

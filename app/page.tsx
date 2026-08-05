@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BrandLockup } from "./components";
+import { BrandLockup, GuideProductCard } from "./components";
 import { NewsletterForm } from "./newsletter-form";
-import { guides, site } from "./data";
+import { guideProducts, guides, site } from "./data";
 import { getCatalogueJourneys } from "./journeys-data";
 import { HeroOceanVideo } from "./hero-ocean-video";
 import { EditorialStoryCard, StudioNewsletter } from "./studio-components";
@@ -161,12 +161,29 @@ export default function Home() {
         </p>
       </section>
 
-      <section className="section-shell tinted home-plan" id="plan">
-        <p className="eyebrow">Plan a trip</p>
+      <section className="section-shell tinted home-guides" id="guides">
+        <div className="home-section-head">
+          <p className="eyebrow">Guides</p>
+          <h2 className="display-title">When taste turns into a plan</h2>
+        </div>
+        <div className="editorial-story-grid">
+          {guideProducts.map((product) => (
+            <GuideProductCard key={product.slug} product={product} />
+          ))}
+        </div>
+        <p className="home-section-link">
+          <Link className="text-link" href="/guides">
+            See all guides
+          </Link>
+        </p>
+      </section>
+
+      <section className="section-shell home-plan" id="plan">
+        <p className="eyebrow">Journey Blueprint</p>
         <h2 className="display-title">If you love the way we travel, ask us to plan yours.</h2>
-        <p>Personalised itinerary design around the places we know well.</p>
+        <p>A written travel strategy around the places we know well.</p>
         <Link className="button dark" href="/plan-a-trip">
-          Plan My Trip
+          Start a Journey Blueprint
         </Link>
       </section>
 
