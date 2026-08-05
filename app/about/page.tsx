@@ -8,7 +8,7 @@ const aboutHeroImage =
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Meet Flor, founder of Altrove — an Italian traveller living in Portugal, writing journeys for people who prefer to remember what they see.",
+    "Why Altrove exists — a travel studio for people who would rather remember a place than rush through it, built by Flor, an Italian traveller living in Portugal.",
   alternates: {
     canonical: "https://altrove.studio/about",
   },
@@ -19,11 +19,11 @@ export default function AboutPage() {
     <main className="about-page">
       <header className="about-hero section-shell">
         <div className="about-hero-copy">
-          <p className="eyebrow">About</p>
-          <h1 className="display-title">Meet Flor.</h1>
+          <p className="eyebrow">Why Altrove</p>
+          <h1 className="display-title">Travel less. Remember more.</h1>
           <p className="about-hero-lede">
-            Italian by birth. Living in Portugal. Collecting the places worth
-            returning to.
+            Most travel advice optimises for seeing everything. Altrove exists
+            for people who would rather remember what they saw.
           </p>
         </div>
         <figure className="about-hero-media">
@@ -36,51 +36,55 @@ export default function AboutPage() {
         </figure>
       </header>
 
-      <section className="about-chapter section-shell" id="meet-flor">
-        <div className="about-prose about-prose-wide">
-          <p>
-            I’ve always travelled by collecting notes. Hotels I’d return to without
-            thinking twice. Neighbourhoods worth waking up in. Restaurants I’d
-            recommend to a friend without hesitation. Routes that quietly changed
-            how I saw a city or a stretch of coast.
-          </p>
-          <p>
-            For years those recommendations lived in notebooks and long messages
-            to people I care about. Altrove grew out of that habit — a place to
-            gather what was worth keeping, and to share it with more care than a
-            hurried list ever could.
-          </p>
-        </div>
-      </section>
-
       <section className="about-chapter section-shell tinted" id="philosophy">
         <div className="about-prose about-prose-wide">
           <p className="about-pull">
             Altrove isn’t about travelling more. It’s about travelling better.
           </p>
           <p>
-            I don’t want to see everything. I want to remember what I see —
-            four days in one city over a rush through four countries. Thoughtful
-            hotels. Neighbourhood lunches. Atmosphere. Someone else’s taste, not
-            endless options.
+            Fewer hotels. Slower journeys. Neighbourhoods over landmarks. A
+            trip is worth more remembered in full than skimmed in pieces —
+            that belief is the whole reason Altrove exists, before it is a
+            journal, a guide, or anything you can buy.
           </p>
-          <p>
-            That is how I travel. That is how Altrove is written.
+          <p className="about-closing-link">
+            <Link className="text-link" href="/philosophy">
+              Read the full philosophy
+            </Link>
           </p>
         </div>
       </section>
 
-      <section className="about-chapter section-shell" id="trust">
+      <section className="about-chapter section-shell" id="meet-flor">
+        <div className="about-prose about-prose-wide">
+          <p className="eyebrow">Who is behind it</p>
+          <p>
+            I’ve always travelled by collecting notes. Hotels I’d return to
+            without thinking twice. Neighbourhoods worth waking up in.
+            Restaurants I’d recommend to a friend without hesitation. Routes
+            that quietly changed how I saw a city or a stretch of coast.
+          </p>
+          <p>
+            For years those recommendations lived in notebooks and long
+            messages to people I care about. Altrove grew out of that habit —
+            a place to gather what was worth keeping, and to share it with
+            more care than a hurried list ever could. Italian by birth. Living
+            in Portugal. Still collecting the places worth returning to.
+          </p>
+        </div>
+      </section>
+
+      <section className="about-chapter section-shell tinted" id="trust">
         <div className="about-prose about-prose-wide">
           <p>
-            Every destination begins with a real journey. I write from places I
-            have visited, stayed in and returned to in thought long after the trip
-            ended. The collection grows slowly on purpose. I’d rather recommend
-            less, and mean it.
+            Every destination begins with a real journey. I write from places
+            I have visited, stayed in and returned to in thought long after
+            the trip ended. The collection grows slowly on purpose. I’d
+            rather recommend less, and mean it.
           </p>
           <p>
             If the way I travel feels like yours, start with the journeys — or
-            ask me to help plan one around your dates.
+            ask me to help design one around your dates.
           </p>
           <p className="about-closing-link">
             <Link className="text-link" href="/journeys">
@@ -88,7 +92,7 @@ export default function AboutPage() {
             </Link>
             <span aria-hidden="true"> · </span>
             <Link className="text-link" href="/plan-a-trip">
-              Plan a trip
+              Journey Design
             </Link>
           </p>
         </div>

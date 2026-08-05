@@ -8,7 +8,7 @@ export const site = {
 };
 
 export const navItems = [
-  { href: "/journeys", label: "Journeys" },
+  { href: "/journeys", label: "Destinations" },
   { href: "/travel-guides", label: "Journal" },
   { href: "/guides", label: "Guides" },
   { href: "/about", label: "About" },
@@ -16,7 +16,7 @@ export const navItems = [
 
 export const navCta = {
   href: "/plan-a-trip",
-  label: "Journey Blueprint",
+  label: "Journey Design",
 };
 
 export const destinations = [

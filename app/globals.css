@@ -5847,6 +5847,17 @@ h1.studio-hero-lede {
   margin-top: 4px;
 }
 
+.country-mag-plan-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.country-mag-plan-actions .button {
+  margin-top: 0;
+}
+
 @media (max-width: 900px) {
   .country-mag-hero {
     min-height: 78vh;

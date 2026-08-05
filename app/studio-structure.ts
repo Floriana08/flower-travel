@@ -78,6 +78,8 @@ export type StudioCountry = {
   journalSlugs: string[];
   /** Used by the Journeys index day tabs */
   example: ExampleItinerary;
+  /** Slug into guideProducts, if a matching guide exists for this country */
+  guideSlug?: string;
 };
 
 /** The three destinations that define Altrove’s public offer. */
@@ -240,6 +242,7 @@ export const studioCountries: StudioCountry[] = [
     planImage:
       "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1400&q=84",
     journalSlugs: ["rome-food-walk"],
+    guideSlug: "campania",
     example: {
       title: "Naples and the Amalfi Coast",
       duration: "6 days",

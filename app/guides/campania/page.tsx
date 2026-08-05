@@ -84,15 +84,15 @@ export default function CampaniaGuidePage() {
             of the public launch.
           </p>
           <p className="small-print">
-            Already dreaming of Campania?{" "}
+            Already dreaming of Campania? Explore the{" "}
             <Link className="text-link" href="/journeys/naples-amalfi">
-              Explore the Naples and Amalfi Coast journey
+              Naples and Amalfi Coast journey
             </Link>
-            , or ask for a{" "}
+            . The guide is what you read.{" "}
             <Link className="text-link" href="/plan-a-trip">
-              Journey Blueprint
+              Journey Design
             </Link>{" "}
-            instead.
+            is what we build for you.
           </p>
         </div>
         <div className="plan-trip-form-panel">

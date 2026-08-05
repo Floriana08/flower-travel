@@ -1,10 +1,14 @@
 import Link from "next/link";
 import { getFeaturedJourneyForCountry, type StudioCountry } from "./studio-structure";
+import { guideProducts } from "./data";
 import { defaultImageSizes, heroImageSizes, unsplashSrcSet } from "./image-utils";
 
 export function DestinationHub({ country }: { country: StudioCountry }) {
   const featured = getFeaturedJourneyForCountry(country.slug);
   const days = country.example.days;
+  const guide = country.guideSlug
+    ? guideProducts.find((product) => product.slug === country.guideSlug)
+    : undefined;
 
   return (
     <main className="country-mag">
@@ -80,11 +84,11 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
             </article>
           ))}
         </div>
-        {country.slug === "italy" ? (
+        {guide ? (
           <p className="country-mag-loved-more">
             Want it written in full?{" "}
-            <Link className="text-link" href="/guides/campania">
-              The Altrove Guide to Campania
+            <Link className="text-link" href={guide.href}>
+              {guide.title}
             </Link>
           </p>
         ) : null}
@@ -144,18 +148,29 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
           />
         </div>
         <div className="country-mag-plan-copy">
-          <p className="country-mag-kicker">Plan a trip</p>
+          <p className="country-mag-kicker">Journey Design</p>
           <h2>
             If this is how you’d like to experience {country.title}, ask us to
-            plan yours.
+            design yours.
           </h2>
           <p>
-            Personalised itinerary design around the places we know well —
+            A written travel strategy around the places we know well —
             hotels, neighbourhoods and pacing included.
           </p>
-          <Link className="button dark" href="/plan-a-trip">
-            Plan My Trip
-          </Link>
+          {guide ? (
+            <div className="country-mag-plan-actions">
+              <Link className="button ghost" href={guide.href}>
+                Read the guide
+              </Link>
+              <Link className="button dark" href="/plan-a-trip">
+                Start a Journey Design
+              </Link>
+            </div>
+          ) : (
+            <Link className="button dark" href="/plan-a-trip">
+              Start a Journey Design
+            </Link>
+          )}
         </div>
       </section>
     </main>

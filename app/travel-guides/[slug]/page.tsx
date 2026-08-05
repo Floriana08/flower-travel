@@ -8,7 +8,7 @@ import {
   FlorNote,
   WorthKnowing,
 } from "../../editorial-components";
-import { guides, site } from "../../data";
+import { guideProducts, guides, site } from "../../data";
 import { defaultImageSizes, unsplashSrcSet } from "../../image-utils";
 
 type PageProps = {
@@ -18,6 +18,11 @@ type PageProps = {
 function getGuide(slug: string) {
   return guides.find((guide) => guide.slug === slug);
 }
+
+/** Keyword match per guide product, so articles only mention a guide that actually covers their region. */
+const guideMatchKeywords: Record<string, RegExp> = {
+  campania: /naples|amalfi|campania|positano|capri|sorrento|ravello/i,
+};
 
 export function generateStaticParams() {
   return guideArticles.map((article) => ({ slug: article.slug }));
@@ -63,6 +68,12 @@ export default async function GuideArticlePage({ params }: PageProps) {
   const relatedGuides = guides
     .filter((relatedGuide) => relatedGuide.slug !== guide.slug)
     .slice(0, 3);
+
+  const matchingGuideProduct = guideProducts.find((product) =>
+    guideMatchKeywords[product.slug]?.test(
+      `${guide.destination} ${guide.title} ${guide.slug}`,
+    ),
+  );
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -199,6 +210,17 @@ export default async function GuideArticlePage({ params }: PageProps) {
                         Portugal destination hub
                       </Link>
                       .
+                    </p>
+                  </WorthKnowing>
+                ) : null}
+                {index === 0 && matchingGuideProduct ? (
+                  <WorthKnowing>
+                    <p>
+                      If this is calling you further,{" "}
+                      <Link href={matchingGuideProduct.href}>
+                        {matchingGuideProduct.title}
+                      </Link>{" "}
+                      goes deeper.
                     </p>
                   </WorthKnowing>
                 ) : null}

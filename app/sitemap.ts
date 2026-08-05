@@ -11,6 +11,7 @@ const routes = [
   "/guides",
   "/guides/campania",
   "/about",
+  "/philosophy",
   "/privacy",
 ];
 

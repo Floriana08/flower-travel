@@ -92,6 +92,21 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section-shell tinted home-philosophy" id="philosophy">
+        <p className="about-pull home-philosophy-pull">
+          Altrove isn’t about travelling more. It’s about travelling better.
+        </p>
+        <p>
+          The Altrove traveller isn’t looking to see everything. They’re looking
+          to remember what they see.
+        </p>
+        <p className="home-section-link">
+          <Link className="text-link" href="/philosophy">
+            Read the philosophy
+          </Link>
+        </p>
+      </section>
+
       <section className="section-shell home-featured" id="journeys">
         <div className="home-section-head">
           <p className="eyebrow">Featured journeys</p>
@@ -134,17 +149,7 @@ export default function Home() {
         </p>
       </section>
 
-      <section className="section-shell tinted home-philosophy" id="philosophy">
-        <p className="about-pull home-philosophy-pull">
-          Altrove isn’t about travelling more. It’s about travelling better.
-        </p>
-        <p>
-          The Altrove traveller isn’t looking to see everything. They’re looking
-          to remember what they see.
-        </p>
-      </section>
-
-      <section className="section-shell home-journal" id="journal">
+      <section className="section-shell tinted home-journal" id="journal">
         <div className="home-section-head">
           <p className="eyebrow">Journal</p>
           <h2 className="display-title">Taste before the itinerary</h2>
@@ -161,7 +166,7 @@ export default function Home() {
         </p>
       </section>
 
-      <section className="section-shell tinted home-guides" id="guides">
+      <section className="section-shell home-guides" id="guides">
         <div className="home-section-head">
           <p className="eyebrow">Guides</p>
           <h2 className="display-title">When taste turns into a plan</h2>
@@ -178,12 +183,12 @@ export default function Home() {
         </p>
       </section>
 
-      <section className="section-shell home-plan" id="plan">
-        <p className="eyebrow">Journey Blueprint</p>
+      <section className="section-shell tinted home-plan" id="plan">
+        <p className="eyebrow">Journey Design</p>
         <h2 className="display-title">If you love the way we travel, ask us to plan yours.</h2>
         <p>A written travel strategy around the places we know well.</p>
         <Link className="button dark" href="/plan-a-trip">
-          Start a Journey Blueprint
+          Start a Journey Design
         </Link>
       </section>
 
