@@ -57,8 +57,11 @@ export default async function JourneyDetailPage({ params }: PageProps) {
     <main>
       <section className="journey-hero section-shell">
         <div className="journey-hero-copy">
-          <Link className="article-back-link" href="/journeys">
-            Journeys
+          <Link
+            className="article-back-link"
+            href={getDestinationHubHref(journey.destinationSlug)}
+          >
+            {journey.destination}
           </Link>
           <PageIntro
             eyebrow={journey.statusLabel}

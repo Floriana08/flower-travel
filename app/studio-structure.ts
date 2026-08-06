@@ -1,4 +1,4 @@
-import { getDestination, guides } from "./data";
+import { getDestination, guideProducts, guides } from "./data";
 import { getCatalogueJourneys, getJourney, journeys, type Journey } from "./journeys-data";
 
 export type StudioCountrySlug = "italy" | "portugal" | "spain";
@@ -665,12 +665,12 @@ export function isStudioCountrySlug(slug: string): slug is StudioCountrySlug {
   return studioCountries.some((country) => country.slug === slug);
 }
 
-/** Map legacy destination slugs into the Journeys hub experience. */
+/** Map legacy destination slugs into the Destinations hub experience. */
 export function getDestinationHubHref(slug?: string) {
-  if (!slug) return "/journeys";
-  if (isStudioCountrySlug(slug)) return `/journeys/${slug}`;
+  if (!slug) return "/destinations";
+  if (isStudioCountrySlug(slug)) return `/destinations/${slug}`;
   if (slug === "lisbon" || slug === "madeira" || slug === "porto") {
-    return "/journeys/portugal";
+    return "/destinations/portugal";
   }
   if (
     slug === "naples" ||
@@ -679,12 +679,12 @@ export function getDestinationHubHref(slug?: string) {
     slug === "milan" ||
     slug === "sicily"
   ) {
-    return "/journeys/italy";
+    return "/destinations/italy";
   }
   if (slug === "andalusia" || slug === "barcelona" || slug === "madrid") {
-    return "/journeys/spain";
+    return "/destinations/spain";
   }
-  return "/journeys";
+  return "/destinations";
 }
 
 export function getStudioCountryDestination(slug: StudioCountrySlug) {
@@ -756,6 +756,71 @@ export function getGuidesForCountry(slug: StudioCountrySlug) {
       ),
     )
     .slice(0, 6);
+}
+
+/** Paid guide products for a country hub — never fabricated as available. */
+export function getGuideProductsForCountry(slug: StudioCountrySlug) {
+  return guideProducts.filter((product) => product.countrySlug === slug);
+}
+
+export type JournalTopicSlug =
+  | "places"
+  | "food"
+  | "stays"
+  | "culture"
+  | "travel-notes"
+  | "how-we-travel";
+
+/**
+ * Lightweight topic taxonomy over the Journal's existing free-text
+ * `category` values (data.ts) — lets the Journal index offer a simple
+ * subject filter without hand-retagging every article.
+ */
+export const journalTopicGroups: {
+  slug: JournalTopicSlug;
+  title: string;
+  categories: string[];
+}[] = [
+  {
+    slug: "places",
+    title: "Places",
+    categories: ["City Notes", "Neighbourhood Guide", "Destination Guide", "Local Experiences"],
+  },
+  {
+    slug: "food",
+    title: "Food",
+    categories: ["Food Guide"],
+  },
+  {
+    slug: "stays",
+    title: "Stays",
+    categories: ["Hotel Notes"],
+  },
+  {
+    slug: "culture",
+    title: "Culture",
+    categories: ["Design Guide", "Personal Story", "Honeymoons"],
+  },
+  {
+    slug: "travel-notes",
+    title: "Travel Notes",
+    categories: ["Route Notes", "Planning", "Packing"],
+  },
+  {
+    slug: "how-we-travel",
+    title: "How We Travel",
+    categories: ["Sustainable Travel", "Island Planning", "Soft Adventure", "Lower-impact travel"],
+  },
+];
+
+export function getJournalTopic(slug: string) {
+  return journalTopicGroups.find((topic) => topic.slug === slug);
+}
+
+export function getGuidesForTopic(slug: JournalTopicSlug) {
+  const topic = getJournalTopic(slug);
+  if (!topic) return [];
+  return guides.filter((guide) => topic.categories.includes(guide.category));
 }
 
 export function getJournalMood(slug: string) {

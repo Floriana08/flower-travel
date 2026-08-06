@@ -1,18 +1,6 @@
-import type { Metadata } from "next";
-import { DestinationHub } from "../../destination-hub";
-import { getStudioCountry } from "../../studio-structure";
+import { redirect } from "next/navigation";
 
-const country = getStudioCountry("italy")!;
-
-export const metadata: Metadata = {
-  title: "Italy",
-  description:
-    "How Altrove travels Italy — Naples, the Amalfi Coast, pacing notes, and practical advice for a slower Campania journey.",
-  alternates: {
-    canonical: "https://altrove.studio/journeys/italy",
-  },
-};
-
-export default function ItalyJourneysPage() {
-  return <DestinationHub country={country} />;
+/** Country hubs now live under Destinations. Keep SEO equity via redirect. */
+export default function ItalyJourneysRedirect() {
+  redirect("/destinations/italy");
 }

@@ -2,9 +2,41 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import type { Journey } from "./journeys-data";
 import { guides } from "./data";
+import type { StudioCountry } from "./studio-structure";
 import { defaultImageSizes, unsplashSrcSet } from "./image-utils";
 
 type Guide = (typeof guides)[number];
+
+export function CountryTile({ country }: { country: StudioCountry }) {
+  const regionNames = country.collections.map((c) => c.title);
+  const availableNow = country.collections.filter((c) => !c.status);
+  const regionNote = availableNow.length
+    ? `${availableNow.map((c) => c.title).join(", ")}${
+        regionNames.length > availableNow.length ? ", and more coming" : ""
+      }`
+    : `${regionNames[0] ?? ""} in development`;
+
+  return (
+    <Link
+      className="country-tile"
+      href={`/destinations/${country.slug}`}
+      aria-label={country.title}
+    >
+      <img
+        src={country.image}
+        srcSet={unsplashSrcSet(country.image)}
+        sizes={defaultImageSizes}
+        alt={country.alt}
+        loading="lazy"
+      />
+      <div className="country-tile-copy">
+        <h3>{country.title}</h3>
+        <p>{country.short}</p>
+        <p className="country-tile-regions">{regionNote}</p>
+      </div>
+    </Link>
+  );
+}
 
 export function PageIntro({
   eyebrow,
@@ -110,7 +142,7 @@ export function EditorialStoryCard({ guide }: { guide: Guide }) {
     <article className="editorial-story-card">
       <Link
         className="editorial-story-card-link"
-        href={`/travel-guides/${guide.slug}`}
+        href={`/journal/${guide.slug}`}
       >
         <img
           src={guide.image}
@@ -162,14 +194,16 @@ export function EnquiryCta({
 export function StudioNewsletter({
   title = "Letters from Altrove",
   description = "Occasional notes on journeys, places and the way we like to travel — sent without noise.",
+  id,
   children,
 }: {
   title?: string;
   description?: string;
+  id?: string;
   children: ReactNode;
 }) {
   return (
-    <section className="studio-newsletter section-shell">
+    <section id={id} className="studio-newsletter section-shell">
       <div className="studio-newsletter-inner">
         <div>
           <p className="eyebrow">Correspondence</p>

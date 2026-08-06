@@ -8,6 +8,13 @@
       "when": 1785844930119,
       "tag": "0000_burly_human_torch",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1786019984246,
+      "tag": "0001_chubby_starjammers",
+      "breakpoints": true
     }
   ]
 }

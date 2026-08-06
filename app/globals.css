@@ -32,6 +32,18 @@
   box-sizing: border-box;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -456,15 +468,11 @@ p {
   text-transform: uppercase;
 }
 
-.home-hero .eyebrow,
-.consultation-strip .eyebrow {
+.home-hero .eyebrow {
   color: rgba(253, 251, 247, 0.82);
 }
 
-.section-shell,
-.process-section,
-.values-section,
-.booking-form-section {
+.section-shell {
   width: min(100% - 48px, var(--max));
   margin: 0 auto;
   padding: 88px 0;
@@ -1310,9 +1318,7 @@ p {
 .destination-grid,
 .guide-grid,
 .guide-product-grid,
-.itinerary-grid,
-.process-grid,
-.value-grid {
+.itinerary-grid {
   display: grid;
   gap: 22px;
 }
@@ -1464,9 +1470,7 @@ p {
   list-style: none;
 }
 
-.inline-list li,
-.guide-category-row span,
-.guide-category-row a {
+.inline-list li {
   padding: 7px 10px;
   border: 1px solid var(--line);
   border-radius: 4px;
@@ -1474,16 +1478,6 @@ p {
   font-size: 0.78rem;
   font-weight: 700;
   background: rgba(255, 253, 247, 0.72);
-}
-
-.guide-category-row a {
-  text-decoration: none;
-  transition: border-color 160ms ease, color 160ms ease;
-}
-
-.guide-category-row a:hover {
-  border-color: var(--rose);
-  color: var(--charcoal);
 }
 
 .route-line {
@@ -1569,27 +1563,6 @@ p {
   min-height: 40px;
   padding: 10px 14px;
   font-size: 0.78rem;
-}
-
-.consultation-strip {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
-  gap: 28px;
-  padding: 72px max(24px, calc((100% - var(--max)) / 2));
-  color: var(--porcelain);
-  background: var(--ink);
-}
-
-.consultation-strip h2,
-.consultation-strip p {
-  color: var(--porcelain);
-}
-
-.consultation-strip p:not(.eyebrow) {
-  max-width: 760px;
-  margin-top: 18px;
-  color: rgba(253, 251, 247, 0.72);
 }
 
 .about-preview {
@@ -2443,43 +2416,6 @@ a.destination-article-card:focus-visible .destination-article-link {
   max-width: 580px;
 }
 
-.process-section {
-  border-top: 1px solid var(--line);
-}
-
-.process-grid,
-.value-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.process-step,
-.value-item {
-  min-height: 210px;
-  padding: 24px 20px;
-  border-top: 2px solid var(--clay);
-  background: rgba(255, 253, 247, 0.78);
-}
-
-.process-step h3,
-.value-item h3 {
-  margin-bottom: 12px;
-  font-size: 1.18rem;
-}
-
-.guide-category-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 38px;
-}
-
-.consultation-page-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.42fr);
-  gap: 58px;
-  align-items: start;
-}
-
 .check-list {
   display: grid;
   gap: 14px;
@@ -2503,124 +2439,6 @@ a.destination-article-card:focus-visible .destination-article-link {
   height: 1px;
   content: "";
   background: var(--clay);
-}
-
-.booking-panel {
-  position: sticky;
-  top: calc(var(--header-height) + 22px);
-  padding: 26px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--porcelain);
-  box-shadow: var(--shadow);
-}
-
-.booking-panel h2 {
-  margin-top: 10px;
-  font-size: 1.8rem;
-}
-
-.booking-panel p:not(.eyebrow) {
-  margin: 16px 0 20px;
-}
-
-.small-print {
-  color: var(--muted);
-  font-size: 0.82rem;
-}
-
-.booking-form-section {
-  display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(360px, 0.78fr);
-  gap: 54px;
-  align-items: start;
-  border-top: 1px solid var(--line);
-}
-
-.booking-form-section h2 {
-  margin-top: 12px;
-}
-
-.booking-form-section p {
-  margin-top: 16px;
-}
-
-.community-page {
-  display: grid;
-  grid-template-columns: minmax(0, 0.76fr) minmax(340px, 0.52fr);
-  gap: 58px;
-  align-items: start;
-  border-top: 1px solid var(--line);
-}
-
-.community-copy .section-heading {
-  margin-bottom: 28px;
-}
-
-.community-intro {
-  max-width: 680px;
-  margin-bottom: 36px;
-  font-size: 1.08rem;
-  line-height: 1.72;
-}
-
-.community-benefits-heading {
-  margin-bottom: 22px;
-}
-
-.community-values {
-  display: grid;
-  gap: 18px;
-}
-
-.community-values article {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 4px 16px;
-  align-items: start;
-  padding: 24px 22px;
-  border-top: 2px solid var(--clay);
-  background: rgba(255, 253, 249, 0.78);
-}
-
-.club-benefit-icon {
-  display: grid;
-  grid-row: span 2;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  background: var(--sea-glass);
-  color: var(--charcoal);
-}
-
-.community-values h3 {
-  margin-bottom: 0;
-  font-size: 1.2rem;
-}
-
-.community-values article p {
-  grid-column: 2;
-  margin: 0;
-}
-
-.community-form-panel {
-  position: sticky;
-  top: calc(var(--header-height) + 22px);
-  padding: 28px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--porcelain);
-  box-shadow: var(--shadow);
-}
-
-.community-form-panel h2 {
-  margin-top: 10px;
-  font-size: 1.9rem;
-}
-
-.community-form-panel p:not(.eyebrow) {
-  margin: 16px 0 22px;
 }
 
 .consent-check {
@@ -2712,10 +2530,6 @@ a.destination-article-card:focus-visible .destination-article-link {
   gap: 22px;
 }
 
-.values-section {
-  border-top: 1px solid var(--line);
-}
-
 .contact-page {
   display: grid;
   grid-template-columns: minmax(0, 0.66fr) minmax(360px, 0.82fr);
@@ -2747,7 +2561,7 @@ a.destination-article-card:focus-visible .destination-article-link {
 
 .site-footer {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 180px 260px;
+  grid-template-columns: minmax(0, 1fr) 150px 150px 200px;
   gap: 48px;
   padding: 64px 42px;
   color: rgba(247, 243, 236, 0.72);
@@ -2971,9 +2785,6 @@ a.destination-article-card:focus-visible .destination-article-link {
   .journal-layout,
   .home-feature-grid,
   .club-strip,
-  .consultation-page-grid,
-  .booking-form-section,
-  .community-page,
   .destination-page-grid,
   .destination-guide-shell,
   .about-story,
@@ -3029,19 +2840,6 @@ a.destination-article-card:focus-visible .destination-article-link {
   .article-sidebar {
     position: static;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .process-grid,
-  .value-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .booking-panel {
-    position: static;
-  }
-
-  .community-form-panel {
-    position: static;
   }
 
   .destination-profile {
@@ -3164,9 +2962,6 @@ a.destination-article-card:focus-visible .destination-article-link {
   }
 
   .section-shell:not(.tinted),
-  .process-section,
-  .values-section,
-  .booking-form-section,
   .page-hero,
   .article-hero,
   .article-layout {
@@ -3214,7 +3009,6 @@ a.destination-article-card:focus-visible .destination-article-link {
   }
 
   .section-shell.tinted,
-  .consultation-strip,
   .newsletter-band,
   .editorial-band {
     padding-right: 18px;
@@ -3244,10 +3038,7 @@ a.destination-article-card:focus-visible .destination-article-link {
   .guide-grid.wide,
   .guide-product-grid.compact,
   .itinerary-grid.wide,
-  .process-grid,
-  .value-grid,
   .newsletter-band,
-  .consultation-strip,
   .site-footer {
     grid-template-columns: 1fr;
   }
@@ -3460,30 +3251,6 @@ a.destination-article-card:focus-visible .destination-article-link {
   color: #8a2f2f;
 }
 
-.portugal-hero-block {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
-  gap: clamp(28px, 5vw, 64px);
-  align-items: center;
-}
-
-.portugal-hero-copy {
-  display: grid;
-  gap: 16px;
-}
-
-.portugal-hero-media {
-  overflow: hidden;
-  border-radius: 50% 50% 0 0 / 28% 28% 0 0;
-}
-
-.portugal-hero-media img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 5 / 4;
-  object-fit: cover;
-}
-
 .destination-intro-grid {
   display: grid;
   grid-template-columns: minmax(240px, 0.78fr) minmax(0, 1.22fr);
@@ -3504,51 +3271,6 @@ a.destination-article-card:focus-visible .destination-article-link {
 .destination-glance h2 {
   margin: 0;
   font-size: clamp(1.5rem, 2.4vw, 1.9rem);
-}
-
-.portugal-glance-list {
-  display: grid;
-  gap: 0;
-  margin: 0;
-}
-
-.portugal-glance-list div {
-  display: grid;
-  gap: 6px;
-  padding: 14px 0;
-  border-top: 1px solid var(--line);
-}
-
-.portugal-glance-list div:first-child {
-  border-top: 0;
-  padding-top: 4px;
-}
-
-.portugal-glance-list dt {
-  color: var(--muted);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.portugal-glance-list dd {
-  margin: 0;
-  display: grid;
-  gap: 4px;
-}
-
-.portugal-glance-list strong {
-  font-size: 1.02rem;
-  font-weight: 500;
-  line-height: 1.35;
-  color: var(--ink);
-}
-
-.portugal-glance-list span {
-  color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.5;
 }
 
 .destination-intro-copy {
@@ -3637,142 +3359,6 @@ a.destination-article-card:focus-visible .destination-article-link {
   margin: 4px 0 0;
 }
 
-.travel-map {
-  display: grid;
-  gap: 18px;
-}
-
-.travel-map-toolbar {
-  display: grid;
-  gap: 14px;
-}
-
-.travel-map-modes,
-.map-filter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.travel-map-modes button,
-.map-filter button,
-.map-location-button {
-  border: 1px solid var(--line);
-  background: var(--porcelain);
-  color: var(--ink);
-  cursor: pointer;
-}
-
-.travel-map-modes button,
-.map-filter button {
-  padding: 8px 12px;
-  font-size: 0.82rem;
-  font-weight: 600;
-}
-
-.travel-map-modes button.is-active,
-.map-filter button.is-active,
-.map-location-button.is-active {
-  border-color: var(--ink);
-  background: var(--ink);
-  color: var(--porcelain);
-}
-
-.travel-map-canvas {
-  display: block;
-  width: 100%;
-  min-height: 420px;
-  height: min(62vh, 560px);
-  border: 1px solid var(--line);
-  background: #d8e0e4;
-}
-
-.travel-map-stage {
-  position: relative;
-  display: grid;
-  gap: 12px;
-}
-
-.travel-map-status {
-  margin: 0;
-  color: var(--soft-ink);
-  font-size: 0.95rem;
-}
-
-.travel-map-floating-card {
-  position: absolute;
-  left: 16px;
-  bottom: 16px;
-  z-index: 2;
-  width: min(100% - 32px, 320px);
-  pointer-events: auto;
-}
-
-.map-pin {
-  width: 16px;
-  height: 16px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  background: #151515;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
-  cursor: pointer;
-}
-
-.map-pin-flor {
-  background: #8b5a2b;
-  width: 18px;
-  height: 18px;
-}
-
-.travel-map-split {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 18px;
-}
-
-.map-location-list {
-  display: grid;
-  gap: 8px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  max-height: 420px;
-  overflow: auto;
-}
-
-.map-location-button {
-  display: grid;
-  gap: 4px;
-  width: 100%;
-  padding: 12px 14px;
-  text-align: left;
-}
-
-.map-location-kicker,
-.map-location-meta {
-  color: var(--muted);
-  font-size: 0.78rem;
-}
-
-.map-location-card {
-  display: grid;
-  gap: 10px;
-  padding: 22px;
-  border: 1px solid var(--line);
-  background: var(--porcelain);
-}
-
-.map-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 16px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-
 @media (max-width: 1100px) {
   .mood-grid-featured,
   .coming-soon-grid,
@@ -3780,11 +3366,9 @@ a.destination-article-card:focus-visible .destination-article-link {
   .recommendation-list.compact,
   .region-link-grid,
   .practical-grid,
-  .portugal-hero-block,
   .destination-intro-grid,
   .featured-itinerary-panel,
-  .featured-story-row,
-  .travel-map-split {
+  .featured-story-row {
     grid-template-columns: 1fr;
   }
 
@@ -4166,6 +3750,57 @@ h1.studio-hero-lede {
   color: var(--muted) !important;
 }
 
+.plan-service-copy,
+.plan-pricing-note {
+  max-width: 42rem;
+  color: var(--soft-ink);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.plan-boundaries-section p {
+  max-width: 42rem;
+  color: var(--soft-ink);
+  line-height: 1.7;
+}
+
+.plan-process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 36px);
+  padding: 0;
+  margin: 28px 0 0;
+  list-style: none;
+}
+
+.plan-process-grid li {
+  padding-top: 18px;
+  border-top: 2px solid var(--clay);
+}
+
+.plan-process-index {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+
+.plan-process-grid h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.plan-process-grid p {
+  margin: 0;
+  color: var(--soft-ink);
+  line-height: 1.6;
+}
+
+.plan-form-section .plan-trip-form-panel {
+  max-width: 640px;
+}
+
 .trip-enquiry-form,
 .form-grid {
   display: grid;
@@ -4301,7 +3936,8 @@ h1.studio-hero-lede {
   .about-split,
   .journal-lead-grid,
   .journal-collection-grid,
-  .form-grid {
+  .form-grid,
+  .plan-process-grid {
     grid-template-columns: 1fr;
   }
 
@@ -4713,6 +4349,51 @@ h1.studio-hero-lede {
   margin-top: 8px;
 }
 
+.home-journey-copy .button {
+  justify-self: start;
+  margin-top: 4px;
+}
+
+.home-journey-links {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin: 4px 0 0 !important;
+  color: inherit !important;
+}
+
+.home-destinations-grid {
+  padding-bottom: 0;
+}
+
+.home-offer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 48px);
+}
+
+.home-offer-grid article {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding-top: 20px;
+  border-top: 2px solid var(--clay);
+}
+
+.home-offer-grid h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.home-offer-grid p {
+  margin: 0;
+  color: var(--soft-ink);
+  line-height: 1.6;
+}
+
 .home-journal-grid .editorial-story-card-link img {
   aspect-ratio: 4 / 3;
 }
@@ -4727,6 +4408,10 @@ h1.studio-hero-lede {
   .home-journey:nth-child(even) {
     grid-template-columns: 1fr;
     direction: ltr;
+  }
+
+  .home-offer-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -4870,124 +4555,6 @@ h1.studio-hero-lede {
   color: var(--soft-ink);
   font-size: 1.08rem;
   line-height: 1.75;
-}
-
-.journeys-collection-strip {
-  padding-top: 0;
-}
-
-.journeys-collection-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(16px, 2.5vw, 28px);
-}
-
-.journeys-collection-card {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  color: #fff;
-  text-decoration: none;
-  min-height: clamp(240px, 32vw, 360px);
-}
-
-.journeys-collection-card img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 800ms ease;
-}
-
-.journeys-collection-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(21, 21, 21, 0.55) 0%,
-    rgba(21, 21, 21, 0.08) 55%,
-    transparent 100%
-  );
-}
-
-.journeys-collection-card:hover img {
-  transform: scale(1.03);
-}
-
-.journeys-collection-card span {
-  position: absolute;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  z-index: 1;
-  display: grid;
-  gap: 4px;
-}
-
-.journeys-collection-card strong {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-}
-
-.journeys-collection-card em {
-  font-style: normal;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  opacity: 0.85;
-}
-
-/* Journeys — cinematic day unfold */
-.journeys-days-cinema {
-  position: relative;
-  isolation: isolate;
-  color: var(--ink);
-  overflow: hidden;
-}
-
-.journeys-days-video {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-  background: #8ec4d6;
-}
-
-.journeys-days-video .hero-video {
-  filter: saturate(1.06) contrast(1.02) brightness(1.02) !important;
-}
-
-.journeys-days-cinema::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 252, 247, 0.28) 0%,
-    rgba(255, 252, 247, 0.12) 38%,
-    rgba(250, 246, 238, 0.42) 100%
-  );
-}
-
-.journeys-days-cinema-inner {
-  position: relative;
-  z-index: 2;
-  padding-top: clamp(72px, 12vw, 128px);
-  padding-bottom: clamp(80px, 12vw, 140px);
-}
-
-.journeys-days-head .eyebrow {
-  color: var(--muted);
-}
-
-.journeys-days-head .display-title {
-  color: var(--ink);
 }
 
 .journey-dest-tabs {
@@ -5826,6 +5393,263 @@ h1.studio-hero-lede {
   margin-top: 4px;
 }
 
+.country-mag-regions,
+.country-mag-journal,
+.country-mag-guides {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(32px, 6vw, 64px);
+  padding-top: clamp(56px, 9vw, 96px);
+  padding-bottom: clamp(56px, 9vw, 96px);
+  border-top: 1px solid var(--line);
+  align-items: start;
+}
+
+.country-mag-regions-grid,
+.country-mag-journal-grid,
+.country-mag-guides-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 32px);
+}
+
+.country-mag-region-card,
+.country-mag-journal-card,
+.country-mag-guide-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.country-mag-region-card figure,
+.country-mag-region-card img,
+.country-mag-journal-card img,
+.country-mag-guide-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin: 0 0 12px;
+}
+
+.country-mag-region-card h3,
+.country-mag-journal-card h3,
+.country-mag-guide-card h3 {
+  margin: 4px 0 6px;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.country-mag-region-card p,
+.country-mag-journal-card p,
+.country-mag-guide-card p {
+  margin: 0;
+  color: var(--soft-ink);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.country-mag-region-card.is-quiet {
+  opacity: 0.7;
+}
+
+.country-mag-region-status {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.country-mag-guide-price {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.country-mag-quiet-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 32rem;
+}
+
+.country-tile {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  color: #fff;
+  text-decoration: none;
+  min-height: clamp(280px, 34vw, 400px);
+}
+
+.country-tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 800ms ease;
+}
+
+.country-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(21, 21, 21, 0.72) 0%,
+    rgba(21, 21, 21, 0.12) 55%,
+    transparent 100%
+  );
+}
+
+.country-tile:hover img {
+  transform: scale(1.03);
+}
+
+.country-tile-copy {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+  z-index: 1;
+  display: grid;
+  gap: 6px;
+}
+
+.country-tile-copy h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.country-tile-copy p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  max-width: 26rem;
+  opacity: 0.92;
+}
+
+.country-tile-regions {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.78;
+}
+
+.destinations-index-hero,
+.guides-index-hero {
+  display: grid;
+  gap: 14px;
+  max-width: 40rem;
+  padding-bottom: clamp(32px, 5vw, 56px);
+}
+
+.destinations-index-lede {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  line-height: 1.6;
+  color: var(--soft-ink);
+}
+
+.destinations-index-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2.5vw, 28px);
+  padding-bottom: clamp(56px, 9vw, 96px);
+}
+
+.guides-flagship {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+}
+
+.guides-flagship-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.guides-flagship-copy {
+  display: grid;
+  gap: 12px;
+}
+
+.guides-flagship-copy .button {
+  justify-self: start;
+  margin-top: 6px;
+}
+
+.guides-note p {
+  margin: 0;
+  max-width: 40rem;
+  color: var(--soft-ink);
+  line-height: 1.65;
+}
+
+.guide-checkout {
+  display: grid;
+  gap: 10px;
+}
+
+.guide-checkout-price {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.guide-checkout-price em {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-style: normal;
+}
+
+.guide-waitlist-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.guide-waitlist-row input {
+  flex: 1 1 12rem;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: var(--porcelain);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+}
+
+.price-placeholder-note {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-style: normal;
+}
+
+.guide-faq-item {
+  margin-bottom: 20px;
+}
+
+.guide-faq-item h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.guide-faq-item p {
+  margin: 0;
+  color: var(--soft-ink);
+}
+
 @media (max-width: 900px) {
   .country-mag-hero {
     min-height: 78vh;
@@ -5834,7 +5658,11 @@ h1.studio-hero-lede {
   .country-mag-notes,
   .country-mag-loved-row,
   .country-mag-coast-head,
-  .country-mag-plan {
+  .country-mag-plan,
+  .country-mag-regions,
+  .country-mag-journal,
+  .country-mag-guides,
+  .guides-flagship {
     grid-template-columns: 1fr;
   }
 
@@ -5971,7 +5799,11 @@ h1.studio-hero-lede {
   .journal-browse-grid,
   .country-hub-feature,
   .country-hub-collection-row,
-  .country-hub-places-grid {
+  .country-hub-places-grid,
+  .destinations-index-grid,
+  .country-mag-regions-grid,
+  .country-mag-journal-grid,
+  .country-mag-guides-grid {
     grid-template-columns: 1fr;
     direction: ltr;
   }
@@ -5984,7 +5816,8 @@ h1.studio-hero-lede {
     aspect-ratio: 4 / 3;
   }
 
-  .journeys-collection-card {
+  .journeys-collection-card,
+  .country-tile {
     min-height: 220px;
   }
 

@@ -23,10 +23,16 @@ export async function POST(request: Request) {
       email?: string;
       destinations?: string;
       dates?: string;
+      flexibility?: string;
       travellers?: string;
       tripLength?: string;
       budget?: string;
+      pace?: string;
+      interests?: string;
+      accommodation?: string;
       tripType?: string;
+      helpWith?: string;
+      howHeard?: string;
       priorities?: string;
       notes?: string;
     };
@@ -50,10 +56,16 @@ export async function POST(request: Request) {
         email,
         destinations,
         dates: payload.dates?.trim() ?? "",
+        flexibility: payload.flexibility?.trim() ?? "",
         travellers: payload.travellers?.trim() ?? "",
         tripLength: payload.tripLength?.trim() ?? "",
         budget: payload.budget?.trim() ?? "",
+        pace: payload.pace?.trim() ?? "",
+        interests: payload.interests?.trim() ?? "",
+        accommodation: payload.accommodation?.trim() ?? "",
         tripType: payload.tripType?.trim() ?? "",
+        helpWith: payload.helpWith?.trim() ?? "",
+        howHeard: payload.howHeard?.trim() ?? "",
         priorities: payload.priorities?.trim() ?? "",
         notes: payload.notes?.trim() ?? "",
       })

@@ -14,10 +14,13 @@ export function NewsletterForm({
   placeholder = "Your email address",
   buttonLabel = "Join the Club",
   consentLabel = `I agree to receive ${site.name} emails and understand that I can unsubscribe at any time.`,
+  source = "newsletter",
 }: {
   placeholder?: string;
   buttonLabel?: string;
   consentLabel?: string;
+  /** Tags the signup so guide-waitlist interest is distinguishable from general newsletter signups. */
+  source?: string;
 }) {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [message, setMessage] = useState("");
@@ -42,7 +45,7 @@ export function NewsletterForm({
       const response = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, source }),
       });
 
       if (!response.ok) {
@@ -61,9 +64,10 @@ export function NewsletterForm({
     } catch {
       // Couldn't reach the server — fall back to mailto so the signup isn't
       // silently dropped.
+      const subject = source.startsWith("guide:") ? "Guide waitlist" : "Newsletter signup";
       window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(
-        "Club signup",
-      )}&body=${encodeURIComponent(`Please add me to the Club.\n\nEmail: ${email}`)}`;
+        subject,
+      )}&body=${encodeURIComponent(`Please add me to the list (${source}).\n\nEmail: ${email}`)}`;
       setStatus("success");
       setMessage(
         "We couldn’t reach our server just now, so your email client should open instead — please send that draft to finish signing up.",

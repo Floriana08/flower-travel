@@ -1,15 +1,6 @@
-import type { Metadata } from "next";
-import { JournalDestinationPage } from "../journal-collection";
+import { redirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Portugal Journal",
-  description:
-    "Curated Altrove journal notes on Portugal — Lisbon stays, Madeira and slow rail days.",
-  alternates: {
-    canonical: "https://altrove.studio/travel-guides/portugal",
-  },
-};
-
-export default function PortugalJournalPage() {
-  return <JournalDestinationPage slug="portugal" />;
+/** The Journal now lives at /journal. Keep SEO equity via redirect. */
+export default function TravelGuidesPortugalRedirect() {
+  redirect("/journal/portugal");
 }

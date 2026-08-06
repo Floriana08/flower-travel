@@ -79,16 +79,16 @@ export default function AboutPage() {
             less, and mean it.
           </p>
           <p>
-            If the way I travel feels like yours, start with the journeys — or
-            ask me to help plan one around your dates.
+            If the way I travel feels like yours, start with a destination —
+            or ask me to help plan one around your dates.
           </p>
           <p className="about-closing-link">
-            <Link className="text-link" href="/journeys">
-              Explore the journeys
+            <Link className="text-link" href="/destinations">
+              Explore the destinations
             </Link>
             <span aria-hidden="true"> · </span>
             <Link className="text-link" href="/plan-a-trip">
-              Plan a trip
+              Plan with Altrove
             </Link>
           </p>
         </div>

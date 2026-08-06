@@ -1,20 +1,40 @@
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
-import { isStudioCountrySlug } from "../../studio-structure";
+import { DestinationHub } from "../../destination-hub";
+import { getStudioCountry, isStudioCountrySlug } from "../../studio-structure";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
-/** Destinations now live inside Journeys. Keep SEO equity via redirects. */
-export default async function DestinationDetailRedirect({ params }: PageProps) {
+export function generateStaticParams() {
+  return [{ slug: "italy" }, { slug: "portugal" }, { slug: "spain" }];
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const country = getStudioCountry(slug);
+  if (!country) return {};
+
+  return {
+    title: country.title,
+    description: country.hubLede,
+    alternates: {
+      canonical: `https://altrove.studio/destinations/${country.slug}`,
+    },
+  };
+}
+
+export default async function DestinationDetailPage({ params }: PageProps) {
   const { slug } = await params;
 
   if (isStudioCountrySlug(slug)) {
-    redirect(`/journeys/${slug}`);
+    const country = getStudioCountry(slug)!;
+    return <DestinationHub country={country} />;
   }
 
   if (slug === "lisbon" || slug === "madeira" || slug === "porto") {
-    redirect("/journeys/portugal");
+    redirect("/destinations/portugal");
   }
 
   if (
@@ -24,12 +44,12 @@ export default async function DestinationDetailRedirect({ params }: PageProps) {
     slug === "milan" ||
     slug === "sicily"
   ) {
-    redirect("/journeys/italy");
+    redirect("/destinations/italy");
   }
 
   if (slug === "andalusia" || slug === "barcelona" || slug === "madrid") {
-    redirect("/journeys/spain");
+    redirect("/destinations/spain");
   }
 
-  redirect("/journeys");
+  redirect("/destinations");
 }

@@ -28,7 +28,7 @@ export function JournalDestinationPage({ slug }: { slug: StudioCountrySlug }) {
     <main className="journal-magazine">
       <section className="section-shell page-top">
         <p className="destination-hub-back">
-          <Link className="text-link" href="/travel-guides">
+          <Link className="text-link" href="/journal">
             Journal
           </Link>
         </p>
@@ -40,7 +40,7 @@ export function JournalDestinationPage({ slug }: { slug: StudioCountrySlug }) {
       {lead ? (
         <section className="section-shell tinted journal-lead">
           <div className="journal-lead-grid">
-            <Link href={`/travel-guides/${lead.slug}`} aria-label={lead.title}>
+            <Link href={`/journal/${lead.slug}`} aria-label={lead.title}>
               <img
                 src={lead.image}
                 srcSet={unsplashSrcSet(lead.image)}
@@ -55,7 +55,7 @@ export function JournalDestinationPage({ slug }: { slug: StudioCountrySlug }) {
               </p>
               <h2 className="display-title">{lead.title}</h2>
               <p>{lead.excerpt}</p>
-              <Link className="button dark" href={`/travel-guides/${lead.slug}`}>
+              <Link className="button dark" href={`/journal/${lead.slug}`}>
                 Read the story
               </Link>
             </div>
@@ -66,8 +66,8 @@ export function JournalDestinationPage({ slug }: { slug: StudioCountrySlug }) {
           <p className="journal-empty">
             Editorial notes for {country.title} are still being gathered. In the
             meantime, explore the{" "}
-            <Link className="text-link" href={`/journeys/${country.slug}`}>
-              {country.title} journeys
+            <Link className="text-link" href={`/destinations/${country.slug}`}>
+              {country.title} destination hub
             </Link>
             .
           </p>
@@ -113,7 +113,7 @@ export function JournalMoodPage({ slug }: { slug: JournalMoodSlug }) {
     <main className="journal-magazine">
       <section className="section-shell page-top">
         <p className="destination-hub-back">
-          <Link className="text-link" href="/travel-guides">
+          <Link className="text-link" href="/journal">
             Journal
           </Link>
         </p>
@@ -132,7 +132,7 @@ export function JournalMoodPage({ slug }: { slug: JournalMoodSlug }) {
         ) : (
           <p className="journal-empty">
             This collection is still being edited. Browse{" "}
-            <Link className="text-link" href="/travel-guides">
+            <Link className="text-link" href="/journal">
               the journal
             </Link>{" "}
             for other notes.

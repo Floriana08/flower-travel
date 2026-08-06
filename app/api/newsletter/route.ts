@@ -27,8 +27,9 @@ function toRouteErrorMessage(error: unknown) {
 
 export async function POST(request: Request) {
   try {
-    const payload = (await request.json()) as { email?: string };
+    const payload = (await request.json()) as { email?: string; source?: string };
     const email = payload.email?.trim() ?? "";
+    const source = payload.source?.trim() || "newsletter";
 
     if (!email) {
       return Response.json({ error: "email is required" }, { status: 400 });
@@ -37,7 +38,7 @@ export async function POST(request: Request) {
     const db = getDb();
     const [signup] = await db
       .insert(newsletterSignups)
-      .values({ email })
+      .values({ email, source })
       .returning();
 
     return Response.json({ signup }, { status: 201 });

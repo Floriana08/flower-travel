@@ -1,15 +1,6 @@
-import type { Metadata } from "next";
-import { JournalDestinationPage } from "../journal-collection";
+import { redirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Spain Journal",
-  description:
-    "Curated Altrove journal notes on Spain as the studio’s research deepens.",
-  alternates: {
-    canonical: "https://altrove.studio/travel-guides/spain",
-  },
-};
-
-export default function SpainJournalPage() {
-  return <JournalDestinationPage slug="spain" />;
+/** The Journal now lives at /journal. Keep SEO equity via redirect. */
+export default function TravelGuidesSpainRedirect() {
+  redirect("/journal/spain");
 }

@@ -8,15 +8,23 @@ export const site = {
 };
 
 export const navItems = [
-  { href: "/journeys", label: "Journeys" },
-  { href: "/travel-guides", label: "Journal" },
+  { href: "/destinations", label: "Destinations" },
+  { href: "/journal", label: "Journal" },
+  { href: "/guides", label: "Guides" },
   { href: "/about", label: "About" },
 ];
 
 export const navCta = {
   href: "/plan-a-trip",
-  label: "Plan a Trip",
+  label: "Plan with Altrove",
 };
+
+export const legalLinks = [
+  { href: "/privacy", label: "Privacy" },
+  { href: "/terms", label: "Terms of Use" },
+  { href: "/digital-product-terms", label: "Digital Product Terms" },
+  { href: "/refund-policy", label: "Refund Information" },
+];
 
 export const travellerTypes = [
   "Food & wine",
@@ -760,173 +768,6 @@ export const latestJournalSlugs = [
   "milan-design-aperitivo-edit",
   "naples-first-weekend",
 ] as const;
-
-export type TravelMoodSlug =
-  | "slow-cities"
-  | "coastal-escapes"
-  | "food-trips"
-  | "train-journeys"
-  | "wine-regions"
-  | "islands"
-  | "romantic-escapes"
-  | "design-hotels";
-
-export const travelMoods = [
-  {
-    slug: "slow-cities",
-    title: "Slow Cities",
-    description:
-      "City breaks with one neighbourhood at a time, better meals, and room to return to places you liked.",
-  },
-  {
-    slug: "coastal-escapes",
-    title: "Coastal Escapes",
-    description:
-      "Atlantic light, island routes, ferry days, and beaches that work best outside the obvious rush.",
-  },
-  {
-    slug: "food-trips",
-    title: "Food Trips",
-    description:
-      "Markets, trattorias, tapas counters, wine days, and restaurants worth planning a day around.",
-  },
-  {
-    slug: "train-journeys",
-    title: "Train Journeys",
-    description:
-      "Rail-first routes where the movement becomes part of the trip rather than a compromise.",
-  },
-  {
-    slug: "wine-regions",
-    title: "Wine Regions",
-    description:
-      "Douro terraces, long lunches, vineyard days, and tasting plans that leave space to enjoy the place.",
-  },
-  {
-    slug: "islands",
-    title: "Islands",
-    description:
-      "Madeira, Greek island light, Sicily, and other places where weather and rhythm matter.",
-  },
-  {
-    slug: "romantic-escapes",
-    title: "Romantic Escapes",
-    description:
-      "Softly paced routes for couples, honeymoon scouting, and hotels that feel special without becoming staged.",
-  },
-  {
-    slug: "design-hotels",
-    title: "Design Hotels",
-    description:
-      "Boutique stays, calm bases, and addresses where the hotel supports the whole trip.",
-  },
-] as const satisfies ReadonlyArray<{
-  slug: TravelMoodSlug;
-  title: string;
-  description: string;
-}>;
-
-export const destinationMoodTags: Record<string, TravelMoodSlug[]> = {
-  portugal: [
-    "slow-cities",
-    "coastal-escapes",
-    "food-trips",
-    "train-journeys",
-    "wine-regions",
-    "islands",
-  ],
-  spain: ["food-trips", "train-journeys", "slow-cities"],
-  italy: [
-    "food-trips",
-    "slow-cities",
-    "coastal-escapes",
-    "design-hotels",
-    "romantic-escapes",
-    "train-journeys",
-  ],
-  lisbon: ["slow-cities", "food-trips", "design-hotels"],
-  madeira: ["islands", "coastal-escapes"],
-  naples: ["food-trips", "slow-cities", "coastal-escapes"],
-  "amalfi-coast": ["coastal-escapes", "romantic-escapes"],
-  rome: ["food-trips", "slow-cities"],
-  milan: ["design-hotels", "slow-cities"],
-  london: ["slow-cities", "design-hotels"],
-  paris: ["slow-cities", "design-hotels", "romantic-escapes"],
-  andalusia: ["food-trips", "train-journeys", "slow-cities"],
-  "greek-islands": ["islands", "coastal-escapes", "romantic-escapes"],
-  marrakech: ["design-hotels", "slow-cities"],
-};
-
-export const itineraryMoodTags: Record<string, TravelMoodSlug[]> = {
-  "portugal-by-train": ["train-journeys", "slow-cities", "food-trips"],
-  "andalusia-slow-route": ["train-journeys", "food-trips", "slow-cities"],
-  "paris-without-rushing": ["slow-cities", "design-hotels"],
-  "milan-lake-como-weekend": ["design-hotels", "romantic-escapes"],
-  "london-neighbourhood-weekend": ["slow-cities"],
-  "madeira-soft-adventure": ["islands", "coastal-escapes"],
-  "italian-long-weekend": ["food-trips", "slow-cities"],
-  "lisbon-food-tour": ["food-trips", "slow-cities"],
-  "amalfi-coast-tours": ["coastal-escapes", "romantic-escapes"],
-  "rome-best-restaurants": ["food-trips"],
-  "center-of-italy-guide": ["train-journeys", "food-trips", "wine-regions"],
-  "seville-tapas-trail": ["food-trips"],
-  "porto-wine-day": ["wine-regions", "food-trips"],
-  "sicily-coastal-route": ["islands", "coastal-escapes", "romantic-escapes"],
-};
-
-export const guideMoodTags: Record<string, TravelMoodSlug[]> = {
-  "where-to-stay-lisbon": ["slow-cities", "design-hotels"],
-  "madeira-first-timers": ["islands", "coastal-escapes"],
-  "solo-paris-weekend": ["slow-cities", "romantic-escapes"],
-  "rome-food-walk": ["food-trips", "slow-cities"],
-  "choosing-a-honeymoon-route": ["romantic-escapes"],
-  "train-travel-europe": ["train-journeys"],
-  "galapagos-twelve-days": ["islands", "coastal-escapes"],
-  "japan-rail-first-edit": ["train-journeys", "slow-cities"],
-};
-
-export const destinationArticleMoodTags: Record<string, TravelMoodSlug[]> = {
-  "lisbon-neighborhood-first-edit": ["slow-cities", "design-hotels"],
-  "lighter-lisbon-weekend": ["slow-cities"],
-  "madeira-base-and-weather-guide": ["islands", "coastal-escapes"],
-  "madeira-soft-adventure-days": ["islands", "coastal-escapes"],
-  "paris-solo-gentle-weekend": ["slow-cities", "romantic-escapes"],
-  "paris-without-rushing-neighborhoods": ["slow-cities"],
-  "rome-food-first-walk": ["food-trips", "slow-cities"],
-  "rome-long-weekend-rhythm": ["food-trips", "slow-cities"],
-  "andalusia-slow-rail-edit": ["train-journeys", "food-trips"],
-  "seville-local-experiences-first": ["food-trips", "slow-cities"],
-  "greek-islands-soft-honeymoon": ["islands", "romantic-escapes", "coastal-escapes"],
-  "greek-islands-ferry-rhythm": ["islands", "coastal-escapes"],
-  "marrakech-first-riad-edit": ["design-hotels", "slow-cities"],
-  "marrakech-souk-pacing": ["slow-cities"],
-  "naples-first-weekend": ["food-trips", "slow-cities"],
-  "milan-design-aperitivo-edit": ["design-hotels", "slow-cities"],
-  "london-neighbourhood-weekend": ["slow-cities"],
-};
-
-export type MoodStory = {
-  id: string;
-  contentType: "Destination" | "Itinerary" | "Journal";
-  title: string;
-  location?: string;
-  excerpt: string;
-  meta?: string;
-  image: string;
-  alt: string;
-  href: string;
-};
-
-export function getTravelMood(slug: string) {
-  return travelMoods.find((mood) => mood.slug === slug);
-}
-
-export const travelCollections = travelMoods.map((mood) => ({
-  title: mood.title,
-  description: mood.description,
-  slug: mood.slug,
-  href: `/destinations?mood=${mood.slug}#mood-results`,
-}));
 
 type DestinationProfile = {
   overview: string;
@@ -2226,92 +2067,102 @@ export function getGuidesBySection(section: GuideSection) {
   return guides.filter((guide) => guide.section === section);
 }
 
-export function getMoodStories(moodSlug: TravelMoodSlug): MoodStory[] {
-  const destinationStories = destinations
-    .filter((destination) =>
-      (destinationMoodTags[destination.slug] ?? []).includes(moodSlug),
-    )
-    .map((destination) => ({
-      id: `destination-${destination.slug}`,
-      contentType: "Destination" as const,
-      title: destination.title,
-      location: destination.country,
-      excerpt: destination.excerpt,
-      image: destination.image,
-      alt: destination.alt,
-      href: `/destinations/${destination.slug}`,
-    }));
+export type GuideProduct = {
+  slug: string;
+  title: string;
+  format: string;
+  status: "Available" | "Coming soon" | "In development";
+  price: string;
+  priceIsPlaceholder?: boolean;
+  /** Set once this guide has a real Stripe Price object — flips the CTA from waitlist to purchase. */
+  stripePriceId?: string;
+  countrySlug: "italy" | "portugal" | "spain";
+  destination: string;
+  image: string;
+  alt: string;
+  excerpt: string;
+  includes: string[];
+  contents: string[];
+  sampleNote: string;
+  deliveryNote: string;
+  forWhom: string[];
+  notForWhom: string[];
+  updatePolicy: string;
+  faqs: { q: string; a: string }[];
+  relatedArticleSlugs: string[];
+  href: string;
+  cta: string;
+};
 
-  const itineraryStories = itineraries
-    .filter((itinerary) =>
-      (itineraryMoodTags[itinerary.slug] ?? []).includes(moodSlug),
-    )
-    .map((itinerary) => ({
-      id: `itinerary-${itinerary.slug}`,
-      contentType: "Itinerary" as const,
-      title: itinerary.title,
-      location: itinerary.region,
-      excerpt: itinerary.summary,
-      meta: itinerary.days,
-      image: itinerary.image,
-      alt: itinerary.alt,
-      href: `/routes/${itinerary.slug}`,
-    }));
-
-  const journalStories = guides
-    .filter((guide) => (guideMoodTags[guide.slug] ?? []).includes(moodSlug))
-    .map((guide) => ({
-      id: `journal-${guide.slug}`,
-      contentType: "Journal" as const,
-      title: guide.title,
-      location: guide.destination,
-      excerpt: guide.excerpt,
-      meta: guide.readTime,
-      image: guide.image,
-      alt: guide.alt,
-      href: `/travel-guides/${guide.slug}`,
-    }));
-
-  const destinationArticleStories = destinationBlogArticles
-    .filter((article) =>
-      (destinationArticleMoodTags[article.slug] ?? []).includes(moodSlug),
-    )
-    .flatMap((article) => {
-      const destination = getDestination(article.destinationSlug);
-      if (!destination) {
-        return [];
-      }
-
-      return [
-        {
-          id: `article-${article.destinationSlug}-${article.slug}`,
-          contentType: "Journal" as const,
-          title: article.title,
-          location: destination.title,
-          excerpt: article.excerpt,
-          meta: article.readTime,
-          image: destination.image,
-          alt: destination.alt,
-          href: `/destinations/${article.destinationSlug}/articles/${article.slug}`,
-        },
-      ];
-    });
-
-  return [
-    ...journalStories,
-    ...destinationArticleStories,
-    ...destinationStories,
-    ...itineraryStories,
-  ];
-}
-
-export const guideProducts = [
+export const guideProducts: GuideProduct[] = [
+  {
+    slug: "naples-amalfi-guide",
+    title: "The Altrove Guide to Campania",
+    format: "Digital destination guide · PDF",
+    status: "In development",
+    price: "From €28",
+    priceIsPlaceholder: true,
+    countrySlug: "italy",
+    destination: "Campania — Naples & the Amalfi Coast",
+    image:
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=84",
+    alt: "Cliffside villages on the Amalfi Coast above blue Mediterranean water",
+    excerpt:
+      "Our flagship guide: how to spend a week in Naples and along the Amalfi Coast without hopping towns every night — bases, ferries, food, and the days worth slowing down for.",
+    includes: [
+      "A two-base route (Naples + one coastal stay)",
+      "Ferry and transfer logic",
+      "Neighbourhood and hotel-area guidance",
+      "A day-by-day pacing plan, not a checklist",
+    ],
+    contents: [
+      "Where to base yourself in Naples, and why",
+      "Choosing one coastal town instead of five",
+      "A ferry-first transport plan for the whole trip",
+      "Food: the meals worth planning a day around",
+      "A 7–9 day route with built-in slow days",
+      "What to skip, and why that matters",
+    ],
+    sampleNote:
+      "The free preview below shares our Naples & Amalfi Coast journey outline. The guide goes deeper: named neighbourhoods, base-by-base reasoning, and the ferry and timing logic that makes the route work.",
+    deliveryNote:
+      "Delivered as an instant PDF download by email once checkout is live.",
+    forWhom: [
+      "Travellers doing Campania for the first time",
+      "Couples and honeymooners wanting city and coast without over-scheduling",
+      "Return visitors ready to go beyond Positano-only itineraries",
+    ],
+    notForWhom: [
+      "Travellers who want a full booking service — this is a planning guide, not a booked trip",
+      "Anyone wanting an hour-by-hour itinerary rather than pacing guidance",
+    ],
+    updatePolicy:
+      "Seasonal notes (ferry schedules, opening times) are reviewed twice a year; buyers keep access to updated versions once purchasing is live.",
+    faqs: [
+      {
+        q: "Is this guide available now?",
+        a: "Not yet — it's in active development. Join the waitlist and we'll email you the day it's ready.",
+      },
+      {
+        q: "How is this different from the free journal articles?",
+        a: "The journal shares our perspective and a few favourite spots. The guide is the full route: base choices, ferry logic, a day-by-day plan, and the reasoning behind each decision.",
+      },
+      {
+        q: "Will you book any of this for me?",
+        a: "No — the guide is independent research and recommendations. If you'd like it shaped around your own dates, see Plan with Altrove.",
+      },
+    ],
+    relatedArticleSlugs: ["rome-food-walk"],
+    href: "/guides/naples-amalfi-guide",
+    cta: "Join the guide waitlist",
+  },
   {
     slug: "lisbon-food-neighborhoods",
     title: "Lisbon: Where to Eat, Stay, and Wander",
-    format: "Digital city guide",
-    status: "Waitlist open",
+    format: "Digital city guide · PDF",
+    status: "Coming soon",
     price: "€18",
+    countrySlug: "portugal",
     destination: "Lisbon",
     image:
       "https://images.unsplash.com/photo-1513735492246-483525079686?auto=format&fit=crop&w=1600&q=84",
@@ -2319,15 +2170,35 @@ export const guideProducts = [
     excerpt:
       "A polished Lisbon edit for neighborhood bases, tabernas, seafood lunches, wine bars, tiled walks, and day trips that do not feel rushed.",
     includes: ["Where to eat", "Best bases", "Slow weekend map"],
-    href: "/travel-guides/where-to-stay-lisbon",
-    cta: "Preview the guide",
+    contents: [
+      "Choosing a neighbourhood base",
+      "A tasting-led restaurant shortlist",
+      "A slow weekend walking map",
+      "Two day trips worth the transfer",
+    ],
+    sampleNote:
+      "Related free reading: our journal note on where to stay in Lisbon covers the same neighbourhoods at a lighter level of detail.",
+    deliveryNote: "Instant PDF download by email once checkout is live.",
+    forWhom: ["First-time Lisbon visitors", "Long-weekend travellers who want fewer, better choices"],
+    notForWhom: ["Travellers wanting exhaustive listings rather than a curated shortlist"],
+    updatePolicy: "Reviewed annually; buyers receive free updated editions.",
+    faqs: [
+      {
+        q: "When will this be available?",
+        a: "It's currently in production. Join the waitlist to be notified first.",
+      },
+    ],
+    relatedArticleSlugs: ["where-to-stay-lisbon"],
+    href: "/guides/lisbon-food-neighborhoods",
+    cta: "Join the waitlist",
   },
   {
     slug: "madeira-first-timer-field-guide",
     title: "Madeira First-Timer Field Guide",
-    format: "Island planning guide",
-    status: "Waitlist open",
+    format: "Island planning guide · PDF",
+    status: "Coming soon",
     price: "€16",
+    countrySlug: "portugal",
     destination: "Madeira",
     image:
       "https://images.unsplash.com/photo-1635181738174-9bcd6b93f46e?auto=format&fit=crop&w=1600&q=80",
@@ -2335,15 +2206,35 @@ export const guideProducts = [
     excerpt:
       "A clear Madeira planning companion for bases, levada pacing, weather-flex days, ocean pools, scenic drives, and comfort-first logistics.",
     includes: ["Base chooser", "Soft adventure days", "Driver notes"],
-    href: "/travel-guides/madeira-first-timers",
-    cta: "Preview the guide",
+    contents: [
+      "Choosing a base for weather and driving distance",
+      "A soft-adventure pacing plan",
+      "Levada walks by fitness level",
+      "Driver notes for the mountain roads",
+    ],
+    sampleNote:
+      "Related free reading: our Madeira first-timers journal note covers base choice at a lighter level of detail.",
+    deliveryNote: "Instant PDF download by email once checkout is live.",
+    forWhom: ["First-time Madeira visitors", "Travellers who want island days without rental-car anxiety"],
+    notForWhom: ["Hardcore hikers wanting technical route notes"],
+    updatePolicy: "Reviewed annually; buyers receive free updated editions.",
+    faqs: [
+      {
+        q: "When will this be available?",
+        a: "It's currently in production. Join the waitlist to be notified first.",
+      },
+    ],
+    relatedArticleSlugs: ["madeira-first-timers"],
+    href: "/guides/madeira-first-timer-field-guide",
+    cta: "Join the waitlist",
   },
   {
     slug: "portugal-by-train-route-pack",
     title: "Portugal by Train Route Pack",
-    format: "Route pack",
-    status: "In research",
+    format: "Route pack · PDF",
+    status: "In development",
     price: "€22",
+    countrySlug: "portugal",
     destination: "Portugal",
     image:
       "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1600&q=84",
@@ -2351,23 +2242,26 @@ export const guideProducts = [
     excerpt:
       "A north-to-south rail route with realistic transfer days, city bases, beach pauses, station notes, and lower-impact travel choices.",
     includes: ["10-day route", "Train notes", "Hotel criteria"],
-    href: "/club",
-    cta: "Join the waitlist",
-  },
-  {
-    slug: "sustainable-lisbon-weekend",
-    title: "The Lighter Lisbon Weekend",
-    format: "Mini guide",
-    status: "In research",
-    price: "Free preview",
-    destination: "Lisbon",
-    image:
-      "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1600&q=84",
-    alt: "Lisbon rooftops and tiled buildings in warm evening light",
-    excerpt:
-      "A low-pressure Lisbon weekend built around public transport, independent restaurants, local craft, fewer transfers, and better neighborhood pacing.",
-    includes: ["Low-impact route", "Independent places", "Transit tips"],
-    href: "/club",
+    contents: [
+      "A 10-day north-to-south rail route",
+      "Realistic transfer times between bases",
+      "Station-by-station notes",
+      "What to look for when booking a hotel near each station",
+    ],
+    sampleNote:
+      "Related free reading: our train-travel-in-Europe journal note shares the reasoning behind travelling this way.",
+    deliveryNote: "Instant PDF download by email once checkout is live.",
+    forWhom: ["Travellers who prefer rail to driving", "Slow, lower-impact trip planners"],
+    notForWhom: ["Travellers set on a fixed-base, no-transfer trip"],
+    updatePolicy: "Reviewed annually as timetables change; buyers receive free updated editions.",
+    faqs: [
+      {
+        q: "When will this be available?",
+        a: "Still in research. Join the waitlist and we'll let you know when it's ready.",
+      },
+    ],
+    relatedArticleSlugs: ["train-travel-europe"],
+    href: "/guides/portugal-by-train-route-pack",
     cta: "Join the waitlist",
   },
 ];

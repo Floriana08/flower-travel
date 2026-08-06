@@ -5,6 +5,7 @@ import {
   guideProducts,
   guides,
   itineraries,
+  legalLinks,
   navCta,
   navItems,
   site,
@@ -156,10 +157,17 @@ export function SiteFooter() {
       <div className="footer-col">
         <h2>Studio</h2>
         <Link href="/about">About</Link>
-        <Link href="/club">Letters</Link>
-        <Link href="/contact">Contact</Link>
-        <Link href="/privacy">Privacy</Link>
+        <Link href="/#letters">Letters</Link>
         <a href={`mailto:${site.email}`}>{site.email}</a>
+      </div>
+
+      <div className="footer-col">
+        <h2>Legal</h2>
+        {legalLinks.map((item) => (
+          <Link key={item.href} href={item.href}>
+            {item.label}
+          </Link>
+        ))}
       </div>
     </footer>
   );
@@ -368,7 +376,7 @@ export function GuideCard({
         </div>
         <h3>{guide.title}</h3>
         <p>{guide.excerpt}</p>
-        <Link className="text-link" href={`/travel-guides/${guide.slug}`}>
+        <Link className="text-link" href={`/journal/${guide.slug}`}>
           {ctaLabel}
         </Link>
       </div>
@@ -403,7 +411,12 @@ export function GuideProductCard({
           ))}
         </ul>
         <div className="product-card-footer">
-          <span>{product.price}</span>
+          <span>
+            {product.price}
+            {product.priceIsPlaceholder ? (
+              <em className="price-placeholder-note"> · placeholder price</em>
+            ) : null}
+          </span>
           <Link className="button dark" href={product.href}>
             {product.cta}
           </Link>
@@ -436,20 +449,3 @@ export function NewsletterBand({
   );
 }
 
-export function ConsultationCta() {
-  return (
-    <section className="consultation-strip">
-      <div>
-        <p className="eyebrow">The Club</p>
-        <h2>A quieter letter for better trips.</h2>
-        <p>
-          Destination stories, practical planning notes and hotel discoveries
-          for travellers who prefer character over crowds.
-        </p>
-      </div>
-      <Link className="button light" href="/club">
-        Join the Club
-      </Link>
-    </section>
-  );
-}
