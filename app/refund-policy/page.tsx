@@ -51,7 +51,7 @@ export default function RefundPolicyPage() {
             <section>
               <h2>Personalised itinerary design</h2>
               <p>
-                Plan with Altrove pricing and any cancellation or refund
+                Plan a journey pricing and any cancellation or refund
                 terms for that service will be confirmed with you directly
                 before work begins, and documented here once the service is
                 fully live.

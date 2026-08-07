@@ -3,7 +3,7 @@ import Link from "next/link";
 import { defaultImageSizes, unsplashSrcSet } from "../image-utils";
 
 const aboutHeroImage =
-  "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=84";
+  "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1800&q=84";
 
 export const metadata: Metadata = {
   title: "About",
@@ -19,19 +19,21 @@ export default function AboutPage() {
     <main className="about-page">
       <header className="about-hero section-shell">
         <div className="about-hero-copy">
-          <p className="eyebrow">About</p>
-          <h1 className="display-title">Meet Flor.</h1>
-          <p className="about-hero-lede">
-            Italian by birth. Living in Portugal. Collecting the places worth
-            returning to.
-          </p>
+          <p className="eyebrow">Meet Flor</p>
+          <h1 className="display-title">
+            Italian by birth.
+            <br />
+            Living in Portugal.
+            <br />
+            Collecting the places worth returning to.
+          </h1>
         </div>
         <figure className="about-hero-media">
           <img
             src={aboutHeroImage}
             srcSet={unsplashSrcSet(aboutHeroImage)}
             sizes={defaultImageSizes}
-            alt="Morning light on a quiet terrace table overlooking the sea"
+            alt="Warm café light — the kind of pause Altrove plans for"
           />
         </figure>
       </header>
@@ -39,10 +41,10 @@ export default function AboutPage() {
       <section className="about-chapter section-shell" id="meet-flor">
         <div className="about-prose about-prose-wide">
           <p>
-            I’ve always travelled by collecting notes. Hotels I’d return to without
-            thinking twice. Neighbourhoods worth waking up in. Restaurants I’d
-            recommend to a friend without hesitation. Routes that quietly changed
-            how I saw a city or a stretch of coast.
+            I&rsquo;ve always travelled by collecting notes. Hotels I&rsquo;d
+            return to without thinking twice. Neighbourhoods worth waking up in.
+            Restaurants I&rsquo;d recommend to a friend without hesitation.
+            Routes that quietly changed how I saw a city or a stretch of coast.
           </p>
           <p>
             For years those recommendations lived in notebooks and long messages
@@ -56,29 +58,31 @@ export default function AboutPage() {
       <section className="about-chapter section-shell tinted" id="philosophy">
         <div className="about-prose about-prose-wide">
           <p className="about-pull">
-            Altrove isn’t about travelling more. It’s about travelling better.
+            Altrove isn&rsquo;t about travelling more. It&rsquo;s about
+            travelling better.
           </p>
           <p>
-            I don’t want to see everything. I want to remember what I see —
-            four days in one city over a rush through four countries. Thoughtful
-            hotels. Neighbourhood lunches. Atmosphere. Someone else’s taste, not
-            endless options.
+            I don&rsquo;t want to see everything. I want to remember what I see
+            — four days in one city over a rush through four countries.
+            Thoughtful hotels. Neighbourhood lunches. Atmosphere. Someone
+            else&rsquo;s taste, not endless options.
           </p>
-          <p>
-            That is how I travel. That is how Altrove is written.
-          </p>
+          <p>That is how I travel. That is how Altrove is written.</p>
         </div>
       </section>
 
       <section className="about-chapter section-shell" id="how-it-works">
         <div className="about-prose about-prose-wide">
-          <p className="eyebrow">How Altrove works today</p>
+          <p className="eyebrow">How Altrove works</p>
           <p>
-            The journal shares destination stories and practical notes. Premium
-            guides go deeper when a place is researched properly. Personalised
-            itinerary design helps you shape a route around your dates and
-            pace — we recommend; you book directly. Full travel booking is a
-            future service, not what we offer yet.
+            The <Link href="/journal">journal</Link> shares destination stories
+            and practical notes.{" "}
+            <Link href="/guides">Premium guides</Link> go deeper when a place is
+            researched properly.{" "}
+            <Link href="/plan-a-trip">Personalised itinerary design</Link> helps
+            you shape a route around your dates and pace — Altrove recommends;
+            you book directly. Full travel booking is a future service, not what
+            is offered today.
           </p>
         </div>
       </section>
@@ -87,13 +91,9 @@ export default function AboutPage() {
         <div className="about-prose about-prose-wide">
           <p>
             Every destination begins with a real journey. I write from places I
-            have visited, stayed in and returned to in thought long after the trip
-            ended. The collection grows slowly on purpose. I’d rather recommend
-            less, and mean it.
-          </p>
-          <p>
-            If the way I travel feels like yours, start with a destination —
-            or ask me to help plan one around your dates.
+            have visited, stayed in and returned to in thought long after the
+            trip ended. The collection grows slowly on purpose. I&rsquo;d rather
+            recommend less, and mean it.
           </p>
           <p className="about-closing-link">
             <Link className="text-link" href="/destinations">
@@ -105,7 +105,7 @@ export default function AboutPage() {
             </Link>
             <span aria-hidden="true"> · </span>
             <Link className="text-link" href="/plan-a-trip">
-              Plan with Altrove
+              Plan a journey
             </Link>
           </p>
         </div>

@@ -28,10 +28,12 @@ const featuredSlugs = [
   "where-to-stay-lisbon",
   "rome-food-walk",
   "madeira-first-timers",
+  "train-travel-europe",
 ] as const;
 
 export default function JournalPage() {
   const featured = storiesFromSlugs(featuredSlugs);
+  const [lead, ...supporting] = featured;
 
   return (
     <main className="journal-magazine">
@@ -39,12 +41,64 @@ export default function JournalPage() {
         <PageIntro eyebrow="Journal" title="Notes from elsewhere.">
           <p>
             Hotels, neighbourhoods, food and pacing — written so you can feel
-            the way Altrove travels before you plan a journey.
+            how I travel before you plan a journey.
           </p>
         </PageIntro>
       </section>
 
-      <section className="section-shell tinted" aria-label="Collections">
+      <section className="section-shell" aria-label="Browse by topic">
+        <ul className="journal-topic-list">
+          {journalTopicGroups.map((topic) => (
+            <li key={topic.slug}>
+              <Link className="journal-topic-chip" href={`/journal/topic/${topic.slug}`}>
+                {topic.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {lead ? (
+        <section className="section-shell tinted home-journal-feature" aria-label="Featured story">
+          <div className="home-journal-editorial">
+            <article className="home-journal-lead">
+              <Link href={`/journal/${lead.slug}`}>
+                <img
+                  src={lead.image}
+                  srcSet={unsplashSrcSet(lead.image)}
+                  sizes="(max-width: 900px) 100vw, 58vw"
+                  alt={lead.alt}
+                  loading="lazy"
+                />
+                <p className="eyebrow">
+                  {lead.destination} · {lead.category}
+                </p>
+                <h2 className="display-title">{lead.title}</h2>
+                <p>{lead.excerpt}</p>
+              </Link>
+            </article>
+            <div className="home-journal-side">
+              {supporting.slice(0, 2).map((story) => (
+                <article key={story.slug} className="home-journal-side-card">
+                  <Link href={`/journal/${story.slug}`}>
+                    <img
+                      src={story.image}
+                      srcSet={unsplashSrcSet(story.image)}
+                      sizes={defaultImageSizes}
+                      alt={story.alt}
+                      loading="lazy"
+                    />
+                    <p className="eyebrow">{story.category}</p>
+                    <h3>{story.title}</h3>
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      <section className="section-shell" aria-label="Collections">
         <div className="home-section-head">
           <p className="eyebrow">Collections</p>
           <h2 className="display-title">Browse by place</h2>
@@ -74,22 +128,6 @@ export default function JournalPage() {
         </div>
       </section>
 
-      <section className="section-shell" aria-label="Browse by topic">
-        <div className="home-section-head">
-          <p className="eyebrow">Topics</p>
-          <h2 className="display-title">Browse by subject</h2>
-        </div>
-        <ul className="journal-topic-list">
-          {journalTopicGroups.map((topic) => (
-            <li key={topic.slug}>
-              <Link className="journal-topic-chip" href={`/journal/topic/${topic.slug}`}>
-                {topic.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-
       <EditorialCarousel
         eyebrow="By mood"
         title="How you like to travel"
@@ -108,27 +146,25 @@ export default function JournalPage() {
         ))}
       </EditorialCarousel>
 
-      {featured.length ? (
-        <section className="section-shell tinted" aria-label="Selected stories">
+      {supporting.length > 2 ? (
+        <section className="section-shell tinted" aria-label="More stories">
           <div className="home-section-head">
-            <p className="eyebrow">Selected</p>
-            <h2 className="display-title">Worth reading now</h2>
+            <p className="eyebrow">Field notes</p>
+            <h2 className="display-title">Keep reading</h2>
           </div>
           <div className="editorial-story-grid home-journal-grid">
-            {featured.map((guide) => (
+            {supporting.slice(2).map((guide) => (
               <EditorialStoryCard key={guide.slug} guide={guide} />
             ))}
           </div>
-          <p className="home-section-link">
-            <Link className="text-link" href="/destinations">
-              When you’re ready, explore the destinations
-            </Link>
-          </p>
         </section>
       ) : null}
 
-      <StudioNewsletter>
-        <NewsletterForm buttonLabel="Join the list" />
+      <StudioNewsletter
+        title="Letters from Altrove"
+        description="New places, hotel finds, routes I'm researching and occasional notes from the road."
+      >
+        <NewsletterForm buttonLabel="Send me letters" />
       </StudioNewsletter>
     </main>
   );

@@ -2071,7 +2071,7 @@ export type GuideProduct = {
   slug: string;
   title: string;
   format: string;
-  status: "Available" | "Coming soon" | "In development";
+  status: "Available" | "Coming soon" | "In development" | "Launching soon";
   price: string;
   priceIsPlaceholder?: boolean;
   /** Set once this guide has a real Stripe Price object — flips the CTA from waitlist to purchase. */
@@ -2099,7 +2099,7 @@ export const guideProducts: GuideProduct[] = [
     slug: "naples-amalfi-guide",
     title: "The Altrove Guide to Campania",
     format: "Digital destination guide · PDF",
-    status: "In development",
+    status: "Launching soon",
     price: "From €28",
     priceIsPlaceholder: false,
     countrySlug: "italy",
@@ -2141,7 +2141,7 @@ export const guideProducts: GuideProduct[] = [
     faqs: [
       {
         q: "Is this guide available now?",
-        a: "Not yet — it's in active development. Join the waitlist and we'll email you the day it's ready.",
+        a: "Not yet — join the waitlist and we'll email you the day it's ready.",
       },
       {
         q: "How is this different from the free journal articles?",

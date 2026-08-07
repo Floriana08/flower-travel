@@ -4,9 +4,9 @@ import { PageIntro } from "../studio-components";
 import { TripEnquiryForm } from "../trip-enquiry-form";
 
 export const metadata: Metadata = {
-  title: "Plan with Altrove",
+  title: "Plan a journey",
   description:
-    "Personalised itinerary design from Altrove — how it works, what you receive, what it costs, and what it doesn't include.",
+    "Personalised itinerary design from Altrove — how it works, what you receive, and what it doesn't include.",
   alternates: {
     canonical: "https://altrove.studio/plan-a-trip",
   },
@@ -51,13 +51,11 @@ export default function PlanWithAltrovePage() {
   return (
     <main className="plan-page">
       <section className="section-shell page-top">
-        <PageIntro eyebrow="Plan with Altrove" title="Personalised itinerary design.">
+        <PageIntro eyebrow="Plan a journey" title="Your trip. Our edit.">
           <p>
-            Planning a meaningful trip usually means too many disconnected
-            decisions and too much generic research. Altrove helps you decide
-            where to go, how to structure the days, where to base yourselves,
-            and what to leave out — so the journey feels coherent rather than
-            crowded.
+            Tell us where you&rsquo;re going, when, and how you like to travel.
+            Altrove shapes the route, neighbourhoods, pacing and the places
+            worth your time — so the journey feels coherent rather than crowded.
           </p>
         </PageIntro>
       </section>
@@ -123,12 +121,11 @@ export default function PlanWithAltrovePage() {
       <section className="section-shell tinted plan-pricing-section">
         <div className="home-section-head">
           <p className="eyebrow">Pricing</p>
-          <h2 className="display-title">From €150</h2>
+          <h2 className="display-title">Shared after enquiry</h2>
         </div>
         <p className="plan-pricing-note">
-          Placeholder pilot pricing, to be confirmed before this service goes
-          live — the exact figure depends on trip length and complexity. We&rsquo;ll
-          always confirm the price with you before any work begins.
+          Fees depend on trip length and complexity. Altrove confirms the
+          figure with you before any work begins — no surprise invoices.
         </p>
       </section>
 
