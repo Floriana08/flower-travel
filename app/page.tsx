@@ -70,7 +70,6 @@ export default function Home() {
         <HeroOceanVideo />
         <div className="studio-hero-copy">
           <BrandLockup tone="light" className="hero-lockup" showTagline={false} />
-          <p className="eyebrow light">Editorial travel studio</p>
           <h1 className="studio-hero-lede">
             Stories, guides and personalised journeys for travellers who want
             more depth and better pacing.
