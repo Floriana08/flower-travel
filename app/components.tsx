@@ -139,8 +139,8 @@ export function SiteFooter() {
           <BrandLockup tone="light" />
         </Link>
         <p>
-          Thoughtful journeys, independent recommendations and a travel studio
-          being built one destination at a time.
+          An editorial travel studio for thoughtful travellers — stories,
+          guides and personalised itineraries, one destination at a time.
         </p>
       </div>
 

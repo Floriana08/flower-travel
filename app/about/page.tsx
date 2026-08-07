@@ -70,7 +70,20 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="about-chapter section-shell" id="trust">
+      <section className="about-chapter section-shell" id="how-it-works">
+        <div className="about-prose about-prose-wide">
+          <p className="eyebrow">How Altrove works today</p>
+          <p>
+            The journal shares destination stories and practical notes. Premium
+            guides go deeper when a place is researched properly. Personalised
+            itinerary design helps you shape a route around your dates and
+            pace — we recommend; you book directly. Full travel booking is a
+            future service, not what we offer yet.
+          </p>
+        </div>
+      </section>
+
+      <section className="about-chapter section-shell tinted" id="trust">
         <div className="about-prose about-prose-wide">
           <p>
             Every destination begins with a real journey. I write from places I
@@ -85,6 +98,10 @@ export default function AboutPage() {
           <p className="about-closing-link">
             <Link className="text-link" href="/destinations">
               Explore the destinations
+            </Link>
+            <span aria-hidden="true"> · </span>
+            <Link className="text-link" href="/guides">
+              Browse the guides
             </Link>
             <span aria-hidden="true"> · </span>
             <Link className="text-link" href="/plan-a-trip">

@@ -130,13 +130,14 @@ export const journeys: Journey[] = [
     summary:
       "Flor’s home region — city intensity, then one coastal base and ferry light.",
     status: "in-development",
-    statusLabel: "In Development",
+    statusLabel: "Journey concept",
     image:
       "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=80",
     alt: "Cliffside villages on the Amalfi Coast above blue Mediterranean water",
     overview: [
-      "Start in Naples for food, neighbourhoods and the working city’s energy. Then move to one coastal base rather than hopping every town on the Amalfi strip.",
-      "The route is shaped by personal knowledge of Campania and will publish with honest pacing notes for ferries, heat and peak-season crowds.",
+      "Naples and the Amalfi Coast belong together when you give each room to breathe: a neighbourhood base in the city, then one coastal bed — not a different hotel every night.",
+      "Skip the five-town sprint. Capri, Pompeii and the full Amalfi strip on the same short trip will flatten the week. Pick two coastal focuses, use ferries when you can, and leave evenings free.",
+      "This is how Altrove paces Campania: meals that shape the day, boats over summer bus stacks, and height (Ravello) when the shore feels crowded.",
     ],
     forWhom: [
       "Travellers who want both city and coast",
@@ -165,6 +166,7 @@ export const journeys: Journey[] = [
     practicalNotes: [
       "Pick two coastal focuses, not five. The coast punishes overambition in summer.",
       "Boats often beat buses for both views and sanity.",
+      "Heat and peak crowds change the plan — build weather-flex days.",
     ],
     catalogue: true,
   },

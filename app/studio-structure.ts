@@ -239,10 +239,10 @@ export const studioCountries: StudioCountry[] = [
     exampleImageAlt: "Positano stacked above the Mediterranean on the Amalfi Coast",
     planImage:
       "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1400&q=84",
-    journalSlugs: ["rome-food-walk"],
+    journalSlugs: ["rome-food-walk", "train-travel-europe", "choosing-a-honeymoon-route"],
     example: {
       title: "Naples and the Amalfi Coast",
-      duration: "6 days",
+      duration: "7–9 days",
       lede: "Arrive in the city. Settle on the coast. Leave room for the sea.",
       days: [
         { label: "Day 1", title: "Arrive in Naples", note: "One neighbourhood base. Dinner nearby." },
@@ -613,7 +613,7 @@ export const journalMoods: {
     slug: "city-breaks",
     title: "City Breaks",
     description: "Neighbourhood bases, walkable days, and cities taken at human pace.",
-    articleSlugs: ["solo-paris-weekend", "rome-food-walk", "where-to-stay-lisbon"],
+    articleSlugs: ["rome-food-walk", "where-to-stay-lisbon"],
   },
   {
     slug: "slow-travel",
@@ -622,14 +622,14 @@ export const journalMoods: {
     articleSlugs: [
       "choosing-a-honeymoon-route",
       "train-travel-europe",
-      "patagonia-without-rushing",
+      "madeira-first-timers",
     ],
   },
   {
     slug: "coastal-escapes",
     title: "Coastal Escapes",
     description: "Islands, ferry light, and shores that reward an unhurried week.",
-    articleSlugs: ["madeira-first-timers", "galapagos-twelve-days"],
+    articleSlugs: ["madeira-first-timers", "train-travel-europe"],
   },
   {
     slug: "food-and-wine",
@@ -641,13 +641,13 @@ export const journalMoods: {
     slug: "road-trips",
     title: "Road Trips",
     description: "Drives with weather-flex days and bases that do the hard work.",
-    articleSlugs: ["patagonia-without-rushing", "costa-rica-wildlife-loop"],
+    articleSlugs: ["train-travel-europe", "madeira-first-timers"],
   },
   {
     slug: "weekend-getaways",
     title: "Weekend Getaways",
     description: "Short trips that still feel complete — one city, one rhythm.",
-    articleSlugs: ["solo-paris-weekend", "carry-on-packing-edit"],
+    articleSlugs: ["where-to-stay-lisbon", "rome-food-walk"],
   },
 ];
 

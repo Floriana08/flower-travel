@@ -71,8 +71,9 @@ export default function Home() {
         <div className="studio-hero-copy">
           <BrandLockup tone="light" className="hero-lockup" showTagline={false} />
           <h1 className="studio-hero-lede">
-            Stories, guides and personalised journeys for travellers who want
-            more depth and better pacing.
+            An editorial travel studio for Italy, Spain and Portugal —
+            stories, guides and personalised itineraries with depth and better
+            pacing.
           </h1>
           <div className="hero-actions">
             <Link className="button light" href="/destinations">
@@ -84,65 +85,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <section className="section-shell home-destinations" id="destinations">
-        <div className="home-section-head">
-          <p className="eyebrow">Begin with a place</p>
-          <h2 className="display-title">
-            Explore our notes, guides and journeys through the parts of
-            Europe we know best.
-          </h2>
-        </div>
-        <div className="destinations-index-grid home-destinations-grid">
-          {studioCountries.map((country) => (
-            <CountryTile key={country.slug} country={country} />
-          ))}
-        </div>
-      </section>
-
-      {featuredJourney ? (
-        <section className="section-shell tinted" id="journey">
-          <div className="home-journey">
-            <Link
-              className="home-journey-media"
-              href={`/journeys/${featuredJourney.slug}`}
-              aria-label={featuredJourney.title}
-            >
-              <img
-                src={featuredJourney.image}
-                srcSet={unsplashSrcSet(featuredJourney.image)}
-                sizes={defaultImageSizes}
-                alt={featuredJourney.alt}
-                loading="lazy"
-              />
-            </Link>
-            <div className="home-journey-copy">
-              <p className="eyebrow">Featured journey</p>
-              <h3>
-                <Link href={`/journeys/${featuredJourney.slug}`}>{featuredJourney.title}</Link>
-              </h3>
-              <p className="home-journey-meta">
-                <span>{featuredJourney.duration}</span>
-                <span>{featuredJourney.destination}</span>
-              </p>
-              <p>{featuredJourney.summary}</p>
-              <p className="home-journey-links">
-                <Link className="text-link" href={`/journeys/${featuredJourney.slug}`}>
-                  Explore the journey
-                </Link>
-                {featuredGuide ? (
-                  <Link className="text-link" href={`/guides/${featuredGuide.slug}`}>
-                    View the Campania guide
-                  </Link>
-                ) : null}
-                <Link className="text-link" href="/plan-a-trip">
-                  Plan a personalised version
-                </Link>
-              </p>
-            </div>
-          </div>
-        </section>
-      ) : null}
 
       <section className="section-shell home-offer" id="offer">
         <div className="home-section-head">
@@ -187,19 +129,82 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-shell tinted home-philosophy" id="philosophy">
+      <section className="section-shell home-destinations" id="destinations">
+        <div className="home-section-head">
+          <p className="eyebrow">Begin with a place</p>
+          <h2 className="display-title">
+            Explore our notes, guides and journeys through the parts of
+            Europe we know best.
+          </h2>
+        </div>
+        <div className="destinations-index-grid home-destinations-grid">
+          {studioCountries.map((country) => (
+            <CountryTile key={country.slug} country={country} />
+          ))}
+        </div>
+      </section>
+
+      {featuredJourney ? (
+        <section className="section-shell tinted" id="journey">
+          <div className="home-journey">
+            <Link
+              className="home-journey-media"
+              href={`/journeys/${featuredJourney.slug}`}
+              aria-label={featuredJourney.title}
+            >
+              <img
+                src={featuredJourney.image}
+                srcSet={unsplashSrcSet(featuredJourney.image)}
+                sizes={defaultImageSizes}
+                alt={featuredJourney.alt}
+                loading="lazy"
+              />
+            </Link>
+            <div className="home-journey-copy">
+              <p className="eyebrow">Featured journey</p>
+              <h3>
+                <Link href={`/journeys/${featuredJourney.slug}`}>{featuredJourney.title}</Link>
+              </h3>
+              <p className="home-journey-meta">
+                <span>{featuredJourney.duration}</span>
+                <span>{featuredJourney.destination}</span>
+                <span>Two bases</span>
+              </p>
+              <p>
+                Naples for neighbourhood energy, then one coastal bed and ferry
+                light — skip the hotel-hopping, slow down where the coast
+                deserves it. {featuredJourney.summary}
+              </p>
+              <p className="home-journey-links">
+                <Link className="text-link" href={`/journeys/${featuredJourney.slug}`}>
+                  Explore the journey
+                </Link>
+                {featuredGuide ? (
+                  <Link className="text-link" href={`/guides/${featuredGuide.slug}`}>
+                    View the Campania guide
+                  </Link>
+                ) : null}
+                <Link className="text-link" href="/plan-a-trip">
+                  Plan a personalised version
+                </Link>
+              </p>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      <section className="section-shell home-philosophy" id="philosophy">
         <p className="about-pull home-philosophy-pull">
           Fewer bases. Better pacing. Neighbourhoods over checklists.
         </p>
         <p>
-          We build every route around meals that shape the day, and
-          recommendations based on how people actually travel — not how many
-          places can be squeezed into a week. Depth over quantity, every time.
+          Meals that shape the day. Recommendations based on how people
+          actually travel. Depth over quantity.
         </p>
       </section>
 
       {featuredGuide ? (
-        <section className="section-shell" id="guide">
+        <section className="section-shell tinted" id="guide">
           <div className="home-journey">
             <Link
               className="home-journey-media"
@@ -234,7 +239,7 @@ export default function Home() {
         </section>
       ) : null}
 
-      <section className="section-shell tinted home-plan" id="plan">
+      <section className="section-shell home-plan" id="plan">
         <p className="eyebrow">Itinerary design</p>
         <h2 className="display-title">If you love the way we travel, ask us to plan yours.</h2>
         <p>
@@ -243,7 +248,7 @@ export default function Home() {
           book directly.
         </p>
         <Link className="button dark" href="/plan-a-trip">
-          Plan My Trip
+          Plan with Altrove
         </Link>
       </section>
 

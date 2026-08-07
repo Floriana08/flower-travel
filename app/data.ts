@@ -2152,7 +2152,7 @@ export const guideProducts: GuideProduct[] = [
         a: "No — the guide is independent research and recommendations. If you'd like it shaped around your own dates, see Plan with Altrove.",
       },
     ],
-    relatedArticleSlugs: ["rome-food-walk"],
+    relatedArticleSlugs: ["train-travel-europe", "rome-food-walk"],
     href: "/guides/naples-amalfi-guide",
     cta: "Join the guide waitlist",
   },

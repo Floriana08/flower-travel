@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { routeDetails } from "../../data";
+import { guideProducts, routeDetails } from "../../data";
 import { EnquiryCta, PageIntro } from "../../studio-components";
 import { getJourney, journeys } from "../../journeys-data";
 import { defaultImageSizes, unsplashSrcSet } from "../../image-utils";
@@ -52,6 +52,10 @@ export default async function JourneyDetailPage({ params }: PageProps) {
     journey.routeSlug === "amalfi-coast-tours"
       ? routeDetails.find((detail) => detail.slug === "amalfi-coast-tours")
       : undefined;
+  const relatedGuide =
+    journey.slug === "naples-amalfi"
+      ? guideProducts.find((product) => product.slug === "naples-amalfi-guide")
+      : undefined;
 
   return (
     <main>
@@ -63,10 +67,7 @@ export default async function JourneyDetailPage({ params }: PageProps) {
           >
             {journey.destination}
           </Link>
-          <PageIntro
-            eyebrow={journey.statusLabel}
-            title={journey.title}
-          >
+          <PageIntro eyebrow={journey.statusLabel} title={journey.title}>
             <p className="journey-hero-meta">
               <span>{journey.destination}</span>
               <span>{journey.duration}</span>
@@ -85,9 +86,24 @@ export default async function JourneyDetailPage({ params }: PageProps) {
         </div>
       </section>
 
+      <section className="section-shell" aria-label="Suggested route">
+        <div className="home-section-head">
+          <p className="eyebrow">Route overview</p>
+          <h2 className="display-title">How the places connect</h2>
+        </div>
+        <div
+          className="route-line large journey-route-overview"
+          aria-label="Journey route"
+        >
+          {journey.route.map((stop) => (
+            <span key={stop}>{stop}</span>
+          ))}
+        </div>
+      </section>
+
       {coastDays?.length ? (
         <section
-          className="section-shell journey-merged-days"
+          className="section-shell journey-merged-days tinted"
           aria-label="How the days unfold"
         >
           {amalfiDetail ? (
@@ -124,13 +140,6 @@ export default async function JourneyDetailPage({ params }: PageProps) {
               <li key={item}>{item}</li>
             ))}
           </ul>
-
-          <h2>Route shape</h2>
-          <div className="route-line large" aria-label="Journey route">
-            {journey.route.map((stop) => (
-              <span key={stop}>{stop}</span>
-            ))}
-          </div>
         </div>
 
         <aside className="journey-aside">
@@ -159,6 +168,11 @@ export default async function JourneyDetailPage({ params }: PageProps) {
               ))}
             </ul>
           </div>
+          {relatedGuide ? (
+            <Link className="text-link" href={`/guides/${relatedGuide.slug}`}>
+              The Campania guide
+            </Link>
+          ) : null}
           {journey.destinationSlug ? (
             <Link
               className="text-link"
@@ -173,8 +187,9 @@ export default async function JourneyDetailPage({ params }: PageProps) {
       <section className="section-shell tinted">
         <EnquiryCta title="Want this journey shaped for you?">
           <p>
-            Tell us your dates and how you like to travel. We’ll design a
-            personalised version around the places we know well.
+            Tell us your dates and how you like to travel. We&rsquo;ll design a
+            personalised version around the places we know well — hotels,
+            neighbourhoods and pacing included. You book directly.
           </p>
         </EnquiryCta>
       </section>

@@ -134,6 +134,17 @@ export default async function GuideProductPage({ params }: PageProps) {
 
           <h2>How this is different from the free journal</h2>
           <p>{product.sampleNote}</p>
+          {product.slug === "naples-amalfi-guide" ? (
+            <p>
+              <Link className="text-link" href="/journeys/naples-amalfi">
+                Preview the Naples &amp; Amalfi journey concept
+              </Link>
+              {" · "}
+              <Link className="text-link" href="/plan-a-trip">
+                Plan a personalised version
+              </Link>
+            </p>
+          ) : null}
 
           <h2>Frequently asked questions</h2>
           {product.faqs.map((faq) => (

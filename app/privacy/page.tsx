@@ -5,7 +5,7 @@ import { site } from "../data";
 export const metadata: Metadata = {
   title: "Privacy",
   description:
-    "Starter privacy note for Altrove Club signups, reader messages, and future newsletter communication.",
+    "Starter privacy note for Altrove newsletter signups, enquiries, and reader messages.",
 };
 
 export default function PrivacyPage() {
@@ -13,7 +13,7 @@ export default function PrivacyPage() {
     <main>
       <PageHero
         eyebrow="Privacy"
-        title="A simple privacy note for the early Club."
+        title="A simple privacy note for early readers."
         image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=84"
         alt="A calm outdoor table with warm travel light"
       >
@@ -34,8 +34,8 @@ export default function PrivacyPage() {
             <div className="article-panel">
               <h2>Current status</h2>
               <p>
-                Early-stage editorial site, Club form, and reader contact
-                forms.
+                Early-stage editorial site, newsletter forms, guide waitlists,
+                and trip enquiries.
               </p>
             </div>
           </aside>
@@ -44,25 +44,26 @@ export default function PrivacyPage() {
             <section>
               <h2>What may be collected</h2>
               <p>
-                When you join the Club or contact Altrove, the site
-                may receive the details you choose to send: email address, name,
-                travel interests, and your message.
+                When you join Letters from Altrove, join a guide waitlist, or
+                send a trip enquiry, the site may receive the details you choose
+                to send: email address, name, travel interests, and your
+                message.
               </p>
             </section>
 
             <section>
               <h2>How it may be used</h2>
               <p>
-                Your details may be used to reply to you, send Club
-                letters, understand what guides readers want, and shape future
-                Altrove services.
+                Your details may be used to reply to you, send editorial
+                letters, share guide availability, understand what readers want,
+                and shape future Altrove services.
               </p>
             </section>
 
             <section>
               <h2>Consent and unsubscribe</h2>
               <p>
-                Club emails should only be sent when you have actively
+                Editorial emails should only be sent when you have actively
                 opted in. You should be able to unsubscribe or ask for deletion
                 by contacting {site.email}.
               </p>

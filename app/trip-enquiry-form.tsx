@@ -175,11 +175,11 @@ export function TripEnquiryForm() {
       <div className="form-grid">
         <label>
           <span>Name *</span>
-          <input name="name" type="text" autoComplete="name" required />
+          <input name="name" type="text" autoComplete="name" required aria-required="true" />
         </label>
         <label>
           <span>Email *</span>
-          <input name="email" type="email" autoComplete="email" required />
+          <input name="email" type="email" autoComplete="email" required aria-required="true" />
         </label>
         <label className="form-span-2">
           <span>Destination or destination ideas *</span>
@@ -188,6 +188,7 @@ export function TripEnquiryForm() {
             type="text"
             placeholder="e.g. Portugal, Naples and the Amalfi Coast"
             required
+            aria-required="true"
           />
         </label>
 

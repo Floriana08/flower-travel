@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { guideProducts, guides, itineraries } from "./data";
+import { guideProducts, guides } from "./data";
 import { journeys } from "./journeys-data";
 import { journalMoods, journalTopicGroups, studioCountries } from "./studio-structure";
 
@@ -22,9 +22,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     (country) => `/destinations/${country.slug}`,
   );
   const journeyRoutes = journeys.map((journey) => `/journeys/${journey.slug}`);
-  const routeRoutes = itineraries.map(
-    (itinerary) => `/routes/${itinerary.slug}`,
-  );
   const journalRoutes = [
     ...studioCountries.map((country) => `/journal/${country.slug}`),
     ...journalMoods.map((mood) => `/journal/mood/${mood.slug}`),
@@ -39,12 +36,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...routes,
     ...destinationRoutes,
     ...journeyRoutes,
-    ...routeRoutes,
     ...journalRoutes,
     ...guideProductRoutes,
   ].map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date("2026-08-03"),
+    lastModified: new Date("2026-08-07"),
     changeFrequency:
       route === "" ||
       route.startsWith("/destinations") ||

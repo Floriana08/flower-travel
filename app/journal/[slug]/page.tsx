@@ -217,6 +217,28 @@ export default async function JournalArticlePage({ params }: PageProps) {
                   </WorthKnowing>
                 ) : null}
                 {index === 0 &&
+                /italy|rome|naples|amalfi|campania/i.test(
+                  `${guide.destination} ${guide.slug} ${guide.title}`,
+                ) ? (
+                  <WorthKnowing>
+                    <p>
+                      Heading to Campania? See the{" "}
+                      <Link href="/journeys/naples-amalfi">
+                        Naples and the Amalfi Coast journey
+                      </Link>
+                      , the{" "}
+                      <Link href="/guides/naples-amalfi-guide">
+                        Campania guide
+                      </Link>
+                      , or{" "}
+                      <Link href="/plan-a-trip">
+                        ask Altrove to shape a personalised version
+                      </Link>
+                      .
+                    </p>
+                  </WorthKnowing>
+                ) : null}
+                {index === 0 &&
                 /honeymoon/i.test(`${guide.slug} ${guide.title}`) ? (
                   <WorthKnowing>
                     <p>

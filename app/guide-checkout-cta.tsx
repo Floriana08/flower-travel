@@ -102,6 +102,10 @@ function WaitlistForm({ product }: { product: GuideProduct }) {
         {product.price}
         {product.priceIsPlaceholder ? <em> · placeholder price, to be confirmed</em> : null}
       </p>
+      <p className="guide-waitlist-lede">
+        This guide isn&rsquo;t for sale yet. Join the waitlist and we&rsquo;ll
+        email you the day checkout opens — no payment taken now.
+      </p>
       <div className="guide-waitlist-row">
         <label className="visually-hidden" htmlFor={`waitlist-email-${product.slug}`}>
           Email address
@@ -112,6 +116,7 @@ function WaitlistForm({ product }: { product: GuideProduct }) {
           type="email"
           placeholder="Your email address"
           required
+          aria-required="true"
           disabled={status === "loading"}
           autoComplete="email"
         />
@@ -120,7 +125,10 @@ function WaitlistForm({ product }: { product: GuideProduct }) {
         </button>
       </div>
       <p className={`form-status form-status-${status}`} role="status" aria-live="polite">
-        {message}
+        {message ||
+          (status === "idle"
+            ? "We’ll only use your email for this guide’s availability."
+            : "")}
       </p>
     </form>
   );

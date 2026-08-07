@@ -14,6 +14,7 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
   const stories = getHubJournalStories(country.slug);
   const countryGuides = getGuideProductsForCountry(country.slug);
   const days = country.example.days;
+  const routeStops = days.map((day) => day.title.replace(/^(Arrive in |Stay in |Boat to |Return to )/i, ""));
 
   return (
     <main className="country-mag">
@@ -72,35 +73,122 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
         </div>
       </section>
 
-      {stories.length ? (
-        <section className="country-mag-journal country-mag-pad" aria-label="Journal stories">
+      {country.travelNotes.length ? (
+        <section className="country-mag-notes country-mag-pad" aria-label="Travel notes">
           <div className="country-mag-notes-rail">
-            <p className="country-mag-kicker">Journal</p>
-            <h2>Stories from {country.title}</h2>
+            <p className="country-mag-kicker">Travel notes</p>
+            <h2>How to travel here</h2>
+            <p>{country.notesIntro}</p>
           </div>
-          <div className="country-mag-journal-grid">
-            {stories.map((story) => (
-              <article key={story.slug} className="country-mag-journal-card">
-                <Link href={`/journal/${story.slug}`}>
+          <dl className="country-mag-notes-list">
+            {country.travelNotes.map((note) => (
+              <div key={note.title}>
+                <dt>{note.title}</dt>
+                <dd>{note.body}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      ) : null}
+
+      {country.tasteNotes.length ? (
+        <section className="country-mag-loved country-mag-pad" aria-label="Places we love">
+          <div className="country-mag-loved-intro">
+            <p className="country-mag-kicker">Places we love</p>
+            <h2>Taste notes from {country.title}</h2>
+          </div>
+          <div className="country-mag-loved-row">
+            {country.tasteNotes.map((taste) => (
+              <article key={taste.name} className="country-mag-loved-col">
+                <figure>
                   <img
-                    src={story.image}
-                    srcSet={unsplashSrcSet(story.image)}
+                    src={taste.image}
+                    srcSet={unsplashSrcSet(taste.image)}
                     sizes={defaultImageSizes}
-                    alt={story.alt}
+                    alt={taste.alt}
                     loading="lazy"
                   />
-                  <p className="country-mag-kicker">{story.category}</p>
-                  <h3>{story.title}</h3>
-                  <p>{story.excerpt}</p>
-                </Link>
+                </figure>
+                <p className="country-mag-kicker">{taste.kind}</p>
+                <h3>{taste.name}</h3>
+                <p>{taste.note}</p>
               </article>
             ))}
           </div>
-          <Link className="country-mag-link" href="/journal">
-            More from the journal
-          </Link>
         </section>
       ) : null}
+
+      {country.placesWeLove.length ? (
+        <section className="country-mag-pad country-mag-places-list" aria-label="Shortlists">
+          <div className="country-mag-notes-rail">
+            <p className="country-mag-kicker">Shortlists</p>
+            <h2>Where we would send a friend</h2>
+          </div>
+          <div className="country-mag-places-grid">
+            {country.placesWeLove.map((group) => (
+              <div key={group.kind} className="country-mag-places-group">
+                <h3>{group.kind}</h3>
+                <ul>
+                  {group.items.map((item) => (
+                    <li key={item.name}>
+                      <strong>{item.name}</strong>
+                      <span>{item.note}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      <section className="country-mag-journal country-mag-pad" aria-label="Journal stories">
+        <div className="country-mag-notes-rail">
+          <p className="country-mag-kicker">Journal</p>
+          <h2>Stories from {country.title}</h2>
+        </div>
+        {stories.length ? (
+          <>
+            <div className="country-mag-journal-grid">
+              {stories.map((story) => (
+                <article key={story.slug} className="country-mag-journal-card">
+                  <Link href={`/journal/${story.slug}`}>
+                    <img
+                      src={story.image}
+                      srcSet={unsplashSrcSet(story.image)}
+                      sizes={defaultImageSizes}
+                      alt={story.alt}
+                      loading="lazy"
+                    />
+                    <p className="country-mag-kicker">{story.category}</p>
+                    <h3>{story.title}</h3>
+                    <p>{story.excerpt}</p>
+                  </Link>
+                </article>
+              ))}
+            </div>
+            <Link className="country-mag-link" href={`/journal/${country.slug}`}>
+              More from {country.title}
+            </Link>
+          </>
+        ) : (
+          <div className="country-mag-empty-journal">
+            <p className="country-mag-quiet-note">
+              Journal notes for {country.title} are still being gathered. In
+              the meantime, ask Altrove to shape a route — or join Letters for
+              new stories as they publish.
+            </p>
+            <p className="country-mag-coast-links">
+              <Link className="country-mag-link" href="/plan-a-trip">
+                Plan with Altrove
+              </Link>
+              <Link className="country-mag-link" href="/#letters">
+                Join Letters
+              </Link>
+            </p>
+          </div>
+        )}
+      </section>
 
       <section className="country-mag-guides country-mag-pad" aria-label="Guides">
         <div className="country-mag-notes-rail">
@@ -153,6 +241,12 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
                 {featured.duration} · {featured.destination}
               </p>
               <p className="country-mag-deck">{featured.summary}</p>
+              <p className="country-mag-deck">{country.example.lede}</p>
+              {routeStops.length ? (
+                <p className="country-mag-route-line" aria-label="Suggested route">
+                  {routeStops.join(" → ")}
+                </p>
+              ) : null}
             </div>
             <figure className="country-mag-coast-side">
               <img
@@ -182,6 +276,14 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
             <Link className="country-mag-link" href={`/journeys/${featured.slug}`}>
               Explore the journey
             </Link>
+            {countryGuides[0] ? (
+              <Link className="country-mag-link" href={`/guides/${countryGuides[0].slug}`}>
+                View the guide
+              </Link>
+            ) : null}
+            <Link className="country-mag-link" href="/plan-a-trip">
+              Plan a personalised version
+            </Link>
           </div>
         </section>
       ) : null}
@@ -199,11 +301,10 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
           <p className="country-mag-kicker">Plan with Altrove</p>
           <h2>Planning something similar?</h2>
           <p>
-            Altrove can shape the route around your dates, pace and
-            priorities — hotels, neighbourhoods and pacing included.
+            Altrove can shape the route around your dates, pace and priorities.
           </p>
           <Link className="button dark" href="/plan-a-trip">
-            Plan My Trip
+            Plan with Altrove
           </Link>
         </div>
       </section>

@@ -53,10 +53,11 @@ export default function PlanWithAltrovePage() {
       <section className="section-shell page-top">
         <PageIntro eyebrow="Plan with Altrove" title="Personalised itinerary design.">
           <p>
-            Planning a trip that actually feels coherent means dozens of
-            small, disconnected decisions — where to base yourself, how many
-            stops to make, which recommendations to trust. Altrove does that
-            research and judgement for you.
+            Planning a meaningful trip usually means too many disconnected
+            decisions and too much generic research. Altrove helps you decide
+            where to go, how to structure the days, where to base yourselves,
+            and what to leave out — so the journey feels coherent rather than
+            crowded.
           </p>
         </PageIntro>
       </section>
