@@ -19,7 +19,8 @@ export type ExampleItinerary = {
 export type CollectionStatus =
   | "Currently Curating"
   | "In Development"
-  | "Opening Next";
+  | "Opening Next"
+  | "Coming soon";
 
 export type RegionalCollection = {
   title: string;
@@ -87,10 +88,10 @@ export const studioCountries: StudioCountry[] = [
     title: "Italy",
     short: "City intensity, coastal light, and food that sets the pace.",
     image:
-      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=2000&q=84",
-    alt: "Cliffside villages on the Amalfi Coast above blue water",
+      "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=2000&q=84",
+    alt: "Warm light over a lived-in Mediterranean street",
     hubLede:
-      "We take Italy slowly — one neighbourhood in the city, one base on the coast, and meals that decide the day. Campania comes first: Naples and the shore Flor knows by heart.",
+      "I take Italy slowly — one neighbourhood in the city, one base on the coast, and meals that decide the day. Campania comes first: Naples and the shore I know by heart.",
     featuredJourneySlug: "naples-amalfi",
     collections: [
       {
@@ -107,15 +108,15 @@ export const studioCountries: StudioCountry[] = [
         image:
           "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1400&q=80",
         alt: "Rolling Tuscan hills at golden hour",
-        status: "Currently Curating",
+        status: "Coming soon",
       },
       {
         title: "Sicily",
         note: "Island light, markets, and a coast taken at walking pace.",
         image:
-          "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1400&q=80",
-        alt: "Warm light over a Sicilian coastal town",
-        status: "In Development",
+          "https://images.unsplash.com/photo-1498579843916-4e4d87eea1e8?auto=format&fit=crop&w=1400&q=80",
+        alt: "Market stall with citrus and vegetables",
+        status: "Coming soon",
       },
       {
         title: "Dolomites",
@@ -123,7 +124,7 @@ export const studioCountries: StudioCountry[] = [
         image:
           "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1400&q=80",
         alt: "Dramatic peaks in the Dolomites",
-        status: "Opening Next",
+        status: "Coming soon",
       },
     ],
     placesWeLove: [
@@ -260,7 +261,7 @@ export const studioCountries: StudioCountry[] = [
       "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=2000&q=84",
     alt: "Lisbon tram climbing a steep tiled street",
     hubLede:
-      "Portugal is where Altrove feels most at home — Lisbon mornings, train light north, and time left over for the Atlantic. Fewer hotels. More attention.",
+      "Portugal is where I feel most at home — Lisbon mornings, train light north, and time left over for the Atlantic. Fewer hotels. More attention.",
     featuredJourneySlug: "portugal-by-train",
     collections: [
       {
@@ -277,7 +278,7 @@ export const studioCountries: StudioCountry[] = [
         image:
           "https://images.unsplash.com/photo-1555881407-bb2d4e463a49?auto=format&fit=crop&w=1400&q=80",
         alt: "Ribeira waterfront houses along the Douro in Porto",
-        status: "Currently Curating",
+        status: "Coming soon",
       },
       {
         title: "Madeira",
@@ -285,7 +286,7 @@ export const studioCountries: StudioCountry[] = [
         image:
           "https://images.unsplash.com/photo-1585208798174-6cedd86e019a?auto=format&fit=crop&w=1400&q=80",
         alt: "Steep green cliffs meeting the Atlantic in Madeira",
-        status: "Currently Curating",
+        status: "Coming soon",
       },
       {
         title: "The Alentejo",
@@ -293,7 +294,7 @@ export const studioCountries: StudioCountry[] = [
         image:
           "https://images.unsplash.com/photo-1486299267070-83823f5448dd?auto=format&fit=crop&w=1400&q=80",
         alt: "Golden countryside light over rolling hills",
-        status: "In Development",
+        status: "Coming soon",
       },
     ],
     placesWeLove: [
@@ -425,12 +426,12 @@ export const studioCountries: StudioCountry[] = [
   {
     slug: "spain",
     title: "Spain",
-    short: "Food, warm cities, and routes curated with care.",
+    short: "Warm cities, long lunches, and routes worth taking slowly.",
     image:
-      "https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=2000&q=84",
-    alt: "A warm Spanish street with historic architecture",
+      "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=2000&q=84",
+    alt: "Shared plates on a busy table in warm restaurant light",
     hubLede:
-      "Spain, for us, is food first — one barrio as home, markets that set the morning, and a second region only when the first has had enough time.",
+      "Spain, for me, is food first — one barrio as home, markets that set the morning, and a second region only when the first has had enough time. Andalusia comes first.",
     featuredJourneySlug: "northern-spain",
     collections: [
       {
@@ -439,7 +440,7 @@ export const studioCountries: StudioCountry[] = [
         image:
           "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=1400&q=80",
         alt: "Warm evening light over a historic Spanish square",
-        status: "Currently Curating",
+        status: "Coming soon",
       },
       {
         title: "Northern Spain",
@@ -448,7 +449,7 @@ export const studioCountries: StudioCountry[] = [
           "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80",
         alt: "Green mountains and mist over a northern landscape",
         href: "/journeys/northern-spain",
-        status: "Currently Curating",
+        status: "Coming soon",
       },
       {
         title: "Barcelona",
@@ -456,7 +457,7 @@ export const studioCountries: StudioCountry[] = [
         image:
           "https://images.unsplash.com/photo-1583422403309-80447b2c0d0f?auto=format&fit=crop&w=1400&q=80",
         alt: "Barcelona street with warm Mediterranean light",
-        status: "In Development",
+        status: "Coming soon",
       },
       {
         title: "Madrid",
@@ -464,7 +465,7 @@ export const studioCountries: StudioCountry[] = [
         image:
           "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=1400&q=80",
         alt: "Grand architecture along a Madrid avenue",
-        status: "Opening Next",
+        status: "Coming soon",
       },
     ],
     placesWeLove: [

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BrandLockup } from "./components";
 import { NewsletterForm } from "./newsletter-form";
-import { guideProducts, site } from "./data";
+import { guideProducts, guides, site } from "./data";
 import { getJourney } from "./journeys-data";
 import { HeroOceanVideo } from "./hero-ocean-video";
 import { CountryTile, StudioNewsletter } from "./studio-components";
@@ -19,18 +19,21 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Altrove | Editorial travel studio",
     description:
-      "Thoughtful destination stories, premium guides, and personalised itinerary design.",
+      "Thoughtful journeys through Italy, Spain and Portugal — with the places, hotels, meals and routes we'd actually recommend to a friend.",
     type: "website",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=84",
+        url: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1600&q=84",
         width: 1600,
         height: 1067,
-        alt: "Cliffside villages on the Amalfi Coast",
+        alt: "Warm afternoon light on a Mediterranean coastal street",
       },
     ],
   },
 };
+
+const florFieldImage =
+  "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1600&q=84";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -58,6 +61,11 @@ const structuredData = {
 export default function Home() {
   const featuredJourney = getJourney("naples-amalfi");
   const featuredGuide = guideProducts.find((p) => p.slug === "naples-amalfi-guide");
+  const journalFeatured = [
+    guides.find((g) => g.slug === "where-to-stay-lisbon"),
+    guides.find((g) => g.slug === "rome-food-walk"),
+    guides.find((g) => g.slug === "madeira-first-timers"),
+  ].filter((g): g is (typeof guides)[number] => Boolean(g));
 
   return (
     <main className="home-edit">
@@ -70,122 +78,132 @@ export default function Home() {
         <HeroOceanVideo />
         <div className="studio-hero-copy">
           <BrandLockup tone="light" className="hero-lockup" showTagline={false} />
-          <h1 className="studio-hero-lede">
-            An editorial travel studio for Italy, Spain and Portugal —
-            stories, guides and personalised itineraries with depth and better
-            pacing.
+          <h1 className="studio-hero-display">
+            Travel slowly.
+            <br />
+            Choose well.
           </h1>
+          <p className="studio-hero-lede">
+            Thoughtful journeys through Italy, Spain and Portugal — with the
+            places, hotels, meals and routes I&rsquo;d actually recommend to a
+            friend.
+          </p>
           <div className="hero-actions">
             <Link className="button light" href="/destinations">
               Explore destinations
             </Link>
             <Link className="button ghost-on-dark" href="/plan-a-trip">
-              Plan with Altrove
+              Plan a journey
             </Link>
           </div>
-        </div>
-      </section>
-
-      <section className="section-shell home-offer" id="offer">
-        <div className="home-section-head">
-          <p className="eyebrow">What Altrove offers</p>
-          <h2 className="display-title">Three ways to travel with us</h2>
-        </div>
-        <div className="home-offer-grid">
-          <article>
-            <p className="eyebrow">01</p>
-            <h3>Explore the journal</h3>
-            <p>
-              Destination stories, neighbourhood notes and practical advice —
-              built to show you how we think about a place before you ever
-              plan a trip.
-            </p>
-            <Link className="text-link" href="/journal">
-              Read the journal
-            </Link>
-          </article>
-          <article>
-            <p className="eyebrow">02</p>
-            <h3>Travel with an Altrove guide</h3>
-            <p>
-              Detailed, independent destination guides — the research and
-              reasoning behind a route, not just a list of places.
-            </p>
-            <Link className="text-link" href="/guides">
-              Browse the guides
-            </Link>
-          </article>
-          <article>
-            <p className="eyebrow">03</p>
-            <h3>Request a personalised itinerary</h3>
-            <p>
-              Tell us your dates, pace and priorities. We&rsquo;ll shape a
-              route around them — bases, transport and pacing included.
-            </p>
-            <Link className="text-link" href="/plan-a-trip">
-              Plan with Altrove
-            </Link>
-          </article>
+          <p className="studio-hero-support">
+            Independent guides · Personalised itineraries · Travel stories
+          </p>
         </div>
       </section>
 
       <section className="section-shell home-destinations" id="destinations">
         <div className="home-section-head">
           <p className="eyebrow">Begin with a place</p>
-          <h2 className="display-title">
-            Explore our notes, guides and journeys through the parts of
-            Europe we know best.
-          </h2>
+          <h2 className="display-title">We start where we know best.</h2>
+          <p className="home-section-dek">
+            Italy, Portugal and Spain — doors into notes, guides and journeys,
+            not a catalogue of everywhere.
+          </p>
         </div>
-        <div className="destinations-index-grid home-destinations-grid">
+        <div className="destinations-index-grid home-destinations-grid home-destination-doors">
           {studioCountries.map((country) => (
-            <CountryTile key={country.slug} country={country} />
+            <CountryTile key={country.slug} country={country} variant="door" />
           ))}
         </div>
       </section>
 
+      <section className="home-manifesto" id="philosophy" aria-label="Altrove philosophy">
+        <div className="home-manifesto-inner section-shell">
+          <p className="home-manifesto-kicker">Altrove note Nº 01</p>
+          <h2 className="home-manifesto-title">
+            Fewer bases.
+            <br />
+            Better pacing.
+          </h2>
+          <ul className="home-manifesto-list">
+            <li>Neighbourhoods over checklists.</li>
+            <li>Meals that shape the day.</li>
+            <li>Places worth returning to.</li>
+            <li>Permission not to see everything.</li>
+          </ul>
+        </div>
+      </section>
+
       {featuredJourney ? (
-        <section className="section-shell tinted" id="journey">
-          <div className="home-journey">
+        <section className="section-shell home-featured-journey" id="journey">
+          <div className="home-journey-visual">
             <Link
-              className="home-journey-media"
+              className="home-journey-media home-journey-media-wide"
               href={`/journeys/${featuredJourney.slug}`}
               aria-label={featuredJourney.title}
             >
               <img
-                src={featuredJourney.image}
-                srcSet={unsplashSrcSet(featuredJourney.image)}
-                sizes={defaultImageSizes}
-                alt={featuredJourney.alt}
+                src="https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=2000&q=84"
+                srcSet={unsplashSrcSet(
+                  "https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=2000&q=84",
+                )}
+                sizes="(max-width: 900px) 100vw, 70vw"
+                alt="Colourful boats in a Campania harbour"
                 loading="lazy"
               />
             </Link>
             <div className="home-journey-copy">
-              <p className="eyebrow">Featured journey</p>
-              <h3>
-                <Link href={`/journeys/${featuredJourney.slug}`}>{featuredJourney.title}</Link>
-              </h3>
+              <p className="eyebrow">The Altrove route · Campania</p>
+              <h2 className="display-title">
+                <Link href={`/journeys/${featuredJourney.slug}`}>
+                  Naples and the Amalfi Coast
+                </Link>
+              </h2>
               <p className="home-journey-meta">
-                <span>{featuredJourney.duration}</span>
-                <span>{featuredJourney.destination}</span>
+                <span>7–9 days</span>
                 <span>Two bases</span>
+                <span>Best May–June / September</span>
               </p>
-              <p>
-                Naples for neighbourhood energy, then one coastal bed and ferry
-                light — skip the hotel-hopping, slow down where the coast
-                deserves it. {featuredJourney.summary}
+
+              <ol className="home-route-steps" aria-label="Suggested bases">
+                <li>
+                  <strong>Naples</strong>
+                  <span>3 nights</span>
+                </li>
+                <li aria-hidden="true" className="home-route-arrow">
+                  ↓
+                </li>
+                <li>
+                  <strong>Amalfi Coast</strong>
+                  <span>4 nights</span>
+                </li>
+              </ol>
+              <p className="home-route-detours">
+                <span className="eyebrow">Optional detours</span>
+                Pompeii · Ischia · Ravello
               </p>
+
+              <div className="home-why-route">
+                <p className="eyebrow">Why this route works</p>
+                <p>
+                  One proper city stay. One coastal base. Ferries instead of
+                  constant hotel changes. Enough room for slow mornings and
+                  spontaneous meals.
+                </p>
+              </div>
+
               <p className="home-journey-links">
                 <Link className="text-link" href={`/journeys/${featuredJourney.slug}`}>
                   Explore the journey
                 </Link>
                 {featuredGuide ? (
                   <Link className="text-link" href={`/guides/${featuredGuide.slug}`}>
-                    View the Campania guide
+                    Get the Campania guide
                   </Link>
                 ) : null}
                 <Link className="text-link" href="/plan-a-trip">
-                  Plan a personalised version
+                  Have us personalise it
                 </Link>
               </p>
             </div>
@@ -193,71 +211,193 @@ export default function Home() {
         </section>
       ) : null}
 
-      <section className="section-shell home-philosophy" id="philosophy">
-        <p className="about-pull home-philosophy-pull">
-          Fewer bases. Better pacing. Neighbourhoods over checklists.
-        </p>
-        <p>
-          Meals that shape the day. Recommendations based on how people
-          actually travel. Depth over quantity.
-        </p>
+      <section className="section-shell home-offer home-offer-quiet" id="offer">
+        <div className="home-section-head">
+          <p className="eyebrow">How Altrove can help</p>
+          <h2 className="display-title">Three ways in.</h2>
+        </div>
+        <div className="home-offer-grid home-offer-editorial">
+          <article>
+            <p className="eyebrow">Read</p>
+            <h3>Journal</h3>
+            <p>
+              Stories, neighbourhood notes and places worth remembering —
+              written so you can feel how I travel before you plan.
+            </p>
+            <Link className="text-link" href="/journal">
+              Read the journal
+            </Link>
+          </article>
+          <article>
+            <p className="eyebrow">Travel independently</p>
+            <h3>Guides</h3>
+            <p>
+              Complete destination edits designed to help you travel on your
+              own — bases, pacing and what I&rsquo;d skip.
+            </p>
+            <Link className="text-link" href="/guides">
+              Browse the guides
+            </Link>
+          </article>
+          <article>
+            <p className="eyebrow">Make it yours</p>
+            <h3>Personalised itineraries</h3>
+            <p>
+              A route built around your dates, tastes and pace. You make the
+              bookings; Altrove makes the trip make sense.
+            </p>
+            <Link className="text-link" href="/plan-a-trip">
+              Plan a journey
+            </Link>
+          </article>
+        </div>
       </section>
 
       {featuredGuide ? (
-        <section className="section-shell tinted" id="guide">
-          <div className="home-journey">
+        <section className="section-shell tinted home-guide-feature" id="guide">
+          <div className="home-guide-layout">
             <Link
-              className="home-journey-media"
+              className="home-guide-cover"
               href={`/guides/${featuredGuide.slug}`}
               aria-label={featuredGuide.title}
             >
               <img
-                src={featuredGuide.image}
-                srcSet={unsplashSrcSet(featuredGuide.image)}
+                src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1400&q=84"
+                srcSet={unsplashSrcSet(
+                  "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1400&q=84",
+                )}
                 sizes={defaultImageSizes}
-                alt={featuredGuide.alt}
+                alt="Simple table setting in warm restaurant light"
                 loading="lazy"
               />
+              <span className="home-guide-cover-label">Editorial preview</span>
             </Link>
             <div className="home-journey-copy">
-              <p className="eyebrow">Featured guide</p>
-              <h3>
+              <p className="eyebrow">Altrove Guide</p>
+              <h2 className="display-title">
                 <Link href={`/guides/${featuredGuide.slug}`}>{featuredGuide.title}</Link>
-              </h3>
-              <p>{featuredGuide.excerpt}</p>
+              </h2>
               <p className="home-journey-meta">
-                <span>
-                  {featuredGuide.price}
-                  {featuredGuide.priceIsPlaceholder ? " · placeholder price" : ""}
-                </span>
+                <span>Naples · Pompeii · Amalfi Coast · Ischia</span>
+              </p>
+              <p>{featuredGuide.excerpt}</p>
+              <ul className="home-guide-contents">
+                <li>Where I&rsquo;d stay</li>
+                <li>The 7–9 day Altrove route</li>
+                <li>Neighbourhoods &amp; restaurants worth booking</li>
+                <li>Ferry notes, pacing &amp; what I&rsquo;d skip</li>
+              </ul>
+              <p className="home-journey-meta">
+                <span>Launching soon</span>
+                <span>From €28</span>
               </p>
               <Link className="button dark" href={`/guides/${featuredGuide.slug}`}>
-                See what&rsquo;s inside
+                Preview the guide
               </Link>
             </div>
           </div>
         </section>
       ) : null}
 
+      {journalFeatured.length ? (
+        <section className="section-shell home-journal-feature" id="journal">
+          <div className="home-section-head">
+            <p className="eyebrow">Journal</p>
+            <h2 className="display-title">Notes worth keeping.</h2>
+          </div>
+          <div className="home-journal-editorial">
+            <article className="home-journal-lead">
+              <Link href={`/journal/${journalFeatured[0].slug}`}>
+                <img
+                  src={journalFeatured[0].image}
+                  srcSet={unsplashSrcSet(journalFeatured[0].image)}
+                  sizes="(max-width: 900px) 100vw, 58vw"
+                  alt={journalFeatured[0].alt}
+                  loading="lazy"
+                />
+                <p className="eyebrow">
+                  {journalFeatured[0].destination} · {journalFeatured[0].category}
+                </p>
+                <h3>{journalFeatured[0].title}</h3>
+                <p>{journalFeatured[0].excerpt}</p>
+              </Link>
+            </article>
+            <div className="home-journal-side">
+              {journalFeatured.slice(1).map((story) => (
+                <article key={story.slug} className="home-journal-side-card">
+                  <Link href={`/journal/${story.slug}`}>
+                    <img
+                      src={story.image}
+                      srcSet={unsplashSrcSet(story.image)}
+                      sizes={defaultImageSizes}
+                      alt={story.alt}
+                      loading="lazy"
+                    />
+                    <p className="eyebrow">{story.category}</p>
+                    <h3>{story.title}</h3>
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </div>
+          <p className="home-section-link">
+            <Link className="text-link" href="/journal">
+              Open the journal
+            </Link>
+          </p>
+        </section>
+      ) : null}
+
+      <section className="section-shell tinted home-flor" id="flor">
+        <div className="home-flor-layout">
+          <figure className="home-flor-media">
+            <img
+              src={florFieldImage}
+              srcSet={unsplashSrcSet(florFieldImage)}
+              sizes={defaultImageSizes}
+              alt="Warm café interior with afternoon light — the kind of pause Altrove plans for"
+              loading="lazy"
+            />
+          </figure>
+          <div className="home-flor-copy">
+            <p className="eyebrow">Meet Flor</p>
+            <h2 className="display-title">
+              Italian by birth. Living in Portugal. Collecting the places worth
+              returning to.
+            </h2>
+            <p>
+              For years my travel recommendations lived in notebooks and long
+              messages to people I cared about. Altrove grew out of that habit.
+            </p>
+            <Link className="text-link" href="/about">
+              Read the story
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="section-shell home-plan" id="plan">
-        <p className="eyebrow">Itinerary design</p>
-        <h2 className="display-title">If you love the way we travel, ask us to plan yours.</h2>
+        <p className="eyebrow">Personalised itinerary design</p>
+        <h2 className="display-title">Your trip. Our edit.</h2>
         <p>
-          Personalised itinerary design around the places we know well —
-          hotels, neighbourhoods and pacing included. We design the route; you
-          book directly.
+          Tell us where you&rsquo;re going, when, and how you like to travel.
+          Altrove shapes the route, neighbourhoods, pacing and the places worth
+          your time.
+        </p>
+        <p className="home-plan-boundary">
+          You make the bookings. We make the trip make sense.
         </p>
         <Link className="button dark" href="/plan-a-trip">
-          Plan with Altrove
+          Plan a journey
         </Link>
       </section>
 
       <StudioNewsletter
         id="letters"
         title="Letters from Altrove"
-        description="Editorial correspondence, not a mailing list — occasional notes on new journeys, guides and places, sent without noise."
+        description="New places, hotel finds, routes I'm researching and occasional notes from the road."
       >
-        <NewsletterForm buttonLabel="Join the list" />
+        <NewsletterForm buttonLabel="Send me letters" />
       </StudioNewsletter>
     </main>
   );

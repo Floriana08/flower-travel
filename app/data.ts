@@ -16,7 +16,7 @@ export const navItems = [
 
 export const navCta = {
   href: "/plan-a-trip",
-  label: "Plan with Altrove",
+  label: "Plan a journey",
 };
 
 export const legalLinks = [
@@ -2101,7 +2101,7 @@ export const guideProducts: GuideProduct[] = [
     format: "Digital destination guide · PDF",
     status: "In development",
     price: "From €28",
-    priceIsPlaceholder: true,
+    priceIsPlaceholder: false,
     countrySlug: "italy",
     destination: "Campania — Naples & the Amalfi Coast",
     image:
@@ -2149,7 +2149,7 @@ export const guideProducts: GuideProduct[] = [
       },
       {
         q: "Will you book any of this for me?",
-        a: "No — the guide is independent research and recommendations. If you'd like it shaped around your own dates, see Plan with Altrove.",
+        a: "No — the guide is independent research and recommendations. If you'd like it shaped around your own dates, see Plan a journey.",
       },
     ],
     relatedArticleSlugs: ["train-travel-europe", "rome-food-walk"],

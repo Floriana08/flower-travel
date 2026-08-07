@@ -7,20 +7,26 @@ import { defaultImageSizes, unsplashSrcSet } from "./image-utils";
 
 type Guide = (typeof guides)[number];
 
-export function CountryTile({ country }: { country: StudioCountry }) {
-  const regionNames = country.collections.map((c) => c.title);
+export function CountryTile({
+  country,
+  variant = "default",
+}: {
+  country: StudioCountry;
+  variant?: "default" | "door";
+}) {
   const availableNow = country.collections.filter((c) => !c.status);
-  const regionNote = availableNow.length
-    ? `${availableNow.map((c) => c.title).join(", ")}${
-        regionNames.length > availableNow.length ? ", and more coming" : ""
-      }`
-    : `${regionNames[0] ?? ""} in development`;
+  const coming = country.collections.filter((c) => c.status);
+  const regionLine = availableNow.length
+    ? availableNow.map((c) => c.title).join(" · ")
+    : coming[0]
+      ? `${coming[0].title} coming first`
+      : country.short;
 
   return (
     <Link
-      className="country-tile"
+      className={`country-tile${variant === "door" ? " country-tile-door" : ""}`}
       href={`/destinations/${country.slug}`}
-      aria-label={country.title}
+      aria-label={`Explore ${country.title}`}
     >
       <img
         src={country.image}
@@ -30,9 +36,11 @@ export function CountryTile({ country }: { country: StudioCountry }) {
         loading="lazy"
       />
       <div className="country-tile-copy">
+        <p className="country-tile-kicker">{country.title}</p>
         <h3>{country.title}</h3>
         <p>{country.short}</p>
-        <p className="country-tile-regions">{regionNote}</p>
+        <p className="country-tile-regions">{regionLine}</p>
+        <span className="country-tile-cta">Explore {country.title}</span>
       </div>
     </Link>
   );
