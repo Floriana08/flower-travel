@@ -180,7 +180,7 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
             </p>
             <p className="country-mag-coast-links">
               <Link className="country-mag-link" href="/plan-a-trip">
-                Plan with Altrove
+                Plan a journey
               </Link>
               <Link className="country-mag-link" href="/#letters">
                 Join Letters
@@ -212,7 +212,7 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
                   <p>{guide.excerpt}</p>
                   <p className="country-mag-guide-price">
                     {guide.price}
-                    {guide.priceIsPlaceholder ? " · placeholder price" : ""}
+                    {!guide.stripePriceId ? " · Launching soon" : ""}
                   </p>
                 </Link>
               </article>
@@ -298,13 +298,13 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
           />
         </div>
         <div className="country-mag-plan-copy">
-          <p className="country-mag-kicker">Plan with Altrove</p>
+          <p className="country-mag-kicker">Plan a journey</p>
           <h2>Planning something similar?</h2>
           <p>
             Altrove can shape the route around your dates, pace and priorities.
           </p>
           <Link className="button dark" href="/plan-a-trip">
-            Plan with Altrove
+            Plan a journey
           </Link>
         </div>
       </section>

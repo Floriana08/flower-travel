@@ -99,8 +99,10 @@ function WaitlistForm({ product }: { product: GuideProduct }) {
   return (
     <form className="guide-checkout guide-waitlist-form" onSubmit={handleSubmit} noValidate>
       <p className="guide-checkout-price">
-        {product.price}
-        {product.priceIsPlaceholder ? <em> · placeholder price, to be confirmed</em> : null}
+        {product.stripePriceId ? product.price : "Launching soon"}
+        {product.stripePriceId ? null : (
+          <em> · {product.price}</em>
+        )}
       </p>
       <p className="guide-waitlist-lede">
         This guide isn&rsquo;t for sale yet. Join the waitlist and we&rsquo;ll

@@ -5927,3 +5927,353 @@ h1.studio-hero-lede {
     min-height: 70vh;
   }
 }
+/* —— Altrove editorial refine (home hierarchy) —— */
+.studio-hero-display {
+  margin: 0;
+  max-width: 18ch;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 5.2rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  color: var(--paper);
+}
+
+.studio-hero-copy .studio-hero-lede {
+  margin-top: 8px;
+  max-width: 32rem;
+}
+
+.studio-hero-support {
+  margin: 8px 0 0;
+  color: rgba(247, 243, 236, 0.62);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-section-dek {
+  margin: 8px 0 0;
+  max-width: 34rem;
+  color: var(--soft-ink);
+  line-height: 1.65;
+}
+
+.home-destination-doors {
+  gap: clamp(18px, 2.5vw, 28px);
+}
+
+.country-tile-door {
+  min-height: clamp(340px, 42vw, 520px);
+}
+
+.country-tile-kicker {
+  margin: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.country-tile-cta {
+  margin-top: 8px;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-underline-offset: 0.28em;
+  opacity: 0.9;
+}
+
+.home-manifesto {
+  position: relative;
+  min-height: clamp(420px, 58vh, 640px);
+  display: grid;
+  align-items: end;
+  background:
+    linear-gradient(to top, rgba(18, 18, 18, 0.78), rgba(18, 18, 18, 0.28)),
+    url("https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=2200&q=80")
+      center / cover no-repeat;
+  color: var(--paper);
+}
+
+.home-manifesto-inner {
+  padding-top: clamp(72px, 12vw, 120px);
+  padding-bottom: clamp(72px, 12vw, 120px);
+  display: grid;
+  gap: 22px;
+  max-width: 40rem;
+}
+
+.home-manifesto-kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.home-manifesto-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6.5vw, 4.8rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.home-manifesto-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  color: rgba(247, 243, 236, 0.88);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.home-journey-visual {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: start;
+}
+
+.home-journey-media-wide {
+  display: block;
+  overflow: hidden;
+}
+
+.home-journey-media-wide img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.home-route-steps {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.home-route-steps li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  font-size: 1rem;
+}
+
+.home-route-steps .home-route-arrow {
+  justify-content: center;
+  border: 0;
+  padding: 2px 0;
+  color: var(--muted);
+}
+
+.home-route-detours {
+  margin: 12px 0 0;
+  display: grid;
+  gap: 4px;
+  color: var(--soft-ink);
+  font-size: 0.95rem;
+}
+
+.home-why-route {
+  margin-top: 22px;
+  display: grid;
+  gap: 8px;
+}
+
+.home-offer-editorial article {
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.home-offer-editorial h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.4vw, 2rem);
+  font-weight: 400;
+}
+
+.home-guide-layout,
+.home-flor-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+}
+
+.home-guide-cover {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.home-guide-cover img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.home-guide-cover-label {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  padding: 6px 10px;
+  background: rgba(255, 252, 247, 0.9);
+  color: var(--ink);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.home-guide-contents {
+  margin: 12px 0 0;
+  padding-left: 1.1rem;
+  color: var(--soft-ink);
+  line-height: 1.65;
+}
+
+.home-journal-editorial {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.85fr);
+  gap: clamp(24px, 4vw, 48px);
+}
+
+.home-journal-lead a,
+.home-journal-side-card a {
+  color: inherit;
+  text-decoration: none;
+  display: grid;
+  gap: 10px;
+}
+
+.home-journal-lead img {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+}
+
+.home-journal-lead h3,
+.home-journal-side-card h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.home-journal-lead h3 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.home-journal-side {
+  display: grid;
+  gap: clamp(20px, 3vw, 32px);
+  align-content: start;
+}
+
+.home-journal-side-card img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.home-flor-media {
+  margin: 0;
+}
+
+.home-flor-media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.home-plan-boundary {
+  margin: 0 0 18px;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  letter-spacing: -0.01em;
+}
+
+.destinations-country-block {
+  display: grid;
+  gap: clamp(24px, 4vw, 40px);
+  padding: clamp(40px, 7vw, 80px) 0;
+  border-top: 1px solid var(--line);
+}
+
+.destinations-country-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: end;
+}
+
+.destinations-country-hero img {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+}
+
+.destinations-country-meta {
+  display: grid;
+  gap: 10px;
+}
+
+.destinations-country-regions {
+  margin: 0;
+  color: var(--soft-ink);
+  line-height: 1.6;
+}
+
+.destinations-country-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.destinations-publish-slow {
+  margin: 0;
+  padding: clamp(40px, 7vw, 72px) 0;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 900px) {
+  .home-journey-visual,
+  .home-guide-layout,
+  .home-flor-layout,
+  .home-journal-editorial,
+  .destinations-country-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .home-journey-media-wide img,
+  .home-flor-media img,
+  .home-guide-cover img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .country-tile-door {
+    min-height: 280px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .country-tile:hover img {
+    transform: none;
+  }
+}

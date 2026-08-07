@@ -413,8 +413,8 @@ export function GuideProductCard({
         <div className="product-card-footer">
           <span>
             {product.price}
-            {product.priceIsPlaceholder ? (
-              <em className="price-placeholder-note"> · placeholder price</em>
+            {!product.stripePriceId ? (
+              <em className="price-placeholder-note"> · Launching soon</em>
             ) : null}
           </span>
           <Link className="button dark" href={product.href}>
