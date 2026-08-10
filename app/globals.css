@@ -3840,6 +3840,43 @@ h1.studio-hero-lede {
   line-height: 1.6;
 }
 
+.plan-receive-list {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+
+.plan-receive-list li {
+  display: grid;
+  gap: 6px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+
+.plan-receive-list li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.plan-receive-list h3 {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.plan-receive-list p {
+  margin: 0;
+  max-width: 32rem;
+  color: var(--soft-ink);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
 .plan-split-form {
   min-width: 0;
 }

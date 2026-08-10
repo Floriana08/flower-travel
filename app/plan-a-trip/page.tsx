@@ -40,11 +40,30 @@ const process = [
 ];
 
 const deliverables = [
-  "A written itinerary: recommended bases, route and pacing",
-  "Transport strategy between bases (train, ferry, drive — whichever fits)",
-  "Accommodation-area guidance (not live bookings — see below)",
-  "Experience and restaurant recommendations that fit your pace",
-  "One round of revisions after you’ve reviewed it",
+  {
+    title: "Personalised itinerary",
+    body: "Recommended bases, route and pacing written for your dates and how you like to travel.",
+  },
+  {
+    title: "The matching Altrove guide",
+    body: "When a destination guide exists for your route, it’s included — the deeper research behind the itinerary.",
+  },
+  {
+    title: "Transport strategy",
+    body: "How to move between bases — train, ferry or drive — whichever fits the trip.",
+  },
+  {
+    title: "Where to stay",
+    body: "Neighbourhood and area guidance for each base (you book directly — see boundaries below).",
+  },
+  {
+    title: "Experiences & restaurants",
+    body: "Recommendations that fit your pace, not a checklist of everything on the map.",
+  },
+  {
+    title: "One revision",
+    body: "One round of changes once you’ve had time to look the itinerary over.",
+  },
 ];
 
 export default function PlanWithAltrovePage() {
@@ -93,10 +112,15 @@ export default function PlanWithAltrovePage() {
 
           <div className="plan-story-block">
             <p className="eyebrow">What you receive</p>
-            <h2 className="display-title plan-story-title">Deliverables</h2>
-            <ul className="check-list">
+            <h2 className="display-title plan-story-title">
+              Included with your plan
+            </h2>
+            <ul className="plan-receive-list">
               {deliverables.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item.title}>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </li>
               ))}
             </ul>
           </div>
