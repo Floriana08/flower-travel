@@ -7147,9 +7147,97 @@ h1.studio-hero-lede {
 
 .dest-lp-places,
 .dest-lp-stories,
-.dest-lp-guide {
+.dest-lp-guide,
+.dest-lp-top {
   padding-top: clamp(56px, 9vw, 96px);
   padding-bottom: clamp(56px, 9vw, 96px);
+}
+
+.dest-lp-top {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.dest-lp-top-rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(220px, 260px);
+  gap: 14px;
+  overflow-x: auto;
+  padding: 4px max(24px, calc((100% - var(--max)) / 2)) 8px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+.dest-lp-top-rail > div {
+  scroll-snap-align: start;
+}
+
+.dest-lp-top-card {
+  position: relative;
+  display: block;
+  min-height: 320px;
+  overflow: hidden;
+  color: var(--paper);
+  text-decoration: none;
+}
+
+.dest-lp-top-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 800ms ease;
+}
+
+.dest-lp-top-card:hover img,
+.dest-lp-top-card:focus-visible img {
+  transform: scale(1.04);
+}
+
+.dest-lp-top-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 18, 18, 0.05) 30%,
+    rgba(18, 18, 18, 0.72) 100%
+  );
+}
+
+.dest-lp-top-copy {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 6px;
+  align-content: end;
+  min-height: 320px;
+  padding: 18px;
+}
+
+.dest-lp-top-copy em {
+  font-style: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.88;
+}
+
+.dest-lp-top-copy strong {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.dest-lp-affiliate-note {
+  margin: 18px 0 0;
+  max-width: 40rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
 }
 
 .dest-lp-places-grid {
@@ -7474,7 +7562,8 @@ h1.studio-hero-lede {
 @media (prefers-reduced-motion: reduce) {
   .dest-lp-hero img,
   .dest-lp-hero-copy,
-  .dest-lp-place img {
+  .dest-lp-place img,
+  .dest-lp-top-card img {
     animation: none;
     transition: none;
   }

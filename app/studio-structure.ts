@@ -55,6 +55,18 @@ export type TasteNote = {
   alt: string;
 };
 
+/** Monument / sight cards on the country hub. No dedicated site pages. */
+export type TopPlace = {
+  title: string;
+  /** Shown as “Attraction in {area}” */
+  area: string;
+  image: string;
+  alt: string;
+  /** External tickets / stays link (affiliate-ready) */
+  href: string;
+  partner: "getyourguide" | "booking";
+};
+
 export type StudioCountry = {
   slug: StudioCountrySlug;
   title: string;
@@ -71,6 +83,8 @@ export type StudioCountry = {
   travelNotes: TravelNote[];
   /** Three photographed taste notes for the hub grid */
   tasteNotes: TasteNote[];
+  /** Top sights; external links only, no monument pages */
+  topPlaces: TopPlace[];
   /** Image beside the example-itinerary heading */
   exampleImage: string;
   exampleImageAlt: string;
@@ -238,6 +252,80 @@ export const studioCountries: StudioCountry[] = [
         image:
           "https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=1800&q=80",
         alt: "Colourful boats in a harbour on the Amalfi Coast",
+      },
+    ],
+    topPlaces: [
+      {
+        title: "Pompeii",
+        area: "Pompeii",
+        image:
+          "https://images.unsplash.com/photo-1686252183235-67dfafa22f60?auto=format&fit=crop&w=1200&q=80",
+        alt: "Stone ruins of ancient Pompeii under open sky",
+        href: "https://www.getyourguide.com/pompeii-l1399/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Path of the Gods",
+        area: "Amalfi Coast",
+        image:
+          "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=84",
+        alt: "Cliffside villages on the Amalfi Coast above blue water",
+        href: "https://www.getyourguide.com/amalfi-coast-l2473/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Historic centre",
+        area: "Rome",
+        image:
+          "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1200&q=84",
+        alt: "Warm evening light over Rome rooftops",
+        href: "https://www.getyourguide.com/rome-l33/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Ravello gardens",
+        area: "Ravello",
+        image:
+          "https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=1200&q=80",
+        alt: "Mediterranean harbour light near the Amalfi Coast",
+        href: "https://www.booking.com/searchresults.html?ss=Ravello%2C+Italy",
+        partner: "booking",
+      },
+      {
+        title: "Capri day ferry",
+        area: "Capri",
+        image:
+          "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1200&q=84",
+        alt: "Coastal cliffs and Mediterranean water near Capri",
+        href: "https://www.getyourguide.com/capri-l297/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Centro storico",
+        area: "Naples",
+        image:
+          "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80",
+        alt: "Warm light over a Naples street",
+        href: "https://www.getyourguide.com/naples-l226/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Positano from the water",
+        area: "Positano",
+        image:
+          "https://images.unsplash.com/photo-1595877244574-e90ce41ce089?auto=format&fit=crop&w=1200&q=84",
+        alt: "Positano stacked above the Mediterranean",
+        href: "https://www.getyourguide.com/positano-l2312/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Duomo quarter",
+        area: "Milan",
+        image:
+          "https://images.unsplash.com/photo-1513581166391-887a96ddeafd?auto=format&fit=crop&w=1200&q=80",
+        alt: "Milan architecture in soft daylight",
+        href: "https://www.getyourguide.com/milan-l255/",
+        partner: "getyourguide",
       },
     ],
     exampleImage:
@@ -410,6 +498,62 @@ export const studioCountries: StudioCountry[] = [
         alt: "Train travelling through green European countryside",
       },
     ],
+    topPlaces: [
+      {
+        title: "Tram 28 route",
+        area: "Lisbon",
+        image:
+          "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=1200&q=80",
+        alt: "Lisbon yellow tram on a narrow tiled street",
+        href: "https://www.getyourguide.com/lisbon-l42/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Belém riverside",
+        area: "Lisbon",
+        image:
+          "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1200&q=84",
+        alt: "Lisbon street climbing toward Atlantic light",
+        href: "https://www.getyourguide.com/belem-l2635/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Sintra palaces",
+        area: "Sintra",
+        image:
+          "https://images.unsplash.com/photo-1486299267070-83823f5448dd?auto=format&fit=crop&w=1200&q=80",
+        alt: "Golden countryside light over rolling hills near Sintra",
+        href: "https://www.getyourguide.com/sintra-l2634/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Ribeira waterfront",
+        area: "Porto",
+        image:
+          "https://images.unsplash.com/photo-1555881407-bb2d4e463a49?auto=format&fit=crop&w=1200&q=84",
+        alt: "Ribeira waterfront houses along the Douro in Porto",
+        href: "https://www.getyourguide.com/porto-l34/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Douro valley day",
+        area: "Douro",
+        image:
+          "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1200&q=84",
+        alt: "Train travelling through green countryside",
+        href: "https://www.getyourguide.com/douro-valley-l145861/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Atlantic cliffs",
+        area: "Madeira",
+        image:
+          "https://images.unsplash.com/photo-1585208798174-6cedd86e019a?auto=format&fit=crop&w=1200&q=80",
+        alt: "Steep green cliffs meeting the Atlantic in Madeira",
+        href: "https://www.getyourguide.com/madeira-l672/",
+        partner: "getyourguide",
+      },
+    ],
     exampleImage:
       "https://images.unsplash.com/photo-1555881407-bb2d4e463a49?auto=format&fit=crop&w=1400&q=84",
     exampleImageAlt: "Ribeira waterfront houses along the Douro in Porto",
@@ -579,6 +723,62 @@ export const studioCountries: StudioCountry[] = [
         image:
           "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=84",
         alt: "Green mountains and mist over a northern landscape",
+      },
+    ],
+    topPlaces: [
+      {
+        title: "Alhambra",
+        area: "Granada",
+        image:
+          "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=1200&q=80",
+        alt: "Warm evening light over a historic Spanish square",
+        href: "https://www.getyourguide.com/granada-l32/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Alcázar gardens",
+        area: "Seville",
+        image:
+          "https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1200&q=84",
+        alt: "A warm Spanish street with historic architecture",
+        href: "https://www.getyourguide.com/seville-l48/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Gothic Quarter",
+        area: "Barcelona",
+        image:
+          "https://images.unsplash.com/photo-1583422403309-80447b2c0d0f?auto=format&fit=crop&w=1200&q=80",
+        alt: "Barcelona street with warm Mediterranean light",
+        href: "https://www.getyourguide.com/barcelona-l46/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Prado neighbourhood",
+        area: "Madrid",
+        image:
+          "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=1200&q=80",
+        alt: "Grand architecture along a Madrid avenue",
+        href: "https://www.getyourguide.com/madrid-l47/",
+        partner: "getyourguide",
+      },
+      {
+        title: "San Sebastián old town",
+        area: "San Sebastián",
+        image:
+          "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1200&q=84",
+        alt: "Tapas and shared plates on a busy table",
+        href: "https://www.getyourguide.com/san-sebastian-l348/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Green coast day",
+        area: "Asturias",
+        image:
+          "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=84",
+        alt: "Green mountains and mist over a northern landscape",
+        href: "https://www.booking.com/searchresults.html?ss=Asturias%2C+Spain",
+        partner: "booking",
       },
     ],
     exampleImage:

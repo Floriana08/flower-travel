@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { affiliateHref } from "./affiliates";
 import { NewsletterForm } from "./newsletter-form";
 import { StudioNewsletter } from "./studio-components";
 import {
@@ -6,8 +7,38 @@ import {
   getGuideProductsForCountry,
   getHubJournalStories,
   type StudioCountry,
+  type TopPlace,
 } from "./studio-structure";
 import { defaultImageSizes, heroImageSizes, unsplashSrcSet } from "./image-utils";
+
+function TopPlaceCard({ place }: { place: TopPlace }) {
+  const { href, isAffiliate } = affiliateHref(place.href, place.partner);
+
+  return (
+    <a
+      className="dest-lp-top-card"
+      href={href}
+      target="_blank"
+      rel={
+        isAffiliate
+          ? "sponsored noopener noreferrer"
+          : "noopener noreferrer"
+      }
+    >
+      <img
+        src={place.image}
+        srcSet={unsplashSrcSet(place.image)}
+        sizes="(max-width: 640px) 70vw, 240px"
+        alt={place.alt}
+        loading="lazy"
+      />
+      <span className="dest-lp-top-copy">
+        <em>Attraction in {place.area}</em>
+        <strong>{place.title}</strong>
+      </span>
+    </a>
+  );
+}
 
 export function DestinationHub({ country }: { country: StudioCountry }) {
   const stories = getHubJournalStories(country.slug);
@@ -15,6 +46,7 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
   const journey = getFeaturedJourneyForCountry(country.slug);
   const places = country.collections;
   const tips = country.travelNotes;
+  const topPlaces = country.topPlaces;
 
   return (
     <main className="dest-lp">
@@ -111,6 +143,35 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
           ) : null}
         </div>
       </section>
+
+      {topPlaces.length ? (
+        <section className="dest-lp-top" aria-label="Top places to visit">
+          <div className="dest-lp-shell">
+            <div className="dest-lp-section-head">
+              <p className="dest-lp-label">Top places to visit</p>
+              <h2>Where to go in {country.title}</h2>
+              <p className="dest-lp-dek">
+                Sights worth a day or an afternoon, not a separate page for every
+                monument. Tickets and stays open with trusted booking partners.
+              </p>
+            </div>
+          </div>
+          <div className="dest-lp-top-rail" role="list">
+            {topPlaces.map((place) => (
+              <div key={`${place.area}-${place.title}`} role="listitem">
+                <TopPlaceCard place={place} />
+              </div>
+            ))}
+          </div>
+          <div className="dest-lp-shell">
+            <p className="dest-lp-affiliate-note">
+              Selected tickets and stays open with GetYourGuide or Booking.com.
+              Some links may earn Altrove a commission. Recommendations stay
+              independent.
+            </p>
+          </div>
+        </section>
+      ) : null}
 
       {places.length ? (
         <section className="dest-lp-shell dest-lp-places" aria-label="Places to go">
