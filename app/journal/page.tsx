@@ -6,10 +6,7 @@ import {
   PageIntro,
   StudioNewsletter,
 } from "../studio-components";
-import {
-  getGuidesForTopic,
-  storiesFromSlugs,
-} from "../studio-structure";
+import { storiesFromSlugs } from "../studio-structure";
 
 export const metadata: Metadata = {
   title: "Journal",
@@ -26,40 +23,11 @@ const latestSlugs = [
   "madeira-first-timers",
   "train-travel-europe",
   "choosing-a-honeymoon-route",
-] as const;
-
-const carousels = [
-  {
-    eyebrow: "Latest",
-    title: "Worth reading now",
-    description: null as string | null,
-    viewAllHref: undefined as string | undefined,
-    articles: () => storiesFromSlugs(latestSlugs),
-  },
-  {
-    eyebrow: "Subject",
-    title: "Places",
-    description: "Cities, neighbourhoods and destination notes.",
-    viewAllHref: "/journal/topic/places",
-    articles: () => getGuidesForTopic("places"),
-  },
-  {
-    eyebrow: "Subject",
-    title: "Food",
-    description: "Meals and markets worth planning a day around.",
-    viewAllHref: "/journal/topic/food",
-    articles: () => getGuidesForTopic("food"),
-  },
+  "solo-paris-weekend",
 ] as const;
 
 export default function JournalPage() {
-  const sections = carousels
-    .map((carousel) => ({
-      ...carousel,
-      articles: carousel.articles(),
-    }))
-    .filter((section) => section.articles.length > 0)
-    .slice(0, 3);
+  const latest = storiesFromSlugs(latestSlugs);
 
   return (
     <main className="journal-magazine">
@@ -72,29 +40,19 @@ export default function JournalPage() {
         </PageIntro>
       </section>
 
-      {sections.map((section, index) => (
-        <div
-          key={section.title}
-          className={
-            index % 2 === 1
-              ? "journal-carousel-band tinted"
-              : "journal-carousel-band"
-          }
-        >
+      {latest.length ? (
+        <div className="journal-carousel-band">
           <EditorialCarousel
-            eyebrow={section.eyebrow}
-            title={section.title}
-            intro={section.description ? <p>{section.description}</p> : undefined}
-            viewAllHref={section.viewAllHref}
-            viewAllLabel="View all"
-            ariaLabel={`${section.title} journal stories`}
+            eyebrow="Latest"
+            title="Worth reading now"
+            ariaLabel="Latest journal stories"
           >
-            {section.articles.map((guide) => (
+            {latest.map((guide) => (
               <EditorialStoryCard key={guide.slug} guide={guide} />
             ))}
           </EditorialCarousel>
         </div>
-      ))}
+      ) : null}
 
       <StudioNewsletter
         title="Letters from Altrove"
