@@ -7145,7 +7145,6 @@ h1.studio-hero-lede {
   line-height: 1.65;
 }
 
-.dest-lp-places,
 .dest-lp-stories,
 .dest-lp-guide,
 .dest-lp-top {
@@ -7238,82 +7237,6 @@ h1.studio-hero-lede {
   color: var(--muted);
   font-size: 0.88rem;
   line-height: 1.55;
-}
-
-.dest-lp-places-grid {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.dest-lp-place {
-  position: relative;
-  grid-column: span 2;
-  display: block;
-  min-height: 280px;
-  overflow: hidden;
-  color: var(--paper);
-  text-decoration: none;
-}
-
-.dest-lp-place:nth-child(1) {
-  grid-column: span 3;
-  min-height: 360px;
-}
-
-.dest-lp-place:nth-child(2) {
-  grid-column: span 3;
-  min-height: 360px;
-}
-
-.dest-lp-place img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 800ms ease;
-}
-
-.dest-lp-place:hover img,
-.dest-lp-place:focus-visible img {
-  transform: scale(1.04);
-}
-
-.dest-lp-place::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(18, 18, 18, 0.05) 20%,
-    rgba(18, 18, 18, 0.72) 100%
-  );
-}
-
-.dest-lp-places-copy {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  gap: 8px;
-  align-content: end;
-  min-height: inherit;
-  padding: 22px;
-}
-
-.dest-lp-places-copy strong {
-  font-family: var(--font-sans);
-  font-size: clamp(1.25rem, 2vw, 1.55rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-}
-
-.dest-lp-places-copy em {
-  font-style: normal;
-  color: rgba(247, 243, 236, 0.86);
-  font-size: 0.95rem;
-  line-height: 1.5;
-  max-width: 22rem;
 }
 
 .dest-lp-tips {
@@ -7530,20 +7453,12 @@ h1.studio-hero-lede {
     min-height: 78vh;
   }
 
-  .dest-lp-places-grid,
   .dest-lp-tips-grid,
   .dest-lp-stories-grid,
   .dest-lp-journeys-inner,
   .dest-lp-guide-inner,
   .dest-lp-section-head-row {
     grid-template-columns: 1fr;
-  }
-
-  .dest-lp-place,
-  .dest-lp-place:nth-child(1),
-  .dest-lp-place:nth-child(2) {
-    grid-column: span 1;
-    min-height: 240px;
   }
 
   .dest-lp-tip,
@@ -7562,7 +7477,6 @@ h1.studio-hero-lede {
 @media (prefers-reduced-motion: reduce) {
   .dest-lp-hero img,
   .dest-lp-hero-copy,
-  .dest-lp-place img,
   .dest-lp-top-card img {
     animation: none;
     transition: none;

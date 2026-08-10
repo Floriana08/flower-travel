@@ -44,7 +44,6 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
   const stories = getHubJournalStories(country.slug);
   const guide = getGuideProductsForCountry(country.slug)[0];
   const journey = getFeaturedJourneyForCountry(country.slug);
-  const places = country.collections;
   const tips = country.travelNotes;
   const topPlaces = country.topPlaces;
 
@@ -169,51 +168,6 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
               Some links may earn Altrove a commission. Recommendations stay
               independent.
             </p>
-          </div>
-        </section>
-      ) : null}
-
-      {places.length ? (
-        <section className="dest-lp-shell dest-lp-places" aria-label="Places to go">
-          <div className="dest-lp-section-head">
-            <p className="dest-lp-label">Explore</p>
-            <h2>Places to go</h2>
-            <p className="dest-lp-dek">
-              The parts of {country.title} Altrove knows well enough to edit
-              carefully.
-            </p>
-          </div>
-          <div className="dest-lp-places-grid">
-            {places.map((place) => {
-              const inner = (
-                <>
-                  <img
-                    src={place.image}
-                    srcSet={unsplashSrcSet(place.image)}
-                    sizes={defaultImageSizes}
-                    alt={place.alt}
-                    loading="lazy"
-                  />
-                  <span className="dest-lp-places-copy">
-                    <strong>{place.title}</strong>
-                    <em>{place.note}</em>
-                  </span>
-                </>
-              );
-              return place.href ? (
-                <Link
-                  key={place.title}
-                  className="dest-lp-place"
-                  href={place.href}
-                >
-                  {inner}
-                </Link>
-              ) : (
-                <article key={place.title} className="dest-lp-place is-static">
-                  {inner}
-                </article>
-              );
-            })}
           </div>
         </section>
       ) : null}
