@@ -9,6 +9,7 @@ import {
   getDestinationHubHref,
   getStudioCountry,
 } from "../../studio-structure";
+import { JourneyDayTimeline } from "../../JourneyDayTimeline";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -102,29 +103,11 @@ export default async function JourneyDetailPage({ params }: PageProps) {
       </section>
 
       {coastDays?.length ? (
-        <section
-          className="section-shell journey-merged-days tinted"
-          aria-label="How the days unfold"
-        >
-          {amalfiDetail ? (
-            <p className="journey-merged-intro">{amalfiDetail.intro}</p>
-          ) : null}
-          {italy?.example.lede ? (
-            <p className="journey-merged-lede">{italy.example.lede}</p>
-          ) : null}
-          <ol className="country-mag-days">
-            {coastDays.map((day, index) => (
-              <li
-                key={`${day.label}-${day.title}`}
-                style={{ ["--day-index" as string]: index }}
-              >
-                <p className="country-mag-day-label">{day.label}</p>
-                <h3>{day.title}</h3>
-                {day.note ? <p>{day.note}</p> : null}
-              </li>
-            ))}
-          </ol>
-        </section>
+        <JourneyDayTimeline
+          days={coastDays}
+          intro={amalfiDetail?.intro}
+          lede={italy?.example.lede}
+        />
       ) : null}
 
       <section className="section-shell journey-detail-grid">
