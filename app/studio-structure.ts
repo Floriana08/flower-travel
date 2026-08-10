@@ -95,36 +95,41 @@ export const studioCountries: StudioCountry[] = [
     featuredJourneySlug: "naples-amalfi",
     collections: [
       {
-        title: "Campania",
-        note: "Naples energy, then ferry light and one coastal bed.",
+        title: "Amalfi Coast",
+        note: "One coastal base, ferry light, and days that follow the water.",
         image:
           "https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=1400&q=80",
         alt: "Colourful boats in a harbour on the Amalfi Coast",
         href: "/journeys/naples-amalfi",
       },
       {
-        title: "Tuscany",
-        note: "Hill towns and long tables, paced for lingering, not looping.",
+        title: "Naples",
+        note: "Neighbourhood energy, pizza that sets the day, and a city taken at walking pace.",
         image:
-          "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1400&q=80",
-        alt: "Rolling Tuscan hills at golden hour",
-        status: "Coming soon",
+          "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1400&q=80",
+        alt: "Warm light over a Naples street",
+        href: "/journeys/naples-amalfi",
       },
       {
-        title: "Sicily",
-        note: "Island light, markets, and a coast taken at walking pace.",
+        title: "Rome",
+        note: "Food-first walks, lived-in neighbourhoods, and evenings with nowhere else to be.",
         image:
-          "https://images.unsplash.com/photo-1498579843916-4e4d87eea1e8?auto=format&fit=crop&w=1400&q=80",
-        alt: "Market stall with citrus and vegetables",
-        status: "Coming soon",
+          "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1400&q=80",
+        alt: "Warm evening light over Rome rooftops",
       },
       {
-        title: "Dolomites",
-        note: "Mountain air, design hotels, and days shaped by the view.",
+        title: "Milan",
+        note: "Design hotels, aperitivo light, and a city base with easy day-trip options.",
         image:
-          "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1400&q=80",
-        alt: "Dramatic peaks in the Dolomites",
-        status: "Coming soon",
+          "https://images.unsplash.com/photo-1513581166391-887a96ddeafd?auto=format&fit=crop&w=1400&q=80",
+        alt: "Milan architecture in soft daylight",
+      },
+      {
+        title: "Puglia",
+        note: "White towns, long tables, and a slower southern coast.",
+        image:
+          "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=1400&q=80",
+        alt: "Whitewashed town on the Puglian coast",
       },
     ],
     placesWeLove: [
