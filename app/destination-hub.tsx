@@ -175,7 +175,7 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
           <div className="country-mag-empty-journal">
             <p className="country-mag-quiet-note">
               Journal notes for {country.title} are still being gathered. In
-              the meantime, ask Altrove to shape a route — or join Letters for
+              the meantime, ask Altrove to shape a route, or join Letters for
               new stories as they publish.
             </p>
             <p className="country-mag-coast-links">
@@ -220,7 +220,7 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
           </div>
         ) : (
           <p className="country-mag-quiet-note">
-            No guide for {country.title} yet — we publish a guide only once
+            No guide for {country.title} yet, we publish a guide only once
             we&rsquo;ve researched it properly.
           </p>
         )}

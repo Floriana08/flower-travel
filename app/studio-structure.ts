@@ -61,7 +61,7 @@ export type StudioCountry = {
   short: string;
   image: string;
   alt: string;
-  /** Short Altrove POV — how we experience this country */
+  /** Short Altrove POV, how we experience this country */
   hubLede: string;
   featuredJourneySlug: string;
   collections: RegionalCollection[];
@@ -91,7 +91,7 @@ export const studioCountries: StudioCountry[] = [
       "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=2000&q=84",
     alt: "Warm light over a lived-in Mediterranean street",
     hubLede:
-      "I take Italy slowly — one neighbourhood in the city, one base on the coast, and meals that decide the day. Campania comes first: Naples and the shore I know by heart.",
+      "I take Italy slowly, one neighbourhood in the city, one base on the coast, and meals that decide the day. Campania comes first: Naples and the shore I know by heart.",
     featuredJourneySlug: "naples-amalfi",
     collections: [
       {
@@ -104,7 +104,7 @@ export const studioCountries: StudioCountry[] = [
       },
       {
         title: "Tuscany",
-        note: "Hill towns and long tables — paced for lingering, not looping.",
+        note: "Hill towns and long tables, paced for lingering, not looping.",
         image:
           "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1400&q=80",
         alt: "Rolling Tuscan hills at golden hour",
@@ -137,7 +137,7 @@ export const studioCountries: StudioCountry[] = [
           },
           {
             name: "One coastal stay",
-            note: "A single Amalfi or Sorrento bed — not five hotel changes.",
+            note: "A single Amalfi or Sorrento bed, not five hotel changes.",
           },
         ],
       },
@@ -159,7 +159,7 @@ export const studioCountries: StudioCountry[] = [
         items: [
           {
             name: "Chiaia or Vomero",
-            note: "Lived-in Naples — aperitivo light, evening walks.",
+            note: "Lived-in Naples, aperitivo light, evening walks.",
           },
           {
             name: "One coast town",
@@ -182,23 +182,23 @@ export const studioCountries: StudioCountry[] = [
       },
     ],
     notesIntro:
-      "Practical advice for Campania — written from how we actually travel here, not a checklist of every town on the map.",
+      "Practical advice for Campania, written from how we actually travel here, not a checklist of every town on the map.",
     travelNotes: [
       {
         title: "Best time to go",
-        body: "May–June and September. Warm enough for the coast, cooler for walking Naples, and easier than midsummer crowds and heat.",
+        body: "May-June and September. Warm enough for the coast, cooler for walking Naples, and easier than midsummer crowds and heat.",
       },
       {
         title: "How to pace it",
-        body: "Two bases at most: a Naples neighbourhood, then one coastal stay. Day-trip the towns — don’t change hotels every night.",
+        body: "Two bases at most: a Naples neighbourhood, then one coastal stay. Day-trip the towns, don’t change hotels every night.",
       },
       {
         title: "Getting around",
-        body: "Walk Naples. Train to Pompeii. Ferries along the Amalfi Coast whenever you can — boats usually beat summer buses for both views and sanity.",
+        body: "Walk Naples. Train to Pompeii. Ferries along the Amalfi Coast whenever you can, boats usually beat summer buses for both views and sanity.",
       },
       {
         title: "Where to stay",
-        body: "In Naples, prefer Chiaia or Vomero for a calmer base. On the coast, choose one town and stay put — Sorrento or Salerno can be more practical than Positano prices.",
+        body: "In Naples, prefer Chiaia or Vomero for a calmer base. On the coast, choose one town and stay put, Sorrento or Salerno can be more practical than Positano prices.",
       },
       {
         title: "Food first",
@@ -213,7 +213,7 @@ export const studioCountries: StudioCountry[] = [
       {
         kind: "Hotels",
         name: "One coastal stay",
-        note: "A single Amalfi or Sorrento bed — not five hotel changes.",
+        note: "A single Amalfi or Sorrento bed, not five hotel changes.",
         image:
           "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1800&q=84",
         alt: "Cliffside villages on the Amalfi Coast above blue Mediterranean water",
@@ -243,11 +243,11 @@ export const studioCountries: StudioCountry[] = [
     journalSlugs: ["rome-food-walk", "train-travel-europe", "choosing-a-honeymoon-route"],
     example: {
       title: "Naples and the Amalfi Coast",
-      duration: "7–9 days",
+      duration: "7 to 9 days",
       lede: "Arrive in the city. Settle on the coast. Leave room for the sea.",
       days: [
         { label: "Day 1", title: "Arrive in Naples", note: "One neighbourhood base. Dinner nearby." },
-        { label: "Day 2–4", title: "Stay in Positano", note: "One coastal base — not five towns." },
+        { label: "Day 2 to 4", title: "Stay in Positano", note: "One coastal base, not five towns." },
         { label: "Day 5", title: "Boat to Capri", note: "A ferry day, back to the same bed." },
         { label: "Day 6", title: "Return to Naples", note: "A last morning walk before the flight." },
       ],
@@ -261,7 +261,7 @@ export const studioCountries: StudioCountry[] = [
       "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=2000&q=84",
     alt: "Lisbon tram climbing a steep tiled street",
     hubLede:
-      "Portugal is where I feel most at home — Lisbon mornings, train light north, and time left over for the Atlantic. Fewer hotels. More attention.",
+      "Portugal is where I feel most at home, Lisbon mornings, train light north, and time left over for the Atlantic. Fewer hotels. More attention.",
     featuredJourneySlug: "portugal-by-train",
     collections: [
       {
@@ -282,7 +282,7 @@ export const studioCountries: StudioCountry[] = [
       },
       {
         title: "Madeira",
-        note: "Its own week — Atlantic cliffs, soft adventure, weather-flex days.",
+        note: "Its own week, Atlantic cliffs, soft adventure, weather-flex days.",
         image:
           "https://images.unsplash.com/photo-1585208798174-6cedd86e019a?auto=format&fit=crop&w=1400&q=80",
         alt: "Steep green cliffs meeting the Atlantic in Madeira",
@@ -320,7 +320,7 @@ export const studioCountries: StudioCountry[] = [
           },
           {
             name: "Pastelaria before a miradouro",
-            note: "Coffee, pastry, then the view — in that order.",
+            note: "Coffee, pastry, then the view, in that order.",
           },
         ],
       },
@@ -333,7 +333,7 @@ export const studioCountries: StudioCountry[] = [
           },
           {
             name: "Cedofeita or Ribeira",
-            note: "Porto with character — design shops or river walks.",
+            note: "Porto with character, design shops or river walks.",
           },
         ],
       },
@@ -352,15 +352,15 @@ export const studioCountries: StudioCountry[] = [
       },
     ],
     notesIntro:
-      "How we pace Portugal — rail days, neighbourhood bases, and Atlantic pauses without packing the map.",
+      "How we pace Portugal, rail days, neighbourhood bases, and Atlantic pauses without packing the map.",
     travelNotes: [
       {
         title: "Best time to go",
-        body: "April–June and September–October. Soft light, fewer crowds, and weather that still suits outdoor lunches.",
+        body: "April-June and September-October. Soft light, fewer crowds, and weather that still suits outdoor lunches.",
       },
       {
         title: "How to pace it",
-        body: "Two bases at most: Lisbon, then Porto. Leave room for one Atlantic day — Cascais or the coast near Porto.",
+        body: "Two bases at most: Lisbon, then Porto. Leave room for one Atlantic day, Cascais or the coast near Porto.",
       },
       {
         title: "Getting around",
@@ -376,7 +376,7 @@ export const studioCountries: StudioCountry[] = [
       },
       {
         title: "What to leave out",
-        body: "Five cities in a week. Madeira bolted onto a Lisbon–Porto sprint. Give each base enough nights to settle.",
+        body: "Five cities in a week. Madeira bolted onto a Lisbon-Porto sprint. Give each base enough nights to settle.",
       },
     ],
     tasteNotes: [
@@ -414,12 +414,12 @@ export const studioCountries: StudioCountry[] = [
     example: {
       title: "Portugal by Train",
       duration: "10 days",
-      lede: "Lisbon to Porto with one Atlantic pause — fewer hotels, more attention.",
+      lede: "Lisbon to Porto with one Atlantic pause, fewer hotels, more attention.",
       days: [
-        { label: "Days 1–4", title: "Lisbon base", note: "Neighbourhood mornings and long lunches." },
+        { label: "Days 1 to 4", title: "Lisbon base", note: "Neighbourhood mornings and long lunches." },
         { label: "Day 5", title: "Cascais pause", note: "Atlantic air without changing hotels." },
-        { label: "Days 6–7", title: "Train north", note: "Coimbra or a direct Lisbon–Porto day." },
-        { label: "Days 8–10", title: "Porto and Douro", note: "River light, one day in the valley." },
+        { label: "Days 6 to 7", title: "Train north", note: "Coimbra or a direct Lisbon-Porto day." },
+        { label: "Days 8 to 10", title: "Porto and Douro", note: "River light, one day in the valley." },
       ],
     },
   },
@@ -431,7 +431,7 @@ export const studioCountries: StudioCountry[] = [
       "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=2000&q=84",
     alt: "Shared plates on a busy table in warm restaurant light",
     hubLede:
-      "Spain, for me, is food first — one barrio as home, markets that set the morning, and a second region only when the first has had enough time. Andalusia comes first.",
+      "Spain, for me, is food first, one barrio as home, markets that set the morning, and a second region only when the first has had enough time. Andalusia comes first.",
     featuredJourneySlug: "northern-spain",
     collections: [
       {
@@ -453,7 +453,7 @@ export const studioCountries: StudioCountry[] = [
       },
       {
         title: "Barcelona",
-        note: "Neighbourhood days and design hotels — still being edited.",
+        note: "Neighbourhood days and design hotels, still being edited.",
         image:
           "https://images.unsplash.com/photo-1583422403309-80447b2c0d0f?auto=format&fit=crop&w=1400&q=80",
         alt: "Barcelona street with warm Mediterranean light",
@@ -474,7 +474,7 @@ export const studioCountries: StudioCountry[] = [
         items: [
           {
             name: "A courtyard city hotel",
-            note: "Somewhere with atmosphere — and a quiet room upstairs.",
+            note: "Somewhere with atmosphere, and a quiet room upstairs.",
           },
           {
             name: "One regional stay",
@@ -491,7 +491,7 @@ export const studioCountries: StudioCountry[] = [
           },
           {
             name: "A late dinner",
-            note: "Spanish timing — unhurried, local, worth staying out for.",
+            note: "Spanish timing, unhurried, local, worth staying out for.",
           },
         ],
       },
@@ -517,17 +517,17 @@ export const studioCountries: StudioCountry[] = [
           },
           {
             name: "A landscape day",
-            note: "Coast, hills or wine country — one clean focus.",
+            note: "Coast, hills or wine country, one clean focus.",
           },
         ],
       },
     ],
     notesIntro:
-      "How we think about Spain — food first, one barrio as home, and a second region only when the first has had enough time.",
+      "How we think about Spain, food first, one barrio as home, and a second region only when the first has had enough time.",
     travelNotes: [
       {
         title: "Best time to go",
-        body: "April–June and September–October for most routes. Shoulder seasons keep heat and crowds in check.",
+        body: "April-June and September-October for most routes. Shoulder seasons keep heat and crowds in check.",
       },
       {
         title: "How to pace it",
@@ -554,7 +554,7 @@ export const studioCountries: StudioCountry[] = [
       {
         kind: "Hotels",
         name: "A courtyard city hotel",
-        note: "Somewhere with atmosphere — and a quiet room upstairs.",
+        note: "Somewhere with atmosphere, and a quiet room upstairs.",
         image:
           "https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1800&q=84",
         alt: "A warm Spanish street with historic architecture",
@@ -570,7 +570,7 @@ export const studioCountries: StudioCountry[] = [
       {
         kind: "Experiences",
         name: "A landscape day",
-        note: "Coast, hills or wine country — one clean focus.",
+        note: "Coast, hills or wine country, one clean focus.",
         image:
           "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=84",
         alt: "Green mountains and mist over a northern landscape",
@@ -585,10 +585,10 @@ export const studioCountries: StudioCountry[] = [
     example: {
       title: "A Slow Spain Sketch",
       duration: "8 days",
-      lede: "How Altrove thinks about Spain — currently being curated into a finished journey.",
+      lede: "How Altrove thinks about Spain, currently being curated into a finished journey.",
       days: [
-        { label: "Days 1–3", title: "One city base", note: "Markets, neighbourhood lunches, evening walks." },
-        { label: "Days 4–6", title: "A second region", note: "Train or short drive — not a daily hop." },
+        { label: "Days 1 to 3", title: "One city base", note: "Markets, neighbourhood lunches, evening walks." },
+        { label: "Days 4 to 6", title: "A second region", note: "Train or short drive, not a daily hop." },
         { label: "Day 7", title: "Landscape day", note: "Coast, countryside or wine country." },
         { label: "Day 8", title: "Return slowly", note: "A soft last morning before departure." },
       ],
@@ -647,7 +647,7 @@ export const journalMoods: {
   {
     slug: "weekend-getaways",
     title: "Weekend Getaways",
-    description: "Short trips that still feel complete — one city, one rhythm.",
+    description: "Short trips that still feel complete, one city, one rhythm.",
     articleSlugs: ["where-to-stay-lisbon", "rome-food-walk"],
   },
 ];
@@ -759,7 +759,7 @@ export function getGuidesForCountry(slug: StudioCountrySlug) {
     .slice(0, 6);
 }
 
-/** Paid guide products for a country hub — never fabricated as available. */
+/** Paid guide products for a country hub, never fabricated as available. */
 export function getGuideProductsForCountry(slug: StudioCountrySlug) {
   return guideProducts.filter((product) => product.countrySlug === slug);
 }
@@ -774,42 +774,49 @@ export type JournalTopicSlug =
 
 /**
  * Lightweight topic taxonomy over the Journal's existing free-text
- * `category` values (data.ts) — lets the Journal index offer a simple
+ * `category` values (data.ts), lets the Journal index offer a simple
  * subject filter without hand-retagging every article.
  */
 export const journalTopicGroups: {
   slug: JournalTopicSlug;
   title: string;
+  description: string;
   categories: string[];
 }[] = [
   {
     slug: "places",
     title: "Places",
+    description: "Cities, neighbourhoods and destination notes.",
     categories: ["City Notes", "Neighbourhood Guide", "Destination Guide", "Local Experiences"],
   },
   {
     slug: "food",
     title: "Food",
+    description: "Meals and markets worth planning a day around.",
     categories: ["Food Guide"],
   },
   {
     slug: "stays",
     title: "Stays",
+    description: "Hotels and bases worth waking up in.",
     categories: ["Hotel Notes"],
   },
   {
     slug: "culture",
     title: "Culture",
+    description: "Design, slower looking and personal stories.",
     categories: ["Design Guide", "Personal Story", "Honeymoons"],
   },
   {
     slug: "travel-notes",
-    title: "Travel Notes",
+    title: "Travel notes",
+    description: "Routes, packing and practical planning.",
     categories: ["Route Notes", "Planning", "Packing"],
   },
   {
     slug: "how-we-travel",
-    title: "How We Travel",
+    title: "How we travel",
+    description: "Pacing, attention and the Altrove approach.",
     categories: ["Sustainable Travel", "Island Planning", "Soft Adventure", "Lower-impact travel"],
   },
 ];

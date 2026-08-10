@@ -3,7 +3,7 @@ import { guideProducts } from "../../data";
 /**
  * Stripe Checkout integration point for guide purchases.
  *
- * No guide is purchasable today — every `guideProducts` entry lacks a
+ * No guide is purchasable today, every `guideProducts` entry lacks a
  * `stripePriceId`, and `STRIPE_SECRET_KEY` is unset. This route exists so
  * the front-end (`GuideCheckoutCta`) has a real endpoint to call once both
  * are configured; until then it fails loudly and explains what's missing

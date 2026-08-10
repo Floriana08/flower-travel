@@ -12,13 +12,13 @@ export default function DigitalProductTermsPage() {
     <main>
       <PageHero
         eyebrow="Legal"
-        title="Digital product terms — placeholder."
+        title="Digital product terms, placeholder."
         image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=84"
         alt="A calm outdoor table with warm travel light"
       >
         <p>
           This page is a placeholder for the terms covering Altrove&rsquo;s
-          downloadable guides. No guide is purchasable yet — this exists so
+          downloadable guides. No guide is purchasable yet, this exists so
           the link is real, not so the terms are final.
         </p>
       </PageHero>
@@ -32,7 +32,7 @@ export default function DigitalProductTermsPage() {
             </div>
             <div className="article-panel">
               <h2>Status</h2>
-              <p>Placeholder — no guide is currently for sale.</p>
+              <p>Placeholder, no guide is currently for sale.</p>
             </div>
           </aside>
 
@@ -61,7 +61,7 @@ export default function DigitalProductTermsPage() {
               <h2>To be added before launch</h2>
               <p>
                 Licence scope, refund eligibility (see also the refund
-                information page), and liability limits for guide content —
+                information page), and liability limits for guide content , 
                 these need proper legal drafting before any guide is sold.
               </p>
             </section>

@@ -139,7 +139,7 @@ export function SiteFooter() {
           <BrandLockup tone="light" />
         </Link>
         <p>
-          An editorial travel studio — stories, guides and personalised
+          An editorial travel studio, stories, guides and personalised
           itineraries for travellers who would rather remember a place than rush
           through it.
         </p>

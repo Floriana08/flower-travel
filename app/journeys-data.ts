@@ -20,7 +20,7 @@ export type Journey = {
   hotels: { name: string; note: string }[];
   experiences: string[];
   practicalNotes: string[];
-  /** Signature journey — shown first, larger treatment */
+  /** Signature journey, shown first, larger treatment */
   signature?: boolean;
   /** Included in the public catalogue (max three) */
   catalogue?: boolean;
@@ -38,14 +38,14 @@ export const journeys: Journey[] = [
     destinationSlug: "portugal",
     duration: "10 days",
     summary:
-      "Lisbon to Porto by rail — tiled stations, river light, one Atlantic pause.",
+      "Lisbon to Porto by rail, tiled stations, river light, one Atlantic pause.",
     status: "available",
     statusLabel: "Signature",
     image:
       "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1600&q=80",
     alt: "A train moving through a scenic railway landscape",
     overview: [
-      "Lisbon to Porto by rail, with room for Coimbra or a Douro day — paced so the journey itself becomes part of the trip.",
+      "Lisbon to Porto by rail, with room for Coimbra or a Douro day, paced so the journey itself becomes part of the trip.",
       "The most complete mainland Portugal route in the collection: neighbourhood bases, train light, and time to linger.",
     ],
     forWhom: [
@@ -53,7 +53,7 @@ export const journeys: Journey[] = [
       "Travellers who prefer trains to rental cars",
       "Anyone who wants few hotel changes",
     ],
-    bestTime: "March–June and September–November",
+    bestTime: "March-June and September-November",
     route: ["Porto", "Coimbra", "Lisbon", "Cascais"],
     routeSlug: "portugal-by-train",
     hotels: [
@@ -96,7 +96,7 @@ export const journeys: Journey[] = [
       "Couples and solo travellers",
       "Anyone who wants food and neighbourhood life to set the pace",
     ],
-    bestTime: "March–June and September–November",
+    bestTime: "March-June and September-November",
     route: [
       "Graça or Estrela base",
       "Baixa and Chiado",
@@ -126,16 +126,16 @@ export const journeys: Journey[] = [
     title: "Naples and the Amalfi Coast",
     destination: "Campania",
     destinationSlug: "amalfi-coast",
-    duration: "7–9 days",
+    duration: "7 to 9 days",
     summary:
-      "Flor’s home region — city intensity, then one coastal base and ferry light.",
+      "Flor’s home region, city intensity, then one coastal base and ferry light.",
     status: "in-development",
     statusLabel: "Journey concept",
     image:
       "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=80",
     alt: "Cliffside villages on the Amalfi Coast above blue Mediterranean water",
     overview: [
-      "Naples and the Amalfi Coast belong together when you give each room to breathe: a neighbourhood base in the city, then one coastal bed — not a different hotel every night.",
+      "Naples and the Amalfi Coast belong together when you give each room to breathe: a neighbourhood base in the city, then one coastal bed, not a different hotel every night.",
       "Skip the five-town sprint. Capri, Pompeii and the full Amalfi strip on the same short trip will flatten the week. Pick two coastal focuses, use ferries when you can, and leave evenings free.",
       "This is how Altrove paces Campania: meals that shape the day, boats over summer bus stacks, and height (Ravello) when the shore feels crowded.",
     ],
@@ -144,7 +144,7 @@ export const journeys: Journey[] = [
       "Food-led trips and honeymoons",
       "Return visitors ready to go beyond Positano-only plans",
     ],
-    bestTime: "May–June and September",
+    bestTime: "May-June and September",
     route: [
       "Naples",
       "Sorrento or Salerno base",
@@ -166,7 +166,7 @@ export const journeys: Journey[] = [
     practicalNotes: [
       "Pick two coastal focuses, not five. The coast punishes overambition in summer.",
       "Boats often beat buses for both views and sanity.",
-      "Heat and peak crowds change the plan — build weather-flex days.",
+      "Heat and peak crowds change the plan, build weather-flex days.",
     ],
     catalogue: true,
   },
@@ -175,7 +175,7 @@ export const journeys: Journey[] = [
     title: "Northern Spain",
     destination: "Spain",
     destinationSlug: "spain",
-    duration: "8–10 days",
+    duration: "8 to 10 days",
     summary:
       "Food, landscape and character across a route designed for travellers who prefer depth over checklists.",
     status: "in-development",
@@ -184,7 +184,7 @@ export const journeys: Journey[] = [
       "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=1600&q=84",
     alt: "Warm evening light over a historic Spanish city square",
     overview: [
-      "Cities, coast and food culture across northern Spain — shaped for travellers who prefer depth over checklists.",
+      "Cities, coast and food culture across northern Spain, shaped for travellers who prefer depth over checklists.",
       "The route is being researched into a finished Altrove journey, with room for one slower town pause.",
     ],
     forWhom: [
@@ -192,7 +192,7 @@ export const journeys: Journey[] = [
       "Road or rail-curious visitors",
       "Second Spain trips beyond Madrid and Barcelona defaults",
     ],
-    bestTime: "May–June and September–October",
+    bestTime: "May-June and September-October",
     route: ["To be confirmed as research continues"],
     hotels: [
       {

@@ -188,7 +188,7 @@ export default async function JourneyDetailPage({ params }: PageProps) {
         <EnquiryCta title="Want this journey shaped for you?">
           <p>
             Tell us your dates and how you like to travel. We&rsquo;ll design a
-            personalised version around the places we know well — hotels,
+            personalised version around the places we know well, hotels,
             neighbourhoods and pacing included. You book directly.
           </p>
         </EnquiryCta>

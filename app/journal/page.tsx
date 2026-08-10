@@ -18,7 +18,7 @@ import { defaultImageSizes, unsplashSrcSet } from "../image-utils";
 export const metadata: Metadata = {
   title: "Journal",
   description:
-    "Notes from Altrove — hotels, neighbourhoods, food and pacing, gathered with care.",
+    "Notes from Altrove: hotels, neighbourhoods, food and pacing, gathered with care.",
   alternates: {
     canonical: "https://altrove.studio/journal",
   },
@@ -37,21 +37,37 @@ export default function JournalPage() {
 
   return (
     <main className="journal-magazine">
-      <section className="section-shell page-top">
+      <section className="section-shell page-top journal-hero">
         <PageIntro eyebrow="Journal" title="Notes from elsewhere.">
           <p>
-            Hotels, neighbourhoods, food and pacing — written so you can feel
-            how I travel before you plan a journey.
+            Hotels, neighbourhoods, food and pacing, written so you can feel how
+            I travel before you plan a journey.
           </p>
         </PageIntro>
       </section>
 
-      <section className="section-shell" aria-label="Browse by topic">
-        <ul className="journal-topic-list">
-          {journalTopicGroups.map((topic) => (
+      <section className="section-shell journal-topics" aria-label="Browse by subject">
+        <div className="home-section-head">
+          <p className="eyebrow">Subjects</p>
+          <h2 className="display-title">Browse the notes</h2>
+        </div>
+        <ul className="journal-topic-index">
+          {journalTopicGroups.map((topic, index) => (
             <li key={topic.slug}>
-              <Link className="journal-topic-chip" href={`/journal/topic/${topic.slug}`}>
-                {topic.title}
+              <Link
+                className="journal-topic-row"
+                href={`/journal/topic/${topic.slug}`}
+              >
+                <span className="journal-topic-index-num" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="journal-topic-row-copy">
+                  <strong>{topic.title}</strong>
+                  <span>{topic.description}</span>
+                </span>
+                <span className="journal-topic-row-arrow" aria-hidden="true">
+                  →
+                </span>
               </Link>
             </li>
           ))}
@@ -59,7 +75,14 @@ export default function JournalPage() {
       </section>
 
       {lead ? (
-        <section className="section-shell tinted home-journal-feature" aria-label="Featured story">
+        <section
+          className="section-shell tinted home-journal-feature"
+          aria-label="Featured story"
+        >
+          <div className="home-section-head">
+            <p className="eyebrow">Featured</p>
+            <h2 className="display-title">Worth reading now</h2>
+          </div>
           <div className="home-journal-editorial">
             <article className="home-journal-lead">
               <Link href={`/journal/${lead.slug}`}>

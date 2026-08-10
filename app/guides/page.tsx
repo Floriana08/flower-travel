@@ -7,7 +7,7 @@ import { defaultImageSizes, unsplashSrcSet } from "../image-utils";
 export const metadata: Metadata = {
   title: "Guides",
   description:
-    "Premium downloadable destination guides from Altrove — starting with Campania: Naples and the Amalfi Coast.",
+    "Premium downloadable destination guides from Altrove, starting with Campania: Naples and the Amalfi Coast.",
   alternates: {
     canonical: "https://altrove.studio/guides",
   },
@@ -24,7 +24,7 @@ export default function GuidesPage() {
           Travel with an Altrove guide.
         </h1>
         <p className="destinations-index-lede">
-          Detailed, independent guides for the places we know well —
+          Detailed, independent guides for the places we know well , 
           researched properly, priced fairly, and built to be used on the
           ground, not skimmed once and forgotten.
         </p>
@@ -64,7 +64,7 @@ export default function GuidesPage() {
 
       <section className="section-shell tinted guides-note">
         <p>
-          None of these are available for purchase yet — each is being
+          None of these are available for purchase yet, each is being
           researched properly before it&rsquo;s sold. Join the waitlist on
           any guide and we&rsquo;ll email you the day it&rsquo;s ready. If
           you&rsquo;d rather have a route shaped around your own dates now,{" "}

@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PageIntro } from "../studio-components";
 import { TripEnquiryForm } from "../trip-enquiry-form";
 
 export const metadata: Metadata = {
   title: "Plan a journey",
   description:
-    "Personalised itinerary design from Altrove — how it works, what you receive, and a short enquiry to start your trip.",
+    "Personalised itinerary design from Altrove, how it works, what you receive, and a short enquiry to start your trip.",
   alternates: {
     canonical: "https://altrove.studio/plan-a-trip",
   },
@@ -19,7 +18,7 @@ const process = [
   },
   {
     title: "Questionnaire",
-    body: "Pace, interests, accommodation style and budget — covered in the form.",
+    body: "Pace, interests, accommodation style and budget, covered in the form.",
   },
   {
     title: "Consultation",
@@ -46,15 +45,15 @@ const deliverables = [
   },
   {
     title: "The matching Altrove guide",
-    body: "When a destination guide exists for your route, it’s included — the deeper research behind the itinerary.",
+    body: "When a destination guide exists for your route, it’s included, the deeper research behind the itinerary.",
   },
   {
     title: "Transport strategy",
-    body: "How to move between bases — train, ferry or drive — whichever fits the trip.",
+    body: "How to move between bases, train, ferry or drive, whichever fits the trip.",
   },
   {
     title: "Where to stay",
-    body: "Neighbourhood and area guidance for each base — you book the hotels directly.",
+    body: "Neighbourhood and area guidance for each base, you book the hotels directly.",
   },
   {
     title: "Experiences & restaurants",
@@ -73,7 +72,7 @@ export default function PlanWithAltrovePage() {
         <PageIntro eyebrow="Plan a journey" title="Your trip. Our edit.">
           <p>
             Tell us where you&rsquo;re going, when, and how you like to travel.
-            Altrove shapes the route — so the journey feels coherent rather than
+            Altrove shapes the route, so the journey feels coherent rather than
             crowded.
           </p>
         </PageIntro>
@@ -89,7 +88,7 @@ export default function PlanWithAltrovePage() {
               to base yourselves, what to prioritise, and how to make the whole
               journey feel coherent rather than a checklist of cities. The
               result is a personalised itinerary built from the same judgement
-              behind our journeys and guides — shaped around your dates, pace
+              behind our journeys and guides, shaped around your dates, pace
               and priorities.
             </p>
           </div>
@@ -116,7 +115,7 @@ export default function PlanWithAltrovePage() {
               Included with your plan
             </h2>
             <p className="plan-receive-lede">
-              A personalised itinerary — and the matching Altrove guide when one
+              A personalised itinerary, and the matching Altrove guide when one
               exists for your route.
             </p>
             <ol className="plan-receive-list">
@@ -148,12 +147,12 @@ export default function PlanWithAltrovePage() {
             </h2>
             <p className="plan-consult-price">$99</p>
             <p className="plan-pricing-note">
-              A focused consultation to shape your trip — where to base
+              A focused consultation to shape your trip, where to base
               yourselves, how to pace the days, and what belongs on the
               itinerary. Fill in the form to get started.
             </p>
             <a className="button dark" href="#apply">
-              Book your consultation — $99
+              Book your consultation for $99
             </a>
           </div>
         </div>

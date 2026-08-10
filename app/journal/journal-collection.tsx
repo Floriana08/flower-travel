@@ -94,7 +94,7 @@ export function JournalDestinationPage({ slug }: { slug: StudioCountrySlug }) {
           cta="Plan My Trip"
         >
           <p>
-            Personalised itinerary design around {country.title} — and the pacing
+            Personalised itinerary design around {country.title}, and the pacing
             you prefer.
           </p>
         </EnquiryCta>

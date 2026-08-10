@@ -17,7 +17,7 @@ function toRouteErrorMessage(error: unknown) {
   }
 
   // A duplicate email is not really an error from the visitor's point of
-  // view — they're already on the list.
+  // view, they're already on the list.
   if (combined.includes("UNIQUE constraint failed")) {
     return "ALREADY_SUBSCRIBED";
   }
