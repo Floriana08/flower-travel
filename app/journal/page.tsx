@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { EditorialCarousel } from "../EditorialCarousel";
 import { NewsletterForm } from "../newsletter-form";
 import {
@@ -8,13 +7,8 @@ import {
   StudioNewsletter,
 } from "../studio-components";
 import {
-  getGuidesForCountry,
   getGuidesForTopic,
-  journalTopicGroups,
   storiesFromSlugs,
-  studioCountries,
-  type JournalTopicSlug,
-  type StudioCountrySlug,
 } from "../studio-structure";
 
 export const metadata: Metadata = {
@@ -34,22 +28,38 @@ const latestSlugs = [
   "choosing-a-honeymoon-route",
 ] as const;
 
+const carousels = [
+  {
+    eyebrow: "Latest",
+    title: "Worth reading now",
+    description: null as string | null,
+    viewAllHref: undefined as string | undefined,
+    articles: () => storiesFromSlugs(latestSlugs),
+  },
+  {
+    eyebrow: "Subject",
+    title: "Places",
+    description: "Cities, neighbourhoods and destination notes.",
+    viewAllHref: "/journal/topic/places",
+    articles: () => getGuidesForTopic("places"),
+  },
+  {
+    eyebrow: "Subject",
+    title: "Food",
+    description: "Meals and markets worth planning a day around.",
+    viewAllHref: "/journal/topic/food",
+    articles: () => getGuidesForTopic("food"),
+  },
+] as const;
+
 export default function JournalPage() {
-  const latest = storiesFromSlugs(latestSlugs);
-
-  const topicCarousels = journalTopicGroups
-    .map((topic) => ({
-      topic,
-      articles: getGuidesForTopic(topic.slug as JournalTopicSlug),
+  const sections = carousels
+    .map((carousel) => ({
+      ...carousel,
+      articles: carousel.articles(),
     }))
-    .filter((group) => group.articles.length > 0);
-
-  const placeCarousels = studioCountries
-    .map((country) => ({
-      country,
-      articles: getGuidesForCountry(country.slug as StudioCountrySlug),
-    }))
-    .filter((group) => group.articles.length > 0);
+    .filter((section) => section.articles.length > 0)
+    .slice(0, 3);
 
   return (
     <main className="journal-magazine">
@@ -62,62 +72,24 @@ export default function JournalPage() {
         </PageIntro>
       </section>
 
-      {latest.length ? (
-        <div className="journal-carousel-band">
-          <EditorialCarousel
-            eyebrow="Latest"
-            title="Worth reading now"
-            ariaLabel="Latest journal stories"
-          >
-            {latest.map((guide) => (
-              <EditorialStoryCard key={guide.slug} guide={guide} />
-            ))}
-          </EditorialCarousel>
-        </div>
-      ) : null}
-
-      {topicCarousels.map(({ topic, articles }, index) => (
+      {sections.map((section, index) => (
         <div
-          key={topic.slug}
+          key={section.title}
           className={
-            index % 2 === 0
+            index % 2 === 1
               ? "journal-carousel-band tinted"
               : "journal-carousel-band"
           }
         >
           <EditorialCarousel
-            eyebrow="Subject"
-            title={topic.title}
-            intro={<p>{topic.description}</p>}
-            viewAllHref={`/journal/topic/${topic.slug}`}
+            eyebrow={section.eyebrow}
+            title={section.title}
+            intro={section.description ? <p>{section.description}</p> : undefined}
+            viewAllHref={section.viewAllHref}
             viewAllLabel="View all"
-            ariaLabel={`${topic.title} journal stories`}
+            ariaLabel={`${section.title} journal stories`}
           >
-            {articles.map((guide) => (
-              <EditorialStoryCard key={guide.slug} guide={guide} />
-            ))}
-          </EditorialCarousel>
-        </div>
-      ))}
-
-      {placeCarousels.map(({ country, articles }, index) => (
-        <div
-          key={country.slug}
-          className={
-            (topicCarousels.length + index) % 2 === 0
-              ? "journal-carousel-band tinted"
-              : "journal-carousel-band"
-          }
-        >
-          <EditorialCarousel
-            eyebrow="Place"
-            title={country.title}
-            intro={<p>{country.short}</p>}
-            viewAllHref={`/journal/${country.slug}`}
-            viewAllLabel="View all"
-            ariaLabel={`${country.title} journal stories`}
-          >
-            {articles.map((guide) => (
+            {section.articles.map((guide) => (
               <EditorialStoryCard key={guide.slug} guide={guide} />
             ))}
           </EditorialCarousel>
