@@ -8,13 +8,14 @@ import {
   StudioNewsletter,
 } from "../studio-components";
 import {
+  getGuidesForCountry,
   getGuidesForTopic,
   journalTopicGroups,
   storiesFromSlugs,
   studioCountries,
   type JournalTopicSlug,
+  type StudioCountrySlug,
 } from "../studio-structure";
-import { defaultImageSizes, unsplashSrcSet } from "../image-utils";
 
 export const metadata: Metadata = {
   title: "Journal",
@@ -25,20 +26,28 @@ export const metadata: Metadata = {
   },
 };
 
-const featuredSlugs = [
+const latestSlugs = [
   "where-to-stay-lisbon",
   "rome-food-walk",
   "madeira-first-timers",
+  "train-travel-europe",
+  "choosing-a-honeymoon-route",
 ] as const;
 
 export default function JournalPage() {
-  const featured = storiesFromSlugs(featuredSlugs);
-  const lead = featured[0];
+  const latest = storiesFromSlugs(latestSlugs);
 
   const topicCarousels = journalTopicGroups
     .map((topic) => ({
       topic,
       articles: getGuidesForTopic(topic.slug as JournalTopicSlug),
+    }))
+    .filter((group) => group.articles.length > 0);
+
+  const placeCarousels = studioCountries
+    .map((country) => ({
+      country,
+      articles: getGuidesForCountry(country.slug as StudioCountrySlug),
     }))
     .filter((group) => group.articles.length > 0);
 
@@ -53,96 +62,67 @@ export default function JournalPage() {
         </PageIntro>
       </section>
 
-      {lead ? (
-        <section
-          className="section-shell tinted journal-lead-feature"
-          aria-label="Featured story"
-        >
-          <article className="journal-lead-feature-grid">
-            <Link
-              className="journal-lead-feature-media"
-              href={`/journal/${lead.slug}`}
-              aria-label={lead.title}
-            >
-              <img
-                src={lead.image}
-                srcSet={unsplashSrcSet(lead.image)}
-                sizes="(max-width: 900px) 100vw, 58vw"
-                alt={lead.alt}
-                loading="eager"
-              />
-            </Link>
-            <div className="journal-lead-feature-copy">
-              <p className="eyebrow">
-                Featured · {lead.destination} · {lead.category}
-              </p>
-              <h2 className="display-title">
-                <Link href={`/journal/${lead.slug}`}>{lead.title}</Link>
-              </h2>
-              <p>{lead.excerpt}</p>
-              <Link className="text-link" href={`/journal/${lead.slug}`}>
-                Read the story
-              </Link>
-            </div>
-          </article>
-        </section>
+      {latest.length ? (
+        <div className="journal-carousel-band">
+          <EditorialCarousel
+            eyebrow="Latest"
+            title="Worth reading now"
+            ariaLabel="Latest journal stories"
+          >
+            {latest.map((guide) => (
+              <EditorialStoryCard key={guide.slug} guide={guide} />
+            ))}
+          </EditorialCarousel>
+        </div>
       ) : null}
 
-      <div className="journal-category-carousels">
-        {topicCarousels.map(({ topic, articles }, index) => (
-          <div
-            key={topic.slug}
-            className={
-              index % 2 === 1
-                ? "journal-carousel-band tinted"
-                : "journal-carousel-band"
-            }
+      {topicCarousels.map(({ topic, articles }, index) => (
+        <div
+          key={topic.slug}
+          className={
+            index % 2 === 0
+              ? "journal-carousel-band tinted"
+              : "journal-carousel-band"
+          }
+        >
+          <EditorialCarousel
+            eyebrow="Subject"
+            title={topic.title}
+            intro={<p>{topic.description}</p>}
+            viewAllHref={`/journal/topic/${topic.slug}`}
+            viewAllLabel="View all"
+            ariaLabel={`${topic.title} journal stories`}
           >
-            <EditorialCarousel
-              eyebrow="Subject"
-              title={topic.title}
-              intro={<p>{topic.description}</p>}
-              viewAllHref={`/journal/topic/${topic.slug}`}
-              viewAllLabel="View all"
-              ariaLabel={`${topic.title} journal stories`}
-            >
-              {articles.map((guide) => (
-                <EditorialStoryCard key={guide.slug} guide={guide} />
-              ))}
-            </EditorialCarousel>
-          </div>
-        ))}
-      </div>
+            {articles.map((guide) => (
+              <EditorialStoryCard key={guide.slug} guide={guide} />
+            ))}
+          </EditorialCarousel>
+        </div>
+      ))}
 
-      <section className="section-shell" aria-label="Collections">
-        <div className="home-section-head">
-          <p className="eyebrow">Collections</p>
-          <h2 className="display-title">Browse by place</h2>
+      {placeCarousels.map(({ country, articles }, index) => (
+        <div
+          key={country.slug}
+          className={
+            (topicCarousels.length + index) % 2 === 0
+              ? "journal-carousel-band tinted"
+              : "journal-carousel-band"
+          }
+        >
+          <EditorialCarousel
+            eyebrow="Place"
+            title={country.title}
+            intro={<p>{country.short}</p>}
+            viewAllHref={`/journal/${country.slug}`}
+            viewAllLabel="View all"
+            ariaLabel={`${country.title} journal stories`}
+          >
+            {articles.map((guide) => (
+              <EditorialStoryCard key={guide.slug} guide={guide} />
+            ))}
+          </EditorialCarousel>
         </div>
-        <div className="journal-browse-grid">
-          {studioCountries.map((country) => (
-            <Link
-              key={country.slug}
-              className="journal-browse-card"
-              href={`/journal/${country.slug}`}
-            >
-              <span className="journal-browse-media">
-                <img
-                  src={country.image}
-                  srcSet={unsplashSrcSet(country.image)}
-                  sizes={defaultImageSizes}
-                  alt={country.alt}
-                  loading="lazy"
-                />
-              </span>
-              <span className="journal-browse-copy">
-                <span className="journal-browse-title">{country.title}</span>
-                <span>{country.short}</span>
-              </span>
-            </Link>
-          ))}
-        </div>
-      </section>
+      ))}
 
       <StudioNewsletter
         title="Letters from Altrove"
