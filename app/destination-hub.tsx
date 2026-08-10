@@ -2,7 +2,6 @@ import Link from "next/link";
 import { NewsletterForm } from "./newsletter-form";
 import { StudioNewsletter } from "./studio-components";
 import {
-  getFeaturedJourneyForCountry,
   getGuideProductsForCountry,
   getHubJournalStories,
   type StudioCountry,
@@ -10,11 +9,8 @@ import {
 import { defaultImageSizes, heroImageSizes, unsplashSrcSet } from "./image-utils";
 
 export function DestinationHub({ country }: { country: StudioCountry }) {
-  const featured = getFeaturedJourneyForCountry(country.slug);
   const stories = getHubJournalStories(country.slug);
   const countryGuides = getGuideProductsForCountry(country.slug);
-  const days = country.example.days;
-  const routeStops = days.map((day) => day.title.replace(/^(Arrive in |Stay in |Boat to |Return to )/i, ""));
 
   return (
     <main className="country-mag">
@@ -225,68 +221,6 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
           </p>
         )}
       </section>
-
-      {featured ? (
-        <section
-          className="country-mag-coast country-mag-pad"
-          aria-label={country.example.title}
-        >
-          <div className="country-mag-coast-head">
-            <div className="country-mag-coast-copy">
-              <p className="country-mag-kicker">Featured journey</p>
-              <h2>
-                <Link href={`/journeys/${featured.slug}`}>{featured.title}</Link>
-              </h2>
-              <p className="country-mag-meta">
-                {featured.duration} · {featured.destination}
-              </p>
-              <p className="country-mag-deck">{featured.summary}</p>
-              <p className="country-mag-deck">{country.example.lede}</p>
-              {routeStops.length ? (
-                <p className="country-mag-route-line" aria-label="Suggested route">
-                  {routeStops.join(" → ")}
-                </p>
-              ) : null}
-            </div>
-            <figure className="country-mag-coast-side">
-              <img
-                src={country.exampleImage}
-                srcSet={unsplashSrcSet(country.exampleImage)}
-                sizes={defaultImageSizes}
-                alt={country.exampleImageAlt}
-                loading="lazy"
-              />
-            </figure>
-          </div>
-
-          <ol className="country-mag-days">
-            {days.map((day, index) => (
-              <li
-                key={`${day.label}-${day.title}`}
-                style={{ ["--day-index" as string]: index }}
-              >
-                <p className="country-mag-day-label">{day.label}</p>
-                <h3>{day.title}</h3>
-                {day.note ? <p>{day.note}</p> : null}
-              </li>
-            ))}
-          </ol>
-
-          <div className="country-mag-coast-links">
-            <Link className="country-mag-link" href={`/journeys/${featured.slug}`}>
-              Explore the journey
-            </Link>
-            {countryGuides[0] ? (
-              <Link className="country-mag-link" href={`/guides/${countryGuides[0].slug}`}>
-                View the guide
-              </Link>
-            ) : null}
-            <Link className="country-mag-link" href="/plan-a-trip">
-              Plan a personalised version
-            </Link>
-          </div>
-        </section>
-      ) : null}
 
       <section className="country-mag-plan country-mag-pad" aria-label="Plan a trip">
         <div className="country-mag-plan-media" aria-hidden="true">
