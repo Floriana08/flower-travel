@@ -6021,6 +6021,65 @@ h1.studio-hero-lede {
   padding-top: clamp(12px, 2vw, 24px);
 }
 
+.journal-lead-feature-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+}
+
+.journal-lead-feature-media {
+  display: block;
+  overflow: hidden;
+}
+
+.journal-lead-feature-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+}
+
+.journal-lead-feature-copy {
+  display: grid;
+  gap: 14px;
+  max-width: 28rem;
+}
+
+.journal-lead-feature-copy .display-title {
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+}
+
+.journal-lead-feature-copy .display-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.journal-lead-feature-copy .display-title a:hover {
+  opacity: 0.72;
+}
+
+.journal-category-carousels {
+  display: grid;
+}
+
+.journal-carousel-band.tinted {
+  background: var(--warm-paper);
+}
+
+.editorial-carousel-track .editorial-story-card {
+  flex: 0 0 clamp(260px, 28vw, 360px);
+  scroll-snap-align: start;
+  max-width: 360px;
+}
+
+.editorial-carousel-track .editorial-story-card h3 {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
 .journal-topic-index {
   list-style: none;
   margin: 0;
@@ -6086,6 +6145,12 @@ h1.studio-hero-lede {
   font-size: 1.05rem;
   line-height: 1.4;
   padding-top: 4px;
+}
+
+@media (max-width: 900px) {
+  .journal-lead-feature-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 560px) {

@@ -32,7 +32,7 @@ export function EditorialCarousel({
     }
 
     const card = rail.querySelector<HTMLElement>(
-      ".story-card, .journal-mood-slide",
+      ".story-card, .journal-mood-slide, .editorial-story-card",
     );
     const gap = 16;
     const distance = card ? card.offsetWidth + gap : 420;

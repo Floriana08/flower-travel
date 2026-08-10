@@ -147,7 +147,7 @@ export function DestinationFeature({
 
 export function EditorialStoryCard({ guide }: { guide: Guide }) {
   return (
-    <article className="editorial-story-card">
+    <article className="editorial-story-card story-card">
       <Link
         className="editorial-story-card-link"
         href={`/journal/${guide.slug}`}
