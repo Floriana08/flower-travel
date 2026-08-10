@@ -2,6 +2,7 @@ import Link from "next/link";
 import { NewsletterForm } from "./newsletter-form";
 import { StudioNewsletter } from "./studio-components";
 import {
+  getFeaturedJourneyForCountry,
   getGuideProductsForCountry,
   getHubJournalStories,
   type StudioCountry,
@@ -10,149 +11,212 @@ import { defaultImageSizes, heroImageSizes, unsplashSrcSet } from "./image-utils
 
 export function DestinationHub({ country }: { country: StudioCountry }) {
   const stories = getHubJournalStories(country.slug);
-  const [leadStory, ...moreStories] = stories;
   const guide = getGuideProductsForCountry(country.slug)[0];
-  const coverage = country.collections.map((region) => region.title);
+  const journey = getFeaturedJourneyForCountry(country.slug);
+  const places = country.collections;
+  const tips = country.travelNotes;
 
   return (
-    <main className="dest-edit">
-      <section className="dest-edit-hero">
+    <main className="dest-lp">
+      <section className="dest-lp-hero">
         <img
           src={country.image}
           srcSet={unsplashSrcSet(country.image)}
           sizes={heroImageSizes}
           alt={country.alt}
         />
-        <div className="dest-edit-hero-copy">
-          <p className="dest-edit-brand">{country.title}</p>
-          <h1>How we experience {country.title}.</h1>
+        <div className="dest-lp-hero-copy">
+          <h1>{country.title}</h1>
+          <p>{country.hubLede}</p>
         </div>
       </section>
 
-      <section className="dest-edit-shell dest-edit-open">
-        <p className="dest-edit-lede dest-edit-reveal">{country.hubLede}</p>
-        {coverage.length ? (
-          <p className="dest-edit-coverage dest-edit-reveal dest-edit-reveal-2">
-            <span className="dest-edit-label">Covered</span>
-            {coverage.join(" · ")}
-          </p>
-        ) : null}
-      </section>
-
-      {country.travelNotes.length ? (
-        <section className="dest-edit-shell dest-edit-notes" aria-label="Travel notes">
-          <div className="dest-edit-notes-head">
-            <p className="dest-edit-label">Travel notes</p>
-            <h2>How to travel here</h2>
-            <p className="dest-edit-dek">{country.notesIntro}</p>
+      {places.length ? (
+        <section className="dest-lp-shell dest-lp-places" aria-label="Places to go">
+          <div className="dest-lp-section-head">
+            <p className="dest-lp-label">Explore</p>
+            <h2>Places to go</h2>
+            <p className="dest-lp-dek">
+              The parts of {country.title} Altrove knows well enough to edit
+              carefully.
+            </p>
           </div>
-          <dl className="dest-edit-notes-list">
-            {country.travelNotes.map((note) => (
-              <div key={note.title}>
-                <dt>{note.title}</dt>
-                <dd>{note.body}</dd>
-              </div>
-            ))}
-          </dl>
+          <div className="dest-lp-places-grid">
+            {places.map((place) => {
+              const inner = (
+                <>
+                  <img
+                    src={place.image}
+                    srcSet={unsplashSrcSet(place.image)}
+                    sizes={defaultImageSizes}
+                    alt={place.alt}
+                    loading="lazy"
+                  />
+                  <span className="dest-lp-places-copy">
+                    <strong>{place.title}</strong>
+                    <em>{place.note}</em>
+                  </span>
+                </>
+              );
+              return place.href ? (
+                <Link
+                  key={place.title}
+                  className="dest-lp-place"
+                  href={place.href}
+                >
+                  {inner}
+                </Link>
+              ) : (
+                <article key={place.title} className="dest-lp-place is-static">
+                  {inner}
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      ) : null}
+
+      {tips.length ? (
+        <section className="dest-lp-tips" aria-label="Travel tips">
+          <div className="dest-lp-shell">
+            <div className="dest-lp-section-head">
+              <p className="dest-lp-label">Need to know</p>
+              <h2>{country.title} travel tips</h2>
+              <p className="dest-lp-dek">{country.notesIntro}</p>
+            </div>
+            <div className="dest-lp-tips-grid">
+              {tips.map((tip) => (
+                <article key={tip.title} className="dest-lp-tip">
+                  <h3>{tip.title}</h3>
+                  <p>{tip.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
         </section>
       ) : null}
 
       {country.tasteNotes.length ? (
-        <section className="dest-edit-shell dest-edit-tastes" aria-label="Places we love">
-          <div className="dest-edit-section-head">
-            <p className="dest-edit-label">Places we love</p>
-            <h2>Taste notes</h2>
+        <section className="dest-lp-shell dest-lp-loves" aria-label="Places we love">
+          <div className="dest-lp-section-head">
+            <p className="dest-lp-label">Altrove picks</p>
+            <h2>Where we would send a friend</h2>
           </div>
-          <div className="dest-edit-taste-stack">
-            {country.tasteNotes.map((taste, index) => (
-              <article
-                key={taste.name}
-                className={`dest-edit-taste${index % 2 === 1 ? " is-flip" : ""}`}
-              >
-                <figure className="dest-edit-taste-media">
-                  <img
-                    src={taste.image}
-                    srcSet={unsplashSrcSet(taste.image)}
-                    sizes={defaultImageSizes}
-                    alt={taste.alt}
-                    loading="lazy"
-                  />
-                </figure>
-                <div className="dest-edit-taste-copy">
-                  <p className="dest-edit-label">{taste.kind}</p>
-                  <h3>{taste.name}</h3>
-                  <p>{taste.note}</p>
-                </div>
+          <div className="dest-lp-loves-grid">
+            {country.tasteNotes.map((taste) => (
+              <article key={taste.name} className="dest-lp-love">
+                <img
+                  src={taste.image}
+                  srcSet={unsplashSrcSet(taste.image)}
+                  sizes={defaultImageSizes}
+                  alt={taste.alt}
+                  loading="lazy"
+                />
+                <p className="dest-lp-label">{taste.kind}</p>
+                <h3>{taste.name}</h3>
+                <p>{taste.note}</p>
               </article>
             ))}
           </div>
         </section>
       ) : null}
 
-      <section className="dest-edit-shell dest-edit-journal" aria-label="Journal">
-        <div className="dest-edit-section-head">
-          <p className="dest-edit-label">Journal</p>
-          <h2>Stories from {country.title}</h2>
+      <section className="dest-lp-shell dest-lp-stories" aria-label="Latest stories">
+        <div className="dest-lp-section-head dest-lp-section-head-row">
+          <div>
+            <p className="dest-lp-label">Latest stories</p>
+            <h2>From the journal</h2>
+          </div>
+          <Link className="dest-lp-text-link" href={`/journal/${country.slug}`}>
+            More stories
+          </Link>
         </div>
-        {leadStory ? (
-          <div className="dest-edit-journal-layout">
-            <article className="dest-edit-journal-lead">
-              <Link href={`/journal/${leadStory.slug}`}>
-                <img
-                  src={leadStory.image}
-                  srcSet={unsplashSrcSet(leadStory.image)}
-                  sizes="(max-width: 900px) 100vw, 58vw"
-                  alt={leadStory.alt}
-                  loading="lazy"
-                />
-                <p className="dest-edit-label">
-                  {leadStory.category} · {leadStory.readTime}
-                </p>
-                <h3>{leadStory.title}</h3>
-                <p>{leadStory.excerpt}</p>
-              </Link>
-            </article>
-            {moreStories.length ? (
-              <ul className="dest-edit-journal-list">
-                {moreStories.map((story) => (
-                  <li key={story.slug}>
-                    <Link href={`/journal/${story.slug}`}>
-                      <span className="dest-edit-label">{story.category}</span>
-                      <strong>{story.title}</strong>
-                      <span>{story.excerpt}</span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            ) : null}
+        {stories.length ? (
+          <div className="dest-lp-stories-grid">
+            {stories.map((story) => (
+              <article key={story.slug} className="dest-lp-story">
+                <Link href={`/journal/${story.slug}`}>
+                  <img
+                    src={story.image}
+                    srcSet={unsplashSrcSet(story.image)}
+                    sizes={defaultImageSizes}
+                    alt={story.alt}
+                    loading="lazy"
+                  />
+                  <p className="dest-lp-label">{story.category}</p>
+                  <h3>{story.title}</h3>
+                  <p>{story.excerpt}</p>
+                </Link>
+              </article>
+            ))}
           </div>
         ) : (
-          <p className="dest-edit-empty">
+          <p className="dest-lp-empty">
             Journal notes for {country.title} are still being gathered.
           </p>
         )}
-        <Link className="dest-edit-text-link" href={`/journal/${country.slug}`}>
-          More from {country.title}
-        </Link>
+      </section>
+
+      <section className="dest-lp-journeys" aria-label="Plan with Altrove">
+        <div className="dest-lp-shell dest-lp-journeys-inner">
+          <div className="dest-lp-journeys-copy">
+            <p className="dest-lp-label">Plan with Altrove</p>
+            <h2>See {country.title} how it&rsquo;s meant to be seen</h2>
+            <p>
+              Personalised itinerary design around the places we know well,
+              hotels, neighbourhoods and pacing included. You make the
+              bookings; Altrove makes the trip make sense.
+            </p>
+            <div className="dest-lp-journeys-actions">
+              <Link className="button light" href="/plan-a-trip">
+                Start planning
+              </Link>
+              {journey ? (
+                <Link
+                  className="button ghost-on-dark"
+                  href={`/journeys/${journey.slug}`}
+                >
+                  Browse a journey
+                </Link>
+              ) : null}
+            </div>
+          </div>
+          {journey ? (
+            <Link
+              className="dest-lp-journeys-feature"
+              href={`/journeys/${journey.slug}`}
+            >
+              <img
+                src={journey.image}
+                srcSet={unsplashSrcSet(journey.image)}
+                sizes={defaultImageSizes}
+                alt={journey.alt}
+                loading="lazy"
+              />
+              <span>
+                <em>{journey.duration}</em>
+                <strong>{journey.title}</strong>
+              </span>
+            </Link>
+          ) : null}
+        </div>
       </section>
 
       {guide ? (
-        <section className="dest-edit-guide" aria-label="Guide">
-          <div className="dest-edit-shell dest-edit-guide-inner">
-            <figure className="dest-edit-guide-media">
-              <img
-                src={guide.image}
-                srcSet={unsplashSrcSet(guide.image)}
-                sizes={defaultImageSizes}
-                alt={guide.alt}
-                loading="lazy"
-              />
-            </figure>
-            <div className="dest-edit-guide-copy">
-              <p className="dest-edit-label">Guide</p>
+        <section className="dest-lp-shell dest-lp-guide" aria-label="Guide">
+          <div className="dest-lp-guide-inner">
+            <img
+              src={guide.image}
+              srcSet={unsplashSrcSet(guide.image)}
+              sizes={defaultImageSizes}
+              alt={guide.alt}
+              loading="lazy"
+            />
+            <div>
+              <p className="dest-lp-label">Travel guide</p>
               <h2>{guide.title}</h2>
               <p>{guide.excerpt}</p>
-              <p className="dest-edit-guide-meta">
+              <p className="dest-lp-guide-meta">
                 {guide.price}
                 {!guide.stripePriceId ? " · Launching soon" : ""}
               </p>
@@ -163,18 +227,6 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
           </div>
         </section>
       ) : null}
-
-      <section className="dest-edit-shell dest-edit-plan" aria-label="Plan a journey">
-        <p className="dest-edit-label">Plan a journey</p>
-        <h2>Want this paced for your dates?</h2>
-        <p>
-          Altrove can shape a {country.title} route around how you like to
-          travel.
-        </p>
-        <Link className="button dark" href="/plan-a-trip">
-          Plan a journey
-        </Link>
-      </section>
 
       <StudioNewsletter
         title={`Notes from ${country.title}`}
