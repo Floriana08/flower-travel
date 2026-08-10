@@ -31,44 +31,6 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
         <p className="country-mag-lede">{country.hubLede}</p>
       </section>
 
-      <section className="country-mag-regions country-mag-pad" aria-label="Regions">
-        <div className="country-mag-notes-rail">
-          <p className="country-mag-kicker">Regions</p>
-          <h2>Where we cover {country.title}</h2>
-        </div>
-        <div className="country-mag-regions-grid">
-          {country.collections.map((region) => {
-            const content = (
-              <>
-                <figure>
-                  <img
-                    src={region.image}
-                    srcSet={unsplashSrcSet(region.image)}
-                    sizes={defaultImageSizes}
-                    alt={region.alt}
-                    loading="lazy"
-                  />
-                </figure>
-                <h3>{region.title}</h3>
-                <p>{region.note}</p>
-                {region.status ? (
-                  <p className="country-mag-region-status">{region.status}</p>
-                ) : null}
-              </>
-            );
-            return region.href ? (
-              <Link key={region.title} className="country-mag-region-card" href={region.href}>
-                {content}
-              </Link>
-            ) : (
-              <article key={region.title} className="country-mag-region-card is-quiet">
-                {content}
-              </article>
-            );
-          })}
-        </div>
-      </section>
-
       {country.travelNotes.length ? (
         <section className="country-mag-notes country-mag-pad" aria-label="Travel notes">
           <div className="country-mag-notes-rail">
