@@ -110,19 +110,35 @@ export default function PlanWithAltrovePage() {
             </ol>
           </div>
 
-          <div className="plan-story-block">
+          <div className="plan-story-block plan-receive-block">
             <p className="eyebrow">What you receive</p>
             <h2 className="display-title plan-story-title">
               Included with your plan
             </h2>
-            <ul className="plan-receive-list">
-              {deliverables.map((item) => (
-                <li key={item.title}>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
+            <p className="plan-receive-lede">
+              A personalised itinerary — and the matching Altrove guide when one
+              exists for your route.
+            </p>
+            <ol className="plan-receive-list">
+              {deliverables.map((item, index) => (
+                <li
+                  key={item.title}
+                  className={
+                    item.title === "The matching Altrove guide"
+                      ? "is-featured"
+                      : undefined
+                  }
+                >
+                  <span className="plan-receive-index" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div className="plan-receive-copy">
+                    <h3>{item.title}</h3>
+                    <p>{item.body}</p>
+                  </div>
                 </li>
               ))}
-            </ul>
+            </ol>
           </div>
 
           <div className="plan-story-block">

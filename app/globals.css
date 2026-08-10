@@ -3840,41 +3840,79 @@ h1.studio-hero-lede {
   line-height: 1.6;
 }
 
+.plan-receive-block {
+  max-width: none;
+}
+
+.plan-receive-lede {
+  margin: 0;
+  max-width: 34rem;
+  color: var(--soft-ink);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
 .plan-receive-list {
   list-style: none;
-  margin: 6px 0 0;
+  margin: 10px 0 0;
   padding: 0;
   display: grid;
   gap: 0;
+  border-top: 1px solid var(--ink);
 }
 
 .plan-receive-list li {
   display: grid;
-  gap: 6px;
-  padding: 18px 0;
-  border-top: 1px solid var(--line);
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  gap: 14px 18px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
 }
 
-.plan-receive-list li:last-child {
-  border-bottom: 1px solid var(--line);
+.plan-receive-list li.is-featured {
+  background: linear-gradient(
+    90deg,
+    rgba(239, 232, 220, 0.9) 0%,
+    rgba(239, 232, 220, 0) 100%
+  );
+  margin: 0 -12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-bottom-color: var(--ink);
+}
+
+.plan-receive-index {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  line-height: 1.4;
+  padding-top: 3px;
+}
+
+.plan-receive-copy {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
 }
 
 .plan-receive-list h3 {
   margin: 0;
   font-family: var(--font-sans);
-  font-size: 1.05rem;
+  font-size: clamp(1.12rem, 1.8vw, 1.35rem);
   font-weight: 500;
-  letter-spacing: -0.01em;
-  line-height: 1.25;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
   color: var(--ink);
 }
 
 .plan-receive-list p {
   margin: 0;
-  max-width: 32rem;
+  max-width: 34rem;
   color: var(--soft-ink);
   font-size: 0.98rem;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .plan-split-form {
