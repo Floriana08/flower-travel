@@ -6,7 +6,7 @@ import { TripEnquiryForm } from "../trip-enquiry-form";
 export const metadata: Metadata = {
   title: "Plan a journey",
   description:
-    "Personalised itinerary design from Altrove — Flor’s approach, how it works, and a short enquiry to start your trip.",
+    "Personalised itinerary design from Altrove — how it works, what you receive, and a short enquiry to start your trip.",
   alternates: {
     canonical: "https://altrove.studio/plan-a-trip",
   },
@@ -62,39 +62,6 @@ export default function PlanWithAltrovePage() {
 
       <section className="section-shell plan-split" aria-label="Plan with Altrove">
         <div className="plan-split-story">
-          <div className="plan-story-block" id="meet-flor">
-            <p className="eyebrow">Meet Flor</p>
-            <h2 className="display-title plan-story-title">
-              Italian by birth. Living in Portugal. Collecting the places worth
-              returning to.
-            </h2>
-            <div className="about-prose">
-              <p>
-                I&rsquo;ve always travelled by collecting notes. Hotels I&rsquo;d
-                return to without thinking twice. Neighbourhoods worth waking up
-                in. Restaurants I&rsquo;d recommend to a friend without
-                hesitation. Routes that quietly changed how I saw a city or a
-                stretch of coast.
-              </p>
-              <p>
-                For years those recommendations lived in notebooks and long
-                messages to people I care about. Altrove grew out of that habit
-                — a place to gather what was worth keeping, and to share it with
-                more care than a hurried list ever could.
-              </p>
-              <p className="about-pull">
-                Altrove isn&rsquo;t about travelling more. It&rsquo;s about
-                travelling better.
-              </p>
-              <p>
-                Every destination begins with a real journey. I write from
-                places I have visited, stayed in and returned to in thought long
-                after the trip ended. I&rsquo;d rather recommend less, and mean
-                it.
-              </p>
-            </div>
-          </div>
-
           <div className="plan-story-block">
             <p className="eyebrow">The service</p>
             <h2 className="display-title plan-story-title">What Altrove does</h2>

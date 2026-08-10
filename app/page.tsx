@@ -50,7 +50,7 @@ const structuredData = {
         "@type": "Organization",
         name: site.name,
       },
-      url: "https://altrove.studio/plan-a-trip#meet-flor",
+      url: "https://altrove.studio/plan-a-trip",
     },
   ],
 };

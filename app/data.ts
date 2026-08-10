@@ -11,7 +11,7 @@ export const navItems = [
   { href: "/destinations", label: "Destinations" },
   { href: "/journal", label: "Journal" },
   { href: "/guides", label: "Guides" },
-  { href: "/plan-a-trip#meet-flor", label: "About" },
+  { href: "/plan-a-trip", label: "About" },
 ];
 
 export const navCta = {

@@ -3851,7 +3851,6 @@ h1.studio-hero-lede {
   overflow-y: auto;
 }
 
-.plan-story-block#meet-flor,
 .plan-split-form#apply {
   scroll-margin-top: calc(var(--header-height) + 20px);
 }
