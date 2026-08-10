@@ -54,7 +54,7 @@ const deliverables = [
   },
   {
     title: "Where to stay",
-    body: "Neighbourhood and area guidance for each base (you book directly — see boundaries below).",
+    body: "Neighbourhood and area guidance for each base — you book the hotels directly.",
   },
   {
     title: "Experiences & restaurants",
@@ -141,38 +141,20 @@ export default function PlanWithAltrovePage() {
             </ol>
           </div>
 
-          <div className="plan-story-block">
-            <p className="eyebrow">Boundaries</p>
-            <h2 className="display-title plan-story-title">
-              What this doesn&rsquo;t include
-            </h2>
-            <p className="plan-service-copy">
-              Altrove designs itineraries and gives independent recommendations
-              — we don&rsquo;t currently book flights, hotels or travel packages
-              on your behalf, and we don&rsquo;t offer 24/7 travel support
-              during your trip. Once you have the itinerary, you book directly
-              with the providers we point you to. Complete trip booking is a
-              future service we&rsquo;re working towards, not something we offer
-              today.
-            </p>
-          </div>
-
-          <div className="plan-story-block">
+          <div className="plan-story-block plan-consult-block">
             <p className="eyebrow">Pricing</p>
             <h2 className="display-title plan-story-title">
-              Shared after enquiry
+              Book your consultation
             </h2>
+            <p className="plan-consult-price">$99</p>
             <p className="plan-pricing-note">
-              Fees depend on trip length and complexity. Altrove confirms the
-              figure with you before any work begins — no surprise invoices.
+              A focused consultation to shape your trip — where to base
+              yourselves, how to pace the days, and what belongs on the
+              itinerary. Fill in the form to get started.
             </p>
-            <p className="plan-trip-aside">
-              Prefer to browse first?{" "}
-              <Link className="text-link" href="/destinations">
-                Explore the destinations
-              </Link>
-              .
-            </p>
+            <a className="button dark" href="#apply">
+              Book your consultation — $99
+            </a>
           </div>
         </div>
 
