@@ -32,9 +32,6 @@ export const metadata: Metadata = {
   },
 };
 
-const florFieldImage =
-  "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1600&q=84";
-
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -347,34 +344,6 @@ export default function Home() {
           </p>
         </section>
       ) : null}
-
-      <section className="section-shell tinted home-flor" id="flor">
-        <div className="home-flor-layout">
-          <figure className="home-flor-media">
-            <img
-              src={florFieldImage}
-              srcSet={unsplashSrcSet(florFieldImage)}
-              sizes={defaultImageSizes}
-              alt="Warm café interior with afternoon light — the kind of pause Altrove plans for"
-              loading="lazy"
-            />
-          </figure>
-          <div className="home-flor-copy">
-            <p className="eyebrow">Meet Flor</p>
-            <h2 className="display-title">
-              Italian by birth. Living in Portugal. Collecting the places worth
-              returning to.
-            </h2>
-            <p>
-              For years my travel recommendations lived in notebooks and long
-              messages to people I cared about. Altrove grew out of that habit.
-            </p>
-            <Link className="text-link" href="/about">
-              Read the story
-            </Link>
-          </div>
-        </div>
-      </section>
 
       <section className="section-shell home-plan" id="plan">
         <p className="eyebrow">Personalised itinerary design</p>
