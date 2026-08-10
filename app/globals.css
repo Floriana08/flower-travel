@@ -7146,7 +7146,6 @@ h1.studio-hero-lede {
 }
 
 .dest-lp-places,
-.dest-lp-loves,
 .dest-lp-stories,
 .dest-lp-guide {
   padding-top: clamp(56px, 9vw, 96px);
@@ -7269,14 +7268,12 @@ h1.studio-hero-lede {
   line-height: 1.65;
 }
 
-.dest-lp-loves-grid,
 .dest-lp-stories-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(18px, 3vw, 28px);
 }
 
-.dest-lp-love,
 .dest-lp-story a {
   display: grid;
   gap: 10px;
@@ -7284,24 +7281,17 @@ h1.studio-hero-lede {
   text-decoration: none;
 }
 
-.dest-lp-love img,
 .dest-lp-story img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
 }
 
-.dest-lp-story img {
-  aspect-ratio: 4 / 3;
-}
-
-.dest-lp-love h3,
 .dest-lp-story h3 {
   font-size: 1.2rem;
 }
 
-.dest-lp-love p:last-child,
 .dest-lp-story p:last-child {
   margin: 0;
   color: var(--soft-ink);
@@ -7454,7 +7444,6 @@ h1.studio-hero-lede {
 
   .dest-lp-places-grid,
   .dest-lp-tips-grid,
-  .dest-lp-loves-grid,
   .dest-lp-stories-grid,
   .dest-lp-journeys-inner,
   .dest-lp-guide-inner,

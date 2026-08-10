@@ -31,96 +31,6 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
         </div>
       </section>
 
-      {places.length ? (
-        <section className="dest-lp-shell dest-lp-places" aria-label="Places to go">
-          <div className="dest-lp-section-head">
-            <p className="dest-lp-label">Explore</p>
-            <h2>Places to go</h2>
-            <p className="dest-lp-dek">
-              The parts of {country.title} Altrove knows well enough to edit
-              carefully.
-            </p>
-          </div>
-          <div className="dest-lp-places-grid">
-            {places.map((place) => {
-              const inner = (
-                <>
-                  <img
-                    src={place.image}
-                    srcSet={unsplashSrcSet(place.image)}
-                    sizes={defaultImageSizes}
-                    alt={place.alt}
-                    loading="lazy"
-                  />
-                  <span className="dest-lp-places-copy">
-                    <strong>{place.title}</strong>
-                    <em>{place.note}</em>
-                  </span>
-                </>
-              );
-              return place.href ? (
-                <Link
-                  key={place.title}
-                  className="dest-lp-place"
-                  href={place.href}
-                >
-                  {inner}
-                </Link>
-              ) : (
-                <article key={place.title} className="dest-lp-place is-static">
-                  {inner}
-                </article>
-              );
-            })}
-          </div>
-        </section>
-      ) : null}
-
-      {tips.length ? (
-        <section className="dest-lp-tips" aria-label="Travel tips">
-          <div className="dest-lp-shell">
-            <div className="dest-lp-section-head">
-              <p className="dest-lp-label">Need to know</p>
-              <h2>{country.title} travel tips</h2>
-              <p className="dest-lp-dek">{country.notesIntro}</p>
-            </div>
-            <div className="dest-lp-tips-grid">
-              {tips.map((tip) => (
-                <article key={tip.title} className="dest-lp-tip">
-                  <h3>{tip.title}</h3>
-                  <p>{tip.body}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
-
-      {country.tasteNotes.length ? (
-        <section className="dest-lp-shell dest-lp-loves" aria-label="Places we love">
-          <div className="dest-lp-section-head">
-            <p className="dest-lp-label">Altrove picks</p>
-            <h2>Where we would send a friend</h2>
-          </div>
-          <div className="dest-lp-loves-grid">
-            {country.tasteNotes.map((taste) => (
-              <article key={taste.name} className="dest-lp-love">
-                <img
-                  src={taste.image}
-                  srcSet={unsplashSrcSet(taste.image)}
-                  sizes={defaultImageSizes}
-                  alt={taste.alt}
-                  loading="lazy"
-                />
-                <p className="dest-lp-label">{taste.kind}</p>
-                <h3>{taste.name}</h3>
-                <p>{taste.note}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-      ) : null}
-
       <section className="dest-lp-shell dest-lp-stories" aria-label="Latest stories">
         <div className="dest-lp-section-head dest-lp-section-head-row">
           <div>
@@ -201,6 +111,71 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
           ) : null}
         </div>
       </section>
+
+      {places.length ? (
+        <section className="dest-lp-shell dest-lp-places" aria-label="Places to go">
+          <div className="dest-lp-section-head">
+            <p className="dest-lp-label">Explore</p>
+            <h2>Places to go</h2>
+            <p className="dest-lp-dek">
+              The parts of {country.title} Altrove knows well enough to edit
+              carefully.
+            </p>
+          </div>
+          <div className="dest-lp-places-grid">
+            {places.map((place) => {
+              const inner = (
+                <>
+                  <img
+                    src={place.image}
+                    srcSet={unsplashSrcSet(place.image)}
+                    sizes={defaultImageSizes}
+                    alt={place.alt}
+                    loading="lazy"
+                  />
+                  <span className="dest-lp-places-copy">
+                    <strong>{place.title}</strong>
+                    <em>{place.note}</em>
+                  </span>
+                </>
+              );
+              return place.href ? (
+                <Link
+                  key={place.title}
+                  className="dest-lp-place"
+                  href={place.href}
+                >
+                  {inner}
+                </Link>
+              ) : (
+                <article key={place.title} className="dest-lp-place is-static">
+                  {inner}
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      ) : null}
+
+      {tips.length ? (
+        <section className="dest-lp-tips" aria-label="Travel tips">
+          <div className="dest-lp-shell">
+            <div className="dest-lp-section-head">
+              <p className="dest-lp-label">Travel tips</p>
+              <h2>{country.title} tips from Altrove</h2>
+              <p className="dest-lp-dek">{country.notesIntro}</p>
+            </div>
+            <div className="dest-lp-tips-grid">
+              {tips.map((tip) => (
+                <article key={tip.title} className="dest-lp-tip">
+                  <h3>{tip.title}</h3>
+                  <p>{tip.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {guide ? (
         <section className="dest-lp-shell dest-lp-guide" aria-label="Guide">
