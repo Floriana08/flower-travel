@@ -5898,6 +5898,19 @@ h1.studio-hero-lede {
   gap: 12px;
 }
 
+.guides-flagship-copy .display-title {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+}
+
+.guides-flagship-copy .display-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.guides-flagship-copy .display-title a:hover {
+  opacity: 0.72;
+}
+
 .guides-flagship-copy .button {
   justify-self: start;
   margin-top: 6px;
