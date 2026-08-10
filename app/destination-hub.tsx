@@ -10,35 +10,43 @@ import { defaultImageSizes, heroImageSizes, unsplashSrcSet } from "./image-utils
 
 export function DestinationHub({ country }: { country: StudioCountry }) {
   const stories = getHubJournalStories(country.slug);
-  const countryGuides = getGuideProductsForCountry(country.slug);
+  const [leadStory, ...moreStories] = stories;
+  const guide = getGuideProductsForCountry(country.slug)[0];
+  const coverage = country.collections.map((region) => region.title);
 
   return (
-    <main className="country-mag">
-      <section className="country-mag-hero">
+    <main className="dest-edit">
+      <section className="dest-edit-hero">
         <img
           src={country.image}
           srcSet={unsplashSrcSet(country.image)}
           sizes={heroImageSizes}
           alt={country.alt}
         />
-        <div className="country-mag-hero-copy">
-          <p className="country-mag-kicker">{country.title}</p>
+        <div className="dest-edit-hero-copy">
+          <p className="dest-edit-brand">{country.title}</p>
           <h1>How we experience {country.title}.</h1>
         </div>
       </section>
 
-      <section className="country-mag-intro country-mag-pad">
-        <p className="country-mag-lede">{country.hubLede}</p>
+      <section className="dest-edit-shell dest-edit-open">
+        <p className="dest-edit-lede dest-edit-reveal">{country.hubLede}</p>
+        {coverage.length ? (
+          <p className="dest-edit-coverage dest-edit-reveal dest-edit-reveal-2">
+            <span className="dest-edit-label">Covered</span>
+            {coverage.join(" · ")}
+          </p>
+        ) : null}
       </section>
 
       {country.travelNotes.length ? (
-        <section className="country-mag-notes country-mag-pad" aria-label="Travel notes">
-          <div className="country-mag-notes-rail">
-            <p className="country-mag-kicker">Travel notes</p>
+        <section className="dest-edit-shell dest-edit-notes" aria-label="Travel notes">
+          <div className="dest-edit-notes-head">
+            <p className="dest-edit-label">Travel notes</p>
             <h2>How to travel here</h2>
-            <p>{country.notesIntro}</p>
+            <p className="dest-edit-dek">{country.notesIntro}</p>
           </div>
-          <dl className="country-mag-notes-list">
+          <dl className="dest-edit-notes-list">
             {country.travelNotes.map((note) => (
               <div key={note.title}>
                 <dt>{note.title}</dt>
@@ -50,15 +58,18 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
       ) : null}
 
       {country.tasteNotes.length ? (
-        <section className="country-mag-loved country-mag-pad" aria-label="Places we love">
-          <div className="country-mag-loved-intro">
-            <p className="country-mag-kicker">Places we love</p>
-            <h2>Taste notes from {country.title}</h2>
+        <section className="dest-edit-shell dest-edit-tastes" aria-label="Places we love">
+          <div className="dest-edit-section-head">
+            <p className="dest-edit-label">Places we love</p>
+            <h2>Taste notes</h2>
           </div>
-          <div className="country-mag-loved-row">
-            {country.tasteNotes.map((taste) => (
-              <article key={taste.name} className="country-mag-loved-col">
-                <figure>
+          <div className="dest-edit-taste-stack">
+            {country.tasteNotes.map((taste, index) => (
+              <article
+                key={taste.name}
+                className={`dest-edit-taste${index % 2 === 1 ? " is-flip" : ""}`}
+              >
+                <figure className="dest-edit-taste-media">
                   <img
                     src={taste.image}
                     srcSet={unsplashSrcSet(taste.image)}
@@ -67,142 +78,102 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
                     loading="lazy"
                   />
                 </figure>
-                <p className="country-mag-kicker">{taste.kind}</p>
-                <h3>{taste.name}</h3>
-                <p>{taste.note}</p>
+                <div className="dest-edit-taste-copy">
+                  <p className="dest-edit-label">{taste.kind}</p>
+                  <h3>{taste.name}</h3>
+                  <p>{taste.note}</p>
+                </div>
               </article>
             ))}
           </div>
         </section>
       ) : null}
 
-      {country.placesWeLove.length ? (
-        <section className="country-mag-pad country-mag-places-list" aria-label="Shortlists">
-          <div className="country-mag-notes-rail">
-            <p className="country-mag-kicker">Shortlists</p>
-            <h2>Where we would send a friend</h2>
-          </div>
-          <div className="country-mag-places-grid">
-            {country.placesWeLove.map((group) => (
-              <div key={group.kind} className="country-mag-places-group">
-                <h3>{group.kind}</h3>
-                <ul>
-                  {group.items.map((item) => (
-                    <li key={item.name}>
-                      <strong>{item.name}</strong>
-                      <span>{item.note}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
-      ) : null}
-
-      <section className="country-mag-journal country-mag-pad" aria-label="Journal stories">
-        <div className="country-mag-notes-rail">
-          <p className="country-mag-kicker">Journal</p>
+      <section className="dest-edit-shell dest-edit-journal" aria-label="Journal">
+        <div className="dest-edit-section-head">
+          <p className="dest-edit-label">Journal</p>
           <h2>Stories from {country.title}</h2>
         </div>
-        {stories.length ? (
-          <>
-            <div className="country-mag-journal-grid">
-              {stories.map((story) => (
-                <article key={story.slug} className="country-mag-journal-card">
-                  <Link href={`/journal/${story.slug}`}>
-                    <img
-                      src={story.image}
-                      srcSet={unsplashSrcSet(story.image)}
-                      sizes={defaultImageSizes}
-                      alt={story.alt}
-                      loading="lazy"
-                    />
-                    <p className="country-mag-kicker">{story.category}</p>
-                    <h3>{story.title}</h3>
-                    <p>{story.excerpt}</p>
-                  </Link>
-                </article>
-              ))}
+        {leadStory ? (
+          <div className="dest-edit-journal-layout">
+            <article className="dest-edit-journal-lead">
+              <Link href={`/journal/${leadStory.slug}`}>
+                <img
+                  src={leadStory.image}
+                  srcSet={unsplashSrcSet(leadStory.image)}
+                  sizes="(max-width: 900px) 100vw, 58vw"
+                  alt={leadStory.alt}
+                  loading="lazy"
+                />
+                <p className="dest-edit-label">
+                  {leadStory.category} · {leadStory.readTime}
+                </p>
+                <h3>{leadStory.title}</h3>
+                <p>{leadStory.excerpt}</p>
+              </Link>
+            </article>
+            {moreStories.length ? (
+              <ul className="dest-edit-journal-list">
+                {moreStories.map((story) => (
+                  <li key={story.slug}>
+                    <Link href={`/journal/${story.slug}`}>
+                      <span className="dest-edit-label">{story.category}</span>
+                      <strong>{story.title}</strong>
+                      <span>{story.excerpt}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
+        ) : (
+          <p className="dest-edit-empty">
+            Journal notes for {country.title} are still being gathered.
+          </p>
+        )}
+        <Link className="dest-edit-text-link" href={`/journal/${country.slug}`}>
+          More from {country.title}
+        </Link>
+      </section>
+
+      {guide ? (
+        <section className="dest-edit-guide" aria-label="Guide">
+          <div className="dest-edit-shell dest-edit-guide-inner">
+            <figure className="dest-edit-guide-media">
+              <img
+                src={guide.image}
+                srcSet={unsplashSrcSet(guide.image)}
+                sizes={defaultImageSizes}
+                alt={guide.alt}
+                loading="lazy"
+              />
+            </figure>
+            <div className="dest-edit-guide-copy">
+              <p className="dest-edit-label">Guide</p>
+              <h2>{guide.title}</h2>
+              <p>{guide.excerpt}</p>
+              <p className="dest-edit-guide-meta">
+                {guide.price}
+                {!guide.stripePriceId ? " · Launching soon" : ""}
+              </p>
+              <Link className="button dark" href={`/guides/${guide.slug}`}>
+                See what&rsquo;s inside
+              </Link>
             </div>
-            <Link className="country-mag-link" href={`/journal/${country.slug}`}>
-              More from {country.title}
-            </Link>
-          </>
-        ) : (
-          <div className="country-mag-empty-journal">
-            <p className="country-mag-quiet-note">
-              Journal notes for {country.title} are still being gathered. In
-              the meantime, ask Altrove to shape a route, or join Letters for
-              new stories as they publish.
-            </p>
-            <p className="country-mag-coast-links">
-              <Link className="country-mag-link" href="/plan-a-trip">
-                Plan a journey
-              </Link>
-              <Link className="country-mag-link" href="/#letters">
-                Join Letters
-              </Link>
-            </p>
           </div>
-        )}
-      </section>
+        </section>
+      ) : null}
 
-      <section className="country-mag-guides country-mag-pad" aria-label="Guides">
-        <div className="country-mag-notes-rail">
-          <p className="country-mag-kicker">Guides</p>
-          <h2>Take {country.title} with you</h2>
-        </div>
-        {countryGuides.length ? (
-          <div className="country-mag-guides-grid">
-            {countryGuides.map((guide) => (
-              <article key={guide.slug} className="country-mag-guide-card">
-                <Link href={`/guides/${guide.slug}`}>
-                  <img
-                    src={guide.image}
-                    srcSet={unsplashSrcSet(guide.image)}
-                    sizes={defaultImageSizes}
-                    alt={guide.alt}
-                    loading="lazy"
-                  />
-                  <p className="country-mag-kicker">{guide.status}</p>
-                  <h3>{guide.title}</h3>
-                  <p>{guide.excerpt}</p>
-                  <p className="country-mag-guide-price">
-                    {guide.price}
-                    {!guide.stripePriceId ? " · Launching soon" : ""}
-                  </p>
-                </Link>
-              </article>
-            ))}
-          </div>
-        ) : (
-          <p className="country-mag-quiet-note">
-            No guide for {country.title} yet, we publish a guide only once
-            we&rsquo;ve researched it properly.
-          </p>
-        )}
-      </section>
-
-      <section className="country-mag-plan country-mag-pad" aria-label="Plan a trip">
-        <div className="country-mag-plan-media" aria-hidden="true">
-          <img
-            src={country.planImage}
-            srcSet={unsplashSrcSet(country.planImage)}
-            sizes={defaultImageSizes}
-            alt=""
-          />
-        </div>
-        <div className="country-mag-plan-copy">
-          <p className="country-mag-kicker">Plan a journey</p>
-          <h2>Planning something similar?</h2>
-          <p>
-            Altrove can shape the route around your dates, pace and priorities.
-          </p>
-          <Link className="button dark" href="/plan-a-trip">
-            Plan a journey
-          </Link>
-        </div>
+      <section className="dest-edit-shell dest-edit-plan" aria-label="Plan a journey">
+        <p className="dest-edit-label">Plan a journey</p>
+        <h2>Want this paced for your dates?</h2>
+        <p>
+          Altrove can shape a {country.title} route around how you like to
+          travel.
+        </p>
+        <Link className="button dark" href="/plan-a-trip">
+          Plan a journey
+        </Link>
       </section>
 
       <StudioNewsletter
