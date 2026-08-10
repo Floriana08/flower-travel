@@ -157,7 +157,7 @@ export function SiteFooter() {
 
       <div className="footer-col">
         <h2>Studio</h2>
-        <Link href="/about">About</Link>
+        <Link href="/plan-a-trip#meet-flor">About</Link>
         <Link href="/#letters">Letters</Link>
         <a href={`mailto:${site.email}`}>{site.email}</a>
       </div>
