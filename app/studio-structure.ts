@@ -201,31 +201,31 @@ export const studioCountries: StudioCountry[] = [
       },
     ],
     notesIntro:
-      "Practical advice for Campania, written from how we actually travel here, not a checklist of every town on the map.",
+      "Practical advice for Italy, written from how we actually travel here, not a checklist of every city on the map.",
     travelNotes: [
       {
         title: "Best time to go",
-        body: "May-June and September. Warm enough for the coast, cooler for walking Naples, and easier than midsummer crowds and heat.",
+        body: "April-June and September-October. Soft light, open tables, and fewer midsummer crowds from Rome to the south. Winter suits cities; high summer suits the sea if you accept the heat.",
       },
       {
         title: "How to pace it",
-        body: "Two bases at most: a Naples neighbourhood, then one coastal stay. Day-trip the towns, don’t change hotels every night.",
+        body: "Two or three bases for a week or more. Give each place enough nights to settle, then day-trip. Hotel hopping every night is the fastest way to miss Italy.",
       },
       {
         title: "Getting around",
-        body: "Walk Naples. Train to Pompeii. Ferries along the Amalfi Coast whenever you can, boats usually beat summer buses for both views and sanity.",
+        body: "Trains between cities. Walk once you arrive. Ferries on the coasts when they beat the bus. A car helps in rural stretches; it rarely helps in historic centres.",
       },
       {
         title: "Where to stay",
-        body: "In Naples, prefer Chiaia or Vomero for a calmer base. On the coast, choose one town and stay put, Sorrento or Salerno can be more practical than Positano prices.",
+        body: "Choose a lived-in neighbourhood over a landmark square. One calm base in each city or coastal stretch beats five glamorous moves. Book the room that lets evenings stay easy.",
       },
       {
         title: "Food first",
-        body: "Let meals set the day. Pizza and pastry in Naples; a long coastal lunch with nowhere else to be. Reserve the one dinner that matters.",
+        body: "Let meals set the day. Markets in the morning, a long lunch when you can, and one dinner worth reserving. Regional cooking changes as you move; follow that more than a must-eat list.",
       },
       {
         title: "What to leave out",
-        body: "Five towns in three days. Capri, Pompeii and the full Amalfi strip on the same short trip. Pick one clean escape and keep evening free.",
+        body: "Seeing everything. Three cities in five days, or a coast, ruins and islands on the same short trip. Pick a clean region, keep evenings free, and leave something for next time.",
       },
     ],
     tasteNotes: [
