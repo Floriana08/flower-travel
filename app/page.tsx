@@ -319,11 +319,8 @@ export default function Home() {
           Altrove shapes the route, neighbourhoods, pacing and the places worth
           your time.
         </p>
-        <p className="home-plan-boundary">
-          You make the bookings. We make the trip make sense.
-        </p>
         <Link className="button dark" href="/plan-a-trip">
-          Plan a journey
+          Book your travel consultation
         </Link>
       </section>
 
