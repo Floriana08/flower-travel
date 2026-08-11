@@ -7231,14 +7231,6 @@ h1.studio-hero-lede {
   letter-spacing: -0.02em;
 }
 
-.dest-lp-affiliate-note {
-  margin: 18px 0 0;
-  max-width: 40rem;
-  color: var(--muted);
-  font-size: 0.88rem;
-  line-height: 1.55;
-}
-
 .dest-lp-tips {
   background: var(--warm-paper);
   padding: clamp(56px, 9vw, 96px) 0;

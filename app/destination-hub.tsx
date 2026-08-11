@@ -162,13 +162,6 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
               </div>
             ))}
           </div>
-          <div className="dest-lp-shell">
-            <p className="dest-lp-affiliate-note">
-              Selected tickets and stays open with GetYourGuide or Booking.com.
-              Some links may earn Altrove a commission. Recommendations stay
-              independent.
-            </p>
-          </div>
         </section>
       ) : null}
 
