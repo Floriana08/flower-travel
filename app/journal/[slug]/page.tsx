@@ -252,25 +252,6 @@ export default async function JournalArticlePage({ params }: PageProps) {
                 ) : null}
               </section>
             ))}
-
-            <section className="article-sources">
-              <h2>Sources and research notes</h2>
-              <p>
-                These guide pages are written as editorial planning notes, not
-                legal, safety, or official booking advice. Check opening times,
-                trail conditions, transport rules, and entry requirements before
-                you book.
-              </p>
-              <ul>
-                {article.sources.map((source) => (
-                  <li key={source.url}>
-                    <a href={source.url} rel="noreferrer" target="_blank">
-                      {source.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </section>
           </div>
         </div>
       </article>
