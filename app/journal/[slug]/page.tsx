@@ -412,24 +412,6 @@ export default async function JournalArticlePage({ params }: PageProps) {
                   <p key={paragraph.slice(0, 48)}>{paragraph}</p>
                 ))}
                 {index === 0 &&
-                /portugal|lisbon|porto|madeira|douro/i.test(
-                  `${guide.destination} ${guide.slug}`,
-                ) ? (
-                  <WorthKnowing>
-                    <p>
-                      Planning a longer stay in Portugal? Explore{" "}
-                      <Link href="/journeys/portugal-by-train">
-                        Portugal by Train
-                      </Link>{" "}
-                      or the{" "}
-                      <Link href="/destinations/portugal">
-                        Portugal destination hub
-                      </Link>
-                      .
-                    </p>
-                  </WorthKnowing>
-                ) : null}
-                {index === 0 &&
                 /italy|rome|naples|amalfi|campania/i.test(
                   `${guide.destination} ${guide.slug} ${guide.title}`,
                 ) ? (
