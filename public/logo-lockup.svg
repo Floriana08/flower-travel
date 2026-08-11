@@ -1,19 +1,28 @@
 <svg width="280" height="360" viewBox="0 0 280 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Altrove Travel Journal">
-  <g transform="translate(100 24)" stroke="#151515" fill="none">
+  <g transform="translate(100 24)">
     <path
       d="M40 3C22.327 3 8 17.327 8 35V92H72V35C72 17.327 57.673 3 40 3Z"
+      stroke="#151515"
       stroke-width="2.4"
+      fill="none"
     />
     <path
-      d="M14 92C18.2 72 27 63 40 63C53 63 61.8 72 66 92"
-      stroke-width="2.4"
+      fill="#151515"
+      fill-rule="evenodd"
+      d="M14 92C18.2 72 27 63 40 63C53 63 61.8 72 66 92H14ZM22 92C26 80 32 74 40 74C48 74 54 80 58 92H22Z"
+    />
+    <path
+      d="M40 92C38 86 36 82 34 78C32 74 33 70 36 68"
+      stroke="#151515"
+      stroke-width="1.8"
+      fill="none"
       stroke-linecap="round"
     />
+    <path
+      d="M40 30 L41.6 35.4 L47.2 35.8 L42.8 39.2 L44.4 44.6 L40 41.6 L35.6 44.6 L37.2 39.2 L32.8 35.8 L38.4 35.4 Z"
+      fill="#151515"
+    />
   </g>
-  <path
-    d="M140 50 L142.1 55.9 L148.5 56.3 L143.5 60.2 L145.3 66.4 L140 62.9 L134.7 66.4 L136.5 60.2 L131.5 56.3 L137.9 55.9 Z"
-    fill="#151515"
-  />
   <text
     x="140"
     y="170"

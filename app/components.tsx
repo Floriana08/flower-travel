@@ -29,7 +29,7 @@ function BrandMark({
   tone?: "dark" | "light";
 }) {
   const src =
-    tone === "light" ? "/logo-mark-light.png?v=2" : "/logo-mark.png?v=2";
+    tone === "light" ? "/logo-mark-light.png?v=3" : "/logo-mark.png?v=3";
 
   return (
     <img
