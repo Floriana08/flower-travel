@@ -5,8 +5,7 @@ import { NewsletterForm } from "./newsletter-form";
 import { guideProducts, guides, site } from "./data";
 import { getJourney } from "./journeys-data";
 import { HeroOceanVideo } from "./hero-ocean-video";
-import { CountryTile, StudioNewsletter } from "./studio-components";
-import { studioCountries } from "./studio-structure";
+import { StudioNewsletter } from "./studio-components";
 import { defaultImageSizes, unsplashSrcSet } from "./image-utils";
 
 export const metadata: Metadata = {
@@ -96,39 +95,6 @@ export default function Home() {
           <p className="studio-hero-support">
             Independent guides · Personalised itineraries · Travel stories
           </p>
-        </div>
-      </section>
-
-      <section className="section-shell home-destinations" id="destinations">
-        <div className="home-section-head">
-          <p className="eyebrow">Begin with a place</p>
-          <h2 className="display-title">We start where we know best.</h2>
-          <p className="home-section-dek">
-            Italy, Portugal and Spain, doors into notes, guides and journeys,
-            not a catalogue of everywhere.
-          </p>
-        </div>
-        <div className="destinations-index-grid home-destinations-grid home-destination-doors">
-          {studioCountries.map((country) => (
-            <CountryTile key={country.slug} country={country} variant="door" />
-          ))}
-        </div>
-      </section>
-
-      <section className="home-manifesto" id="philosophy" aria-label="Altrove philosophy">
-        <div className="home-manifesto-inner section-shell">
-          <p className="home-manifesto-kicker">Altrove note Nº 01</p>
-          <h2 className="home-manifesto-title">
-            Fewer bases.
-            <br />
-            Better pacing.
-          </h2>
-          <ul className="home-manifesto-list">
-            <li>Neighbourhoods over checklists.</li>
-            <li>Meals that shape the day.</li>
-            <li>Places worth returning to.</li>
-            <li>Permission not to see everything.</li>
-          </ul>
         </div>
       </section>
 
