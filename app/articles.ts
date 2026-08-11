@@ -1,7 +1,23 @@
+import { whereToStayLisbonArticle } from "./article-where-to-stay-lisbon";
+
+export type ArticleHotel = {
+  name: string;
+  area?: string;
+  note: string;
+  href?: string;
+};
+
 export type ArticleSection = {
+  id?: string;
   heading: string;
   body: string[];
   bullets?: string[];
+  hotelsHeading?: string;
+  hotels?: ArticleHotel[];
+  florPick?: string;
+  whoShouldStay?: string;
+  callout?: { title: string; body: string[] };
+  closing?: string[];
 };
 
 export type ArticleSource = {
@@ -9,86 +25,45 @@ export type ArticleSource = {
   url: string;
 };
 
+export type ArticleFaq = {
+  question: string;
+  answer: string;
+};
+
+export type ArticleComparisonRow = {
+  area: string;
+  bestFor: string;
+  feeling: string;
+  worthKnowing: string;
+};
+
 export type GuideArticle = {
   slug: string;
   dek: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  intro?: string[];
   lastReviewed: string;
   facts: string[];
   sections: ArticleSection[];
   goodFor: string[];
   sources: ArticleSource[];
+  comparisonTable?: {
+    heading: string;
+    rows: ArticleComparisonRow[];
+  };
+  faqs?: ArticleFaq[];
+  closingFlorNote?: string[];
+  newsletter?: {
+    title: string;
+    description: string;
+  };
+  continueLinks?: { label: string; href: string }[];
+  relatedJournalSlugs?: string[];
 };
 
 export const guideArticles: GuideArticle[] = [
-  {
-    slug: "where-to-stay-lisbon",
-    dek:
-      "Lisbon is compact on a map and surprisingly demanding underfoot. The right base depends less on distance and more on hills, evening rhythm, transport, and how much polish you want around your hotel.",
-    lastReviewed: "July 15, 2026",
-    facts: [
-      "Baixa is the flat, gridded downtown rebuilt after the 1755 earthquake.",
-      "Alfama is one of Lisbon's oldest quarters, beautiful but steep and irregular.",
-      "Avenida da Liberdade is a broad central boulevard with luxury hotels, shops, and direct metro access.",
-    ],
-    sections: [
-      {
-        heading: "The short answer",
-        body: [
-          "For a first Lisbon trip, choose Baixa or Chiado if you want the easiest sightseeing base. Choose Avenida da Liberdade if you want a calmer, more polished hotel experience with taxis and metro nearby. Choose Alfama only if atmosphere matters more than convenience: it is romantic, historic, and hard work with luggage.",
-          "For a more local-feeling stay, Príncipe Real gives you design shops, gardens, restaurants, and a softer evening pace. Cais do Sodré and Santos suit travelers who want river access, nightlife, and a little more edge, but they are not the quietest choices."
-        ],
-      },
-      {
-        heading: "Best bases by travel mood",
-        body: [
-          "Baixa and Chiado are the safe editorial recommendation for most readers: central, walkable, close to tram and metro links, and easy for first-day orientation. The tradeoff is that the most central streets can feel busy and touristic.",
-          "Avenida da Liberdade is the best base for a luxury-leaning city break. It has wider pavements, grander hotels, designer retail, and a smoother arrival experience than the old quarters. It also keeps you close to Restauradores, Rossio, and Marquês de Pombal without sleeping inside the densest tourist lanes.",
-          "Alfama and Graça are for travelers who want views, fado, tiled corners, and morning atmosphere. They are less convenient after dinner and much less forgiving with heavy bags, but they give Lisbon its cinematic side."
-        ],
-        bullets: [
-          "First-timers: Baixa, Chiado, or Avenida da Liberdade.",
-          "Romantic atmosphere: Alfama or a view-led boutique stay near Graça.",
-          "Design and restaurants: Príncipe Real.",
-          "Nightlife and river access: Cais do Sodré or Santos.",
-          "Quiet luxury: Avenida da Liberdade or Lapa."
-        ],
-      },
-      {
-        heading: "What I would avoid for a first stay",
-        body: [
-          "Belém is wonderful for a museum-and-river day, but it sits west of the historic center and can make short trips feel commute-heavy. Parque das Nações is clean and convenient for events, the airport side of town, or business travel, but it does not give you the classic Lisbon feeling most readers are searching for.",
-          "The more useful test is not whether a district is famous, but whether your evenings will feel easy. If you want to wander after dinner, stay where the last walk home still feels beautiful."
-        ],
-      },
-      {
-        heading: "Booking notes",
-        body: [
-          "Lisbon's prettiest stays often sit in older buildings. Before booking, check whether there is a lift, whether taxis can stop directly outside, and whether the room faces a bar street, tram line, or internal courtyard.",
-          "For summer, prioritize air conditioning and a pool only if you will actually return to the hotel midday. For shoulder season, a good terrace, breakfast room, or lounge may matter more than amenities you will not use."
-        ],
-      },
-    ],
-    goodFor: [
-      "First Lisbon trips",
-      "Hotel shortlisting",
-      "Luxury city breaks",
-      "Travelers comparing neighborhoods",
-    ],
-    sources: [
-      {
-        label: "Visit Lisboa",
-        url: "https://visitlisboa.com/en",
-      },
-      {
-        label: "Tourism in Lisbon neighborhood overview",
-        url: "https://en.wikipedia.org/wiki/Tourism_in_Lisbon",
-      },
-      {
-        label: "Avenida da Liberdade background",
-        url: "https://en.wikipedia.org/wiki/Avenida_da_Liberdade",
-      },
-    ],
-  },
+  whereToStayLisbonArticle,
   {
     slug: "madeira-first-timers",
     dek:

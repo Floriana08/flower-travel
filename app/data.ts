@@ -1870,12 +1870,12 @@ export const guides = [
     category: "Hotel Notes",
     destination: "Lisbon",
     date: "July 8, 2026",
-    readTime: "7 min read",
+    readTime: "18 min read",
     image:
       "https://images.unsplash.com/photo-1513735492246-483525079686?auto=format&fit=crop&w=1600&q=80",
     alt: "A quiet Lisbon street with tiled facades and balconies",
     excerpt:
-      "The best base depends on whether you want river light, nightlife, hills, design hotels, or easy day trips.",
+      "A local guide to the best areas and hotels in Lisbon, from Chiado and Príncipe Real to Alfama, Baixa and Avenida.",
   },
   {
     slug: "madeira-first-timers",

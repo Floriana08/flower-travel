@@ -432,11 +432,13 @@ export function NewsletterBand({
   description = "Every month, receive one carefully planned route, one hotel worth remembering, one restaurant worth travelling for and personal travel notes that do not always make it onto the website.",
   placeholder = "Your email address",
   footnote = "No daily emails. Just thoughtful travel inspiration and practical ideas.",
+  buttonLabel = "Join the Club",
 }: {
   title?: string;
   description?: string;
   placeholder?: string;
   footnote?: string;
+  buttonLabel?: string;
 }) {
   return (
     <section className="newsletter-band" id="newsletter">
@@ -445,7 +447,7 @@ export function NewsletterBand({
         <p>{description}</p>
         {footnote ? <p className="newsletter-footnote">{footnote}</p> : null}
       </div>
-      <NewsletterForm placeholder={placeholder} />
+      <NewsletterForm placeholder={placeholder} buttonLabel={buttonLabel} />
     </section>
   );
 }
