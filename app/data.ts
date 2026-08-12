@@ -1870,7 +1870,7 @@ export const guides = [
     category: "Hotel Notes",
     destination: "Lisbon",
     date: "July 8, 2026",
-    readTime: "18 min read",
+    readTime: "10 min read",
     image:
       "https://images.unsplash.com/photo-1513735492246-483525079686?auto=format&fit=crop&w=1600&q=80",
     alt: "A quiet Lisbon street with tiled facades and balconies",
