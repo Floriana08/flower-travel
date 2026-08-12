@@ -29,7 +29,7 @@ function BrandMark({
   tone?: "dark" | "light";
 }) {
   const src =
-    tone === "light" ? "/logo-mark-light.png?v=2" : "/logo-mark.png?v=2";
+    tone === "light" ? "/logo-mark-light.png?v=3" : "/logo-mark.png?v=3";
 
   return (
     <img
@@ -139,7 +139,7 @@ export function SiteFooter() {
           <BrandLockup tone="light" />
         </Link>
         <p>
-          An editorial travel studio — stories, guides and personalised
+          An editorial travel studio, stories, guides and personalised
           itineraries for travellers who would rather remember a place than rush
           through it.
         </p>
@@ -157,7 +157,7 @@ export function SiteFooter() {
 
       <div className="footer-col">
         <h2>Studio</h2>
-        <Link href="/about">About</Link>
+        <Link href="/plan-a-trip">About</Link>
         <Link href="/#letters">Letters</Link>
         <a href={`mailto:${site.email}`}>{site.email}</a>
       </div>
@@ -432,11 +432,13 @@ export function NewsletterBand({
   description = "Every month, receive one carefully planned route, one hotel worth remembering, one restaurant worth travelling for and personal travel notes that do not always make it onto the website.",
   placeholder = "Your email address",
   footnote = "No daily emails. Just thoughtful travel inspiration and practical ideas.",
+  buttonLabel = "Join the Club",
 }: {
   title?: string;
   description?: string;
   placeholder?: string;
   footnote?: string;
+  buttonLabel?: string;
 }) {
   return (
     <section className="newsletter-band" id="newsletter">
@@ -445,7 +447,7 @@ export function NewsletterBand({
         <p>{description}</p>
         {footnote ? <p className="newsletter-footnote">{footnote}</p> : null}
       </div>
-      <NewsletterForm placeholder={placeholder} />
+      <NewsletterForm placeholder={placeholder} buttonLabel={buttonLabel} />
     </section>
   );
 }

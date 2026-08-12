@@ -11,7 +11,7 @@ export const navItems = [
   { href: "/destinations", label: "Destinations" },
   { href: "/journal", label: "Journal" },
   { href: "/guides", label: "Guides" },
-  { href: "/about", label: "About" },
+  { href: "/plan-a-trip", label: "About" },
 ];
 
 export const navCta = {
@@ -1870,12 +1870,12 @@ export const guides = [
     category: "Hotel Notes",
     destination: "Lisbon",
     date: "July 8, 2026",
-    readTime: "7 min read",
+    readTime: "10 min read",
     image:
       "https://images.unsplash.com/photo-1513735492246-483525079686?auto=format&fit=crop&w=1600&q=80",
     alt: "A quiet Lisbon street with tiled facades and balconies",
     excerpt:
-      "The best base depends on whether you want river light, nightlife, hills, design hotels, or easy day trips.",
+      "A local guide to the best areas and hotels in Lisbon, from Chiado and Príncipe Real to Alfama, Baixa and Avenida.",
   },
   {
     slug: "madeira-first-timers",
@@ -2074,7 +2074,7 @@ export type GuideProduct = {
   status: "Available" | "Coming soon" | "In development" | "Launching soon";
   price: string;
   priceIsPlaceholder?: boolean;
-  /** Set once this guide has a real Stripe Price object — flips the CTA from waitlist to purchase. */
+  /** Set once this guide has a real Stripe Price object, flips the CTA from waitlist to purchase. */
   stripePriceId?: string;
   countrySlug: "italy" | "portugal" | "spain";
   destination: string;
@@ -2103,12 +2103,12 @@ export const guideProducts: GuideProduct[] = [
     price: "From €28",
     priceIsPlaceholder: false,
     countrySlug: "italy",
-    destination: "Campania — Naples & the Amalfi Coast",
+    destination: "Campania, Naples & the Amalfi Coast",
     image:
       "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1600&q=84",
     alt: "Cliffside villages on the Amalfi Coast above blue Mediterranean water",
     excerpt:
-      "Our flagship guide: how to spend a week in Naples and along the Amalfi Coast without hopping towns every night — bases, ferries, food, and the days worth slowing down for.",
+      "Our flagship guide: how to spend a week in Naples and along the Amalfi Coast without hopping towns every night, bases, ferries, food, and the days worth slowing down for.",
     includes: [
       "A two-base route (Naples + one coastal stay)",
       "Ferry and transfer logic",
@@ -2120,7 +2120,7 @@ export const guideProducts: GuideProduct[] = [
       "Choosing one coastal town instead of five",
       "A ferry-first transport plan for the whole trip",
       "Food: the meals worth planning a day around",
-      "A 7–9 day route with built-in slow days",
+      "A 7 to 9 day route with built-in slow days",
       "What to skip, and why that matters",
     ],
     sampleNote:
@@ -2133,7 +2133,7 @@ export const guideProducts: GuideProduct[] = [
       "Return visitors ready to go beyond Positano-only itineraries",
     ],
     notForWhom: [
-      "Travellers who want a full booking service — this is a planning guide, not a booked trip",
+      "Travellers who want a full booking service, this is a planning guide, not a booked trip",
       "Anyone wanting an hour-by-hour itinerary rather than pacing guidance",
     ],
     updatePolicy:
@@ -2141,7 +2141,7 @@ export const guideProducts: GuideProduct[] = [
     faqs: [
       {
         q: "Is this guide available now?",
-        a: "Not yet — join the waitlist and we'll email you the day it's ready.",
+        a: "Not yet, join the waitlist and we'll email you the day it's ready.",
       },
       {
         q: "How is this different from the free journal articles?",
@@ -2149,7 +2149,7 @@ export const guideProducts: GuideProduct[] = [
       },
       {
         q: "Will you book any of this for me?",
-        a: "No — the guide is independent research and recommendations. If you'd like it shaped around your own dates, see Plan a journey.",
+        a: "No, the guide is independent research and recommendations. If you'd like it shaped around your own dates, see Plan a journey.",
       },
     ],
     relatedArticleSlugs: ["train-travel-europe", "rome-food-walk"],

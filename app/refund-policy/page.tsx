@@ -12,13 +12,13 @@ export default function RefundPolicyPage() {
     <main>
       <PageHero
         eyebrow="Legal"
-        title="Refund information — placeholder."
+        title="Refund information, placeholder."
         image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=84"
         alt="A calm outdoor table with warm travel light"
       >
         <p>
           This page is a placeholder. Nothing on Altrove is purchasable yet,
-          so no refund policy is active — this exists so the link is real,
+          so no refund policy is active, this exists so the link is real,
           not so the policy is final.
         </p>
       </PageHero>
@@ -32,7 +32,7 @@ export default function RefundPolicyPage() {
             </div>
             <div className="article-panel">
               <h2>Status</h2>
-              <p>Placeholder — no payment flow is live yet.</p>
+              <p>Placeholder, no payment flow is live yet.</p>
             </div>
           </aside>
 
@@ -62,7 +62,7 @@ export default function RefundPolicyPage() {
               <h2>To be added before launch</h2>
               <p>
                 Exact refund windows, exceptions, and the process for
-                requesting a refund — these need proper legal drafting
+                requesting a refund, these need proper legal drafting
                 before any payment is accepted.
               </p>
             </section>

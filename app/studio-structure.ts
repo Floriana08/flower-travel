@@ -55,13 +55,25 @@ export type TasteNote = {
   alt: string;
 };
 
+/** Monument / sight cards on the country hub. No dedicated site pages. */
+export type TopPlace = {
+  title: string;
+  /** Shown as “Attraction in {area}” */
+  area: string;
+  image: string;
+  alt: string;
+  /** External tickets / stays link (affiliate-ready) */
+  href: string;
+  partner: "getyourguide" | "booking";
+};
+
 export type StudioCountry = {
   slug: StudioCountrySlug;
   title: string;
   short: string;
   image: string;
   alt: string;
-  /** Short Altrove POV — how we experience this country */
+  /** Short Altrove POV, how we experience this country */
   hubLede: string;
   featuredJourneySlug: string;
   collections: RegionalCollection[];
@@ -71,6 +83,8 @@ export type StudioCountry = {
   travelNotes: TravelNote[];
   /** Three photographed taste notes for the hub grid */
   tasteNotes: TasteNote[];
+  /** Top sights; external links only, no monument pages */
+  topPlaces: TopPlace[];
   /** Image beside the example-itinerary heading */
   exampleImage: string;
   exampleImageAlt: string;
@@ -91,40 +105,45 @@ export const studioCountries: StudioCountry[] = [
       "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=2000&q=84",
     alt: "Warm light over a lived-in Mediterranean street",
     hubLede:
-      "I take Italy slowly — one neighbourhood in the city, one base on the coast, and meals that decide the day. Campania comes first: Naples and the shore I know by heart.",
+      "I take Italy slowly, one neighbourhood in the city, one base on the coast, and meals that decide the day. Campania comes first: Naples and the shore I know by heart.",
     featuredJourneySlug: "naples-amalfi",
     collections: [
       {
-        title: "Campania",
-        note: "Naples energy, then ferry light and one coastal bed.",
+        title: "Amalfi Coast",
+        note: "One coastal base, ferry light, and days that follow the water.",
         image:
           "https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=1400&q=80",
         alt: "Colourful boats in a harbour on the Amalfi Coast",
         href: "/journeys/naples-amalfi",
       },
       {
-        title: "Tuscany",
-        note: "Hill towns and long tables — paced for lingering, not looping.",
+        title: "Naples",
+        note: "Neighbourhood energy, pizza that sets the day, and a city taken at walking pace.",
         image:
-          "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1400&q=80",
-        alt: "Rolling Tuscan hills at golden hour",
-        status: "Coming soon",
+          "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1400&q=80",
+        alt: "Warm light over a Naples street",
+        href: "/journeys/naples-amalfi",
       },
       {
-        title: "Sicily",
-        note: "Island light, markets, and a coast taken at walking pace.",
+        title: "Rome",
+        note: "Food-first walks, lived-in neighbourhoods, and evenings with nowhere else to be.",
         image:
-          "https://images.unsplash.com/photo-1498579843916-4e4d87eea1e8?auto=format&fit=crop&w=1400&q=80",
-        alt: "Market stall with citrus and vegetables",
-        status: "Coming soon",
+          "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1400&q=80",
+        alt: "Warm evening light over Rome rooftops",
       },
       {
-        title: "Dolomites",
-        note: "Mountain air, design hotels, and days shaped by the view.",
+        title: "Milan",
+        note: "Design hotels, aperitivo light, and a city base with easy day-trip options.",
         image:
-          "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1400&q=80",
-        alt: "Dramatic peaks in the Dolomites",
-        status: "Coming soon",
+          "https://images.unsplash.com/photo-1513581166391-887a96ddeafd?auto=format&fit=crop&w=1400&q=80",
+        alt: "Milan architecture in soft daylight",
+      },
+      {
+        title: "Puglia",
+        note: "White towns, long tables, and a slower southern coast.",
+        image:
+          "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=1400&q=80",
+        alt: "Whitewashed town on the Puglian coast",
       },
     ],
     placesWeLove: [
@@ -137,7 +156,7 @@ export const studioCountries: StudioCountry[] = [
           },
           {
             name: "One coastal stay",
-            note: "A single Amalfi or Sorrento bed — not five hotel changes.",
+            note: "A single Amalfi or Sorrento bed, not five hotel changes.",
           },
         ],
       },
@@ -159,7 +178,7 @@ export const studioCountries: StudioCountry[] = [
         items: [
           {
             name: "Chiaia or Vomero",
-            note: "Lived-in Naples — aperitivo light, evening walks.",
+            note: "Lived-in Naples, aperitivo light, evening walks.",
           },
           {
             name: "One coast town",
@@ -182,38 +201,38 @@ export const studioCountries: StudioCountry[] = [
       },
     ],
     notesIntro:
-      "Practical advice for Campania — written from how we actually travel here, not a checklist of every town on the map.",
+      "Practical advice for Italy, written from how we actually travel here, not a checklist of every city on the map.",
     travelNotes: [
       {
         title: "Best time to go",
-        body: "May–June and September. Warm enough for the coast, cooler for walking Naples, and easier than midsummer crowds and heat.",
+        body: "April-June and September-October. Soft light, open tables, and fewer midsummer crowds from Rome to the south. Winter suits cities; high summer suits the sea if you accept the heat.",
       },
       {
         title: "How to pace it",
-        body: "Two bases at most: a Naples neighbourhood, then one coastal stay. Day-trip the towns — don’t change hotels every night.",
+        body: "Two or three bases for a week or more. Give each place enough nights to settle, then day-trip. Hotel hopping every night is the fastest way to miss Italy.",
       },
       {
         title: "Getting around",
-        body: "Walk Naples. Train to Pompeii. Ferries along the Amalfi Coast whenever you can — boats usually beat summer buses for both views and sanity.",
+        body: "Trains between cities. Walk once you arrive. Ferries on the coasts when they beat the bus. A car helps in rural stretches; it rarely helps in historic centres.",
       },
       {
         title: "Where to stay",
-        body: "In Naples, prefer Chiaia or Vomero for a calmer base. On the coast, choose one town and stay put — Sorrento or Salerno can be more practical than Positano prices.",
+        body: "Choose a lived-in neighbourhood over a landmark square. One calm base in each city or coastal stretch beats five glamorous moves. Book the room that lets evenings stay easy.",
       },
       {
         title: "Food first",
-        body: "Let meals set the day. Pizza and pastry in Naples; a long coastal lunch with nowhere else to be. Reserve the one dinner that matters.",
+        body: "Let meals set the day. Markets in the morning, a long lunch when you can, and one dinner worth reserving. Regional cooking changes as you move; follow that more than a must-eat list.",
       },
       {
         title: "What to leave out",
-        body: "Five towns in three days. Capri, Pompeii and the full Amalfi strip on the same short trip. Pick one clean escape and keep evening free.",
+        body: "Seeing everything. Three cities in five days, or a coast, ruins and islands on the same short trip. Pick a clean region, keep evenings free, and leave something for next time.",
       },
     ],
     tasteNotes: [
       {
         kind: "Hotels",
         name: "One coastal stay",
-        note: "A single Amalfi or Sorrento bed — not five hotel changes.",
+        note: "A single Amalfi or Sorrento bed, not five hotel changes.",
         image:
           "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1800&q=84",
         alt: "Cliffside villages on the Amalfi Coast above blue Mediterranean water",
@@ -235,6 +254,80 @@ export const studioCountries: StudioCountry[] = [
         alt: "Colourful boats in a harbour on the Amalfi Coast",
       },
     ],
+    topPlaces: [
+      {
+        title: "Pompeii",
+        area: "Pompeii",
+        image:
+          "https://images.unsplash.com/photo-1686252183235-67dfafa22f60?auto=format&fit=crop&w=1200&q=80",
+        alt: "Stone ruins of ancient Pompeii under open sky",
+        href: "https://www.getyourguide.com/pompeii-l1399/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Path of the Gods",
+        area: "Amalfi Coast",
+        image:
+          "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=84",
+        alt: "Cliffside villages on the Amalfi Coast above blue water",
+        href: "https://www.getyourguide.com/amalfi-coast-l2473/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Historic centre",
+        area: "Rome",
+        image:
+          "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1200&q=84",
+        alt: "Warm evening light over Rome rooftops",
+        href: "https://www.getyourguide.com/rome-l33/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Ravello gardens",
+        area: "Ravello",
+        image:
+          "https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=1200&q=80",
+        alt: "Mediterranean harbour light near the Amalfi Coast",
+        href: "https://www.booking.com/searchresults.html?ss=Ravello%2C+Italy",
+        partner: "booking",
+      },
+      {
+        title: "Capri day ferry",
+        area: "Capri",
+        image:
+          "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1200&q=84",
+        alt: "Coastal cliffs and Mediterranean water near Capri",
+        href: "https://www.getyourguide.com/capri-l297/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Centro storico",
+        area: "Naples",
+        image:
+          "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80",
+        alt: "Warm light over a Naples street",
+        href: "https://www.getyourguide.com/naples-l226/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Positano from the water",
+        area: "Positano",
+        image:
+          "https://images.unsplash.com/photo-1595877244574-e90ce41ce089?auto=format&fit=crop&w=1200&q=84",
+        alt: "Positano stacked above the Mediterranean",
+        href: "https://www.getyourguide.com/positano-l2312/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Duomo quarter",
+        area: "Milan",
+        image:
+          "https://images.unsplash.com/photo-1513581166391-887a96ddeafd?auto=format&fit=crop&w=1200&q=80",
+        alt: "Milan architecture in soft daylight",
+        href: "https://www.getyourguide.com/milan-l255/",
+        partner: "getyourguide",
+      },
+    ],
     exampleImage:
       "https://images.unsplash.com/photo-1595877244574-e90ce41ce089?auto=format&fit=crop&w=1400&q=84",
     exampleImageAlt: "Positano stacked above the Mediterranean on the Amalfi Coast",
@@ -243,11 +336,11 @@ export const studioCountries: StudioCountry[] = [
     journalSlugs: ["rome-food-walk", "train-travel-europe", "choosing-a-honeymoon-route"],
     example: {
       title: "Naples and the Amalfi Coast",
-      duration: "7–9 days",
+      duration: "7 to 9 days",
       lede: "Arrive in the city. Settle on the coast. Leave room for the sea.",
       days: [
         { label: "Day 1", title: "Arrive in Naples", note: "One neighbourhood base. Dinner nearby." },
-        { label: "Day 2–4", title: "Stay in Positano", note: "One coastal base — not five towns." },
+        { label: "Day 2 to 4", title: "Stay in Positano", note: "One coastal base, not five towns." },
         { label: "Day 5", title: "Boat to Capri", note: "A ferry day, back to the same bed." },
         { label: "Day 6", title: "Return to Naples", note: "A last morning walk before the flight." },
       ],
@@ -261,7 +354,7 @@ export const studioCountries: StudioCountry[] = [
       "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=2000&q=84",
     alt: "Lisbon tram climbing a steep tiled street",
     hubLede:
-      "Portugal is where I feel most at home — Lisbon mornings, train light north, and time left over for the Atlantic. Fewer hotels. More attention.",
+      "Portugal is where I feel most at home, Lisbon mornings, train light north, and time left over for the Atlantic. Fewer hotels. More attention.",
     featuredJourneySlug: "portugal-by-train",
     collections: [
       {
@@ -282,7 +375,7 @@ export const studioCountries: StudioCountry[] = [
       },
       {
         title: "Madeira",
-        note: "Its own week — Atlantic cliffs, soft adventure, weather-flex days.",
+        note: "Its own week, Atlantic cliffs, soft adventure, weather-flex days.",
         image:
           "https://images.unsplash.com/photo-1585208798174-6cedd86e019a?auto=format&fit=crop&w=1400&q=80",
         alt: "Steep green cliffs meeting the Atlantic in Madeira",
@@ -320,7 +413,7 @@ export const studioCountries: StudioCountry[] = [
           },
           {
             name: "Pastelaria before a miradouro",
-            note: "Coffee, pastry, then the view — in that order.",
+            note: "Coffee, pastry, then the view, in that order.",
           },
         ],
       },
@@ -333,7 +426,7 @@ export const studioCountries: StudioCountry[] = [
           },
           {
             name: "Cedofeita or Ribeira",
-            note: "Porto with character — design shops or river walks.",
+            note: "Porto with character, design shops or river walks.",
           },
         ],
       },
@@ -352,15 +445,15 @@ export const studioCountries: StudioCountry[] = [
       },
     ],
     notesIntro:
-      "How we pace Portugal — rail days, neighbourhood bases, and Atlantic pauses without packing the map.",
+      "How we pace Portugal, rail days, neighbourhood bases, and Atlantic pauses without packing the map.",
     travelNotes: [
       {
         title: "Best time to go",
-        body: "April–June and September–October. Soft light, fewer crowds, and weather that still suits outdoor lunches.",
+        body: "April-June and September-October. Soft light, fewer crowds, and weather that still suits outdoor lunches.",
       },
       {
         title: "How to pace it",
-        body: "Two bases at most: Lisbon, then Porto. Leave room for one Atlantic day — Cascais or the coast near Porto.",
+        body: "Two bases at most: Lisbon, then Porto. Leave room for one Atlantic day, Cascais or the coast near Porto.",
       },
       {
         title: "Getting around",
@@ -376,7 +469,7 @@ export const studioCountries: StudioCountry[] = [
       },
       {
         title: "What to leave out",
-        body: "Five cities in a week. Madeira bolted onto a Lisbon–Porto sprint. Give each base enough nights to settle.",
+        body: "Five cities in a week. Madeira bolted onto a Lisbon-Porto sprint. Give each base enough nights to settle.",
       },
     ],
     tasteNotes: [
@@ -405,6 +498,62 @@ export const studioCountries: StudioCountry[] = [
         alt: "Train travelling through green European countryside",
       },
     ],
+    topPlaces: [
+      {
+        title: "Tram 28 route",
+        area: "Lisbon",
+        image:
+          "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=1200&q=80",
+        alt: "Lisbon yellow tram on a narrow tiled street",
+        href: "https://www.getyourguide.com/lisbon-l42/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Belém riverside",
+        area: "Lisbon",
+        image:
+          "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1200&q=84",
+        alt: "Lisbon street climbing toward Atlantic light",
+        href: "https://www.getyourguide.com/belem-l2635/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Sintra palaces",
+        area: "Sintra",
+        image:
+          "https://images.unsplash.com/photo-1486299267070-83823f5448dd?auto=format&fit=crop&w=1200&q=80",
+        alt: "Golden countryside light over rolling hills near Sintra",
+        href: "https://www.getyourguide.com/sintra-l2634/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Ribeira waterfront",
+        area: "Porto",
+        image:
+          "https://images.unsplash.com/photo-1555881407-bb2d4e463a49?auto=format&fit=crop&w=1200&q=84",
+        alt: "Ribeira waterfront houses along the Douro in Porto",
+        href: "https://www.getyourguide.com/porto-l34/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Douro valley day",
+        area: "Douro",
+        image:
+          "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1200&q=84",
+        alt: "Train travelling through green countryside",
+        href: "https://www.getyourguide.com/douro-valley-l145861/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Atlantic cliffs",
+        area: "Madeira",
+        image:
+          "https://images.unsplash.com/photo-1585208798174-6cedd86e019a?auto=format&fit=crop&w=1200&q=80",
+        alt: "Steep green cliffs meeting the Atlantic in Madeira",
+        href: "https://www.getyourguide.com/madeira-l672/",
+        partner: "getyourguide",
+      },
+    ],
     exampleImage:
       "https://images.unsplash.com/photo-1555881407-bb2d4e463a49?auto=format&fit=crop&w=1400&q=84",
     exampleImageAlt: "Ribeira waterfront houses along the Douro in Porto",
@@ -414,12 +563,12 @@ export const studioCountries: StudioCountry[] = [
     example: {
       title: "Portugal by Train",
       duration: "10 days",
-      lede: "Lisbon to Porto with one Atlantic pause — fewer hotels, more attention.",
+      lede: "Lisbon to Porto with one Atlantic pause, fewer hotels, more attention.",
       days: [
-        { label: "Days 1–4", title: "Lisbon base", note: "Neighbourhood mornings and long lunches." },
+        { label: "Days 1 to 4", title: "Lisbon base", note: "Neighbourhood mornings and long lunches." },
         { label: "Day 5", title: "Cascais pause", note: "Atlantic air without changing hotels." },
-        { label: "Days 6–7", title: "Train north", note: "Coimbra or a direct Lisbon–Porto day." },
-        { label: "Days 8–10", title: "Porto and Douro", note: "River light, one day in the valley." },
+        { label: "Days 6 to 7", title: "Train north", note: "Coimbra or a direct Lisbon-Porto day." },
+        { label: "Days 8 to 10", title: "Porto and Douro", note: "River light, one day in the valley." },
       ],
     },
   },
@@ -431,7 +580,7 @@ export const studioCountries: StudioCountry[] = [
       "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=2000&q=84",
     alt: "Shared plates on a busy table in warm restaurant light",
     hubLede:
-      "Spain, for me, is food first — one barrio as home, markets that set the morning, and a second region only when the first has had enough time. Andalusia comes first.",
+      "Spain, for me, is food first, one barrio as home, markets that set the morning, and a second region only when the first has had enough time. Andalusia comes first.",
     featuredJourneySlug: "northern-spain",
     collections: [
       {
@@ -453,7 +602,7 @@ export const studioCountries: StudioCountry[] = [
       },
       {
         title: "Barcelona",
-        note: "Neighbourhood days and design hotels — still being edited.",
+        note: "Neighbourhood days and design hotels, still being edited.",
         image:
           "https://images.unsplash.com/photo-1583422403309-80447b2c0d0f?auto=format&fit=crop&w=1400&q=80",
         alt: "Barcelona street with warm Mediterranean light",
@@ -474,7 +623,7 @@ export const studioCountries: StudioCountry[] = [
         items: [
           {
             name: "A courtyard city hotel",
-            note: "Somewhere with atmosphere — and a quiet room upstairs.",
+            note: "Somewhere with atmosphere, and a quiet room upstairs.",
           },
           {
             name: "One regional stay",
@@ -491,7 +640,7 @@ export const studioCountries: StudioCountry[] = [
           },
           {
             name: "A late dinner",
-            note: "Spanish timing — unhurried, local, worth staying out for.",
+            note: "Spanish timing, unhurried, local, worth staying out for.",
           },
         ],
       },
@@ -517,17 +666,17 @@ export const studioCountries: StudioCountry[] = [
           },
           {
             name: "A landscape day",
-            note: "Coast, hills or wine country — one clean focus.",
+            note: "Coast, hills or wine country, one clean focus.",
           },
         ],
       },
     ],
     notesIntro:
-      "How we think about Spain — food first, one barrio as home, and a second region only when the first has had enough time.",
+      "How we think about Spain, food first, one barrio as home, and a second region only when the first has had enough time.",
     travelNotes: [
       {
         title: "Best time to go",
-        body: "April–June and September–October for most routes. Shoulder seasons keep heat and crowds in check.",
+        body: "April-June and September-October for most routes. Shoulder seasons keep heat and crowds in check.",
       },
       {
         title: "How to pace it",
@@ -554,7 +703,7 @@ export const studioCountries: StudioCountry[] = [
       {
         kind: "Hotels",
         name: "A courtyard city hotel",
-        note: "Somewhere with atmosphere — and a quiet room upstairs.",
+        note: "Somewhere with atmosphere, and a quiet room upstairs.",
         image:
           "https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1800&q=84",
         alt: "A warm Spanish street with historic architecture",
@@ -570,10 +719,66 @@ export const studioCountries: StudioCountry[] = [
       {
         kind: "Experiences",
         name: "A landscape day",
-        note: "Coast, hills or wine country — one clean focus.",
+        note: "Coast, hills or wine country, one clean focus.",
         image:
           "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=84",
         alt: "Green mountains and mist over a northern landscape",
+      },
+    ],
+    topPlaces: [
+      {
+        title: "Alhambra",
+        area: "Granada",
+        image:
+          "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=1200&q=80",
+        alt: "Warm evening light over a historic Spanish square",
+        href: "https://www.getyourguide.com/granada-l32/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Alcázar gardens",
+        area: "Seville",
+        image:
+          "https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=1200&q=84",
+        alt: "A warm Spanish street with historic architecture",
+        href: "https://www.getyourguide.com/seville-l48/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Gothic Quarter",
+        area: "Barcelona",
+        image:
+          "https://images.unsplash.com/photo-1583422403309-80447b2c0d0f?auto=format&fit=crop&w=1200&q=80",
+        alt: "Barcelona street with warm Mediterranean light",
+        href: "https://www.getyourguide.com/barcelona-l46/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Prado neighbourhood",
+        area: "Madrid",
+        image:
+          "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=1200&q=80",
+        alt: "Grand architecture along a Madrid avenue",
+        href: "https://www.getyourguide.com/madrid-l47/",
+        partner: "getyourguide",
+      },
+      {
+        title: "San Sebastián old town",
+        area: "San Sebastián",
+        image:
+          "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1200&q=84",
+        alt: "Tapas and shared plates on a busy table",
+        href: "https://www.getyourguide.com/san-sebastian-l348/",
+        partner: "getyourguide",
+      },
+      {
+        title: "Green coast day",
+        area: "Asturias",
+        image:
+          "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=84",
+        alt: "Green mountains and mist over a northern landscape",
+        href: "https://www.booking.com/searchresults.html?ss=Asturias%2C+Spain",
+        partner: "booking",
       },
     ],
     exampleImage:
@@ -585,10 +790,10 @@ export const studioCountries: StudioCountry[] = [
     example: {
       title: "A Slow Spain Sketch",
       duration: "8 days",
-      lede: "How Altrove thinks about Spain — currently being curated into a finished journey.",
+      lede: "How Altrove thinks about Spain, currently being curated into a finished journey.",
       days: [
-        { label: "Days 1–3", title: "One city base", note: "Markets, neighbourhood lunches, evening walks." },
-        { label: "Days 4–6", title: "A second region", note: "Train or short drive — not a daily hop." },
+        { label: "Days 1 to 3", title: "One city base", note: "Markets, neighbourhood lunches, evening walks." },
+        { label: "Days 4 to 6", title: "A second region", note: "Train or short drive, not a daily hop." },
         { label: "Day 7", title: "Landscape day", note: "Coast, countryside or wine country." },
         { label: "Day 8", title: "Return slowly", note: "A soft last morning before departure." },
       ],
@@ -647,7 +852,7 @@ export const journalMoods: {
   {
     slug: "weekend-getaways",
     title: "Weekend Getaways",
-    description: "Short trips that still feel complete — one city, one rhythm.",
+    description: "Short trips that still feel complete, one city, one rhythm.",
     articleSlugs: ["where-to-stay-lisbon", "rome-food-walk"],
   },
 ];
@@ -759,7 +964,7 @@ export function getGuidesForCountry(slug: StudioCountrySlug) {
     .slice(0, 6);
 }
 
-/** Paid guide products for a country hub — never fabricated as available. */
+/** Paid guide products for a country hub, never fabricated as available. */
 export function getGuideProductsForCountry(slug: StudioCountrySlug) {
   return guideProducts.filter((product) => product.countrySlug === slug);
 }
@@ -774,42 +979,49 @@ export type JournalTopicSlug =
 
 /**
  * Lightweight topic taxonomy over the Journal's existing free-text
- * `category` values (data.ts) — lets the Journal index offer a simple
+ * `category` values (data.ts), lets the Journal index offer a simple
  * subject filter without hand-retagging every article.
  */
 export const journalTopicGroups: {
   slug: JournalTopicSlug;
   title: string;
+  description: string;
   categories: string[];
 }[] = [
   {
     slug: "places",
     title: "Places",
+    description: "Cities, neighbourhoods and destination notes.",
     categories: ["City Notes", "Neighbourhood Guide", "Destination Guide", "Local Experiences"],
   },
   {
     slug: "food",
     title: "Food",
+    description: "Meals and markets worth planning a day around.",
     categories: ["Food Guide"],
   },
   {
     slug: "stays",
     title: "Stays",
+    description: "Hotels and bases worth waking up in.",
     categories: ["Hotel Notes"],
   },
   {
     slug: "culture",
     title: "Culture",
+    description: "Design, slower looking and personal stories.",
     categories: ["Design Guide", "Personal Story", "Honeymoons"],
   },
   {
     slug: "travel-notes",
-    title: "Travel Notes",
+    title: "Travel notes",
+    description: "Routes, packing and practical planning.",
     categories: ["Route Notes", "Planning", "Packing"],
   },
   {
     slug: "how-we-travel",
-    title: "How We Travel",
+    title: "How we travel",
+    description: "Pacing, attention and the Altrove approach.",
     categories: ["Sustainable Travel", "Island Planning", "Soft Adventure", "Lower-impact travel"],
   },
 ];

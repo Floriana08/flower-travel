@@ -23,9 +23,9 @@ const flexibilityOptions = [
 ];
 
 const paceOptions = [
-  "Slow — fewer bases, more time in each",
+  "Slow, fewer bases, more time in each",
   "Balanced",
-  "Efficient — I want to see as much as possible",
+  "Efficient, I want to see as much as possible",
 ];
 
 const interestOptions = [
@@ -137,34 +137,34 @@ export function TripEnquiryForm() {
       );
       form.reset();
     } catch {
-      // The enquiry couldn't be saved server-side — fall back to mailto so
+      // The enquiry couldn't be saved server-side, fall back to mailto so
       // the details aren't lost, rather than failing silently.
       const mailBody = [
         `Name: ${name}`,
         `Email: ${email}`,
         `Destinations: ${destinations}`,
-        `Dates: ${dates || "—"}`,
-        `Flexibility: ${flexibility || "—"}`,
-        `Travellers: ${travellers || "—"}`,
-        `Trip length: ${tripLength || "—"}`,
-        `Budget: ${budget || "—"}`,
-        `Pace: ${pace || "—"}`,
-        `Interests: ${interests || "—"}`,
-        `Accommodation: ${accommodation || "—"}`,
-        `Trip type: ${tripType || "—"}`,
-        `Needs help with: ${helpWith || "—"}`,
-        `Heard about Altrove via: ${howHeard || "—"}`,
-        `What matters most: ${priorities || "—"}`,
-        `Notes: ${notes || "—"}`,
+        `Dates: ${dates || ", "}`,
+        `Flexibility: ${flexibility || ", "}`,
+        `Travellers: ${travellers || ", "}`,
+        `Trip length: ${tripLength || ", "}`,
+        `Budget: ${budget || ", "}`,
+        `Pace: ${pace || ", "}`,
+        `Interests: ${interests || ", "}`,
+        `Accommodation: ${accommodation || ", "}`,
+        `Trip type: ${tripType || ", "}`,
+        `Needs help with: ${helpWith || ", "}`,
+        `Heard about Altrove via: ${howHeard || ", "}`,
+        `What matters most: ${priorities || ", "}`,
+        `Notes: ${notes || ", "}`,
       ].join("\n");
 
       window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(
-        `Trip enquiry — ${destinations}`,
+        `Trip enquiry, ${destinations}`,
       )}&body=${encodeURIComponent(mailBody)}`;
 
       setStatus("success");
       setMessage(
-        "We couldn’t reach our server just now, so your email client should open instead — please send that draft and we’ll reply with next steps.",
+        "We couldn’t reach our server just now, so your email client should open instead, please send that draft and we’ll reply with next steps.",
       );
       form.reset();
     }
@@ -215,14 +215,14 @@ export function TripEnquiryForm() {
         </label>
         <label>
           <span>Estimated trip length</span>
-          <input name="length" type="text" placeholder="e.g. 8–10 days" />
+          <input name="length" type="text" placeholder="e.g. 8 to 10 days" />
         </label>
         <label>
           <span>Approximate budget</span>
           <input
             name="budget"
             type="text"
-            placeholder="Optional — a range is enough"
+            placeholder="Optional, a range is enough"
           />
         </label>
         <label>

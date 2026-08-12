@@ -53,6 +53,11 @@ const nextConfig: NextConfig = {
         destination: "/#letters",
         permanent: true,
       },
+      {
+        source: "/journal/where-to-stay-in-lisbon",
+        destination: "/journal/where-to-stay-lisbon",
+        permanent: true,
+      },
     ];
   },
 };

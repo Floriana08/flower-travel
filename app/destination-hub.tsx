@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { affiliateHref } from "./affiliates";
 import { NewsletterForm } from "./newsletter-form";
 import { StudioNewsletter } from "./studio-components";
 import {
@@ -6,308 +7,209 @@ import {
   getGuideProductsForCountry,
   getHubJournalStories,
   type StudioCountry,
+  type TopPlace,
 } from "./studio-structure";
 import { defaultImageSizes, heroImageSizes, unsplashSrcSet } from "./image-utils";
 
-export function DestinationHub({ country }: { country: StudioCountry }) {
-  const featured = getFeaturedJourneyForCountry(country.slug);
-  const stories = getHubJournalStories(country.slug);
-  const countryGuides = getGuideProductsForCountry(country.slug);
-  const days = country.example.days;
-  const routeStops = days.map((day) => day.title.replace(/^(Arrive in |Stay in |Boat to |Return to )/i, ""));
+function TopPlaceCard({ place }: { place: TopPlace }) {
+  const { href, isAffiliate } = affiliateHref(place.href, place.partner);
 
   return (
-    <main className="country-mag">
-      <section className="country-mag-hero">
+    <a
+      className="dest-lp-top-card"
+      href={href}
+      target="_blank"
+      rel={
+        isAffiliate
+          ? "sponsored noopener noreferrer"
+          : "noopener noreferrer"
+      }
+    >
+      <img
+        src={place.image}
+        srcSet={unsplashSrcSet(place.image)}
+        sizes="(max-width: 640px) 70vw, 240px"
+        alt={place.alt}
+        loading="lazy"
+      />
+      <span className="dest-lp-top-copy">
+        <em>Attraction in {place.area}</em>
+        <strong>{place.title}</strong>
+      </span>
+    </a>
+  );
+}
+
+export function DestinationHub({ country }: { country: StudioCountry }) {
+  const stories = getHubJournalStories(country.slug);
+  const guide = getGuideProductsForCountry(country.slug)[0];
+  const journey = getFeaturedJourneyForCountry(country.slug);
+  const tips = country.travelNotes;
+  const topPlaces = country.topPlaces;
+
+  return (
+    <main className="dest-lp">
+      <section className="dest-lp-hero">
         <img
           src={country.image}
           srcSet={unsplashSrcSet(country.image)}
           sizes={heroImageSizes}
           alt={country.alt}
         />
-        <div className="country-mag-hero-copy">
-          <p className="country-mag-kicker">{country.title}</p>
-          <h1>How we experience {country.title}.</h1>
+        <div className="dest-lp-hero-copy">
+          <h1>{country.title}</h1>
+          <p>{country.hubLede}</p>
         </div>
       </section>
 
-      <section className="country-mag-intro country-mag-pad">
-        <p className="country-mag-lede">{country.hubLede}</p>
-      </section>
-
-      <section className="country-mag-regions country-mag-pad" aria-label="Regions">
-        <div className="country-mag-notes-rail">
-          <p className="country-mag-kicker">Regions</p>
-          <h2>Where we cover {country.title}</h2>
-        </div>
-        <div className="country-mag-regions-grid">
-          {country.collections.map((region) => {
-            const content = (
-              <>
-                <figure>
-                  <img
-                    src={region.image}
-                    srcSet={unsplashSrcSet(region.image)}
-                    sizes={defaultImageSizes}
-                    alt={region.alt}
-                    loading="lazy"
-                  />
-                </figure>
-                <h3>{region.title}</h3>
-                <p>{region.note}</p>
-                {region.status ? (
-                  <p className="country-mag-region-status">{region.status}</p>
-                ) : null}
-              </>
-            );
-            return region.href ? (
-              <Link key={region.title} className="country-mag-region-card" href={region.href}>
-                {content}
-              </Link>
-            ) : (
-              <article key={region.title} className="country-mag-region-card is-quiet">
-                {content}
-              </article>
-            );
-          })}
-        </div>
-      </section>
-
-      {country.travelNotes.length ? (
-        <section className="country-mag-notes country-mag-pad" aria-label="Travel notes">
-          <div className="country-mag-notes-rail">
-            <p className="country-mag-kicker">Travel notes</p>
-            <h2>How to travel here</h2>
-            <p>{country.notesIntro}</p>
+      <section className="dest-lp-shell dest-lp-stories" aria-label="Latest stories">
+        <div className="dest-lp-section-head dest-lp-section-head-row">
+          <div>
+            <p className="dest-lp-label">Latest stories</p>
+            <h2>From the journal</h2>
           </div>
-          <dl className="country-mag-notes-list">
-            {country.travelNotes.map((note) => (
-              <div key={note.title}>
-                <dt>{note.title}</dt>
-                <dd>{note.body}</dd>
-              </div>
-            ))}
-          </dl>
-        </section>
-      ) : null}
-
-      {country.tasteNotes.length ? (
-        <section className="country-mag-loved country-mag-pad" aria-label="Places we love">
-          <div className="country-mag-loved-intro">
-            <p className="country-mag-kicker">Places we love</p>
-            <h2>Taste notes from {country.title}</h2>
-          </div>
-          <div className="country-mag-loved-row">
-            {country.tasteNotes.map((taste) => (
-              <article key={taste.name} className="country-mag-loved-col">
-                <figure>
-                  <img
-                    src={taste.image}
-                    srcSet={unsplashSrcSet(taste.image)}
-                    sizes={defaultImageSizes}
-                    alt={taste.alt}
-                    loading="lazy"
-                  />
-                </figure>
-                <p className="country-mag-kicker">{taste.kind}</p>
-                <h3>{taste.name}</h3>
-                <p>{taste.note}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-      ) : null}
-
-      {country.placesWeLove.length ? (
-        <section className="country-mag-pad country-mag-places-list" aria-label="Shortlists">
-          <div className="country-mag-notes-rail">
-            <p className="country-mag-kicker">Shortlists</p>
-            <h2>Where we would send a friend</h2>
-          </div>
-          <div className="country-mag-places-grid">
-            {country.placesWeLove.map((group) => (
-              <div key={group.kind} className="country-mag-places-group">
-                <h3>{group.kind}</h3>
-                <ul>
-                  {group.items.map((item) => (
-                    <li key={item.name}>
-                      <strong>{item.name}</strong>
-                      <span>{item.note}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
-      ) : null}
-
-      <section className="country-mag-journal country-mag-pad" aria-label="Journal stories">
-        <div className="country-mag-notes-rail">
-          <p className="country-mag-kicker">Journal</p>
-          <h2>Stories from {country.title}</h2>
+          <Link className="dest-lp-text-link" href={`/journal/${country.slug}`}>
+            More stories
+          </Link>
         </div>
         {stories.length ? (
-          <>
-            <div className="country-mag-journal-grid">
-              {stories.map((story) => (
-                <article key={story.slug} className="country-mag-journal-card">
-                  <Link href={`/journal/${story.slug}`}>
-                    <img
-                      src={story.image}
-                      srcSet={unsplashSrcSet(story.image)}
-                      sizes={defaultImageSizes}
-                      alt={story.alt}
-                      loading="lazy"
-                    />
-                    <p className="country-mag-kicker">{story.category}</p>
-                    <h3>{story.title}</h3>
-                    <p>{story.excerpt}</p>
-                  </Link>
-                </article>
-              ))}
-            </div>
-            <Link className="country-mag-link" href={`/journal/${country.slug}`}>
-              More from {country.title}
-            </Link>
-          </>
-        ) : (
-          <div className="country-mag-empty-journal">
-            <p className="country-mag-quiet-note">
-              Journal notes for {country.title} are still being gathered. In
-              the meantime, ask Altrove to shape a route — or join Letters for
-              new stories as they publish.
-            </p>
-            <p className="country-mag-coast-links">
-              <Link className="country-mag-link" href="/plan-a-trip">
-                Plan a journey
-              </Link>
-              <Link className="country-mag-link" href="/#letters">
-                Join Letters
-              </Link>
-            </p>
-          </div>
-        )}
-      </section>
-
-      <section className="country-mag-guides country-mag-pad" aria-label="Guides">
-        <div className="country-mag-notes-rail">
-          <p className="country-mag-kicker">Guides</p>
-          <h2>Take {country.title} with you</h2>
-        </div>
-        {countryGuides.length ? (
-          <div className="country-mag-guides-grid">
-            {countryGuides.map((guide) => (
-              <article key={guide.slug} className="country-mag-guide-card">
-                <Link href={`/guides/${guide.slug}`}>
+          <div className="dest-lp-stories-grid">
+            {stories.map((story) => (
+              <article key={story.slug} className="dest-lp-story">
+                <Link href={`/journal/${story.slug}`}>
                   <img
-                    src={guide.image}
-                    srcSet={unsplashSrcSet(guide.image)}
+                    src={story.image}
+                    srcSet={unsplashSrcSet(story.image)}
                     sizes={defaultImageSizes}
-                    alt={guide.alt}
+                    alt={story.alt}
                     loading="lazy"
                   />
-                  <p className="country-mag-kicker">{guide.status}</p>
-                  <h3>{guide.title}</h3>
-                  <p>{guide.excerpt}</p>
-                  <p className="country-mag-guide-price">
-                    {guide.price}
-                    {!guide.stripePriceId ? " · Launching soon" : ""}
-                  </p>
+                  <p className="dest-lp-label">{story.category}</p>
+                  <h3>{story.title}</h3>
+                  <p>{story.excerpt}</p>
                 </Link>
               </article>
             ))}
           </div>
         ) : (
-          <p className="country-mag-quiet-note">
-            No guide for {country.title} yet — we publish a guide only once
-            we&rsquo;ve researched it properly.
+          <p className="dest-lp-empty">
+            Journal notes for {country.title} are still being gathered.
           </p>
         )}
       </section>
 
-      {featured ? (
-        <section
-          className="country-mag-coast country-mag-pad"
-          aria-label={country.example.title}
-        >
-          <div className="country-mag-coast-head">
-            <div className="country-mag-coast-copy">
-              <p className="country-mag-kicker">Featured journey</p>
-              <h2>
-                <Link href={`/journeys/${featured.slug}`}>{featured.title}</Link>
-              </h2>
-              <p className="country-mag-meta">
-                {featured.duration} · {featured.destination}
-              </p>
-              <p className="country-mag-deck">{featured.summary}</p>
-              <p className="country-mag-deck">{country.example.lede}</p>
-              {routeStops.length ? (
-                <p className="country-mag-route-line" aria-label="Suggested route">
-                  {routeStops.join(" → ")}
-                </p>
+      <section className="dest-lp-journeys" aria-label="Plan with Altrove">
+        <div className="dest-lp-shell dest-lp-journeys-inner">
+          <div className="dest-lp-journeys-copy">
+            <p className="dest-lp-label">Plan with Altrove</p>
+            <h2>See {country.title} how it&rsquo;s meant to be seen</h2>
+            <p>
+              Personalised itinerary design around the places we know well,
+              hotels, neighbourhoods and pacing included. You make the
+              bookings; Altrove makes the trip make sense.
+            </p>
+            <div className="dest-lp-journeys-actions">
+              <Link className="button light" href="/plan-a-trip">
+                Start planning
+              </Link>
+              {journey ? (
+                <Link
+                  className="button ghost-on-dark"
+                  href={`/journeys/${journey.slug}`}
+                >
+                  Browse a journey
+                </Link>
               ) : null}
             </div>
-            <figure className="country-mag-coast-side">
+          </div>
+          {journey ? (
+            <Link
+              className="dest-lp-journeys-feature"
+              href={`/journeys/${journey.slug}`}
+            >
               <img
-                src={country.exampleImage}
-                srcSet={unsplashSrcSet(country.exampleImage)}
+                src={journey.image}
+                srcSet={unsplashSrcSet(journey.image)}
                 sizes={defaultImageSizes}
-                alt={country.exampleImageAlt}
+                alt={journey.alt}
                 loading="lazy"
               />
-            </figure>
+              <span>
+                <em>{journey.duration}</em>
+                <strong>{journey.title}</strong>
+              </span>
+            </Link>
+          ) : null}
+        </div>
+      </section>
+
+      {topPlaces.length ? (
+        <section className="dest-lp-top" aria-label="Top places to visit">
+          <div className="dest-lp-shell">
+            <div className="dest-lp-section-head">
+              <p className="dest-lp-label">Top places to visit</p>
+              <h2>Where to go in {country.title}</h2>
+              <p className="dest-lp-dek">
+                Sights worth a day or an afternoon, not a separate page for every
+                monument. Tickets and stays open with trusted booking partners.
+              </p>
+            </div>
           </div>
-
-          <ol className="country-mag-days">
-            {days.map((day, index) => (
-              <li
-                key={`${day.label}-${day.title}`}
-                style={{ ["--day-index" as string]: index }}
-              >
-                <p className="country-mag-day-label">{day.label}</p>
-                <h3>{day.title}</h3>
-                {day.note ? <p>{day.note}</p> : null}
-              </li>
+          <div className="dest-lp-top-rail" role="list">
+            {topPlaces.map((place) => (
+              <div key={`${place.area}-${place.title}`} role="listitem">
+                <TopPlaceCard place={place} />
+              </div>
             ))}
-          </ol>
-
-          <div className="country-mag-coast-links">
-            <Link className="country-mag-link" href={`/journeys/${featured.slug}`}>
-              Explore the journey
-            </Link>
-            {countryGuides[0] ? (
-              <Link className="country-mag-link" href={`/guides/${countryGuides[0].slug}`}>
-                View the guide
-              </Link>
-            ) : null}
-            <Link className="country-mag-link" href="/plan-a-trip">
-              Plan a personalised version
-            </Link>
           </div>
         </section>
       ) : null}
 
-      <section className="country-mag-plan country-mag-pad" aria-label="Plan a trip">
-        <div className="country-mag-plan-media" aria-hidden="true">
-          <img
-            src={country.planImage}
-            srcSet={unsplashSrcSet(country.planImage)}
-            sizes={defaultImageSizes}
-            alt=""
-          />
-        </div>
-        <div className="country-mag-plan-copy">
-          <p className="country-mag-kicker">Plan a journey</p>
-          <h2>Planning something similar?</h2>
-          <p>
-            Altrove can shape the route around your dates, pace and priorities.
-          </p>
-          <Link className="button dark" href="/plan-a-trip">
-            Plan a journey
-          </Link>
-        </div>
-      </section>
+      {tips.length ? (
+        <section className="dest-lp-tips" aria-label="Travel tips">
+          <div className="dest-lp-shell">
+            <div className="dest-lp-section-head">
+              <p className="dest-lp-label">Travel tips</p>
+              <h2>{country.title} tips from Altrove</h2>
+              <p className="dest-lp-dek">{country.notesIntro}</p>
+            </div>
+            <div className="dest-lp-tips-grid">
+              {tips.map((tip) => (
+                <article key={tip.title} className="dest-lp-tip">
+                  <h3>{tip.title}</h3>
+                  <p>{tip.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {guide ? (
+        <section className="dest-lp-shell dest-lp-guide" aria-label="Guide">
+          <div className="dest-lp-guide-inner">
+            <img
+              src={guide.image}
+              srcSet={unsplashSrcSet(guide.image)}
+              sizes={defaultImageSizes}
+              alt={guide.alt}
+              loading="lazy"
+            />
+            <div>
+              <p className="dest-lp-label">Travel guide</p>
+              <h2>{guide.title}</h2>
+              <p>{guide.excerpt}</p>
+              <p className="dest-lp-guide-meta">
+                {guide.price}
+                {!guide.stripePriceId ? " · Launching soon" : ""}
+              </p>
+              <Link className="button dark" href={`/guides/${guide.slug}`}>
+                See what&rsquo;s inside
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <StudioNewsletter
         title={`Notes from ${country.title}`}

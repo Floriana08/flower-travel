@@ -5,7 +5,7 @@ import { site, type GuideProduct } from "./data";
 
 /**
  * Purchase CTA for a guide product. No guide has a `stripePriceId` yet, so
- * this always renders the honest waitlist state — a real "Buy now" button
+ * this always renders the honest waitlist state, a real "Buy now" button
  * that posts to `/api/checkout` only appears once a guide gets one.
  */
 export function GuideCheckoutCta({ product }: { product: GuideProduct }) {
@@ -38,7 +38,7 @@ function BuyNowButton({ product }: { product: GuideProduct }) {
   return (
     <div className="guide-checkout">
       <button className="button dark" type="button" onClick={handleClick} disabled={status === "loading"}>
-        {status === "loading" ? "Starting checkout…" : `Buy now — ${product.price}`}
+        {status === "loading" ? "Starting checkout…" : `Buy now, ${product.price}`}
       </button>
       {status === "error" ? (
         <p className="form-status form-status-error">
@@ -76,12 +76,12 @@ function WaitlistForm({ product }: { product: GuideProduct }) {
       setStatus("success");
       setMessage(
         result.alreadySubscribed
-          ? "You're already on our list — we'll email you the moment this guide is ready."
-          : "You're on the waitlist — we'll email you the moment this guide is ready.",
+          ? "You're already on our list, we'll email you the moment this guide is ready."
+          : "You're on the waitlist, we'll email you the moment this guide is ready.",
       );
       form.reset();
     } catch {
-      // Couldn't reach the server — fall back to mailto so interest isn't
+      // Couldn't reach the server, fall back to mailto so interest isn't
       // silently dropped, matching NewsletterForm's resilience pattern.
       window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(
         "Guide waitlist",
@@ -90,7 +90,7 @@ function WaitlistForm({ product }: { product: GuideProduct }) {
       )}`;
       setStatus("success");
       setMessage(
-        "We couldn’t reach our server just now, so your email client should open instead — please send that draft to join the waitlist.",
+        "We couldn’t reach our server just now, so your email client should open instead, please send that draft to join the waitlist.",
       );
       form.reset();
     }
@@ -106,7 +106,7 @@ function WaitlistForm({ product }: { product: GuideProduct }) {
       </p>
       <p className="guide-waitlist-lede">
         This guide isn&rsquo;t for sale yet. Join the waitlist and we&rsquo;ll
-        email you the day checkout opens — no payment taken now.
+        email you the day checkout opens, no payment taken now.
       </p>
       <div className="guide-waitlist-row">
         <label className="visually-hidden" htmlFor={`waitlist-email-${product.slug}`}>

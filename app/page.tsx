@@ -5,21 +5,20 @@ import { NewsletterForm } from "./newsletter-form";
 import { guideProducts, guides, site } from "./data";
 import { getJourney } from "./journeys-data";
 import { HeroOceanVideo } from "./hero-ocean-video";
-import { CountryTile, StudioNewsletter } from "./studio-components";
-import { studioCountries } from "./studio-structure";
+import { StudioNewsletter } from "./studio-components";
 import { defaultImageSizes, unsplashSrcSet } from "./image-utils";
 
 export const metadata: Metadata = {
   title: "Editorial travel studio",
   description:
-    "Altrove is an editorial travel studio: thoughtful destination stories, premium destination guides, and personalised itinerary design — starting with Italy, Spain and Portugal.",
+    "Altrove is an editorial travel studio: thoughtful destination stories, premium destination guides, and personalised itinerary design, starting with Italy, Spain and Portugal.",
   alternates: {
     canonical: "https://altrove.studio/",
   },
   openGraph: {
     title: "Altrove | Editorial travel studio",
     description:
-      "Thoughtful journeys through Italy, Spain and Portugal — with the places, hotels, meals and routes we'd actually recommend to a friend.",
+      "Thoughtful journeys through Italy, Spain and Portugal, with the places, hotels, meals and routes we'd actually recommend to a friend.",
     type: "website",
     images: [
       {
@@ -50,7 +49,7 @@ const structuredData = {
         "@type": "Organization",
         name: site.name,
       },
-      url: "https://altrove.studio/about",
+      url: "https://altrove.studio/plan-a-trip",
     },
   ],
 };
@@ -81,7 +80,7 @@ export default function Home() {
             Choose well.
           </h1>
           <p className="studio-hero-lede">
-            Thoughtful journeys through Italy, Spain and Portugal — with the
+            Thoughtful journeys through Italy, Spain and Portugal, with the
             places, hotels, meals and routes I&rsquo;d actually recommend to a
             friend.
           </p>
@@ -96,39 +95,6 @@ export default function Home() {
           <p className="studio-hero-support">
             Independent guides · Personalised itineraries · Travel stories
           </p>
-        </div>
-      </section>
-
-      <section className="section-shell home-destinations" id="destinations">
-        <div className="home-section-head">
-          <p className="eyebrow">Begin with a place</p>
-          <h2 className="display-title">We start where we know best.</h2>
-          <p className="home-section-dek">
-            Italy, Portugal and Spain — doors into notes, guides and journeys,
-            not a catalogue of everywhere.
-          </p>
-        </div>
-        <div className="destinations-index-grid home-destinations-grid home-destination-doors">
-          {studioCountries.map((country) => (
-            <CountryTile key={country.slug} country={country} variant="door" />
-          ))}
-        </div>
-      </section>
-
-      <section className="home-manifesto" id="philosophy" aria-label="Altrove philosophy">
-        <div className="home-manifesto-inner section-shell">
-          <p className="home-manifesto-kicker">Altrove note Nº 01</p>
-          <h2 className="home-manifesto-title">
-            Fewer bases.
-            <br />
-            Better pacing.
-          </h2>
-          <ul className="home-manifesto-list">
-            <li>Neighbourhoods over checklists.</li>
-            <li>Meals that shape the day.</li>
-            <li>Places worth returning to.</li>
-            <li>Permission not to see everything.</li>
-          </ul>
         </div>
       </section>
 
@@ -158,9 +124,9 @@ export default function Home() {
                 </Link>
               </h2>
               <p className="home-journey-meta">
-                <span>7–9 days</span>
+                <span>7 to 9 days</span>
                 <span>Two bases</span>
-                <span>Best May–June / September</span>
+                <span>Best May-June / September</span>
               </p>
 
               <ol className="home-route-steps" aria-label="Suggested bases">
@@ -218,7 +184,7 @@ export default function Home() {
             <p className="eyebrow">Read</p>
             <h3>Journal</h3>
             <p>
-              Stories, neighbourhood notes and places worth remembering —
+              Stories, neighbourhood notes and places worth remembering , 
               written so you can feel how I travel before you plan.
             </p>
             <Link className="text-link" href="/journal">
@@ -230,7 +196,7 @@ export default function Home() {
             <h3>Guides</h3>
             <p>
               Complete destination edits designed to help you travel on your
-              own — bases, pacing and what I&rsquo;d skip.
+              own, bases, pacing and what I&rsquo;d skip.
             </p>
             <Link className="text-link" href="/guides">
               Browse the guides
@@ -280,7 +246,7 @@ export default function Home() {
               <p>{featuredGuide.excerpt}</p>
               <ul className="home-guide-contents">
                 <li>Where I&rsquo;d stay</li>
-                <li>The 7–9 day Altrove route</li>
+                <li>The 7 to 9 day Altrove route</li>
                 <li>Neighbourhoods &amp; restaurants worth booking</li>
                 <li>Ferry notes, pacing &amp; what I&rsquo;d skip</li>
               </ul>
@@ -353,11 +319,8 @@ export default function Home() {
           Altrove shapes the route, neighbourhoods, pacing and the places worth
           your time.
         </p>
-        <p className="home-plan-boundary">
-          You make the bookings. We make the trip make sense.
-        </p>
         <Link className="button dark" href="/plan-a-trip">
-          Plan a journey
+          Book your travel consultation
         </Link>
       </section>
 

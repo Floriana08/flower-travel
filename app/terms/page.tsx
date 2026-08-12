@@ -12,13 +12,13 @@ export default function TermsPage() {
     <main>
       <PageHero
         eyebrow="Legal"
-        title="Terms of use — placeholder."
+        title="Terms of use, placeholder."
         image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=84"
         alt="A calm outdoor table with warm travel light"
       >
         <p>
           This page is a placeholder. It has not been reviewed by a lawyer
-          and should not be treated as a finished legal document — it exists
+          and should not be treated as a finished legal document, it exists
           so the site has a real link here rather than a dead one.
         </p>
       </PageHero>
@@ -32,7 +32,7 @@ export default function TermsPage() {
             </div>
             <div className="article-panel">
               <h2>Status</h2>
-              <p>Placeholder — pending legal review before launch.</p>
+              <p>Placeholder, pending legal review before launch.</p>
             </div>
           </aside>
 
@@ -63,7 +63,7 @@ export default function TermsPage() {
               <p>
                 Governing law, liability limitations, acceptable use, and
                 intellectual property terms for site content and purchased
-                guides — these need proper legal drafting, not placeholder
+                guides, these need proper legal drafting, not placeholder
                 copy.
               </p>
             </section>

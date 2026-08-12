@@ -6,6 +6,7 @@ import { GuideCard, NewsletterBand } from "../../components";
 import {
   ArticleMeta,
   FlorNote,
+  PracticalBox,
   WorthKnowing,
 } from "../../editorial-components";
 import { guideProducts, guides, site } from "../../data";
@@ -19,11 +20,21 @@ function getGuide(slug: string) {
   return guides.find((guide) => guide.slug === slug);
 }
 
+function sectionId(heading: string, id?: string) {
+  if (id) return id;
+  return heading
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 export function generateStaticParams() {
   return guideArticles.map((article) => ({ slug: article.slug }));
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const guide = getGuide(slug);
   const article = getGuideArticle(slug);
@@ -32,15 +43,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {};
   }
 
+  const title = article.seoTitle ?? guide.title;
+  const description = article.seoDescription ?? article.dek;
+
   return {
-    title: guide.title,
-    description: article.dek,
+    title,
+    description,
     alternates: {
       canonical: `https://altrove.studio/journal/${guide.slug}`,
     },
     openGraph: {
-      title: `${guide.title} | ${site.name}`,
-      description: article.dek,
+      title: `${title} | ${site.name}`,
+      description,
       type: "article",
       images: [
         {
@@ -50,6 +64,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           alt: guide.alt,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | ${site.name}`,
+      description,
+      images: [guide.image],
     },
   };
 }
@@ -63,26 +83,69 @@ export default async function JournalArticlePage({ params }: PageProps) {
     notFound();
   }
 
-  const relatedGuides = guides
-    .filter((relatedGuide) => relatedGuide.slug !== guide.slug)
-    .slice(0, 3);
+  const relatedFromSlugs = (article.relatedJournalSlugs ?? [])
+    .map((relatedSlug) => getGuide(relatedSlug))
+    .filter((relatedGuide): relatedGuide is (typeof guides)[number] =>
+      Boolean(relatedGuide),
+    );
+
+  const relatedGuides =
+    relatedFromSlugs.length > 0
+      ? relatedFromSlugs.slice(0, 3)
+      : guides
+          .filter((relatedGuide) => relatedGuide.slug !== guide.slug)
+          .filter(
+            (relatedGuide) =>
+              relatedGuide.destination === guide.destination ||
+              /portugal|lisbon|porto|madeira/i.test(
+                `${relatedGuide.destination} ${relatedGuide.slug}`,
+              ),
+          )
+          .slice(0, 3);
+
+  const fallbackRelated =
+    relatedGuides.length > 0
+      ? relatedGuides
+      : guides.filter((g) => g.slug !== guide.slug).slice(0, 3);
 
   const relatedProduct = guideProducts.find((product) =>
     product.relatedArticleSlugs.includes(guide.slug),
   );
 
+  const tocItems = [
+    ...(article.comparisonTable
+      ? [
+          {
+            id: "areas-at-a-glance",
+            label: article.comparisonTable.heading,
+          },
+        ]
+      : []),
+    ...article.sections
+      .filter((section) => section.id || section.heading)
+      .map((section) => ({
+        id: sectionId(section.heading, section.id),
+        label: section.heading,
+      })),
+    ...(article.faqs?.length
+      ? [{ id: "faq", label: "FAQ: Where to stay in Lisbon" }]
+      : []),
+  ];
+
+  const pageDescription = article.seoDescription ?? article.dek;
+
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: guide.title,
-    description: article.dek,
-    image: guide.image,
+    description: pageDescription,
+    image: [guide.image],
     datePublished: guide.date,
     dateModified: article.lastReviewed,
     author: {
       "@type": "Person",
       name: "Flor",
-      url: "https://altrove.studio/",
+      url: "https://altrove.studio/plan-a-trip",
     },
     publisher: {
       "@type": "Organization",
@@ -92,8 +155,26 @@ export default async function JournalArticlePage({ params }: PageProps) {
         url: "https://altrove.studio/logo-altrove.png",
       },
     },
-    mainEntityOfPage: `https://altrove.studio/journal/${guide.slug}`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://altrove.studio/journal/${guide.slug}`,
+    },
   };
+
+  const faqStructuredData = article.faqs?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: article.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      }
+    : null;
 
   return (
     <main>
@@ -101,6 +182,14 @@ export default async function JournalArticlePage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
+      {faqStructuredData ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqStructuredData),
+          }}
+        />
+      ) : null}
 
       <article className="article-page">
         <header className="article-hero">
@@ -112,14 +201,17 @@ export default async function JournalArticlePage({ params }: PageProps) {
             <h1>{guide.title}</h1>
             <p className="article-dek">{article.dek}</p>
             <div className="article-meta">
+              <span>By Flor</span>
               <span>{guide.destination}</span>
-              <span>{guide.date}</span>
+              <span>Published {guide.date}</span>
               <span>{guide.readTime}</span>
               <span>Reviewed {article.lastReviewed}</span>
             </div>
             <ArticleMeta
               items={[
+                { label: "Author", value: "Flor" },
                 { label: "Location", value: guide.destination },
+                { label: "Published", value: guide.date },
                 { label: "Updated", value: article.lastReviewed },
                 { label: "Read time", value: guide.readTime },
                 { label: "Type", value: guide.category },
@@ -156,40 +248,112 @@ export default async function JournalArticlePage({ params }: PageProps) {
             </div>
             <div className="article-panel">
               <h2>Continue in the journal</h2>
-              {relatedProduct ? (
+              {(article.continueLinks ?? []).map((link) => (
+                <p key={link.href}>
+                  <Link className="text-link" href={link.href}>
+                    {link.label}
+                  </Link>
+                </p>
+              ))}
+              {!article.continueLinks?.length && relatedProduct ? (
                 <p>
-                  <Link className="text-link" href={`/guides/${relatedProduct.slug}`}>
+                  <Link
+                    className="text-link"
+                    href={`/guides/${relatedProduct.slug}`}
+                  >
                     Related guide: {relatedProduct.title}
                   </Link>
                 </p>
               ) : null}
-              <p>
-                <Link className="text-link" href="/destinations/portugal">
-                  Portugal destination hub
-                </Link>
-              </p>
-              <p>
-                <Link className="text-link" href="/#letters">
-                  Join the newsletter
-                </Link>
-              </p>
+              {!article.continueLinks?.length ? (
+                <>
+                  <p>
+                    <Link className="text-link" href="/destinations/portugal">
+                      Portugal destination hub
+                    </Link>
+                  </p>
+                  <p>
+                    <Link className="text-link" href="/#letters">
+                      Join the newsletter
+                    </Link>
+                  </p>
+                </>
+              ) : null}
             </div>
           </aside>
 
           <div className="article-body">
-            <FlorNote>
-              <p>
-                These notes are written from personal research and first-hand
-                travel preference. Always re-check opening times and transport
-                before you go.
-              </p>
-            </FlorNote>
+            {article.intro?.map((paragraph) => (
+              <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+            ))}
+
+            {tocItems.length > 3 ? (
+              <nav className="article-toc" aria-label="On this page">
+                <details>
+                  <summary>On this page</summary>
+                  <ol>
+                    {tocItems.map((item) => (
+                      <li key={item.id}>
+                        <a href={`#${item.id}`}>{item.label}</a>
+                      </li>
+                    ))}
+                  </ol>
+                </details>
+              </nav>
+            ) : null}
+
+            {article.comparisonTable ? (
+              <section
+                id="areas-at-a-glance"
+                className="article-comparison"
+                aria-labelledby="areas-at-a-glance-heading"
+              >
+                <h2 id="areas-at-a-glance-heading">
+                  {article.comparisonTable.heading}
+                </h2>
+                <div className="article-comparison-scroll">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th scope="col">Area</th>
+                        <th scope="col">Best for</th>
+                        <th scope="col">The feeling</th>
+                        <th scope="col">Worth knowing</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {article.comparisonTable.rows.map((row) => (
+                        <tr key={row.area}>
+                          <th scope="row">{row.area}</th>
+                          <td>{row.bestFor}</td>
+                          <td>{row.feeling}</td>
+                          <td>{row.worthKnowing}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            ) : null}
+
+            {!article.closingFlorNote ? (
+              <FlorNote>
+                <p>
+                  These notes are written from personal research and first-hand
+                  travel preference. Always re-check opening times and transport
+                  before you go.
+                </p>
+              </FlorNote>
+            ) : null}
 
             {article.sections.map((section, index) => (
-              <section key={section.heading}>
+              <section
+                key={section.heading}
+                id={sectionId(section.heading, section.id)}
+              >
                 <h2>{section.heading}</h2>
                 {section.body.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+                  <p key={paragraph.slice(0, 64)}>{paragraph}</p>
                 ))}
                 {section.bullets ? (
                   <ul>
@@ -198,24 +362,55 @@ export default async function JournalArticlePage({ params }: PageProps) {
                     ))}
                   </ul>
                 ) : null}
-                {index === 0 &&
-                /portugal|lisbon|porto|madeira|douro/i.test(
-                  `${guide.destination} ${guide.slug}`,
-                ) ? (
-                  <WorthKnowing>
-                    <p>
-                      Planning a longer stay in Portugal? Explore our{" "}
-                      <Link href="/journeys/portugal-by-train">
-                        Portugal journeys
-                      </Link>{" "}
-                      or the{" "}
-                      <Link href="/destinations/portugal">
-                        Portugal destination hub
-                      </Link>
-                      .
-                    </p>
-                  </WorthKnowing>
+                {section.hotels?.length ? (
+                  <div className="article-hotel-list">
+                    {section.hotelsHeading ? (
+                      <h3>{section.hotelsHeading}</h3>
+                    ) : null}
+                    {section.hotels.map((hotel) => (
+                      <article key={hotel.name} className="article-hotel">
+                        <h4>{hotel.name}</h4>
+                        {hotel.area ? (
+                          <p className="article-hotel-meta">{hotel.area}</p>
+                        ) : null}
+                        <p>{hotel.note}</p>
+                        {hotel.href ? (
+                          <p>
+                            <a
+                              className="text-link"
+                              href={hotel.href}
+                              rel="noopener noreferrer"
+                              target="_blank"
+                            >
+                              View hotel
+                            </a>
+                          </p>
+                        ) : null}
+                      </article>
+                    ))}
+                  </div>
                 ) : null}
+                {section.florPick ? (
+                  <FlorNote title="Flor's pick">
+                    <p>{section.florPick}</p>
+                  </FlorNote>
+                ) : null}
+                {section.whoShouldStay ? (
+                  <>
+                    <h3>Who should stay here?</h3>
+                    <p>{section.whoShouldStay}</p>
+                  </>
+                ) : null}
+                {section.callout ? (
+                  <PracticalBox title={section.callout.title}>
+                    {section.callout.body.map((paragraph) => (
+                      <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+                    ))}
+                  </PracticalBox>
+                ) : null}
+                {section.closing?.map((paragraph) => (
+                  <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+                ))}
                 {index === 0 &&
                 /italy|rome|naples|amalfi|campania/i.test(
                   `${guide.destination} ${guide.slug} ${guide.title}`,
@@ -253,24 +448,42 @@ export default async function JournalArticlePage({ params }: PageProps) {
               </section>
             ))}
 
-            <section className="article-sources">
-              <h2>Sources and research notes</h2>
-              <p>
-                These guide pages are written as editorial planning notes, not
-                legal, safety, or official booking advice. Check opening times,
-                trail conditions, transport rules, and entry requirements before
-                you book.
-              </p>
-              <ul>
-                {article.sources.map((source) => (
-                  <li key={source.url}>
-                    <a href={source.url} rel="noreferrer" target="_blank">
-                      {source.label}
-                    </a>
-                  </li>
+            {article.faqs?.length ? (
+              <section id="faq" className="article-faq" aria-labelledby="faq-heading">
+                <h2 id="faq-heading">FAQ: Where to stay in Lisbon</h2>
+                {article.faqs.map((faq) => (
+                  <details key={faq.question} className="article-faq-item">
+                    <summary>
+                      <h3>{faq.question}</h3>
+                    </summary>
+                    <p>{faq.answer}</p>
+                  </details>
                 ))}
-              </ul>
-            </section>
+              </section>
+            ) : null}
+
+            {article.closingFlorNote?.length ? (
+              <FlorNote>
+                {article.closingFlorNote.map((paragraph) => (
+                  <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+                ))}
+              </FlorNote>
+            ) : null}
+
+            {article.continueLinks?.length ? (
+              <section className="article-continue" aria-label="Continue reading">
+                <h2>Continue in the journal</h2>
+                <ul>
+                  {article.continueLinks.map((link) => (
+                    <li key={link.href}>
+                      <Link className="text-link" href={link.href}>
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ) : null}
           </div>
         </div>
       </article>
@@ -281,13 +494,21 @@ export default async function JournalArticlePage({ params }: PageProps) {
           <h2>More guides for thoughtful planning.</h2>
         </div>
         <div className="guide-grid">
-          {relatedGuides.map((relatedGuide) => (
+          {fallbackRelated.map((relatedGuide) => (
             <GuideCard key={relatedGuide.slug} guide={relatedGuide} compact />
           ))}
         </div>
       </section>
 
-      <NewsletterBand />
+      <NewsletterBand
+        title={article.newsletter?.title ?? "Join the Altrove Club"}
+        description={
+          article.newsletter?.description ??
+          "Every month, receive one carefully planned route, hotel shortlist, or city walk from Flor."
+        }
+        buttonLabel={article.newsletter ? "Join the letters" : "Join the Club"}
+        footnote="No daily emails. Just thoughtful travel inspiration from Altrove."
+      />
     </main>
   );
 }

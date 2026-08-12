@@ -11,7 +11,7 @@ import { defaultImageSizes, unsplashSrcSet } from "../image-utils";
 export const metadata: Metadata = {
   title: "Destinations",
   description:
-    "Begin with a place — Italy, Portugal and Spain, the parts of Europe Altrove knows well enough to edit carefully.",
+    "Begin with a place, Italy, Portugal and Spain, the parts of Europe Altrove knows well enough to edit carefully.",
   alternates: {
     canonical: "https://altrove.studio/destinations",
   },
@@ -25,7 +25,7 @@ export default function DestinationsPage() {
         <h1 className="display-title">Begin with a place.</h1>
         <p className="destinations-index-lede">
           We start where we know best: Italy, Portugal and Spain. A smaller,
-          deliberately curated library — not everywhere on the map.
+          deliberately curated library, not everywhere on the map.
         </p>
       </header>
 

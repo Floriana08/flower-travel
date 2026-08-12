@@ -57,12 +57,12 @@ export function NewsletterForm({
       setStatus("success");
       setMessage(
         result.alreadySubscribed
-          ? "You're already on the list — thanks for double-checking!"
-          : "Thanks — you're on the list.",
+          ? "You're already on the list, thanks for double-checking!"
+          : "Thanks, you're on the list.",
       );
       form.reset();
     } catch {
-      // Couldn't reach the server — fall back to mailto so the signup isn't
+      // Couldn't reach the server, fall back to mailto so the signup isn't
       // silently dropped.
       const subject = source.startsWith("guide:") ? "Guide waitlist" : "Newsletter signup";
       window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(
@@ -70,7 +70,7 @@ export function NewsletterForm({
       )}&body=${encodeURIComponent(`Please add me to the list (${source}).\n\nEmail: ${email}`)}`;
       setStatus("success");
       setMessage(
-        "We couldn’t reach our server just now, so your email client should open instead — please send that draft to finish signing up.",
+        "We couldn’t reach our server just now, so your email client should open instead, please send that draft to finish signing up.",
       );
       form.reset();
     }

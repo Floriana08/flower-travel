@@ -32,7 +32,7 @@ export function unsplashSrcSet(url: string): string | undefined {
 /**
  * Conservative default `sizes` value for card/grid imagery: full width on
  * mobile, roughly half on tablet, a third on desktop. Slightly generous by
- * design — worst case the browser fetches a bit more than strictly needed,
+ * design, worst case the browser fetches a bit more than strictly needed,
  * it never under-fetches and breaks layout.
  */
 export const defaultImageSizes =

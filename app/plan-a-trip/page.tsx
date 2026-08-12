@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PageIntro } from "../studio-components";
 import { TripEnquiryForm } from "../trip-enquiry-form";
 
 export const metadata: Metadata = {
   title: "Plan a journey",
   description:
-    "Personalised itinerary design from Altrove — how it works, what you receive, and what it doesn't include.",
+    "Personalised itinerary design from Altrove, how it works, what you receive, and a short enquiry to start your trip.",
   alternates: {
     canonical: "https://altrove.studio/plan-a-trip",
   },
@@ -15,135 +14,160 @@ export const metadata: Metadata = {
 const process = [
   {
     title: "Enquiry",
-    body: "Tell us where you're thinking of going, roughly when, and who's travelling.",
+    body: "Where you’re thinking of going, roughly when, and who’s travelling.",
   },
   {
-    title: "Travel questionnaire",
-    body: "A short set of questions on pace, interests, accommodation style and budget — the form below covers most of it.",
+    title: "Questionnaire",
+    body: "Pace, interests, accommodation style and budget, covered in the form.",
   },
   {
     title: "Consultation",
-    body: "A short call or written exchange to clarify anything the form couldn't capture.",
+    body: "A short call or written exchange to clarify anything the form couldn’t capture.",
   },
   {
     title: "Research & design",
-    body: "We shape a route: where to base yourselves, how many stops make sense, and how the days should flow.",
+    body: "Bases, stops and day flow shaped around your dates and priorities.",
   },
   {
     title: "Your itinerary",
-    body: "A personalised written itinerary — bases, pacing, transport logic and experience recommendations.",
+    body: "A written route with transport logic and experience recommendations.",
   },
   {
     title: "One revision",
-    body: "One round of changes once you've had time to look it over.",
+    body: "One round of changes once you’ve had time to look it over.",
   },
 ];
 
 const deliverables = [
-  "A written itinerary: recommended bases, route and pacing",
-  "Transport strategy between bases (train, ferry, drive — whichever fits)",
-  "Accommodation-area guidance (not live bookings — see below)",
-  "Experience and restaurant recommendations that fit your pace",
-  "One round of revisions after you've reviewed it",
+  {
+    title: "Personalised itinerary",
+    body: "Recommended bases, route and pacing written for your dates and how you like to travel.",
+  },
+  {
+    title: "The matching Altrove guide",
+    body: "When a destination guide exists for your route, it’s included, the deeper research behind the itinerary.",
+  },
+  {
+    title: "Transport strategy",
+    body: "How to move between bases, train, ferry or drive, whichever fits the trip.",
+  },
+  {
+    title: "Where to stay",
+    body: "Neighbourhood and area guidance for each base, you book the hotels directly.",
+  },
+  {
+    title: "Experiences & restaurants",
+    body: "Recommendations that fit your pace, not a checklist of everything on the map.",
+  },
+  {
+    title: "One revision",
+    body: "One round of changes once you’ve had time to look the itinerary over.",
+  },
 ];
 
 export default function PlanWithAltrovePage() {
   return (
     <main className="plan-page">
-      <section className="section-shell page-top">
+      <section className="section-shell page-top plan-intro">
         <PageIntro eyebrow="Plan a journey" title="Your trip. Our edit.">
           <p>
             Tell us where you&rsquo;re going, when, and how you like to travel.
-            Altrove shapes the route, neighbourhoods, pacing and the places
-            worth your time — so the journey feels coherent rather than crowded.
+            Altrove shapes the route, so the journey feels coherent rather than
+            crowded.
           </p>
         </PageIntro>
       </section>
 
-      <section className="section-shell tinted plan-service-section">
-        <div className="home-section-head">
-          <p className="eyebrow">The service</p>
-          <h2 className="display-title">What Altrove does</h2>
-        </div>
-        <p className="plan-service-copy">
-          We help you decide where to go, how to structure the trip, where to
-          base yourselves, what to prioritise, and how to make the whole
-          journey feel coherent rather than a checklist of cities. The result
-          is a personalised itinerary built from the same judgement behind
-          our journeys and guides — shaped around your dates, pace and
-          priorities.
-        </p>
-      </section>
+      <section className="section-shell plan-split" aria-label="Plan with Altrove">
+        <div className="plan-split-story">
+          <div className="plan-story-block">
+            <p className="eyebrow">The service</p>
+            <h2 className="display-title plan-story-title">What Altrove does</h2>
+            <p className="plan-service-copy">
+              We help you decide where to go, how to structure the trip, where
+              to base yourselves, what to prioritise, and how to make the whole
+              journey feel coherent rather than a checklist of cities. The
+              result is a personalised itinerary built from the same judgement
+              behind our journeys and guides, shaped around your dates, pace
+              and priorities.
+            </p>
+          </div>
 
-      <section className="section-shell plan-process-section">
-        <div className="home-section-head">
-          <p className="eyebrow">The process</p>
-          <h2 className="display-title">How it works</h2>
-        </div>
-        <ol className="plan-process-grid">
-          {process.map((step, index) => (
-            <li key={step.title}>
-              <span className="plan-process-index">{index + 1}</span>
-              <h3>{step.title}</h3>
-              <p>{step.body}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
+          <div className="plan-story-block">
+            <p className="eyebrow">The process</p>
+            <h2 className="display-title plan-story-title">How it works</h2>
+            <ol className="plan-process-list">
+              {process.map((step, index) => (
+                <li key={step.title}>
+                  <span className="plan-process-index">{index + 1}</span>
+                  <div>
+                    <h3>{step.title}</h3>
+                    <p>{step.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
 
-      <section className="section-shell tinted plan-deliverables-section">
-        <div className="home-section-head">
-          <p className="eyebrow">What you receive</p>
-          <h2 className="display-title">Deliverables</h2>
-        </div>
-        <ul className="check-list">
-          {deliverables.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </section>
+          <div className="plan-story-block plan-receive-block">
+            <p className="eyebrow">What you receive</p>
+            <h2 className="display-title plan-story-title">
+              Included with your plan
+            </h2>
+            <p className="plan-receive-lede">
+              A personalised itinerary, and the matching Altrove guide when one
+              exists for your route.
+            </p>
+            <ol className="plan-receive-list">
+              {deliverables.map((item, index) => (
+                <li
+                  key={item.title}
+                  className={
+                    item.title === "The matching Altrove guide"
+                      ? "is-featured"
+                      : undefined
+                  }
+                >
+                  <span className="plan-receive-index" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div className="plan-receive-copy">
+                    <h3>{item.title}</h3>
+                    <p>{item.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
 
-      <section className="section-shell plan-boundaries-section" aria-label="What this doesn't include">
-        <div className="home-section-head">
-          <p className="eyebrow">Boundaries</p>
-          <h2 className="display-title">What this doesn&rsquo;t include</h2>
+          <div className="plan-story-block plan-consult-block">
+            <p className="eyebrow">Pricing</p>
+            <h2 className="display-title plan-story-title">
+              Book your consultation
+            </h2>
+            <p className="plan-consult-price">$99</p>
+            <p className="plan-pricing-note">
+              A focused consultation to shape your trip, where to base
+              yourselves, how to pace the days, and what belongs on the
+              itinerary. Fill in the form to get started.
+            </p>
+            <a className="button dark" href="#apply">
+              Book your consultation for $99
+            </a>
+          </div>
         </div>
-        <p>
-          Altrove designs itineraries and gives independent recommendations —
-          we don&rsquo;t currently book flights, hotels or travel packages on
-          your behalf, and we don&rsquo;t offer 24/7 travel support during
-          your trip. Once you have the itinerary, you book directly with the
-          providers we point you to. Complete trip booking is a future
-          service we&rsquo;re working towards, not something we offer today.
-        </p>
-      </section>
 
-      <section className="section-shell tinted plan-pricing-section">
-        <div className="home-section-head">
-          <p className="eyebrow">Pricing</p>
-          <h2 className="display-title">Shared after enquiry</h2>
-        </div>
-        <p className="plan-pricing-note">
-          Fees depend on trip length and complexity. Altrove confirms the
-          figure with you before any work begins — no surprise invoices.
-        </p>
-      </section>
-
-      <section className="section-shell plan-form-section" id="apply">
-        <div className="home-section-head">
-          <p className="eyebrow">Get started</p>
-          <h2 className="display-title">Tell us about your trip.</h2>
-          <p className="plan-trip-aside">
-            Prefer to browse first?{" "}
-            <Link className="text-link" href="/destinations">
-              Explore the destinations
-            </Link>
-            .
-          </p>
-        </div>
-        <div className="plan-trip-form-panel">
-          <TripEnquiryForm />
-        </div>
+        <aside className="plan-split-form" id="apply" aria-label="Trip enquiry">
+          <div className="plan-trip-form-panel plan-trip-form-sticky">
+            <div className="plan-form-head">
+              <p className="eyebrow">Get started</p>
+              <h2 className="display-title plan-form-title">
+                Tell us about your trip.
+              </h2>
+            </div>
+            <TripEnquiryForm />
+          </div>
+        </aside>
       </section>
     </main>
   );

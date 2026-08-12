@@ -44,7 +44,9 @@ export default async function JournalTopicPage({ params }: PageProps) {
             Journal
           </Link>
         </p>
-        <PageIntro eyebrow="Journal · Topic" title={topic.title} />
+        <PageIntro eyebrow="Journal · Topic" title={topic.title}>
+          <p>{topic.description}</p>
+        </PageIntro>
       </section>
 
       <section className="section-shell tinted">

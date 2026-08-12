@@ -147,7 +147,7 @@ export function DestinationFeature({
 
 export function EditorialStoryCard({ guide }: { guide: Guide }) {
   return (
-    <article className="editorial-story-card">
+    <article className="editorial-story-card story-card">
       <Link
         className="editorial-story-card-link"
         href={`/journal/${guide.slug}`}
@@ -201,7 +201,7 @@ export function EnquiryCta({
 
 export function StudioNewsletter({
   title = "Letters from Altrove",
-  description = "Occasional notes on journeys, places and the way we like to travel — sent without noise.",
+  description = "Occasional notes on journeys, places and the way we like to travel, sent without noise.",
   id,
   children,
 }: {
