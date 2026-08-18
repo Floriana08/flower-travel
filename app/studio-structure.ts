@@ -91,7 +91,7 @@ export const studioCountries: StudioCountry[] = [
       "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=2000&q=84",
     alt: "Warm light over a lived-in Mediterranean street",
     hubLede:
-      "I take Italy slowly — one neighbourhood in the city, one base on the coast, and meals that decide the day. Campania comes first: Naples and the shore I know by heart.",
+      "We take Italy slowly — one neighbourhood in the city, one base on the coast, and meals that decide the day. Campania comes first: Naples and the shore we know by heart.",
     featuredJourneySlug: "naples-amalfi",
     collections: [
       {
@@ -261,7 +261,7 @@ export const studioCountries: StudioCountry[] = [
       "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=2000&q=84",
     alt: "Lisbon tram climbing a steep tiled street",
     hubLede:
-      "Portugal is where I feel most at home — Lisbon mornings, train light north, and time left over for the Atlantic. Fewer hotels. More attention.",
+      "Portugal is where we feel most at home — Lisbon mornings, train light north, and time left over for the Atlantic. Fewer hotels. More attention.",
     featuredJourneySlug: "portugal-by-train",
     collections: [
       {
@@ -431,7 +431,7 @@ export const studioCountries: StudioCountry[] = [
       "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=2000&q=84",
     alt: "Shared plates on a busy table in warm restaurant light",
     hubLede:
-      "Spain, for me, is food first — one barrio as home, markets that set the morning, and a second region only when the first has had enough time. Andalusia comes first.",
+      "Spain, for us, is food first — one barrio as home, markets that set the morning, and a second region only when the first has had enough time. Andalusia comes first.",
     featuredJourneySlug: "northern-spain",
     collections: [
       {

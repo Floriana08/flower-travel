@@ -41,14 +41,14 @@ export default function AboutPage() {
       <section className="about-chapter section-shell" id="meet-flor">
         <div className="about-prose about-prose-wide">
           <p>
-            I&rsquo;ve always travelled by collecting notes. Hotels I&rsquo;d
+            We&rsquo;ve always travelled by collecting notes. Hotels we&rsquo;d
             return to without thinking twice. Neighbourhoods worth waking up in.
-            Restaurants I&rsquo;d recommend to a friend without hesitation.
-            Routes that quietly changed how I saw a city or a stretch of coast.
+            Restaurants we&rsquo;d recommend to a friend without hesitation.
+            Routes that quietly changed how we saw a city or a stretch of coast.
           </p>
           <p>
             For years those recommendations lived in notebooks and long messages
-            to people I care about. Altrove grew out of that habit — a place to
+            to people we care about. Altrove grew out of that habit — a place to
             gather what was worth keeping, and to share it with more care than a
             hurried list ever could.
           </p>
@@ -62,12 +62,12 @@ export default function AboutPage() {
             travelling better.
           </p>
           <p>
-            I don&rsquo;t want to see everything. I want to remember what I see
-            — four days in one city over a rush through four countries.
+            We don&rsquo;t want to see everything. We want to remember what we
+            see — four days in one city over a rush through four countries.
             Thoughtful hotels. Neighbourhood lunches. Atmosphere. Someone
             else&rsquo;s taste, not endless options.
           </p>
-          <p>That is how I travel. That is how Altrove is written.</p>
+          <p>That is how we travel. That is how Altrove is written.</p>
         </div>
       </section>
 
@@ -90,10 +90,10 @@ export default function AboutPage() {
       <section className="about-chapter section-shell tinted" id="trust">
         <div className="about-prose about-prose-wide">
           <p>
-            Every destination begins with a real journey. I write from places I
-            have visited, stayed in and returned to in thought long after the
-            trip ended. The collection grows slowly on purpose. I&rsquo;d rather
-            recommend less, and mean it.
+            Every destination begins with a real journey. We write from places
+            we have visited, stayed in and returned to in thought long after the
+            trip ended. The collection grows slowly on purpose. We&rsquo;d
+            rather recommend less, and mean it.
           </p>
           <p className="about-closing-link">
             <Link className="text-link" href="/destinations">

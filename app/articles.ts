@@ -54,7 +54,7 @@ export const guideArticles: GuideArticle[] = [
         ],
       },
       {
-        heading: "What I would avoid for a first stay",
+        heading: "What we would avoid for a first stay",
         body: [
           "Belém is wonderful for a museum-and-river day, but it sits west of the historic center and can make short trips feel commute-heavy. Parque das Nações is clean and convenient for events, the airport side of town, or business travel, but it does not give you the classic Lisbon feeling most readers are searching for.",
           "The more useful test is not whether a district is famous, but whether your evenings will feel easy. If you want to wander after dinner, stay where the last walk home still feels beautiful."
@@ -377,7 +377,7 @@ export const guideArticles: GuideArticle[] = [
         heading: "Reservations are not a failure",
         body: [
           "Rail passes can be wonderful, but they are not magic keys to every seat. High-speed, international, and overnight trains often need seat or sleeper reservations, sometimes with limited pass-holder availability.",
-          "For editorial-style trips, I like reserving the important legs early and leaving only low-stakes regional rides flexible."
+          "For editorial-style trips, we like reserving the important legs early and leaving only low-stakes regional rides flexible."
         ],
         bullets: [
           "Book high-demand cross-border and overnight trains first.",

@@ -82,7 +82,7 @@ export default function Home() {
           </h1>
           <p className="studio-hero-lede">
             Thoughtful journeys through Italy, Spain and Portugal — with the
-            places, hotels, meals and routes I&rsquo;d actually recommend to a
+            places, hotels, meals and routes we&rsquo;d actually recommend to a
             friend.
           </p>
           <div className="hero-actions">
@@ -219,7 +219,7 @@ export default function Home() {
             <h3>Journal</h3>
             <p>
               Stories, neighbourhood notes and places worth remembering —
-              written so you can feel how I travel before you plan.
+              written so you can feel how we travel before you plan.
             </p>
             <Link className="text-link" href="/journal">
               Read the journal
@@ -230,7 +230,7 @@ export default function Home() {
             <h3>Guides</h3>
             <p>
               Complete destination edits designed to help you travel on your
-              own — bases, pacing and what I&rsquo;d skip.
+              own — bases, pacing and what we&rsquo;d skip.
             </p>
             <Link className="text-link" href="/guides">
               Browse the guides
@@ -279,10 +279,10 @@ export default function Home() {
               </p>
               <p>{featuredGuide.excerpt}</p>
               <ul className="home-guide-contents">
-                <li>Where I&rsquo;d stay</li>
+                <li>Where we&rsquo;d stay</li>
                 <li>The 7–9 day Altrove route</li>
                 <li>Neighbourhoods &amp; restaurants worth booking</li>
-                <li>Ferry notes, pacing &amp; what I&rsquo;d skip</li>
+                <li>Ferry notes, pacing &amp; what we&rsquo;d skip</li>
               </ul>
               <p className="home-journey-meta">
                 <span>Launching soon</span>
@@ -364,9 +364,9 @@ export default function Home() {
       <StudioNewsletter
         id="letters"
         title="Letters from Altrove"
-        description="New places, hotel finds, routes I'm researching and occasional notes from the road."
+        description="New places, hotel finds, routes we're researching and occasional notes from the road."
       >
-        <NewsletterForm buttonLabel="Send me letters" />
+        <NewsletterForm buttonLabel="Join our letters" />
       </StudioNewsletter>
     </main>
   );

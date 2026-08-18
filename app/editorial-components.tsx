@@ -17,7 +17,7 @@ export function TrustBadgeRow({ items }: { items: string[] }) {
 }
 
 export function FlorNote({
-  title = "Flor’s note",
+  title = "Our note",
   children,
 }: {
   title?: string;
@@ -68,7 +68,7 @@ export function WorthKnowing({ children }: { children: ReactNode }) {
 export function WhatIdDoDifferently({ children }: { children: ReactNode }) {
   return (
     <aside className="do-differently">
-      <p className="eyebrow">What I would do differently</p>
+      <p className="eyebrow">What we would do differently</p>
       <div>{children}</div>
     </aside>
   );

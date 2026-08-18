@@ -41,7 +41,7 @@ export default function JournalPage() {
         <PageIntro eyebrow="Journal" title="Notes from elsewhere.">
           <p>
             Hotels, neighbourhoods, food and pacing — written so you can feel
-            how I travel before you plan a journey.
+            how we travel before you plan a journey.
           </p>
         </PageIntro>
       </section>
@@ -162,9 +162,9 @@ export default function JournalPage() {
 
       <StudioNewsletter
         title="Letters from Altrove"
-        description="New places, hotel finds, routes I'm researching and occasional notes from the road."
+        description="New places, hotel finds, routes we're researching and occasional notes from the road."
       >
-        <NewsletterForm buttonLabel="Send me letters" />
+        <NewsletterForm buttonLabel="Join our letters" />
       </StudioNewsletter>
     </main>
   );

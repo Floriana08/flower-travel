@@ -128,7 +128,7 @@ export const journeys: Journey[] = [
     destinationSlug: "amalfi-coast",
     duration: "7–9 days",
     summary:
-      "Flor’s home region — city intensity, then one coastal base and ferry light.",
+      "A region we know well — city intensity, then one coastal base and ferry light.",
     status: "in-development",
     statusLabel: "Journey concept",
     image:
