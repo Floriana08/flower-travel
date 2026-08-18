@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 const featuredSlugs = [
   "where-to-stay-lisbon",
   "rome-food-walk",
-  "madeira-first-timers",
+  "where-to-eat-lisbon",
   "train-travel-europe",
 ] as const;
 

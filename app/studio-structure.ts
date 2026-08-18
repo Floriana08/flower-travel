@@ -410,7 +410,7 @@ export const studioCountries: StudioCountry[] = [
     exampleImageAlt: "Ribeira waterfront houses along the Douro in Porto",
     planImage:
       "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=1400&q=80",
-    journalSlugs: ["where-to-stay-lisbon", "madeira-first-timers", "train-travel-europe"],
+    journalSlugs: ["where-to-stay-lisbon", "where-to-eat-lisbon", "train-travel-europe"],
     example: {
       title: "Portugal by Train",
       duration: "10 days",
@@ -623,26 +623,26 @@ export const journalMoods: {
     articleSlugs: [
       "choosing-a-honeymoon-route",
       "train-travel-europe",
-      "madeira-first-timers",
+      "where-to-stay-lisbon",
     ],
   },
   {
     slug: "coastal-escapes",
     title: "Coastal Escapes",
     description: "Islands, ferry light, and shores that reward an unhurried week.",
-    articleSlugs: ["madeira-first-timers", "train-travel-europe"],
+    articleSlugs: ["where-to-stay-lisbon", "train-travel-europe"],
   },
   {
     slug: "food-and-wine",
     title: "Food & Wine",
     description: "Markets, long lunches, and the meals worth planning a day around.",
-    articleSlugs: ["rome-food-walk", "where-to-stay-lisbon"],
+    articleSlugs: ["rome-food-walk", "where-to-eat-lisbon"],
   },
   {
     slug: "road-trips",
     title: "Road Trips",
     description: "Drives with weather-flex days and bases that do the hard work.",
-    articleSlugs: ["train-travel-europe", "madeira-first-timers"],
+    articleSlugs: ["train-travel-europe", "where-to-stay-lisbon"],
   },
   {
     slug: "weekend-getaways",

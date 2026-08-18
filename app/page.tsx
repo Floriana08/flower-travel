@@ -61,7 +61,7 @@ export default function Home() {
   const journalFeatured = [
     guides.find((g) => g.slug === "where-to-stay-lisbon"),
     guides.find((g) => g.slug === "rome-food-walk"),
-    guides.find((g) => g.slug === "madeira-first-timers"),
+    guides.find((g) => g.slug === "where-to-eat-lisbon"),
   ].filter((g): g is (typeof guides)[number] => Boolean(g));
 
   return (

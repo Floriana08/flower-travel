@@ -2,6 +2,12 @@ export type ArticleSection = {
   heading: string;
   body: string[];
   bullets?: string[];
+  listTitle?: string;
+  table?: {
+    caption?: string;
+    headers: string[];
+    rows: string[][];
+  };
 };
 
 export type ArticleSource = {
@@ -23,56 +29,196 @@ export const guideArticles: GuideArticle[] = [
   {
     slug: "where-to-stay-lisbon",
     dek:
-      "Lisbon is compact on a map and surprisingly demanding underfoot. The right base depends less on distance and more on hills, evening rhythm, transport, and how much polish you want around your hotel.",
-    lastReviewed: "July 15, 2026",
+      "Lisbon looks manageable on a map. Then comes the first calçada hill, usually with a suitcase, and suddenly choosing where to stay becomes less about distance and more about geography.",
+    lastReviewed: "August 18, 2026",
     facts: [
-      "Baixa is the flat, gridded downtown rebuilt after the 1755 earthquake.",
-      "Alfama is one of Lisbon's oldest quarters, beautiful but steep and irregular.",
-      "Avenida da Liberdade is a broad central boulevard with luxury hotels, shops, and direct metro access.",
+      "For a first visit, Chiado, Príncipe Real, Avenida da Liberdade and the quieter edges of Baixa are the strongest places to start.",
+      "Alfama is beautiful and atmospheric, but it comes with hills, stairs and more complicated access.",
+      "Lisbon has a talent for turning a short distance on a map into a serious uphill walk.",
     ],
     sections: [
       {
-        heading: "The short answer",
+        heading: "How to choose a base",
         body: [
-          "For a first Lisbon trip, choose Baixa or Chiado if you want the easiest sightseeing base. Choose Avenida da Liberdade if you want a calmer, more polished hotel experience with taxis and metro nearby. Choose Alfama only if atmosphere matters more than convenience: it is romantic, historic, and hard work with luggage.",
-          "For a more local-feeling stay, Príncipe Real gives you design shops, gardens, restaurants, and a softer evening pace. Cais do Sodré and Santos suit travelers who want river access, nightlife, and a little more edge, but they are not the quietest choices."
+          "The right neighbourhood can make Lisbon wonderfully easy. The wrong one can mean steep walks home, noisy nights or spending more time in taxis than expected.",
+          "For a first visit, Chiado, Príncipe Real, Avenida da Liberdade and the quieter edges of Baixa are the strongest places to start. Alfama is beautiful and atmospheric, but it comes with hills, stairs and more complicated access.",
+          "Here is how the main areas compare, which hotels are worth considering and a few parts of Lisbon that are better explored than used as a base.",
         ],
       },
       {
-        heading: "Best bases by travel mood",
+        heading: "Best areas to stay in Lisbon at a glance",
+        body: [],
+        table: {
+          caption: "How the main Lisbon neighbourhoods compare as a base.",
+          headers: ["Area", "Best for", "Worth knowing"],
+          rows: [
+            ["Chiado", "First visits", "Central, elegant and easy"],
+            ["Príncipe Real", "Restaurants and design", "Stylish, residential and hilly"],
+            ["Avenida da Liberdade", "Luxury", "Excellent hotels and easy access"],
+            ["Alfama", "Atmosphere", "Historic and difficult with luggage"],
+            ["Baixa", "Short trips", "Central, but choose the street carefully"],
+            ["Lapa and Estrela", "Quiet stays", "Residential and away from the crowds"],
+            ["Santos", "Restaurants and evenings out", "Lively at night"],
+            ["Cais do Sodré", "Nightlife", "Very well connected, but noisy in places"],
+            ["Belém", "Museums and the river", "Better to visit than use as a first base"],
+          ],
+        },
+      },
+      {
+        heading: "Chiado",
         body: [
-          "Baixa and Chiado are the safe editorial recommendation for most readers: central, walkable, close to tram and metro links, and easy for first-day orientation. The tradeoff is that the most central streets can feel busy and touristic.",
-          "Avenida da Liberdade is the best base for a luxury-leaning city break. It has wider pavements, grander hotels, designer retail, and a smoother arrival experience than the old quarters. It also keeps you close to Restauradores, Rossio, and Marquês de Pombal without sleeping inside the densest tourist lanes.",
-          "Alfama and Graça are for travelers who want views, fado, tiled corners, and morning atmosphere. They are less convenient after dinner and much less forgiving with heavy bags, but they give Lisbon its cinematic side."
+          "For a first trip to Lisbon, Chiado is difficult to beat.",
+          "The location makes exploring simple. Baixa sits below, Bairro Alto above, the river is an easy walk downhill and Príncipe Real is close enough for dinner. Many of Lisbon’s main sights are within walking distance, but the neighbourhood still has enough restaurants, cafés and shops to make returning between plans worthwhile.",
+          "This becomes particularly useful on a three or four day trip. There is no need to organise every day around transport, and going back to the hotel before dinner does not become an expedition.",
+        ],
+        listTitle: "Hotels in Chiado",
+        bullets: [
+          "Bairro Alto Hotel — one of the strongest choices for a special stay. Its position on Praça Luís de Camões, between Chiado and Bairro Alto, puts Lisbon immediately outside the door.",
+          "Verride Palácio Santa Catarina — a more intimate and romantic option near the Santa Catarina viewpoint, particularly suited to a weekend when the hotel is part of the occasion.",
+          "Palácio Ludovice — historic character in an excellent position between Chiado, Bairro Alto and Príncipe Real.",
+          "The Ivens — more theatrical and glamorous, with enough personality to make the hotel itself part of the trip.",
+          "AlmaLusa Baixa/Chiado — an understated option near Praça do Município with a particularly useful location for exploring on foot.",
+        ],
+      },
+      {
+        heading: "Príncipe Real",
+        body: [
+          "Príncipe Real offers a different version of central Lisbon.",
+          "The neighbourhood feels more residential, with gardens, independent shops, restaurants and wine bars scattered between traditional buildings. Chiado and Bairro Alto remain close, but there is less sense of staying beside the main sightseeing circuit.",
+          "It works especially well for couples, repeat visitors and trips built around good restaurants as much as monuments.",
+          "The only real consideration is the hill. Walking down towards Chiado is easy. The return journey after dinner is another matter.",
+        ],
+        listTitle: "Hotels in Príncipe Real",
+        bullets: [
+          "Memmo Príncipe Real — modern and discreet, with views across the city that make the elevated location worthwhile.",
+          "The Vintage Hotel and Spa — a useful choice for travellers who like the neighbourhood but want the facilities and comfort of a larger hotel.",
+          "Casa do Príncipe — smaller and more personal, overlooking the garden and better suited to travellers who value character over extensive hotel facilities.",
+        ],
+      },
+      {
+        heading: "Avenida da Liberdade",
+        body: [
+          "Avenida da Liberdade is one of the best areas to stay in Lisbon when comfort matters as much as location.",
+          "The avenue is broad, polished and considerably easier to navigate with luggage than many of Lisbon’s historic neighbourhoods. Taxis can reach hotel entrances without complicated arrangements and several of the city’s best luxury hotels are here or nearby.",
+          "There is less of the immediate neighbourhood atmosphere found in Chiado or Alfama, but the centre remains within easy reach.",
+        ],
+        listTitle: "Hotels around Avenida da Liberdade",
+        bullets: [
+          "Four Seasons Hotel Ritz Lisbon — the grand hotel choice, with generous rooms, polished service and a distinctly old school sense of glamour.",
+          "Valverde Lisboa Hotel and Garden — smaller and more intimate, with a courtyard garden hidden behind the busy avenue.",
+          "Hotel das Amoreiras — beside Jardim das Amoreiras, with a more residential atmosphere than the larger hotels around Avenida.",
+          "Locke de Santa Joana — a contemporary option that works particularly well for longer stays.",
+        ],
+      },
+      {
+        heading: "Alfama",
+        body: [
+          "Alfama is the Lisbon that often appears in photographs.",
+          "Narrow streets twist between tiled façades, church bells carry across the rooftops and the Tagus appears unexpectedly between buildings. Early mornings and evenings are particularly atmospheric, once many daytime visitors have left.",
+          "Staying here, however, requires a little more planning.",
+          "The streets are steep, stairs are common and taxis cannot reach every address. A hotel that appears perfectly accessible on a map may involve carrying luggage through narrow lanes or up a staircase for the final part of the journey.",
+          "For travellers packing lightly and looking for atmosphere, Alfama can be wonderful. With large suitcases, mobility concerns or frequent taxi journeys, Chiado or Avenida da Liberdade will usually be easier.",
+          "Before booking any hotel in Alfama, check exactly where a taxi can stop and whether there are stairs between the street and reception.",
+        ],
+        listTitle: "Hotels in Alfama",
+        bullets: [
+          "Memmo Alfama — small and contemporary, with a terrace looking across the rooftops towards the river.",
+          "Santiago de Alfama — a romantic option inside a restored historic building with plenty of character.",
+          "Palacete Chafariz D’El Rei — an eccentric, old world alternative for something less conventional.",
+        ],
+      },
+      {
+        heading: "Baixa",
+        body: [
+          "Baixa is Lisbon’s downtown grid between Rossio and the river. It is central, relatively flat by Lisbon standards and especially practical for a short visit.",
+          "The neighbourhood does require some editing. Certain streets are elegant and beautifully positioned, while others feel almost entirely geared towards tourism.",
+          "The areas around Praça do Município, Rossio and the Chiado edge tend to make the most useful bases.",
+          "For a 48 hour trip, Baixa makes a lot of sense. When time is limited, being able to walk almost everywhere matters.",
         ],
         bullets: [
-          "First-timers: Baixa, Chiado, or Avenida da Liberdade.",
-          "Romantic atmosphere: Alfama or a view-led boutique stay near Graça.",
-          "Design and restaurants: Príncipe Real.",
-          "Nightlife and river access: Cais do Sodré or Santos.",
-          "Quiet luxury: Avenida da Liberdade or Lapa."
+          "Pousada de Lisboa, The One Palácio da Anunciada and Hotel da Baixa are all worth considering.",
         ],
       },
       {
-        heading: "What we would avoid for a first stay",
+        heading: "Lapa and Estrela",
         body: [
-          "Belém is wonderful for a museum-and-river day, but it sits west of the historic center and can make short trips feel commute-heavy. Parque das Nações is clean and convenient for events, the airport side of town, or business travel, but it does not give you the classic Lisbon feeling most readers are searching for.",
-          "The more useful test is not whether a district is famous, but whether your evenings will feel easy. If you want to wander after dinner, stay where the last walk home still feels beautiful."
+          "Lapa and Estrela offer a quieter side of Lisbon.",
+          "Residential streets, Jardim da Estrela and neighbourhood cafés replace much of the activity of the historic centre. Campo de Ourique is nearby, and the city feels noticeably calmer in the morning and evening.",
+          "These neighbourhoods suit longer stays and travellers who would rather return somewhere peaceful at the end of the day.",
+          "For a first visit focused heavily on sightseeing, Chiado is more convenient. For a slower week in Lisbon, Lapa and Estrela become much more appealing.",
+        ],
+        bullets: [
+          "Olissippo Lapa Palace is the classic choice for space and traditional luxury.",
+          "The Emerald House, between Lapa and Santos, is smaller and more contemporary.",
         ],
       },
       {
-        heading: "Booking notes",
+        heading: "Santos and Cais do Sodré",
         body: [
-          "Lisbon's prettiest stays often sit in older buildings. Before booking, check whether there is a lift, whether taxis can stop directly outside, and whether the room faces a bar street, tram line, or internal courtyard.",
-          "For summer, prioritize air conditioning and a pool only if you will actually return to the hotel midday. For shoulder season, a good terrace, breakfast room, or lounge may matter more than amenities you will not use."
+          "Santos and Cais do Sodré work well when restaurants, bars and late evenings are an important part of the trip.",
+          "Cais do Sodré is extremely well connected. Trains leave for Cascais, ferries cross the Tagus and Chiado is within walking distance. The neighbourhood also has some of Lisbon’s busiest nightlife, so the exact street matters.",
+          "Santos sits further west and mixes restaurants, bars and design spaces with a more residential side.",
+          "In both areas, recent hotel reviews are worth reading specifically for comments about street noise. A few hundred metres can make a considerable difference.",
+        ],
+      },
+      {
+        heading: "What about Belém?",
+        body: [
+          "Belém deserves time on almost every first trip to Lisbon. That does not necessarily make it a good place to sleep.",
+          "Jerónimos Monastery, Belém Tower, MAAT, Pastéis de Belém and the riverfront make the neighbourhood one of the most rewarding parts of the city to explore. The drawback is its position west of the historic centre.",
+          "When evenings are likely to be spent around Chiado, Príncipe Real or Alfama, staying in Belém means adding transport to the beginning and end of every day.",
+          "Altis Belém Hotel and Spa is an exception for travellers specifically looking for a quieter hotel stay beside the river.",
+          "Otherwise, Belém is better visited during the day.",
+        ],
+      },
+      {
+        heading: "Where not to stay in Lisbon on a first trip",
+        body: [
+          "There are very few Lisbon neighbourhoods that should simply be written off. Visiting an area and choosing it as a base, however, are two different things.",
+          "For a first trip, Martim Moniz and much of Avenida Almirante Reis are better explored than used as a base.",
+          "Martim Moniz can look tempting on a map because of its central location. Avenida Almirante Reis is well connected and has an interesting mix of restaurants, shops and local life.",
+          "The immediate surroundings, however, are busy and traffic heavy, and they do not offer the same experience as Chiado, Príncipe Real or the better positioned parts of Baixa.",
+          "When accommodation in one of those areas is available for a similar price, it is usually the better choice for a first visit.",
+          "Parque das Nações is another area that rarely makes sense for a first leisure trip. It is modern, spacious and useful for Oriente station, events and business travel, but it feels quite separate from historic Lisbon.",
+          "Hotel descriptions that promise somewhere is only “minutes from the centre” also deserve a closer look.",
+          "Lisbon has a talent for turning a short distance on a map into a serious uphill walk. Checking the actual route between the hotel and the places likely to be visited in the evening is far more useful than looking at distance alone.",
+        ],
+      },
+      {
+        heading: "What to check before booking a hotel in Lisbon",
+        body: [
+          "Lisbon’s prettiest stays often sit in older buildings. The details below matter more than a pretty listing photograph.",
+        ],
+        bullets: [
+          "Taxi access — this matters particularly in Alfama and parts of Bairro Alto. Check whether a car can actually stop outside the entrance.",
+          "A lift — historic buildings are part of Lisbon’s charm, but not every renovated hotel has straightforward lift access to every floor.",
+          "The hill — look at the final streets around the hotel rather than just its distance from the centre.",
+          "Noise — trams, bars, restaurants and early morning deliveries can all affect rooms facing the street. Recent reviews are useful here.",
+          "Air conditioning — during the Lisbon summer, proper air conditioning is far more important than many other hotel extras.",
+          "A pool — a pool can be wonderful in July or August. During spring or autumn, a better location or terrace will often add more to the trip.",
+        ],
+      },
+      {
+        heading: "So, where is the best place to stay in Lisbon?",
+        body: [
+          "A spectacular hotel is rarely worth choosing if the neighbourhood does not suit the trip. Lisbon is a city experienced largely outside the hotel, and the right base should make stepping out in the morning just as pleasant as coming home at night.",
+        ],
+        bullets: [
+          "For a first visit, choose Chiado.",
+          "For restaurants and design, look at Príncipe Real.",
+          "For luxury and an easier hotel experience, choose Avenida da Liberdade.",
+          "For historic atmosphere, consider Alfama, provided the hills and access are not a problem.",
+          "For quiet, look towards Lapa or Estrela.",
+          "For nightlife and late dinners, Santos or Cais do Sodré work well.",
+          "For a short 48 hour visit, Chiado or Baixa make the city easiest to explore.",
         ],
       },
     ],
     goodFor: [
       "First Lisbon trips",
+      "Choosing a neighbourhood",
       "Hotel shortlisting",
-      "Luxury city breaks",
-      "Travelers comparing neighborhoods",
+      "Comparing Chiado, Alfama and Avenida",
     ],
     sources: [
       {
@@ -80,7 +226,7 @@ export const guideArticles: GuideArticle[] = [
         url: "https://visitlisboa.com/en",
       },
       {
-        label: "Tourism in Lisbon neighborhood overview",
+        label: "Tourism in Lisbon neighbourhood overview",
         url: "https://en.wikipedia.org/wiki/Tourism_in_Lisbon",
       },
       {
@@ -90,73 +236,151 @@ export const guideArticles: GuideArticle[] = [
     ],
   },
   {
-    slug: "madeira-first-timers",
+    slug: "where-to-eat-lisbon",
     dek:
-      "Madeira is not a fly-and-flop island. It is a vertical, weather-shifting Atlantic landscape where the best trips combine a comfortable base, flexible transport, and honest pacing.",
-    lastReviewed: "July 15, 2026",
+      "Lisbon is easiest to understand at the table. Choose one real meal, one neighbourhood tasca and one pastry stop — and let bacalhau à Brás, grilled fish and a late coffee do more work than a restaurant checklist.",
+    lastReviewed: "August 18, 2026",
     facts: [
-      "Madeira has marked PR walking routes, including the mountain route between Pico do Areeiro and Pico Ruivo.",
-      "The island has many microclimates, with weather changing quickly between coast, forest, and mountains.",
-      "Porto Moniz is known for natural volcanic-rock swimming pools on the northwest coast.",
+      "Lunch is still the most useful meal in Lisbon; many kitchens are at their best between 12.30 and 15.00.",
+      "Bacalhau à Brás — shredded salt cod, matchstick potatoes, onion and creamy eggs — is said to have taken its current form in Bairro Alto.",
+      "A reservation is worth making for the one dinner that matters. The rest of the city still rewards walking in.",
     ],
     sections: [
       {
-        heading: "Choose the base before the activities",
+        heading: "How Lisbon likes to be eaten",
         body: [
-          "Funchal is the best base for first-timers who want restaurants, easy tours, gardens, taxis, boat trips, and a softer landing. It also works well if you do not want to drive every day.",
-          "The southwest coast, especially Calheta and Ponta do Sol, suits travelers chasing more sun, sea views, and resort-style calm. The north coast feels wilder and more dramatic, but it is less convenient as a first base unless the whole trip is built around nature."
+          "The city feeds people generously, then asks them to walk it off. The mistake is treating restaurants as attractions: too many names, too little time, and a taxi between neighbourhoods that should have been a slow hill.",
+          "We plan Lisbon around meals that shape the day. A proper lunch. A pastry that is worth the queue. One dinner booked because the room, the fish or the timing actually matters. Everything else can stay flexible.",
+          "Lisbon still has tascas where the menu is written for the people who live upstairs, and a newer layer of rooms that cook Portuguese ingredients with more polish. Both are worth knowing. Neither needs to fill the whole trip.",
+        ],
+      },
+      {
+        heading: "Where to eat, at a glance",
+        body: [],
+        table: {
+          caption: "Neighbourhoods that make the most sense as a base for eating.",
+          headers: ["Area", "Best for", "Worth knowing"],
+          rows: [
+            ["Chiado and Bairro Alto", "First dinners", "Central, mixed, easy to walk back from"],
+            ["Príncipe Real", "Restaurants and wine", "Residential, design-led, book ahead"],
+            ["Mouraria and Alfama", "Tascas and atmosphere", "Steep, atmospheric, go early for lunch"],
+            ["Cais do Sodré and Santos", "Evenings out", "Lively; choose the street carefully"],
+            ["Time Out Market", "A first-day overview", "Useful once, not a daily habit"],
+            ["Belém", "Pastry and the river", "Better as a daytime visit than an evening plan"],
+          ],
+        },
+      },
+      {
+        heading: "Bacalhau à Brás",
+        body: [
+          "If one plate explains Lisbon’s kitchen, it is this one: salt cod shredded into fine strands, onions softened in olive oil, fried matchstick potatoes, and eggs folded through until the whole pan is still a little glossy.",
+          "It is not a showpiece. It is a Bairro Alto idea that became a national habit — inexpensive ingredients, careful texture, olives and parsley at the end. Order it where the kitchen still treats it as lunch food, not as a performance.",
+          "A good version should taste of bacalhau first, then egg and potato, not of oil sitting on the plate. If the potatoes have gone soft into a mash, keep walking.",
+        ],
+      },
+      {
+        heading: "Chiado, Bairro Alto and the first dinner",
+        body: [
+          "For a first evening, stay close to Chiado. The walk home still feels like Lisbon, and you are not committing the night to a neighbourhood you do not yet know in the dark.",
+          "Bairro Alto is useful for that first dinner and less useful as a late crawl unless you like noise. Eat early, then move.",
+        ],
+        listTitle: "Tables worth knowing",
+        bullets: [
+          "Taberna da Rua das Flores — small, Portuguese, and still one of the most useful rooms in Chiado if you can get in. Go at opening or book.",
+          "Pinóquio — a straightforward seafood house on Praça dos Restauradores. Touristy on paper; reliable when you want prawns, clams and a table that understands tourists will arrive hungry.",
+          "Cervejaria Trindade — the tiled former monastery can feel theatrical, but it remains a practical Chiado lunch when you want beer, seafood and a room with history.",
+          "A Casa do Bacalhau — not the only place for salt cod in the city, but a clear-eyed stop if bacalhau à Brás is the point of the meal.",
+        ],
+      },
+      {
+        heading: "Príncipe Real",
+        body: [
+          "Príncipe Real is where Lisbon’s restaurant culture feels most current without leaving the centre: wine lists, tasting menus, and rooms you dress for a little.",
+          "It works especially well if you are staying in the neighbourhood already. Walking down to Chiado for lunch and back up for dinner is part of the geography.",
+        ],
+        listTitle: "Tables worth knowing",
+        bullets: [
+          "A Cevicheria — Peruvian technique, Portuguese produce, and still one of the city’s most booked lunches. Worth it if you like a counter and a single sharp plate.",
+          "Prado — vegetable-led, Portuguese, and serious without being stiff. Book the lunch if dinner is full.",
+          "Bairro do Avillez — José Avillez’s small-plates room is useful when a group wants Portuguese cooking with more range than a tasca.",
+          "A Travessa — in a former convent between Príncipe Real and Santos. Better for a slower dinner than a quick bite.",
+        ],
+      },
+      {
+        heading: "Tascas: Mouraria, Alfama and the old city",
+        body: [
+          "This is where Lisbon still eats like a neighbourhood. Menus are shorter. Lunch is the event. English may be limited. That is part of the point.",
+          "Go hungry, go early, and do not expect the room to perform. If a tasca is full of people who clearly live nearby, sit down.",
+        ],
+        listTitle: "Tables worth knowing",
+        bullets: [
+          "Zé da Mouraria — a classic for roast pork and a crowded lunch. Not elegant. Extremely useful.",
+          "O Velho Eurico — Mouraria cooking with more attention than the average tasca. Book if you can; walk in at opening if you cannot.",
+          "Tasca Zé dos Cornos — another Mouraria lunch room that still feels local. Come for the meat, the noise and the fact that nobody is rushing you toward dessert.",
+          "Alfama in the evening is better for a drink and a view than for a first serious dinner, unless you have a specific table.",
+        ],
+      },
+      {
+        heading: "Seafood, cervejarias and the river",
+        body: [
+          "Lisbon’s cervejarias are the city’s most honest luxury: paper tablecloths, ice, shellfish, beer, and a bill that can climb quickly if you say yes to everything.",
+          "Cais do Sodré and the river edge work when you want seafood and a later night. Santos is calmer, with more restaurants than bars if you choose well.",
+        ],
+        listTitle: "Tables worth knowing",
+        bullets: [
+          "Cervejaria Ramiro — still the reference for crab, prawns and clams. Go at opening, share plates, and leave before the queue becomes the story.",
+          "Sea Me — a Chiado seafood counter that sits between tasca energy and a sharper kitchen. Useful when Ramiro is full and you still want fish.",
+          "Cervejaria da Esquina — a more neighbourhood cervejaria if you are west of the centre and want seafood without the Ramiro theatre.",
+        ],
+      },
+      {
+        heading: "Pastry, coffee and Belém",
+        body: [
+          "A pastel de nata is not a souvenir. It is breakfast, a pause on a hill, and the thing you eat standing up because the table is full.",
+          "Belém deserves the monastery, the river and Pastéis de Belém — once. The queue is real. The pastry is still the original. Manteigaria in Chiado or Príncipe Real is the better everyday version when you do not want to spend a morning west of the centre.",
         ],
         bullets: [
-          "Best first base: Funchal.",
-          "Best sunny reset: Calheta or Ponta do Sol.",
-          "Best drama: Seixal, São Vicente, or Porto Moniz for part of the trip.",
-          "Best split stay: four nights Funchal, three nights west or north coast."
+          "Pastéis de Belém — go early, eat in the rooms behind the counter if you can, and treat it as a visit, not a daily habit.",
+          "Manteigaria — the most useful natas in the centre, served hot, with no need to reorganise the day.",
+          "A good bica and a savoury pastry will do more for a morning than a hotel breakfast you do not remember.",
         ],
       },
       {
-        heading: "The hiking reality",
+        heading: "What we would skip",
         body: [
-          "Madeira's famous walks are beautiful because the island is steep, wet, and exposed. That means they deserve real planning. The PR1 mountain route is often described as a Madeira classic, but it includes exposed ridges, tunnels, steps, and weather that can change the tone of the day quickly.",
-          "For many first-timers, a guided or driver-supported mountain morning is worth the spend. It removes parking stress, lets someone else monitor conditions, and makes sunrise plans less fragile."
+          "Menus with photographs of twenty dishes, restaurants whose entire personality is a fado soundtrack for visitors, and any table that wants to sell you a tasting of Lisbon in one sitting.",
+          "Time Out Market is fine on arrival day: you can see the city’s food in one hall, eat well enough, and leave. It is a poor substitute for a neighbourhood lunch on day three.",
+          "Do not collect Michelin stars unless that is actually how you like to travel. Lisbon’s judgement shows more clearly in a crowded tasca at 13:30 than in a room designed for photographs.",
         ],
       },
       {
-        heading: "How to pace a seven-day trip",
+        heading: "A simple way to eat for three or four days",
         body: [
-          "Do not stack a major hike, a long coastal drive, and a tasting dinner into the same day. A better rhythm is one active morning, one scenic lunch, and one easy evening.",
-          "A balanced first week could include Funchal and Monte, a levada walk, a Pico do Areeiro sunrise or viewpoint morning, a west-coast pool day around Porto Moniz, a botanical garden, and one unscheduled weather-flex day."
-        ],
-      },
-      {
-        heading: "Comfort is worth budgeting for",
-        body: [
-          "Madeira rewards a little comfort. A hotel with parking, a good breakfast, a balcony, or a spa can change the entire trip when weather shifts or legs are tired after a hike.",
-          "The island is compact, but the roads make distance feel different. Plan by drive time and elevation, not by kilometers."
+          "Day one: a nata in Chiado, a proper lunch nearby, and one booked dinner in Príncipe Real or Chiado.",
+          "Day two: a tasca lunch in Mouraria, then the afternoon free. Eat lightly in the evening.",
+          "Day three: seafood at a cervejaria, or Belém in the morning and something simple back in the centre at night.",
+          "Leave one meal unplanned. Lisbon is still a city where walking past an open door at 12:40 can be the best decision of the day.",
         ],
       },
     ],
     goodFor: [
-      "First Madeira trips",
-      "Soft adventure",
-      "Couples",
-      "Travelers deciding whether to rent a car",
+      "First Lisbon trips",
+      "Choosing where to eat",
+      "Bacalhau à Brás and tascas",
+      "Planning lunches that shape the day",
     ],
     sources: [
       {
-        label: "Visit Madeira hiking information",
-        url: "https://www.visitmadeira.com/en/what-to-do/nature-seekers/activities/hiking/",
+        label: "Visit Lisboa — gastronomy",
+        url: "https://www.visitlisboa.com/en/see-do/gastronomy",
       },
       {
-        label: "Pico Ruivo and PR walking route context",
-        url: "https://en.wikipedia.org/wiki/Pico_Ruivo",
+        label: "Bacalhau à Brás",
+        url: "https://en.wikipedia.org/wiki/Bacalhau_%C3%A0_Br%C3%A1s",
       },
       {
-        label: "Madeira climate and geography overview",
-        url: "https://en.wikipedia.org/wiki/Madeira",
-      },
-      {
-        label: "Porto Moniz natural pools background",
-        url: "https://pt.wikipedia.org/wiki/Piscinas_Naturais_do_Porto_Moniz",
+        label: "Portuguese cuisine overview",
+        url: "https://en.wikipedia.org/wiki/Portuguese_cuisine",
       },
     ],
   },

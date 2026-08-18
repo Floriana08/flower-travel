@@ -191,6 +191,40 @@ export default async function JournalArticlePage({ params }: PageProps) {
                 {section.body.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
+                {section.table ? (
+                  <div className="article-table-wrap">
+                    <table className="article-table">
+                      {section.table.caption ? (
+                        <caption>{section.table.caption}</caption>
+                      ) : null}
+                      <thead>
+                        <tr>
+                          {section.table.headers.map((header) => (
+                            <th key={header} scope="col">
+                              {header}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {section.table.rows.map((row) => (
+                          <tr key={row.join("-")}>
+                            {row.map((cell, cellIndex) =>
+                              cellIndex === 0 ? (
+                                <th key={cell} scope="row">
+                                  {cell}
+                                </th>
+                              ) : (
+                                <td key={`${row[0]}-${cell}`}>{cell}</td>
+                              ),
+                            )}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ) : null}
+                {section.listTitle ? <h3>{section.listTitle}</h3> : null}
                 {section.bullets ? (
                   <ul>
                     {section.bullets.map((bullet) => (
