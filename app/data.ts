@@ -1884,12 +1884,12 @@ export const guides = [
     category: "Food Guide",
     destination: "Lisbon",
     date: "August 18, 2026",
-    readTime: "11 min read",
+    readTime: "12 min read",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/8/81/Bacalao_a_braz.jpg",
     alt: "Bacalhau à Brás — shredded salt cod with matchstick potatoes, eggs, olives and parsley",
     excerpt:
-      "Tascas, cervejarias, pastry counters and the one dinner worth booking — plus why bacalhau à Brás still explains Lisbon better than a long restaurant list.",
+      "Old tascas, neo-tascas, pizza, vegan kitchens, brunch and specialty coffee: the Lisbon restaurants worth knowing, and what to eat at least once.",
   },
   {
     slug: "solo-paris-weekend",

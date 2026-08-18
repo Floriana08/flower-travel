@@ -1,5 +1,5 @@
 export type ArticleSection = {
-  heading: string;
+  heading?: string;
   body: string[];
   bullets?: string[];
   listTitle?: string;
@@ -237,139 +237,230 @@ export const guideArticles: GuideArticle[] = [
   },
   {
     slug: "where-to-eat-lisbon",
-    dek:
-      "Lisbon is easiest to understand at the table. Choose one real meal, one neighbourhood tasca and one pastry stop — and let bacalhau à Brás, grilled fish and a late coffee do more work than a restaurant checklist.",
+    dek: "Lisbon is having a food moment.",
     lastReviewed: "August 18, 2026",
     facts: [
-      "Lunch is still the most useful meal in Lisbon; many kitchens are at their best between 12.30 and 15.00.",
-      "Bacalhau à Brás — shredded salt cod, matchstick potatoes, onion and creamy eggs — is said to have taken its current form in Bairro Alto.",
-      "A reservation is worth making for the one dinner that matters. The rest of the city still rewards walking in.",
+      "In 2026, Lisbon entered Time Out’s top 10 cities in the world for food.",
+      "Reservations at O Velho Eurico can disappear two or three months ahead, though the restaurant also keeps a waiting list for walk-ins.",
+      "European Coffee Trip currently lists around 80 specialty cafés in Lisbon.",
     ],
     sections: [
       {
-        heading: "How Lisbon likes to be eaten",
         body: [
-          "The city feeds people generously, then asks them to walk it off. The mistake is treating restaurants as attractions: too many names, too little time, and a taxi between neighbourhoods that should have been a slow hill.",
-          "We plan Lisbon around meals that shape the day. A proper lunch. A pastry that is worth the queue. One dinner booked because the room, the fish or the timing actually matters. Everything else can stay flexible.",
-          "Lisbon still has tascas where the menu is written for the people who live upstairs, and a newer layer of rooms that cook Portuguese ingredients with more polish. Both are worth knowing. Neither needs to fill the whole trip.",
+          "Once known internationally mostly for pastéis de nata, grilled sardines and inexpensive seafood, the Portuguese capital has become one of Europe’s most exciting cities to eat in. In 2026, Lisbon entered Time Out’s top 10 cities in the world for food, but the real story is happening on the ground: old tascas are being rediscovered, a new generation of chefs is reinventing Portuguese cooking, natural wine bars are multiplying and Lisbon’s specialty coffee scene is growing at remarkable speed.",
+          "The best part is that eating well here still doesn’t have to mean fine dining.",
+          "These are the places worth knowing.",
         ],
       },
       {
-        heading: "Where to eat, at a glance",
+        heading: "The Lisbon restaurants you cannot miss",
         body: [],
-        table: {
-          caption: "Neighbourhoods that make the most sense as a base for eating.",
-          headers: ["Area", "Best for", "Worth knowing"],
-          rows: [
-            ["Chiado and Bairro Alto", "First dinners", "Central, mixed, easy to walk back from"],
-            ["Príncipe Real", "Restaurants and wine", "Residential, design-led, book ahead"],
-            ["Mouraria and Alfama", "Tascas and atmosphere", "Steep, atmospheric, go early for lunch"],
-            ["Cais do Sodré and Santos", "Evenings out", "Lively; choose the street carefully"],
-            ["Time Out Market", "A first-day overview", "Useful once, not a daily habit"],
-            ["Belém", "Pastry and the river", "Better as a daytime visit than an evening plan"],
-          ],
-        },
       },
       {
-        heading: "Bacalhau à Brás",
+        heading: "Cervejaria Ramiro",
+        listTitle: "Intendente | Seafood",
         body: [
-          "If one plate explains Lisbon’s kitchen, it is this one: salt cod shredded into fine strands, onions softened in olive oil, fried matchstick potatoes, and eggs folded through until the whole pan is still a little glossy.",
-          "It is not a showpiece. It is a Bairro Alto idea that became a national habit — inexpensive ingredients, careful texture, olives and parsley at the end. Order it where the kitchen still treats it as lunch food, not as a performance.",
-          "A good version should taste of bacalhau first, then egg and potato, not of oil sitting on the plate. If the potatoes have gone soft into a mash, keep walking.",
+          "Yes, everyone knows about Ramiro. Go anyway.",
+          "Open since 1956, this Lisbon institution is still one of the best places in the city for seafood. The formula is gloriously straightforward: prawns, clams, crab, lobster, plenty of toasted bread to soak up everything left on the plate and cold beer.",
+          "Then comes the part first-timers often don’t expect: finish with a prego, Lisbon’s garlicky steak sandwich.",
+          "It makes absolutely no sense after a seafood feast until you try it.",
+          "Go for: seafood and a prego to finish.",
         ],
       },
       {
-        heading: "Chiado, Bairro Alto and the first dinner",
+        heading: "O Velho Eurico",
+        listTitle: "Mouraria | Portuguese, Neo-Tasca",
         body: [
-          "For a first evening, stay close to Chiado. The walk home still feels like Lisbon, and you are not committing the night to a neighbourhood you do not yet know in the dark.",
-          "Bairro Alto is useful for that first dinner and less useful as a late crawl unless you like noise. Eat early, then move.",
-        ],
-        listTitle: "Tables worth knowing",
-        bullets: [
-          "Taberna da Rua das Flores — small, Portuguese, and still one of the most useful rooms in Chiado if you can get in. Go at opening or book.",
-          "Pinóquio — a straightforward seafood house on Praça dos Restauradores. Touristy on paper; reliable when you want prawns, clams and a table that understands tourists will arrive hungry.",
-          "Cervejaria Trindade — the tiled former monastery can feel theatrical, but it remains a practical Chiado lunch when you want beer, seafood and a room with history.",
-          "A Casa do Bacalhau — not the only place for salt cod in the city, but a clear-eyed stop if bacalhau à Brás is the point of the meal.",
+          "If there is one restaurant to book before coming to Lisbon, make it O Velho Eurico.",
+          "Hidden in Mouraria below São Jorge Castle, this tiny neo-tasca has become one of the most sought-after tables in the city. Traditional Portuguese cooking is the foundation, but dishes are approached with humour, creativity and none of the stiffness that sometimes accompanies serious food.",
+          "It is noisy, intimate and enormously fun.",
+          "The catch is getting in. Reservations can disappear two or three months ahead, although the restaurant also operates a waiting list for walk-ins.",
+          "Go for: one of the best examples of Lisbon’s new Portuguese cooking.",
+          "Book: months ahead if you can.",
         ],
       },
       {
-        heading: "Príncipe Real",
+        heading: "Faz Frio",
+        listTitle: "Príncipe Real | Traditional Portuguese",
         body: [
-          "Príncipe Real is where Lisbon’s restaurant culture feels most current without leaving the centre: wine lists, tasting menus, and rooms you dress for a little.",
-          "It works especially well if you are staying in the neighbourhood already. Walking down to Chiado for lunch and back up for dinner is part of the geography.",
-        ],
-        listTitle: "Tables worth knowing",
-        bullets: [
-          "A Cevicheria — Peruvian technique, Portuguese produce, and still one of the city’s most booked lunches. Worth it if you like a counter and a single sharp plate.",
-          "Prado — vegetable-led, Portuguese, and serious without being stiff. Book the lunch if dinner is full.",
-          "Bairro do Avillez — José Avillez’s small-plates room is useful when a group wants Portuguese cooking with more range than a tasca.",
-          "A Travessa — in a former convent between Príncipe Real and Santos. Better for a slower dinner than a quick bite.",
+          "For something more traditional, Faz Frio.",
+          "This is old Lisbon rather than new Lisbon: classic Portuguese cooking, a historic dining room and the sort of restaurant that reminds you why the city’s new generation of chefs has such good foundations to work with.",
+          "Come here for Portuguese flavours without the reinvention.",
+          "Go for: a traditional Lisbon lunch.",
         ],
       },
       {
-        heading: "Tascas: Mouraria, Alfama and the old city",
+        heading: "Lisboa Tu e Eu",
+        listTitle: "Alfama | Portuguese",
         body: [
-          "This is where Lisbon still eats like a neighbourhood. Menus are shorter. Lunch is the event. English may be limited. That is part of the point.",
-          "Go hungry, go early, and do not expect the room to perform. If a tasca is full of people who clearly live nearby, sit down.",
-        ],
-        listTitle: "Tables worth knowing",
-        bullets: [
-          "Zé da Mouraria — a classic for roast pork and a crowded lunch. Not elegant. Extremely useful.",
-          "O Velho Eurico — Mouraria cooking with more attention than the average tasca. Book if you can; walk in at opening if you cannot.",
-          "Tasca Zé dos Cornos — another Mouraria lunch room that still feels local. Come for the meat, the noise and the fact that nobody is rushing you toward dessert.",
-          "Alfama in the evening is better for a drink and a view than for a first serious dinner, unless you have a specific table.",
+          "Alfama has no shortage of restaurants designed almost entirely for visitors. Lisboa Tu e Eu is the sort of small place you actually want to find among them.",
+          "It is informal, unpretentious and centred on Portuguese food. This is somewhere for petiscos, a bottle of wine and a slower lunch or dinner after wandering through Alfama.",
+          "Don’t come looking for elaborate presentation. That’s rather the point.",
+          "Go for: a casual Portuguese meal in Alfama.",
         ],
       },
       {
-        heading: "Seafood, cervejarias and the river",
+        heading: "Tasca Baldracca",
+        listTitle: "Mouraria | Neo-Tasca",
         body: [
-          "Lisbon’s cervejarias are the city’s most honest luxury: paper tablecloths, ice, shellfish, beer, and a bill that can climb quickly if you say yes to everything.",
-          "Cais do Sodré and the river edge work when you want seafood and a later night. Santos is calmer, with more restaurants than bars if you choose well.",
-        ],
-        listTitle: "Tables worth knowing",
-        bullets: [
-          "Cervejaria Ramiro — still the reference for crab, prawns and clams. Go at opening, share plates, and leave before the queue becomes the story.",
-          "Sea Me — a Chiado seafood counter that sits between tasca energy and a sharper kitchen. Useful when Ramiro is full and you still want fish.",
-          "Cervejaria da Esquina — a more neighbourhood cervejaria if you are west of the centre and want seafood without the Ramiro theatre.",
+          "Tasca Baldracca belongs to the new generation of Lisbon tascas.",
+          "The atmosphere is relaxed, the plates are made for sharing and Portuguese flavours provide the starting point rather than a set of rules.",
+          "It is precisely this kind of restaurant that makes Lisbon interesting right now: young kitchens aren’t rejecting the city’s food culture, they are playing with it.",
+          "Go for: dinner with friends and several plates for the table.",
         ],
       },
       {
-        heading: "Pastry, coffee and Belém",
+        heading: "Tasca Zebra",
+        listTitle: "Lisbon | Contemporary Tasca",
         body: [
-          "A pastel de nata is not a souvenir. It is breakfast, a pause on a hill, and the thing you eat standing up because the table is full.",
-          "Belém deserves the monastery, the river and Pastéis de Belém — once. The queue is real. The pastry is still the original. Manteigaria in Chiado or Príncipe Real is the better everyday version when you do not want to spend a morning west of the centre.",
-        ],
-        bullets: [
-          "Pastéis de Belém — go early, eat in the rooms behind the counter if you can, and treat it as a visit, not a daily habit.",
-          "Manteigaria — the most useful natas in the centre, served hot, with no need to reorganise the day.",
-          "A good bica and a savoury pastry will do more for a morning than a hotel breakfast you do not remember.",
+          "Another name to have on the radar if you want to understand Lisbon beyond its classic restaurants.",
+          "Tasca Zebra fits into the city’s increasingly interesting middle ground between neighbourhood tasca and contemporary restaurant: informal, energetic and more interested in good food than ceremony.",
+          "Go for: the newer side of Lisbon’s tasca culture.",
         ],
       },
       {
-        heading: "What we would skip",
+        heading: "Bar Alimentar",
+        listTitle: "São Bento | Small Plates & Wine",
         body: [
-          "Menus with photographs of twenty dishes, restaurants whose entire personality is a fado soundtrack for visitors, and any table that wants to sell you a tasting of Lisbon in one sitting.",
-          "Time Out Market is fine on arrival day: you can see the city’s food in one hall, eat well enough, and leave. It is a poor substitute for a neighbourhood lunch on day three.",
-          "Do not collect Michelin stars unless that is actually how you like to travel. Lisbon’s judgement shows more clearly in a crowded tasca at 13:30 than in a room designed for photographs.",
+          "Bar Alimentar is for the evening when you don’t necessarily want a conventional restaurant.",
+          "The room is intimate, the lights are low and the menu moves between Portuguese ingredients and Italian influences. Small plates are designed to share, accompanied by natural wine and cocktails.",
+          "This is Lisbon at its most current: part restaurant, part wine bar, somewhere you arrive for dinner and end up staying much longer.",
+          "Go for: date night, small plates and wine.",
         ],
       },
       {
-        heading: "A simple way to eat for three or four days",
+        heading: "Fancy pizza?",
         body: [
-          "Day one: a nata in Chiado, a proper lunch nearby, and one booked dinner in Príncipe Real or Chiado.",
-          "Day two: a tasca lunch in Mouraria, then the afternoon free. Eat lightly in the evening.",
-          "Day three: seafood at a cervejaria, or Belém in the morning and something simple back in the centre at night.",
-          "Leave one meal unplanned. Lisbon is still a city where walking past an open door at 12:40 can be the best decision of the day.",
+          "Lisbon’s food scene is not only about Portuguese cooking. There is also seriously good pizza.",
+        ],
+      },
+      {
+        heading: "M'arrecreo",
+        listTitle: "Bairro Alto | Neapolitan Pizza",
+        body: [
+          "For proper Neapolitan pizza, M'arrecreo.",
+          "The pizzas are cooked according to Neapolitan tradition at around 480°C, spending roughly 90 seconds in the oven. The result is exactly what you want: blistered edges, a soft centre and a crust that should never be left on the plate.",
+          "It is particularly convenient if you are already around Chiado, Príncipe Real or Bairro Alto.",
+          "Go for: Neapolitan pizza and drinks before a night out.",
+        ],
+      },
+      {
+        heading: "La Matta",
+        listTitle: "Graça | Neapolitan Pizza",
+        body: [
+          "La Matta is the neighbourhood alternative.",
+          "Tucked into Graça, it specialises in Neapolitan-style pizza using Italian ingredients and has a much more local feel than many of the restaurants down in the centre.",
+          "Try to get a table outside and make an evening of Graça rather than rushing back towards Baixa.",
+          "Go for: pizza after sunset at a Graça miradouro.",
+        ],
+      },
+      {
+        heading: "Vegan in Lisbon",
+        body: [
+          "Lisbon has also become surprisingly easy for plant-based travellers.",
+        ],
+      },
+      {
+        heading: "Ao 26 Vegan Food Project",
+        listTitle: "Chiado | Vegan",
+        body: [
+          "Ao 26 has been part of Lisbon’s vegan scene since 2016 and remains one of the names to know.",
+          "Rather than treating vegan food as a separate cuisine, the kitchen plays with dishes Portuguese diners already recognise. The current menu includes plant-based interpretations of choco frito, alheira croquettes and other Portuguese petiscos.",
+          "That makes it particularly interesting for vegan visitors who actually want to taste something connected to Portugal.",
+          "Go for: vegan takes on Portuguese food.",
+        ],
+      },
+      {
+        heading: "Pequeno",
+        listTitle: "Lisbon | Vegan & Brunch",
+        body: [
+          "Pequeno is one to save for a slower morning, particularly if you’re looking for a vegan brunch rather than another avocado-toast-by-numbers café.",
+          "Go for: vegan brunch.",
+        ],
+      },
+      {
+        heading: "Lisbon’s brunch scene is worth waking up for",
+        body: [
+          "Breakfast used to mean a bica and a pastry eaten quickly at the counter.",
+          "That culture hasn’t disappeared, nor should it. But Lisbon has simultaneously developed a completely different morning scene built around sourdough, fermentation, bagels, proper coffee and long weekend brunches.",
+        ],
+      },
+      {
+        heading: "Beco Bagels",
+        listTitle: "Estrela | Bagels",
+        body: [
+          "A newer arrival from the team behind doBeco, Beco Bagels opened in 2025 and specialises in slow-fermented handmade bagels.",
+          "There are classics, homemade cream cheese and more elaborate fillings including pastrami, pickles and raclette.",
+          "Go for: a bagel and coffee before exploring Estrela.",
+        ],
+      },
+      {
+        heading: "doBeco",
+        listTitle: "Multiple Locations | Bakery & Brunch",
+        body: [
+          "One of Lisbon’s best stops when breakfast turns into lunch.",
+          "doBeco started with a focus on slow, natural fermentation and now sits somewhere between bakery, pastry shop and brunch restaurant. The bread matters here, as do the pastries, but the savoury breakfast menu is equally worth coming for.",
+          "Go for: bread, pastries and a proper brunch.",
+        ],
+      },
+      {
+        heading: "Dear Breakfast",
+        listTitle: "Multiple Locations | All-Day Breakfast",
+        body: [
+          "Dear Breakfast does exactly what the name promises.",
+          "Eggs are at the centre of the menu, alongside pancakes, juices and coffee, and breakfast runs all day. The original opened in São Bento in 2017 and the concept has since spread across Lisbon.",
+          "It is polished and popular, so don’t expect a secret neighbourhood café. Come because you want a very good, uncomplicated breakfast.",
+          "Go for: eggs and an easy all-day brunch.",
+        ],
+      },
+      {
+        heading: "Flora & Fauna",
+        listTitle: "Lisbon | Brunch",
+        body: [
+          "Flora & Fauna is for the full Lisbon brunch experience: generous plates, good coffee and the sort of breakfast where lunch becomes unnecessary.",
+          "Go for: a long weekend brunch.",
+        ],
+      },
+      {
+        heading: "And then there is the coffee",
+        body: [
+          "Lisbon is quickly becoming one of Europe’s most interesting cities for specialty coffee.",
+          "That might sound strange in a country where coffee has always been part of daily life. The traditional bica, short, dark and usually drunk quickly at the counter, isn’t going anywhere.",
+          "Instead, another coffee culture has grown alongside it.",
+          "Independent roasters, single-origin beans, V60s, batch brews and carefully made flat whites are now scattered across the city. European Coffee Trip currently lists around 80 specialty cafés in Lisbon, while Portuguese cafés are increasingly appearing in European coffee rankings.",
+          "It means you don’t have to choose between old and new Lisbon.",
+          "Have a 90-cent bica standing at the counter in the morning. Find a specialty roaster later.",
+          "Both belong to the city now.",
+        ],
+      },
+      {
+        heading: "What to eat in Lisbon at least once",
+        body: [
+          "Beyond restaurants, there are a few things that should find their way into a Lisbon trip.",
+          "Eat pastéis de nata warm. Try bacalhau à Brás. Order amêijoas à Bulhão Pato and use the bread to collect the garlic, olive oil and coriander left behind. Have grilled sardines if you are here during the season.",
+          "Eat a bifana.",
+          "Order fresh fish without overthinking it.",
+          "And at least once, ignore every restaurant guide, walk into a busy neighbourhood tasca and order whatever is written on the menu of the day.",
+          "Lisbon may be becoming one of Europe’s great food cities, but its best quality hasn’t changed.",
+          "Eating here is still supposed to be fun.",
         ],
       },
     ],
     goodFor: [
       "First Lisbon trips",
-      "Choosing where to eat",
-      "Bacalhau à Brás and tascas",
-      "Planning lunches that shape the day",
+      "Booking the tables that fill up",
+      "Tascas, pizza, vegan and brunch",
+      "Specialty coffee alongside a classic bica",
     ],
     sources: [
+      {
+        label: "Time Out — The world’s best cities for food in 2026",
+        url: "https://www.timeout.com/uk/travel/worlds-best-cities-for-food-2026",
+      },
+      {
+        label: "European Coffee Trip — Lisbon specialty coffee guide",
+        url: "https://europeancoffeetrip.com/lisbon/",
+      },
       {
         label: "Visit Lisboa — gastronomy",
         url: "https://www.visitlisboa.com/en/see-do/gastronomy",
@@ -377,10 +468,6 @@ export const guideArticles: GuideArticle[] = [
       {
         label: "Bacalhau à Brás",
         url: "https://en.wikipedia.org/wiki/Bacalhau_%C3%A0_Br%C3%A1s",
-      },
-      {
-        label: "Portuguese cuisine overview",
-        url: "https://en.wikipedia.org/wiki/Portuguese_cuisine",
       },
     ],
   },

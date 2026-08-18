@@ -1964,6 +1964,12 @@ textarea:focus {
   letter-spacing: -0.01em;
 }
 
+.article-body h2 + h3 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  color: var(--muted);
+}
+
 .article-table-wrap {
   margin-top: 22px;
   overflow-x: auto;
