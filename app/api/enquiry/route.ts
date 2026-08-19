@@ -38,6 +38,7 @@ export async function POST(request: Request) {
     const based = asText(payload.based);
     const tripPlanned = asText(payload.tripPlanned);
     const travellingWith = asText(payload.travellingWith) || asText(payload.travellers);
+    const tripLength = asText(payload.tripLength);
     const hotelBudget = asText(payload.hotelBudget);
     const frustrating = asText(payload.frustrating);
     const takeOffPlate = asText(payload.takeOffPlate);
@@ -47,6 +48,8 @@ export async function POST(request: Request) {
     const notes = [
       extraNotes,
       based ? `Based: ${based}` : "",
+      tripPlanned ? `Trip in the next three months: ${tripPlanned}` : "",
+      tripLength ? `Trip length: ${tripLength}` : "",
       hotelBudget ? `Hotel budget per night: ${hotelBudget}` : "",
       frustrating ? `Most frustrating: ${frustrating}` : "",
       takeOffPlate ? `Take off their plate: ${takeOffPlate}` : "",
@@ -65,7 +68,7 @@ export async function POST(request: Request) {
         dates: asText(payload.dates),
         flexibility: based,
         travellers: travellingWith,
-        tripLength: tripPlanned,
+        tripLength: tripLength || tripPlanned,
         budget: asText(payload.budget),
         pace: asText(payload.pace),
         interests: asText(payload.interests),

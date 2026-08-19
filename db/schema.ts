@@ -2,7 +2,7 @@ import { sql } from "drizzle-orm";
 import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
 /**
- * Private beta applications (and legacy trip enquiries). Persisting to D1
+ * Founding Membership applications (and legacy trip enquiries). Persisting to D1
  * captures every submission even if a mailto fallback does not fire.
  */
 export const enquiries = sqliteTable("enquiries", {

@@ -6817,7 +6817,7 @@ h1.studio-hero-lede {
   line-height: 1.7;
 }
 
-.beta-confirmation {
+.apply-confirmation {
   display: grid;
   gap: 16px;
   max-width: 36rem;
@@ -6826,7 +6826,7 @@ h1.studio-hero-lede {
   background: var(--paper);
 }
 
-.beta-confirmation h2 {
+.apply-confirmation h2 {
   margin: 0;
   font-family: var(--font-display);
   font-size: clamp(1.7rem, 3vw, 2.2rem);
@@ -6834,20 +6834,20 @@ h1.studio-hero-lede {
   letter-spacing: -0.02em;
 }
 
-.beta-confirmation p {
+.apply-confirmation p {
   margin: 0;
   color: var(--soft-ink);
   line-height: 1.7;
 }
 
-.beta-form input,
-.beta-form select,
-.beta-form textarea {
+.apply-form input,
+.apply-form select,
+.apply-form textarea {
   min-height: 48px;
   font-size: 1rem;
 }
 
-.beta-form textarea {
+.apply-form textarea {
   min-height: 96px;
 }
 

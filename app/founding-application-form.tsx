@@ -8,13 +8,28 @@ type FormStatus = "idle" | "loading" | "success" | "error";
 
 const tripPlannedOptions = ["Yes", "I have a few ideas", "Not yet"] as const;
 
-const travellingWithOptions = ["Solo", "Partner", "Friends", "Family"] as const;
+const travellingWithOptions = [
+  "Solo",
+  "Partner",
+  "Friends",
+  "Family",
+  "Other",
+] as const;
+
+const tripLengthOptions = [
+  "A weekend",
+  "4–7 days",
+  "8–14 days",
+  "2–3 weeks",
+  "A month or more",
+  "Not sure yet",
+] as const;
 
 const budgetOptions = [
-  "Under €2,000",
-  "€2,000–€4,000",
-  "€4,000–€8,000",
-  "€8,000+",
+  "Under €3,000",
+  "€3,000–€6,000",
+  "€6,000–€12,000",
+  "€12,000+",
   "Prefer not to say",
 ] as const;
 
@@ -30,15 +45,15 @@ const interestOptions = [
   "Hotels",
   "Culture",
   "Beaches",
-  "Design",
   "Nature",
+  "Design",
   "Nightlife",
   "Wellness",
-  "Local experiences",
+  "Local places",
   "Slow travel",
 ] as const;
 
-export function BetaApplicationForm() {
+export function FoundingApplicationForm() {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [message, setMessage] = useState("");
 
@@ -52,9 +67,28 @@ export function BetaApplicationForm() {
     const based = String(data.get("based") || "").trim();
     const tripPlanned = String(data.get("tripPlanned") || "").trim();
     const destinations = String(data.get("destinations") || "").trim();
+    const dates = String(data.get("dates") || "").trim();
+    const travellingWith = String(data.get("travellingWith") || "").trim();
+    const tripLength = String(data.get("tripLength") || "").trim();
+    const budget = String(data.get("budget") || "").trim();
+    const frustrating = String(data.get("frustrating") || "").trim();
+    const takeOffPlate = String(data.get("takeOffPlate") || "").trim();
     const consent = data.get("consent");
 
-    if (!name || !email || !based || !tripPlanned || !destinations || !consent) {
+    if (
+      !name ||
+      !email ||
+      !based ||
+      !tripPlanned ||
+      !destinations ||
+      !dates ||
+      !travellingWith ||
+      !tripLength ||
+      !budget ||
+      !frustrating ||
+      !takeOffPlate ||
+      !consent
+    ) {
       setStatus("error");
       setMessage("Please complete the required fields and confirm consent.");
       return;
@@ -63,13 +97,8 @@ export function BetaApplicationForm() {
     setStatus("loading");
     setMessage("");
 
-    const dates = String(data.get("dates") || "").trim();
-    const travellingWith = String(data.get("travellingWith") || "").trim();
-    const budget = String(data.get("budget") || "").trim();
     const hotelBudget = String(data.get("hotelBudget") || "").trim();
     const interests = data.getAll("interests").join(", ");
-    const frustrating = String(data.get("frustrating") || "").trim();
-    const takeOffPlate = String(data.get("takeOffPlate") || "").trim();
     const notes = String(data.get("notes") || "").trim();
 
     const payload = {
@@ -81,6 +110,7 @@ export function BetaApplicationForm() {
       destinations,
       dates,
       travellingWith,
+      tripLength,
       budget,
       hotelBudget,
       interests,
@@ -110,13 +140,14 @@ export function BetaApplicationForm() {
         `Based: ${based}`,
         `Trip in the next 3 months: ${tripPlanned}`,
         `Going: ${destinations}`,
-        `When: ${dates || "—"}`,
-        `Travelling with: ${travellingWith || "—"}`,
-        `Budget: ${budget || "—"}`,
+        `When: ${dates}`,
+        `Travelling with: ${travellingWith}`,
+        `Trip length: ${tripLength}`,
+        `Budget: ${budget}`,
         `Hotel budget: ${hotelBudget || "—"}`,
         `What matters: ${interests || "—"}`,
-        `Most frustrating: ${frustrating || "—"}`,
-        `Take off their plate: ${takeOffPlate || "—"}`,
+        `Most frustrating: ${frustrating}`,
+        `Take off their plate: ${takeOffPlate}`,
         `Notes: ${notes || "—"}`,
       ].join("\n");
 
@@ -130,38 +161,29 @@ export function BetaApplicationForm() {
 
   if (status === "success") {
     return (
-      <div className="beta-confirmation" role="status">
-        <p className="eyebrow">Application received</p>
-        <h2>Thank you. We&rsquo;re reading this carefully.</h2>
+      <div className="apply-confirmation" role="status">
+        <h2>Your application is with Altrove.</h2>
         <p>
-          Altrove is reviewing a small number of Founding Membership
-          applications. Places are limited, and we cannot accept everyone who
-          applies. If your trip is a good fit, we will be in touch.
-        </p>
-        <p>
-          In the meantime, you are welcome to read the{" "}
-          <Link className="text-link" href="/journal">
-            Journal
-          </Link>{" "}
-          — it is the clearest picture of how we think about travel.
+          Founding Membership is intentionally limited. We&rsquo;ll be in touch
+          if Altrove is a good fit for the way you travel.
         </p>
       </div>
     );
   }
 
   return (
-    <form className="trip-enquiry-form beta-form" onSubmit={handleSubmit} noValidate>
+    <form className="trip-enquiry-form apply-form" onSubmit={handleSubmit} noValidate>
       <div className="form-grid">
         <label>
-          <span>Name *</span>
+          <span>Name</span>
           <input name="name" type="text" autoComplete="name" required aria-required="true" />
         </label>
         <label>
-          <span>Email *</span>
+          <span>Email</span>
           <input name="email" type="email" autoComplete="email" required aria-required="true" />
         </label>
         <label className="form-span-2">
-          <span>Where are you based? *</span>
+          <span>Where are you based?</span>
           <input
             name="based"
             type="text"
@@ -173,7 +195,7 @@ export function BetaApplicationForm() {
         </label>
 
         <fieldset className="form-span-2 traveller-type-fieldset">
-          <legend>Do you have a trip planned in the next 3 months? *</legend>
+          <legend>Do you have a trip planned in the next three months?</legend>
           <div className="traveller-type-grid">
             {tripPlannedOptions.map((option) => (
               <label key={option} className="traveller-type-check">
@@ -185,27 +207,33 @@ export function BetaApplicationForm() {
         </fieldset>
 
         <label className="form-span-2">
-          <span>Where are you thinking of going? *</span>
-          <input
+          <span>Where are you thinking of going?</span>
+          <textarea
             name="destinations"
-            type="text"
-            placeholder="Lisbon, Naples, somewhere you haven’t decided yet"
+            rows={3}
+            placeholder="A city, a country, or a few ideas"
             required
             aria-required="true"
           />
         </label>
 
         <label>
-          <span>When are you travelling?</span>
-          <input name="dates" type="text" placeholder="Month, season, or still flexible" />
+          <span>When are you planning to travel?</span>
+          <input
+            name="dates"
+            type="text"
+            placeholder="Month, season, or still flexible"
+            required
+            aria-required="true"
+          />
         </label>
         <label>
-          <span>Who are you travelling with?</span>
-          <select name="travellingWith" defaultValue="">
+          <span>How long is the trip?</span>
+          <select name="tripLength" defaultValue="" required aria-required="true">
             <option value="" disabled>
-              Select one
+              Select a length
             </option>
-            {travellingWithOptions.map((option) => (
+            {tripLengthOptions.map((option) => (
               <option key={option} value={option}>
                 {option}
               </option>
@@ -213,9 +241,21 @@ export function BetaApplicationForm() {
           </select>
         </label>
 
+        <fieldset className="form-span-2 traveller-type-fieldset">
+          <legend>Who are you travelling with?</legend>
+          <div className="traveller-type-grid">
+            {travellingWithOptions.map((option) => (
+              <label key={option} className="traveller-type-check">
+                <input name="travellingWith" type="radio" value={option} required />
+                <span>{option}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
         <label>
-          <span>Approximate trip budget</span>
-          <select name="budget" defaultValue="">
+          <span>Approximate total trip budget</span>
+          <select name="budget" defaultValue="" required aria-required="true">
             <option value="" disabled>
               Select a range
             </option>
@@ -227,7 +267,7 @@ export function BetaApplicationForm() {
           </select>
         </label>
         <label>
-          <span>Hotel budget per night</span>
+          <span>Approximate hotel budget per night</span>
           <select name="hotelBudget" defaultValue="">
             <option value="">Optional</option>
             {hotelBudgetOptions.map((option) => (
@@ -251,12 +291,15 @@ export function BetaApplicationForm() {
         </fieldset>
 
         <label className="form-span-2">
-          <span>What is the most frustrating part of planning a trip?</span>
-          <textarea name="frustrating" rows={3} />
+          <span>What do you find most frustrating about planning a trip?</span>
+          <textarea name="frustrating" rows={4} required aria-required="true" />
         </label>
         <label className="form-span-2">
-          <span>If Altrove could take one thing off your plate when you travel, what would it be?</span>
-          <textarea name="takeOffPlate" rows={3} />
+          <span>
+            If Altrove could take one thing off your plate when you travel, what
+            would it be?
+          </span>
+          <textarea name="takeOffPlate" rows={4} required aria-required="true" />
         </label>
         <label className="form-span-2">
           <span>Anything else we should know?</span>
