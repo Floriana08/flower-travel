@@ -8,11 +8,42 @@ const aboutHeroImage =
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Altrove exists because travel planning has become overwhelming. We filter the noise — with taste, curation and trips designed around how you actually like to travel.",
+    "Travel planning has become overwhelming. Altrove exists to filter the noise — with judgement, fewer recommendations, and trips designed around how you actually like to travel.",
   alternates: {
     canonical: "https://altrove.studio/about",
   },
 };
+
+const decisions = [
+  "Where to stay",
+  "Where to eat",
+  "What is actually worth doing",
+  "What to skip",
+  "How to structure the trip",
+];
+
+const principles = [
+  {
+    title: "Fewer, better recommendations",
+    body: "Altrove prefers a small number of strong recommendations over huge lists. If a hotel is merely convenient, or a restaurant is famous for being famous, it will not make the edit.",
+  },
+  {
+    title: "Travel should have rhythm",
+    body: "A trip should not feel like a checklist. Meals, walking, rest and the odd unplanned hour belong in the design. The point is to arrive, not to finish a circuit.",
+  },
+  {
+    title: "Taste matters",
+    body: "Where you stay, eat and spend time shapes the trip. Neighbourhoods, rooms and tables are not decoration. They are the days you will remember.",
+  },
+  {
+    title: "Personal beats generic",
+    body: "The same itinerary does not work for everyone. A good edit starts with how you actually like to travel — pace, budget, company, and what you would rather not do.",
+  },
+  {
+    title: "Research with judgement",
+    body: "Altrove combines personal knowledge, careful research and trusted sources. Not every recommendation is a first-hand visit. The value is the filter: what we would choose, what we would skip, and why.",
+  },
+];
 
 export default function AboutPage() {
   return (
@@ -20,11 +51,12 @@ export default function AboutPage() {
       <header className="about-hero section-shell">
         <div className="about-hero-copy">
           <p className="eyebrow">About Altrove</p>
-          <h1 className="display-title">
-            Travel planning became noise.
-            <br />
-            We filter it.
-          </h1>
+          <h1 className="display-title">Less searching. Better travelling.</h1>
+          <p className="about-hero-lede">
+            Travel planning has become overwhelming. Too many tabs, too many
+            reviews and too many recommendations that all look the same. Altrove
+            exists to filter the noise.
+          </p>
         </div>
         <figure className="about-hero-media">
           <img
@@ -36,76 +68,57 @@ export default function AboutPage() {
         </figure>
       </header>
 
-      <section className="about-chapter section-shell" id="philosophy">
-        <div className="about-prose about-prose-wide">
+      <section className="about-chapter section-shell" id="why">
+        <div className="about-chapter-label">
+          <p className="eyebrow">Why Altrove</p>
+          <h2>Judgement, not more information.</h2>
+        </div>
+        <div className="about-prose">
           <p>
-            There is too much information, too many lists, too many reviews and
-            too much time spent comparing options. A trip that should feel
-            considered becomes a second job.
+            The problem is not a lack of information. It is too much of it,
+            without judgement. Rankings, reviews and saved lists multiply until
+            every option looks plausible and none of them feel chosen.
           </p>
           <p>
-            Altrove exists to take that work off your hands. We research the
-            place, choose fewer things with more conviction, and design a trip
-            around the way you actually like to travel — not around what ranks
-            well.
+            Altrove helps travellers decide:
+          </p>
+          <ul className="about-decide-list">
+            {decisions.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <p>
+            That is the work: filtering, not collecting. A shorter list, with a
+            point of view, is more useful than another page of everything.
           </p>
         </div>
       </section>
 
-      <section className="about-chapter section-shell tinted" id="stand-for">
-        <div className="about-prose about-prose-wide">
-          <p className="about-pull">Taste. Curation. Thoughtfulness.</p>
-          <p>
-            We care about independent places, personalisation, and travelling
-            well rather than travelling more. Neighbourhoods over circuits.
-            Meals that shape the day. Permission not to see everything.
-          </p>
-          <p>
-            Altrove is opinionated on purpose. If a hotel is merely convenient,
-            or a restaurant is famous for being famous, it will not make the
-            edit.
-          </p>
+      <section className="about-chapter section-shell tinted" id="principles">
+        <div className="about-chapter-label">
+          <p className="eyebrow">Principles</p>
+          <h2>How we approach travel.</h2>
+        </div>
+        <div className="about-principles">
+          {principles.map((principle) => (
+            <article key={principle.title}>
+              <h3>{principle.title}</h3>
+              <p>{principle.body}</p>
+            </article>
+          ))}
         </div>
       </section>
 
-      <section className="about-chapter section-shell" id="how-it-works">
-        <div className="about-prose about-prose-wide">
-          <p className="eyebrow">How it works</p>
-          <p>
-            Altrove is a private travel membership. You tell us where
-            you&rsquo;re going. We research the trip and send you a personal
-            Trip Edit — hotels, restaurants, experiences, practical notes and a
-            suggested rhythm. You book everything directly.
-          </p>
-          <p>
-            Founding Membership is currently complimentary, and offered to a
-            limited number of travellers.
-          </p>
-        </div>
-      </section>
-
-      <section className="about-chapter section-shell tinted" id="invite">
-        <div className="about-prose about-prose-wide">
-          <p>
-            The Journal shows how we think. The destinations we write about
-            first — Portugal, Italy, Spain — are the places we know well enough
-            to edit carefully. Membership can still take you elsewhere; we
-            research those trips by hand.
-          </p>
-          <p className="about-closing-link">
-            <Link className="text-link" href="/apply">
-              Apply for Membership
-            </Link>
-            <span aria-hidden="true"> · </span>
-            <Link className="text-link" href="/membership">
-              How membership works
-            </Link>
-            <span aria-hidden="true"> · </span>
-            <Link className="text-link" href="/journal">
-              Read the Journal
-            </Link>
-          </p>
-        </div>
+      <section className="section-shell membership-now" id="future">
+        <p className="eyebrow">Founding Membership</p>
+        <h2 className="display-title">The future of Altrove</h2>
+        <p>
+          Altrove is building a new kind of private travel membership combining
+          personalised planning, curated travel knowledge and member access.
+        </p>
+        <Link className="button dark" href="/apply">
+          Become a Founding Member
+        </Link>
       </section>
     </main>
   );
