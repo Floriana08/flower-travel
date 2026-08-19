@@ -7016,4 +7016,134 @@ h1.studio-hero-lede {
   }
 }
 
+.membership-page {
+  padding-bottom: clamp(48px, 8vw, 96px);
+}
+
+.membership-hero .about-hero-copy {
+  max-width: 34rem;
+  gap: 18px;
+}
+
+.membership-hero .button {
+  justify-self: start;
+  margin-top: 6px;
+}
+
+.membership-hero-note {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.membership-includes {
+  display: grid;
+  gap: clamp(40px, 6vw, 72px);
+}
+
+.membership-include {
+  display: grid;
+  gap: 14px;
+  max-width: 42rem;
+  padding-top: clamp(28px, 4vw, 40px);
+  border-top: 1px solid var(--line);
+}
+
+.membership-include h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.membership-include p {
+  margin: 0;
+  color: var(--soft-ink);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.membership-inline-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 32px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.membership-inline-list li {
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+
+.membership-questions {
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0;
+}
+
+.membership-questions li {
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: -0.015em;
+  line-height: 1.45;
+}
+
+.membership-questions li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.membership-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+
+.membership-steps li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  align-items: baseline;
+  padding: 18px 0;
+  border-top: 1px solid var(--ink);
+}
+
+.membership-steps li:last-child {
+  border-bottom: 1px solid var(--ink);
+}
+
+.membership-steps h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 720px) {
+  .membership-hero .button {
+    width: 100%;
+  }
+
+  .membership-inline-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 
