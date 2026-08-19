@@ -129,7 +129,13 @@ export function SampleTripEdit({
   );
 }
 
-export function TripEditGlimpse({ trip }: { trip: SampleTrip }) {
+export function TripEditGlimpse({
+  trip,
+  ctaLabel = "Explore the Lisbon Edit",
+}: {
+  trip: SampleTrip;
+  ctaLabel?: string;
+}) {
   const hotel = trip.hotels.find((item) => item.pick) ?? trip.hotels[0];
   const restaurants = trip.restaurants.slice(0, 2);
 
@@ -173,7 +179,7 @@ export function TripEditGlimpse({ trip }: { trip: SampleTrip }) {
 
         <p className="trip-glimpse-cta">
           <Link className="button dark" href={`/trips/${trip.slug}`}>
-            Explore the Lisbon Edit
+            {ctaLabel}
           </Link>
         </p>
       </div>

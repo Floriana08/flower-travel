@@ -270,7 +270,7 @@ export const studioCountries: StudioCountry[] = [
         image:
           "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=1400&q=80",
         alt: "Lisbon’s yellow Tram 28 on a narrow tiled street",
-        href: "/journeys/lisbon-slowly",
+        href: "/destinations/lisbon",
       },
       {
         title: "Porto & the Douro",
@@ -302,12 +302,12 @@ export const studioCountries: StudioCountry[] = [
         kind: "Hotels",
         items: [
           {
-            name: "A Lisbon hill base",
-            note: "Graça, Estrela or a calm corner of Príncipe Real.",
+            name: "Verride Palácio Santa Catarina",
+            note: "Our pick in Lisbon — a smaller palácio near the viewpoint.",
           },
           {
-            name: "A Porto riverside stay",
-            note: "Close enough to walk; quiet enough to sleep.",
+            name: "Memmo Príncipe Real",
+            note: "Quieter, residential, with a terrace that makes the hill worth it.",
           },
         ],
       },
@@ -315,12 +315,12 @@ export const studioCountries: StudioCountry[] = [
         kind: "Restaurants",
         items: [
           {
-            name: "Neighbourhood tasca",
-            note: "The lunch that becomes the day’s main event.",
+            name: "Cervejaria Ramiro",
+            note: "Crab, prawns and clams. Go at opening.",
           },
           {
-            name: "Pastelaria before a miradouro",
-            note: "Coffee, pastry, then the view — in that order.",
+            name: "O Velho Eurico",
+            note: "Mouraria cooking with more attention than the average tasca.",
           },
         ],
       },
@@ -670,7 +670,8 @@ export function isStudioCountrySlug(slug: string): slug is StudioCountrySlug {
 export function getDestinationHubHref(slug?: string) {
   if (!slug) return "/destinations";
   if (isStudioCountrySlug(slug)) return `/destinations/${slug}`;
-  if (slug === "lisbon" || slug === "madeira" || slug === "porto") {
+  if (slug === "lisbon") return "/destinations/lisbon";
+  if (slug === "madeira" || slug === "porto") {
     return "/destinations/portugal";
   }
   if (

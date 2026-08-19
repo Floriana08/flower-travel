@@ -6,6 +6,7 @@ import { journalMoods, journalTopicGroups, studioCountries } from "./studio-stru
 const routes = [
   "",
   "/destinations",
+  "/destinations/lisbon",
   "/journal",
   "/guides",
   "/apply",

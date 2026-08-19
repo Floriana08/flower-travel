@@ -163,11 +163,22 @@ export default async function JournalArticlePage({ params }: PageProps) {
                   </Link>
                 </p>
               ) : null}
-              <p>
-                <Link className="text-link" href="/destinations/portugal">
-                  Portugal destination hub
-                </Link>
-              </p>
+              {/lisbon/i.test(`${guide.slug} ${guide.destination}`) ? (
+                <p>
+                  <Link className="text-link" href="/destinations/lisbon">
+                    Lisbon with Altrove
+                  </Link>
+                </p>
+              ) : null}
+              {/portugal|lisbon|porto|madeira/i.test(
+                `${guide.slug} ${guide.destination}`,
+              ) ? (
+                <p>
+                  <Link className="text-link" href="/destinations/portugal">
+                    Portugal destination hub
+                  </Link>
+                </p>
+              ) : null}
               <p>
                 <Link className="text-link" href="/journal#letters">
                   Join the newsletter
@@ -238,11 +249,9 @@ export default async function JournalArticlePage({ params }: PageProps) {
                 ) ? (
                   <WorthKnowing>
                     <p>
-                      Planning a longer stay in Portugal? Explore our{" "}
-                      <Link href="/journeys/portugal-by-train">
-                        Portugal journeys
-                      </Link>{" "}
-                      or the{" "}
+                      Planning Lisbon? See the{" "}
+                      <Link href="/destinations/lisbon">Lisbon destination page</Link>
+                      {" "}or the{" "}
                       <Link href="/destinations/portugal">
                         Portugal destination hub
                       </Link>

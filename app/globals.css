@@ -7145,5 +7145,117 @@ h1.studio-hero-lede {
   }
 }
 
+.destinations-family-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2.5vw, 32px);
+  padding-bottom: clamp(64px, 10vw, 120px);
+}
+
+.destinations-family-grid .country-tile-door {
+  min-height: clamp(380px, 46vw, 560px);
+}
+
+.lisbon-lede {
+  margin: 0;
+  max-width: 40rem;
+  color: var(--soft-ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  letter-spacing: -0.015em;
+  line-height: 1.55;
+}
+
+.lisbon-take,
+.lisbon-skip,
+.lisbon-block {
+  display: grid;
+  gap: 16px;
+}
+
+.lisbon-block .display-title,
+.lisbon-take .display-title,
+.lisbon-skip .display-title {
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+}
+
+.lisbon-take-list,
+.lisbon-skip-list,
+.lisbon-shortlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 42rem;
+}
+
+.lisbon-take-list li,
+.lisbon-skip-list li {
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  letter-spacing: -0.015em;
+  line-height: 1.5;
+}
+
+.lisbon-take-list li:last-child,
+.lisbon-skip-list li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.lisbon-shortlist li {
+  display: grid;
+  gap: 8px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+
+.lisbon-shortlist li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.lisbon-shortlist li > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+.lisbon-shortlist strong {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.lisbon-shortlist span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lisbon-shortlist p {
+  margin: 0;
+  color: var(--soft-ink);
+  line-height: 1.6;
+}
+
+.lisbon-journal .home-journal-row {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .destinations-family-grid,
+  .lisbon-journal .home-journal-row {
+    grid-template-columns: 1fr;
+  }
+
+  .destinations-family-grid .country-tile-door {
+    min-height: 280px;
+  }
+}
+
+
 
 
