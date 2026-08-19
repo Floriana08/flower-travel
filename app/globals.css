@@ -2014,6 +2014,10 @@ textarea:focus {
   background: var(--sea-glass);
 }
 
+.article-planning-cta .button {
+  margin-top: 8px;
+}
+
 .article-sources a {
   border-bottom: 1px solid var(--clay);
   color: var(--charcoal);
@@ -5859,6 +5863,32 @@ h1.studio-hero-lede {
     flex: 0 0 min(70vw, 200px);
     scroll-snap-align: start;
   }
+}
+
+.journal-topic-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.journal-topic-chip {
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: 1px solid transparent;
+}
+
+.journal-topic-chip:hover,
+.journal-topic-chip:focus-visible {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
 }
 
 .journal-browse-grid {

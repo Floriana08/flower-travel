@@ -2,14 +2,20 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { guideArticles, getGuideArticle } from "../../articles";
-import { GuideCard, NewsletterBand } from "../../components";
+import { NewsletterForm } from "../../newsletter-form";
 import {
   ArticleMeta,
+  ArticlePlanningCta,
   FlorNote,
   WorthKnowing,
 } from "../../editorial-components";
-import { guideProducts, guides, site } from "../../data";
+import { EditorialStoryCard, StudioNewsletter } from "../../studio-components";
+import { guides, site } from "../../data";
 import { defaultImageSizes, unsplashSrcSet } from "../../image-utils";
+import {
+  getJournalPlanningCta,
+  getRelatedJournalStories,
+} from "../../studio-structure";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -35,6 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: guide.title,
     description: article.dek,
+    keywords: [guide.destination, guide.category, "Altrove", "travel"],
     alternates: {
       canonical: `https://altrove.studio/journal/${guide.slug}`,
     },
@@ -54,6 +61,79 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+function DestinationContext({
+  slug,
+  destination,
+  title,
+}: {
+  slug: string;
+  destination: string;
+  title: string;
+}) {
+  const haystack = `${destination} ${slug} ${title}`;
+
+  if (slug === "train-travel-europe") {
+    return (
+      <WorthKnowing>
+        <p>
+          For the countries we edit most closely, see{" "}
+          <Link href="/destinations/portugal">Portugal</Link>,{" "}
+          <Link href="/destinations/italy">Italy</Link>
+          {" "}and{" "}
+          <Link href="/destinations/spain">Spain</Link>.
+        </p>
+      </WorthKnowing>
+    );
+  }
+
+  if (/portugal|lisbon|porto|madeira|douro/i.test(haystack)) {
+    return (
+      <WorthKnowing>
+        <p>
+          For the shortlist we would actually use, see the{" "}
+          <Link href="/destinations/lisbon">Lisbon destination page</Link>
+          {" "}and the{" "}
+          <Link href="/destinations/portugal">Portugal destination hub</Link>.
+        </p>
+      </WorthKnowing>
+    );
+  }
+
+  if (/italy|rome|naples|amalfi|campania/i.test(haystack)) {
+    const showCampania = /naples|amalfi|campania/i.test(haystack);
+    return (
+      <WorthKnowing>
+        <p>
+          For how we approach the country, see the{" "}
+          <Link href="/destinations/italy">Italy destination hub</Link>
+          {showCampania ? (
+            <>
+              {" "}and the{" "}
+              <Link href="/journeys/naples-amalfi">
+                Naples and the Amalfi Coast journey
+              </Link>
+            </>
+          ) : null}
+          .
+        </p>
+      </WorthKnowing>
+    );
+  }
+
+  if (/spain|andalusia|barcelona|madrid/i.test(haystack)) {
+    return (
+      <WorthKnowing>
+        <p>
+          For how we think about the country, see the{" "}
+          <Link href="/destinations/spain">Spain destination hub</Link>.
+        </p>
+      </WorthKnowing>
+    );
+  }
+
+  return null;
+}
+
 export default async function JournalArticlePage({ params }: PageProps) {
   const { slug } = await params;
   const guide = getGuide(slug);
@@ -63,19 +143,16 @@ export default async function JournalArticlePage({ params }: PageProps) {
     notFound();
   }
 
-  const relatedGuides = guides
-    .filter((relatedGuide) => relatedGuide.slug !== guide.slug)
-    .slice(0, 3);
-
-  const relatedProduct = guideProducts.find((product) =>
-    product.relatedArticleSlugs.includes(guide.slug),
-  );
+  const relatedGuides = getRelatedJournalStories(guide.slug, 3);
+  const planning = getJournalPlanningCta(guide);
 
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: guide.title,
     description: article.dek,
+    articleSection: guide.category,
+    keywords: [guide.destination, guide.category],
     image: guide.image,
     datePublished: guide.date,
     dateModified: article.lastReviewed,
@@ -156,43 +233,29 @@ export default async function JournalArticlePage({ params }: PageProps) {
             </div>
             <div className="article-panel">
               <h2>Continue in the journal</h2>
-              {relatedProduct ? (
+              {planning.destinationHref ? (
                 <p>
-                  <Link className="text-link" href={`/guides/${relatedProduct.slug}`}>
-                    Related guide: {relatedProduct.title}
+                  <Link className="text-link" href={planning.destinationHref}>
+                    {planning.destinationLabel}
                   </Link>
                 </p>
               ) : null}
-              {/lisbon/i.test(`${guide.slug} ${guide.destination}`) ? (
-                <p>
-                  <Link className="text-link" href="/destinations/lisbon">
-                    Lisbon with Altrove
+              {relatedGuides.slice(0, 2).map((related) => (
+                <p key={related.slug}>
+                  <Link className="text-link" href={`/journal/${related.slug}`}>
+                    {related.title}
                   </Link>
                 </p>
-              ) : null}
-              {/portugal|lisbon|porto|madeira/i.test(
-                `${guide.slug} ${guide.destination}`,
-              ) ? (
-                <p>
-                  <Link className="text-link" href="/destinations/portugal">
-                    Portugal destination hub
-                  </Link>
-                </p>
-              ) : null}
-              <p>
-                <Link className="text-link" href="/journal#letters">
-                  Join the newsletter
-                </Link>
-              </p>
+              ))}
             </div>
           </aside>
 
           <div className="article-body">
             <FlorNote>
               <p>
-                These notes are written from personal research and first-hand
-                travel preference. Always re-check opening times and transport
-                before you go.
+                These notes are editorial judgement: specific where we have a
+                view, cautious where a longer list would be guesswork. Always
+                re-check opening times and transport before you go.
               </p>
             </FlorNote>
 
@@ -243,66 +306,25 @@ export default async function JournalArticlePage({ params }: PageProps) {
                     ))}
                   </ul>
                 ) : null}
-                {index === 0 &&
-                /portugal|lisbon|porto|madeira|douro/i.test(
-                  `${guide.destination} ${guide.slug}`,
-                ) ? (
-                  <WorthKnowing>
-                    <p>
-                      Planning Lisbon? See the{" "}
-                      <Link href="/destinations/lisbon">Lisbon destination page</Link>
-                      {" "}or the{" "}
-                      <Link href="/destinations/portugal">
-                        Portugal destination hub
-                      </Link>
-                      .
-                    </p>
-                  </WorthKnowing>
-                ) : null}
-                {index === 0 &&
-                /italy|rome|naples|amalfi|campania/i.test(
-                  `${guide.destination} ${guide.slug} ${guide.title}`,
-                ) ? (
-                  <WorthKnowing>
-                    <p>
-                      Heading to Campania? See the{" "}
-                      <Link href="/journeys/naples-amalfi">
-                        Naples and the Amalfi Coast journey
-                      </Link>
-                      , the{" "}
-                      <Link href="/guides/naples-amalfi-guide">
-                        Campania guide
-                      </Link>
-                      , or{" "}
-                      <Link href="/apply">
-                        ask Altrove to shape a personalised version
-                      </Link>
-                      .
-                    </p>
-                  </WorthKnowing>
-                ) : null}
-                {index === 0 &&
-                /honeymoon/i.test(`${guide.slug} ${guide.title}`) ? (
-                  <WorthKnowing>
-                    <p>
-                      Considering a honeymoon in Southern Europe?{" "}
-                      <Link href="/apply">
-                        Tell Altrove what you have in mind
-                      </Link>
-                      .
-                    </p>
-                  </WorthKnowing>
+                {index === 0 ? (
+                  <DestinationContext
+                    slug={guide.slug}
+                    destination={guide.destination}
+                    title={guide.title}
+                  />
                 ) : null}
               </section>
             ))}
 
+            <ArticlePlanningCta heading={planning.heading} body={planning.body} />
+
             <section className="article-sources">
               <h2>Sources and research notes</h2>
               <p>
-                These guide pages are written as editorial planning notes, not
-                legal, safety, or official booking advice. Check opening times,
-                trail conditions, transport rules, and entry requirements before
-                you book.
+                These pages are written as editorial planning notes, not legal,
+                safety, or official booking advice. Check opening times, trail
+                conditions, transport rules, and entry requirements before you
+                book.
               </p>
               <ul>
                 {article.sources.map((source) => (
@@ -318,19 +340,27 @@ export default async function JournalArticlePage({ params }: PageProps) {
         </div>
       </article>
 
-      <section className="section-shell">
-        <div className="section-heading">
-          <p className="eyebrow">Keep reading</p>
-          <h2>More guides for thoughtful planning.</h2>
-        </div>
-        <div className="guide-grid">
-          {relatedGuides.map((relatedGuide) => (
-            <GuideCard key={relatedGuide.slug} guide={relatedGuide} compact />
-          ))}
-        </div>
-      </section>
+      {relatedGuides.length ? (
+        <section className="section-shell">
+          <div className="section-heading">
+            <p className="eyebrow">Keep reading</p>
+            <h2>More from the Journal.</h2>
+          </div>
+          <div className="editorial-story-grid">
+            {relatedGuides.map((relatedGuide) => (
+              <EditorialStoryCard key={relatedGuide.slug} guide={relatedGuide} />
+            ))}
+          </div>
+        </section>
+      ) : null}
 
-      <NewsletterBand />
+      <StudioNewsletter
+        id="letters"
+        title="Letters from Altrove"
+        description="Occasional notes on hotels, restaurants and routes — sent without noise."
+      >
+        <NewsletterForm buttonLabel="Join our letters" />
+      </StudioNewsletter>
     </main>
   );
 }

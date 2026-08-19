@@ -113,3 +113,21 @@ export function ArticleMeta({
     </dl>
   );
 }
+
+export function ArticlePlanningCta({
+  heading,
+  body,
+}: {
+  heading: string;
+  body: string;
+}) {
+  return (
+    <section className="article-planning-cta" aria-label="Founding Membership">
+      <h2>{heading}</h2>
+      <p>{body}</p>
+      <Link className="button dark" href="/apply">
+        Apply for Founding Membership
+      </Link>
+    </section>
+  );
+}

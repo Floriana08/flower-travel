@@ -766,63 +766,152 @@ export function getGuideProductsForCountry(slug: StudioCountrySlug) {
 }
 
 export type JournalTopicSlug =
-  | "places"
-  | "food"
-  | "stays"
-  | "culture"
+  | "eat"
+  | "stay"
+  | "city-guides"
   | "travel-notes"
-  | "how-we-travel";
+  | "weekend-guides";
+
+/** Kept as an alias so existing imports continue to resolve. */
+export type JournalCategorySlug = JournalTopicSlug;
 
 /**
- * Lightweight topic taxonomy over the Journal's existing free-text
- * `category` values (data.ts) — lets the Journal index offer a simple
- * subject filter without hand-retagging every article.
+ * Five editorial categories. Search-friendly, not a product catalogue.
  */
-export const journalTopicGroups: {
+export const journalCategories: {
   slug: JournalTopicSlug;
-  title: string;
-  categories: string[];
+  title: "Eat" | "Stay" | "City Guides" | "Travel Notes" | "Weekend Guides";
+  description: string;
 }[] = [
   {
-    slug: "places",
-    title: "Places",
-    categories: ["City Notes", "Neighbourhood Guide", "Destination Guide", "Local Experiences"],
+    slug: "eat",
+    title: "Eat",
+    description:
+      "Restaurants, markets and the meals worth planning a day around.",
   },
   {
-    slug: "food",
-    title: "Food",
-    categories: ["Food Guide"],
+    slug: "stay",
+    title: "Stay",
+    description: "Neighbourhoods and hotels we would actually choose.",
   },
   {
-    slug: "stays",
-    title: "Stays",
-    categories: ["Hotel Notes"],
-  },
-  {
-    slug: "culture",
-    title: "Culture",
-    categories: ["Design Guide", "Personal Story", "Honeymoons"],
+    slug: "city-guides",
+    title: "City Guides",
+    description:
+      "How to pace a place — bases, days and the notes that change the trip.",
   },
   {
     slug: "travel-notes",
     title: "Travel Notes",
-    categories: ["Route Notes", "Planning", "Packing"],
+    description:
+      "Practical judgement on trains, packing, timing and the decisions in between.",
   },
   {
-    slug: "how-we-travel",
-    title: "How We Travel",
-    categories: ["Sustainable Travel", "Island Planning", "Soft Adventure", "Lower-impact travel"],
+    slug: "weekend-guides",
+    title: "Weekend Guides",
+    description: "Short trips that still feel complete — one city, one rhythm.",
   },
 ];
 
+export const journalTopicGroups = journalCategories;
+
 export function getJournalTopic(slug: string) {
-  return journalTopicGroups.find((topic) => topic.slug === slug);
+  return journalCategories.find((topic) => topic.slug === slug);
 }
 
 export function getGuidesForTopic(slug: JournalTopicSlug) {
   const topic = getJournalTopic(slug);
   if (!topic) return [];
-  return guides.filter((guide) => topic.categories.includes(guide.category));
+  return guides.filter((guide) => guide.category === topic.title);
+}
+
+export function getRelatedJournalStories(slug: string, limit = 3) {
+  const current = guides.find((guide) => guide.slug === slug);
+  const others = guides.filter((guide) => guide.slug !== slug);
+  if (!current) return others.slice(0, limit);
+
+  return others
+    .map((guide) => {
+      let score = 0;
+      if (guide.destination === current.destination) score += 4;
+      if (guide.category === current.category) score += 3;
+      if (
+        current.destination !== "Any trip" &&
+        current.destination !== "Everywhere" &&
+        guide.destination
+          .toLowerCase()
+          .includes(current.destination.split(",")[0].toLowerCase())
+      ) {
+        score += 2;
+      }
+      return { guide, score };
+    })
+    .sort((a, b) => b.score - a.score || b.guide.date.localeCompare(a.guide.date))
+    .slice(0, limit)
+    .map((entry) => entry.guide);
+}
+
+export function getJournalPlanningCta(guide: (typeof guides)[number]): {
+  heading: string;
+  body: string;
+  destinationHref?: string;
+  destinationLabel?: string;
+} {
+  const haystack = `${guide.slug} ${guide.destination} ${guide.title}`;
+  const body =
+    "Altrove members can have their trip personally designed around their preferences, budget and travel style.";
+
+  if (/lisbon/i.test(haystack)) {
+    return {
+      heading: "Planning a trip to Lisbon?",
+      body,
+      destinationHref: "/destinations/lisbon",
+      destinationLabel: "Lisbon destination page",
+    };
+  }
+  if (/rome/i.test(haystack)) {
+    return {
+      heading: "Planning a trip to Rome?",
+      body,
+      destinationHref: "/destinations/italy",
+      destinationLabel: "Italy destination hub",
+    };
+  }
+  if (/portugal|porto|madeira/i.test(haystack)) {
+    return {
+      heading: "Planning a trip to Portugal?",
+      body,
+      destinationHref: "/destinations/portugal",
+      destinationLabel: "Portugal destination hub",
+    };
+  }
+  if (/italy|naples|amalfi|campania/i.test(haystack)) {
+    return {
+      heading: "Planning a trip to Italy?",
+      body,
+      destinationHref: "/destinations/italy",
+      destinationLabel: "Italy destination hub",
+    };
+  }
+  if (/spain|andalusia|barcelona|madrid/i.test(haystack)) {
+    return {
+      heading: "Planning a trip to Spain?",
+      body,
+      destinationHref: "/destinations/spain",
+      destinationLabel: "Spain destination hub",
+    };
+  }
+  if (/paris/i.test(haystack)) {
+    return { heading: "Planning a trip to Paris?", body };
+  }
+
+  const generic = ["Any trip", "Everywhere", "Europe", "Europe and beyond"];
+  if (generic.includes(guide.destination)) {
+    return { heading: "Planning a trip?", body };
+  }
+
+  const place = guide.destination.split(",")[0].trim();
+  return { heading: `Planning a trip to ${place}?`, body };
 }
 
 export function getJournalMood(slug: string) {

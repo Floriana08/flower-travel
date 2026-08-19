@@ -4,7 +4,7 @@ import { JournalDestinationPage } from "../journal-collection";
 export const metadata: Metadata = {
   title: "Italy Journal",
   description:
-    "Curated Altrove journal notes on Italy — food, cities and coastal pacing.",
+    "Journal notes on Italy — a first-timer food walk through Rome, and how we pace the rest of the country.",
   alternates: {
     canonical: "https://altrove.studio/journal/italy",
   },

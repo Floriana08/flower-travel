@@ -53,7 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority:
       route === ""
         ? 1
-        : route === "/destinations" || route === "/apply"
+        : route === "/destinations" || route === "/apply" || route === "/journal"
           ? 0.95
           : route.startsWith("/destinations/") || route.startsWith("/journal/")
             ? 0.75
