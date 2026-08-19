@@ -16,30 +16,17 @@ function toRouteErrorMessage(error: unknown) {
   return message;
 }
 
+function asText(value: unknown) {
+  return typeof value === "string" ? value.trim() : "";
+}
+
 export async function POST(request: Request) {
   try {
-    const payload = (await request.json()) as {
-      name?: string;
-      email?: string;
-      destinations?: string;
-      dates?: string;
-      flexibility?: string;
-      travellers?: string;
-      tripLength?: string;
-      budget?: string;
-      pace?: string;
-      interests?: string;
-      accommodation?: string;
-      tripType?: string;
-      helpWith?: string;
-      howHeard?: string;
-      priorities?: string;
-      notes?: string;
-    };
+    const payload = (await request.json()) as Record<string, unknown>;
 
-    const name = payload.name?.trim() ?? "";
-    const email = payload.email?.trim() ?? "";
-    const destinations = payload.destinations?.trim() ?? "";
+    const name = asText(payload.name);
+    const email = asText(payload.email);
+    const destinations = asText(payload.destinations);
 
     if (!name || !email || !destinations) {
       return Response.json(
@@ -48,6 +35,26 @@ export async function POST(request: Request) {
       );
     }
 
+    const based = asText(payload.based);
+    const tripPlanned = asText(payload.tripPlanned);
+    const travellingWith = asText(payload.travellingWith) || asText(payload.travellers);
+    const hotelBudget = asText(payload.hotelBudget);
+    const frustrating = asText(payload.frustrating);
+    const takeOffPlate = asText(payload.takeOffPlate);
+    const extraNotes = asText(payload.notes);
+    const source = asText(payload.source) || "enquiry";
+
+    const notes = [
+      extraNotes,
+      based ? `Based: ${based}` : "",
+      hotelBudget ? `Hotel budget per night: ${hotelBudget}` : "",
+      frustrating ? `Most frustrating: ${frustrating}` : "",
+      takeOffPlate ? `Take off their plate: ${takeOffPlate}` : "",
+      `Source: ${source}`,
+    ]
+      .filter(Boolean)
+      .join("\n\n");
+
     const db = getDb();
     const [enquiry] = await db
       .insert(enquiries)
@@ -55,19 +62,19 @@ export async function POST(request: Request) {
         name,
         email,
         destinations,
-        dates: payload.dates?.trim() ?? "",
-        flexibility: payload.flexibility?.trim() ?? "",
-        travellers: payload.travellers?.trim() ?? "",
-        tripLength: payload.tripLength?.trim() ?? "",
-        budget: payload.budget?.trim() ?? "",
-        pace: payload.pace?.trim() ?? "",
-        interests: payload.interests?.trim() ?? "",
-        accommodation: payload.accommodation?.trim() ?? "",
-        tripType: payload.tripType?.trim() ?? "",
-        helpWith: payload.helpWith?.trim() ?? "",
-        howHeard: payload.howHeard?.trim() ?? "",
-        priorities: payload.priorities?.trim() ?? "",
-        notes: payload.notes?.trim() ?? "",
+        dates: asText(payload.dates),
+        flexibility: based,
+        travellers: travellingWith,
+        tripLength: tripPlanned,
+        budget: asText(payload.budget),
+        pace: asText(payload.pace),
+        interests: asText(payload.interests),
+        accommodation: hotelBudget || asText(payload.accommodation),
+        tripType: tripPlanned || asText(payload.tripType),
+        helpWith: takeOffPlate || asText(payload.helpWith),
+        howHeard: source,
+        priorities: frustrating || asText(payload.priorities),
+        notes,
       })
       .returning();
 

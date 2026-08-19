@@ -169,7 +169,7 @@ export default async function JournalArticlePage({ params }: PageProps) {
                 </Link>
               </p>
               <p>
-                <Link className="text-link" href="/#letters">
+                <Link className="text-link" href="/journal#letters">
                   Join the newsletter
                 </Link>
               </p>
@@ -265,7 +265,7 @@ export default async function JournalArticlePage({ params }: PageProps) {
                         Campania guide
                       </Link>
                       , or{" "}
-                      <Link href="/plan-a-trip">
+                      <Link href="/apply">
                         ask Altrove to shape a personalised version
                       </Link>
                       .
@@ -277,7 +277,7 @@ export default async function JournalArticlePage({ params }: PageProps) {
                   <WorthKnowing>
                     <p>
                       Considering a honeymoon in Southern Europe?{" "}
-                      <Link href="/plan-a-trip">
+                      <Link href="/apply">
                         Tell Altrove what you have in mind
                       </Link>
                       .

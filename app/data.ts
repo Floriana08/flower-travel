@@ -1,22 +1,21 @@
 export const site = {
   name: "Altrove",
   fullName: "Altrove Travel Studio",
-  strapline: "thoughtful journeys, with a sense of place",
+  strapline: "travel, considered",
   studioLine:
-    "A boutique travel studio for travellers who would rather remember a place than rush through it.",
+    "Altrove personally plans thoughtful trips. During the private beta, we design the journey and you book it.",
   email: "hello@altrove.studio",
 };
 
 export const navItems = [
   { href: "/destinations", label: "Destinations" },
   { href: "/journal", label: "Journal" },
-  { href: "/guides", label: "Guides" },
   { href: "/about", label: "About" },
 ];
 
 export const navCta = {
-  href: "/plan-a-trip",
-  label: "Plan a journey",
+  href: "/apply",
+  label: "Apply",
 };
 
 export const legalLinks = [
@@ -2149,7 +2148,7 @@ export const guideProducts: GuideProduct[] = [
       },
       {
         q: "Will you book any of this for me?",
-        a: "No — the guide is independent research and recommendations. If you'd like it shaped around your own dates, see Plan a journey.",
+        a: "No — the guide is independent research and recommendations. If you'd like a trip designed around your own dates, apply for the private beta.",
       },
     ],
     relatedArticleSlugs: ["train-travel-europe", "rome-food-walk"],

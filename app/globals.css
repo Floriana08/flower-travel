@@ -46,11 +46,13 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: clip;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-sans);
@@ -324,6 +326,7 @@ p {
   color: var(--porcelain);
   background: var(--charcoal);
   border-color: var(--charcoal);
+  white-space: nowrap;
 }
 
 .button.dark {
@@ -2777,7 +2780,7 @@ a.destination-article-card:focus-visible .destination-article-link {
 
   .header-inner {
     width: min(100% - 1.5rem, 1440px);
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr auto;
     gap: 1.25rem;
   }
 
@@ -2789,7 +2792,7 @@ a.destination-article-card:focus-visible .destination-article-link {
   }
 
   .header-action {
-    display: none;
+    display: inline-flex;
   }
 
   .mobile-menu {
@@ -2925,11 +2928,17 @@ a.destination-article-card:focus-visible .destination-article-link {
 
 @media (max-width: 860px) {
   .header-inner {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto;
   }
 
   .primary-nav {
     display: none;
+  }
+
+  .header-action {
+    min-height: 38px;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.64rem;
   }
 
   .mobile-menu {
@@ -2961,7 +2970,7 @@ a.destination-article-card:focus-visible .destination-article-link {
   .header-inner {
     min-height: 68px;
     width: min(100% - 1.25rem, 100%);
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto;
     gap: 1rem;
   }
 
@@ -3865,8 +3874,9 @@ h1.studio-hero-lede {
   line-height: 1.6;
 }
 
-.plan-form-section .plan-trip-form-panel {
-  max-width: 640px;
+.plan-form-section .plan-trip-form-panel,
+.apply-form-section .plan-trip-form-panel {
+  max-width: 720px;
 }
 
 .trip-enquiry-form,
@@ -6327,3 +6337,510 @@ h1.studio-hero-lede {
     transform: none;
   }
 }
+
+/* Private beta homepage, sample trip, apply */
+.studio-hero .hero-actions {
+  margin-top: 8px;
+}
+
+.studio-hero-copy {
+  max-width: 36rem;
+}
+
+.home-how,
+.home-product,
+.home-journal-feature,
+.home-beta,
+#how-it-works,
+#private-beta,
+#the-edit {
+  scroll-margin-top: calc(var(--header-height) + 12px);
+}
+
+.home-how-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 56px);
+}
+
+.home-how-grid li {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding-top: 8px;
+  border-top: 1px solid var(--ink);
+}
+
+.home-how-index {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.home-how-grid h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2.2vw, 1.85rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.home-how-grid p {
+  margin: 0;
+  color: var(--soft-ink);
+  line-height: 1.65;
+}
+
+.home-product .home-section-head {
+  max-width: 34rem;
+}
+
+.trip-edit {
+  display: grid;
+  gap: clamp(40px, 6vw, 72px);
+  max-width: 52rem;
+}
+
+.trip-edit-preview {
+  max-width: none;
+}
+
+.trip-edit-masthead {
+  display: grid;
+  gap: clamp(24px, 4vw, 40px);
+}
+
+.trip-edit-preview .trip-edit-masthead {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: end;
+}
+
+.trip-edit-hero {
+  margin: 0;
+}
+
+.trip-edit-hero img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.trip-edit-head {
+  display: grid;
+  gap: 12px;
+  padding-bottom: 8px;
+}
+
+.trip-edit-place {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-transform: uppercase;
+}
+
+.trip-edit-dek {
+  margin: 0;
+  max-width: 28rem;
+  color: var(--soft-ink);
+  line-height: 1.65;
+}
+
+.trip-edit-module,
+.trip-edit-note {
+  display: grid;
+  gap: 14px;
+}
+
+.trip-edit-label {
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.trip-edit-module > p,
+.trip-edit-note > p:not(.trip-edit-label) {
+  margin: 0;
+  color: var(--soft-ink);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.trip-edit-hotels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 36px);
+}
+
+.trip-edit-hotel {
+  display: grid;
+  gap: 14px;
+}
+
+.trip-edit-hotel img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.trip-edit-hotel h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.trip-edit-hotel p {
+  margin: 0;
+  color: var(--soft-ink);
+  line-height: 1.6;
+}
+
+.trip-edit-meta {
+  color: var(--muted) !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.trip-edit-pick {
+  margin: 0 0 6px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.trip-edit-hotel.is-pick {
+  padding-bottom: 4px;
+}
+
+.trip-edit-eat {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+
+.trip-edit-eat li {
+  display: grid;
+  gap: 8px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+
+.trip-edit-eat li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.trip-edit-eat li > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+.trip-edit-eat strong {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.trip-edit-eat span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.trip-edit-eat p {
+  margin: 0;
+  color: var(--soft-ink);
+  line-height: 1.6;
+}
+
+.trip-edit-rhythm {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+
+.trip-edit-rhythm li {
+  display: grid;
+  gap: 8px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+
+.trip-edit-rhythm h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+.trip-edit-rhythm p {
+  margin: 0;
+  color: var(--soft-ink);
+  line-height: 1.65;
+}
+
+.trip-edit-note {
+  padding: clamp(24px, 4vw, 40px) 0 0;
+  border-top: 1px solid var(--ink);
+}
+
+.trip-edit-note > p:not(.trip-edit-label) {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  letter-spacing: -0.015em;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.trip-edit-cta {
+  margin: 8px 0 0;
+}
+
+.home-beta,
+.sample-trip-close,
+.membership-now,
+.membership-later,
+.apply-offer-copy {
+  display: grid;
+  gap: 16px;
+  max-width: 36rem;
+}
+
+.home-beta .display-title,
+.sample-trip-close .display-title,
+.apply-offer-copy .display-title,
+.membership-now .display-title,
+.membership-later .display-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+}
+
+.home-beta p,
+.sample-trip-close p,
+.apply-offer-copy p,
+.membership-now p,
+.membership-later p {
+  margin: 0;
+  color: var(--soft-ink);
+  line-height: 1.7;
+}
+
+.home-beta-receive,
+.apply-receive {
+  margin: 8px 0;
+  padding-left: 1.1rem;
+  color: var(--soft-ink);
+  line-height: 1.7;
+}
+
+.home-beta-scarcity,
+.apply-scarcity {
+  margin: 4px 0 8px !important;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  color: var(--ink) !important;
+}
+
+.home-beta .button,
+.sample-trip-close .button,
+.membership-now .button {
+  justify-self: start;
+  margin-top: 8px;
+}
+
+.sample-trip-hero {
+  position: relative;
+  min-height: min(78vh, 720px);
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  color: var(--paper);
+}
+
+.sample-trip-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sample-trip-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(21, 21, 21, 0.1) 0%,
+    rgba(21, 21, 21, 0.55) 100%
+  );
+}
+
+.sample-trip-hero-copy {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 10px;
+  padding: clamp(48px, 10vw, 96px) max(24px, calc((100% - var(--max)) / 2));
+}
+
+.sample-trip-hero-copy .eyebrow {
+  color: rgba(247, 243, 236, 0.78);
+}
+
+.sample-trip-hero-copy h1 {
+  margin: 0;
+  max-width: 12ch;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 7vw, 5.2rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-transform: uppercase;
+}
+
+.sample-trip-body {
+  padding-top: clamp(48px, 8vw, 88px);
+}
+
+.apply-page .home-section-head,
+.apply-offer-copy {
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
+
+.apply-aside {
+  color: var(--muted);
+}
+
+.apply-aside p {
+  margin: 0;
+  max-width: 36rem;
+  line-height: 1.7;
+}
+
+.beta-confirmation {
+  display: grid;
+  gap: 16px;
+  max-width: 36rem;
+  padding: clamp(24px, 4vw, 40px);
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.beta-confirmation h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.beta-confirmation p {
+  margin: 0;
+  color: var(--soft-ink);
+  line-height: 1.7;
+}
+
+.beta-form input,
+.beta-form select,
+.beta-form textarea {
+  min-height: 48px;
+  font-size: 1rem;
+}
+
+.beta-form textarea {
+  min-height: 96px;
+}
+
+.interest-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.membership-now .button {
+  margin-top: 12px;
+}
+
+@media (max-width: 900px) {
+  .home-how-grid,
+  .trip-edit-preview .trip-edit-masthead,
+  .trip-edit-hotels {
+    grid-template-columns: 1fr;
+  }
+
+  .trip-edit-hero img,
+  .trip-edit-hotel img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .studio-hero {
+    min-height: 72vh;
+  }
+
+  .studio-hero-display {
+    font-size: clamp(2.4rem, 11vw, 3.4rem);
+    max-width: 10ch;
+  }
+
+  .studio-hero-copy {
+    gap: 14px;
+    padding-top: clamp(36px, 8vw, 64px);
+    padding-bottom: clamp(36px, 8vw, 64px);
+  }
+
+  .studio-hero-copy .studio-hero-lede {
+    font-size: 0.98rem;
+    max-width: 28rem;
+  }
+
+  .hero-actions {
+    margin-top: 4px;
+  }
+
+  .hero-actions .button {
+    min-height: 44px;
+  }
+
+  .sample-trip-hero {
+    min-height: 62vh;
+  }
+
+  .interest-grid,
+  .traveller-type-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .home-beta,
+  .home-how,
+  .home-product,
+  .home-journal-feature {
+    padding-top: clamp(48px, 12vw, 72px);
+    padding-bottom: clamp(48px, 12vw, 72px);
+  }
+}
+

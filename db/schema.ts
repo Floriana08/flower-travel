@@ -2,10 +2,8 @@ import { sql } from "drizzle-orm";
 import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
 /**
- * Trip enquiries submitted from /plan-a-trip. Previously the form only
- * opened a mailto: draft, so a submission was lost entirely if the visitor
- * had no configured desktop mail client. Persisting to D1 guarantees every
- * enquiry is captured even when the mailto fallback doesn't fire.
+ * Private beta applications (and legacy trip enquiries). Persisting to D1
+ * captures every submission even if a mailto fallback does not fire.
  */
 export const enquiries = sqliteTable("enquiries", {
   id: integer("id").primaryKey({ autoIncrement: true }),

@@ -185,10 +185,10 @@ export default async function JourneyDetailPage({ params }: PageProps) {
       </section>
 
       <section className="section-shell tinted">
-        <EnquiryCta title="Want this journey shaped for you?">
+        <EnquiryCta title="Want this journey personally designed?">
           <p>
-            Tell us your dates and how you like to travel. We&rsquo;ll design a
-            personalised version around the places we know well — hotels,
+            Tell us your dates and how you like to travel. During the private
+            beta, Altrove designs a personal travel edit — hotels,
             neighbourhoods and pacing included. You book directly.
           </p>
         </EnquiryCta>

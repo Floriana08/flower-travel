@@ -3,7 +3,6 @@ import { NewsletterForm } from "./newsletter-form";
 import { StudioNewsletter } from "./studio-components";
 import {
   getFeaturedJourneyForCountry,
-  getGuideProductsForCountry,
   getHubJournalStories,
   type StudioCountry,
 } from "./studio-structure";
@@ -12,7 +11,6 @@ import { defaultImageSizes, heroImageSizes, unsplashSrcSet } from "./image-utils
 export function DestinationHub({ country }: { country: StudioCountry }) {
   const featured = getFeaturedJourneyForCountry(country.slug);
   const stories = getHubJournalStories(country.slug);
-  const countryGuides = getGuideProductsForCountry(country.slug);
   const days = country.example.days;
   const routeStops = days.map((day) => day.title.replace(/^(Arrive in |Stay in |Boat to |Return to )/i, ""));
 
@@ -175,54 +173,14 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
           <div className="country-mag-empty-journal">
             <p className="country-mag-quiet-note">
               Journal notes for {country.title} are still being gathered. In
-              the meantime, ask Altrove to shape a route — or join Letters for
-              new stories as they publish.
+              the meantime, you can ask Altrove to design a trip here by hand.
             </p>
             <p className="country-mag-coast-links">
-              <Link className="country-mag-link" href="/plan-a-trip">
-                Plan a journey
-              </Link>
-              <Link className="country-mag-link" href="/#letters">
-                Join Letters
+              <Link className="country-mag-link" href="/apply">
+                Apply for the Private Beta
               </Link>
             </p>
           </div>
-        )}
-      </section>
-
-      <section className="country-mag-guides country-mag-pad" aria-label="Guides">
-        <div className="country-mag-notes-rail">
-          <p className="country-mag-kicker">Guides</p>
-          <h2>Take {country.title} with you</h2>
-        </div>
-        {countryGuides.length ? (
-          <div className="country-mag-guides-grid">
-            {countryGuides.map((guide) => (
-              <article key={guide.slug} className="country-mag-guide-card">
-                <Link href={`/guides/${guide.slug}`}>
-                  <img
-                    src={guide.image}
-                    srcSet={unsplashSrcSet(guide.image)}
-                    sizes={defaultImageSizes}
-                    alt={guide.alt}
-                    loading="lazy"
-                  />
-                  <p className="country-mag-kicker">{guide.status}</p>
-                  <h3>{guide.title}</h3>
-                  <p>{guide.excerpt}</p>
-                  <p className="country-mag-guide-price">
-                    {guide.price}
-                    {!guide.stripePriceId ? " · Launching soon" : ""}
-                  </p>
-                </Link>
-              </article>
-            ))}
-          </div>
-        ) : (
-          <p className="country-mag-quiet-note">
-            No guide for {country.title} yet — we publish a guide only once
-            we&rsquo;ve researched it properly.
-          </p>
         )}
       </section>
 
@@ -276,13 +234,13 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
             <Link className="country-mag-link" href={`/journeys/${featured.slug}`}>
               Explore the journey
             </Link>
-            {countryGuides[0] ? (
-              <Link className="country-mag-link" href={`/guides/${countryGuides[0].slug}`}>
-                View the guide
+            {country.slug === "portugal" ? (
+              <Link className="country-mag-link" href="/trips/lisbon">
+                See a Lisbon travel edit
               </Link>
             ) : null}
-            <Link className="country-mag-link" href="/plan-a-trip">
-              Plan a personalised version
+            <Link className="country-mag-link" href="/apply">
+              Apply for the Private Beta
             </Link>
           </div>
         </section>
@@ -298,20 +256,22 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
           />
         </div>
         <div className="country-mag-plan-copy">
-          <p className="country-mag-kicker">Plan a journey</p>
+          <p className="country-mag-kicker">Private Beta</p>
           <h2>Planning something similar?</h2>
           <p>
-            Altrove can shape the route around your dates, pace and priorities.
+            Altrove can personally design a trip around your dates, budget and
+            the way you like to travel. During the beta, you book everything
+            directly.
           </p>
-          <Link className="button dark" href="/plan-a-trip">
-            Plan a journey
+          <Link className="button dark" href="/apply">
+            Apply for the Private Beta
           </Link>
         </div>
       </section>
 
       <StudioNewsletter
         title={`Notes from ${country.title}`}
-        description="New guides, journeys and journal stories from this country, as they're published."
+        description="Journal stories and destination notes from this country, as they're published."
       >
         <NewsletterForm buttonLabel="Join the list" />
       </StudioNewsletter>

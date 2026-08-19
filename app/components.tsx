@@ -139,9 +139,8 @@ export function SiteFooter() {
           <BrandLockup tone="light" />
         </Link>
         <p>
-          An editorial travel studio — stories, guides and personalised
-          itineraries for travellers who would rather remember a place than rush
-          through it.
+          Altrove personally plans thoughtful trips. During the private beta,
+          we design the journey and you book it.
         </p>
       </div>
 
@@ -158,7 +157,8 @@ export function SiteFooter() {
       <div className="footer-col">
         <h2>Studio</h2>
         <Link href="/about">About</Link>
-        <Link href="/#letters">Letters</Link>
+        <Link href="/membership">What Altrove is becoming</Link>
+        <Link href="/trips/lisbon">Sample travel edit</Link>
         <a href={`mailto:${site.email}`}>{site.email}</a>
       </div>
 

@@ -140,8 +140,8 @@ export default async function GuideProductPage({ params }: PageProps) {
                 Preview the Naples &amp; Amalfi journey concept
               </Link>
               {" · "}
-              <Link className="text-link" href="/plan-a-trip">
-                Plan a personalised version
+              <Link className="text-link" href="/apply">
+                Apply for the Private Beta
               </Link>
             </p>
           ) : null}

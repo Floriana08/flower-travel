@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  getGuideProductsForCountry,
   getHubJournalStories,
   getJourneysForCountry,
   studioCountries,
@@ -11,7 +10,7 @@ import { defaultImageSizes, unsplashSrcSet } from "../image-utils";
 export const metadata: Metadata = {
   title: "Destinations",
   description:
-    "Begin with a place — Italy, Portugal and Spain, the parts of Europe Altrove knows well enough to edit carefully.",
+    "Portugal, Italy and Spain — the places Altrove knows well enough to edit carefully. Journal notes, recommendations and sample journeys.",
   alternates: {
     canonical: "https://altrove.studio/destinations",
   },
@@ -22,10 +21,12 @@ export default function DestinationsPage() {
     <main className="destinations-index">
       <header className="section-shell page-top destinations-index-hero">
         <p className="eyebrow">Destinations</p>
-        <h1 className="display-title">Begin with a place.</h1>
+        <h1 className="display-title">Where we know the ground.</h1>
         <p className="destinations-index-lede">
-          We start where we know best: Italy, Portugal and Spain. A smaller,
-          deliberately curated library — not everywhere on the map.
+          Portugal, Italy and Spain first — not because the rest of the world
+          is uninteresting, but because we would rather recommend less, and
+          mean it. The private beta can still take you elsewhere; those trips
+          we research by hand.
         </p>
       </header>
 
@@ -33,7 +34,6 @@ export default function DestinationsPage() {
         {studioCountries.map((country) => {
           const journeys = getJourneysForCountry(country.slug);
           const stories = getHubJournalStories(country.slug);
-          const guides = getGuideProductsForCountry(country.slug);
           const regions = country.collections.map((c) => c.title).join(" · ");
 
           return (
@@ -59,15 +59,15 @@ export default function DestinationsPage() {
                   <p className="destinations-country-regions">{regions}</p>
                   <p className="destinations-country-stats">
                     <span>
-                      {journeys.length} journey{journeys.length === 1 ? "" : "s"}
-                    </span>
-                    <span>
                       {stories.length} journal{" "}
                       {stories.length === 1 ? "story" : "stories"}
                     </span>
-                    <span>
-                      {guides.length} guide{guides.length === 1 ? "" : "s"}
-                    </span>
+                    {journeys.length ? (
+                      <span>
+                        {journeys.length} sample{" "}
+                        {journeys.length === 1 ? "journey" : "journeys"}
+                      </span>
+                    ) : null}
                   </p>
                   <Link className="text-link" href={`/destinations/${country.slug}`}>
                     Explore {country.title}

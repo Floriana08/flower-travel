@@ -161,6 +161,7 @@ export default function JournalPage() {
       ) : null}
 
       <StudioNewsletter
+        id="letters"
         title="Letters from Altrove"
         description="New places, hotel finds, routes we're researching and occasional notes from the road."
       >

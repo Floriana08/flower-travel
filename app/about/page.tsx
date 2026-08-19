@@ -8,7 +8,7 @@ const aboutHeroImage =
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Meet Flor, founder of Altrove — an Italian traveller living in Portugal, writing journeys for people who prefer to remember what they see.",
+    "Altrove exists because travel planning has become overwhelming. We filter the noise — with taste, curation and trips designed around how you actually like to travel.",
   alternates: {
     canonical: "https://altrove.studio/about",
   },
@@ -19,13 +19,11 @@ export default function AboutPage() {
     <main className="about-page">
       <header className="about-hero section-shell">
         <div className="about-hero-copy">
-          <p className="eyebrow">Meet Flor</p>
+          <p className="eyebrow">About Altrove</p>
           <h1 className="display-title">
-            Italian by birth.
+            Travel planning became noise.
             <br />
-            Living in Portugal.
-            <br />
-            Collecting the places worth returning to.
+            We filter it.
           </h1>
         </div>
         <figure className="about-hero-media">
@@ -38,74 +36,74 @@ export default function AboutPage() {
         </figure>
       </header>
 
-      <section className="about-chapter section-shell" id="meet-flor">
+      <section className="about-chapter section-shell" id="philosophy">
         <div className="about-prose about-prose-wide">
           <p>
-            We&rsquo;ve always travelled by collecting notes. Hotels we&rsquo;d
-            return to without thinking twice. Neighbourhoods worth waking up in.
-            Restaurants we&rsquo;d recommend to a friend without hesitation.
-            Routes that quietly changed how we saw a city or a stretch of coast.
+            There is too much information, too many lists, too many reviews and
+            too much time spent comparing options. A trip that should feel
+            considered becomes a second job.
           </p>
           <p>
-            For years those recommendations lived in notebooks and long messages
-            to people we care about. Altrove grew out of that habit — a place to
-            gather what was worth keeping, and to share it with more care than a
-            hurried list ever could.
+            Altrove exists to take that work off your hands. We research the
+            place, choose fewer things with more conviction, and design a trip
+            around the way you actually like to travel — not around what ranks
+            well.
           </p>
         </div>
       </section>
 
-      <section className="about-chapter section-shell tinted" id="philosophy">
+      <section className="about-chapter section-shell tinted" id="stand-for">
         <div className="about-prose about-prose-wide">
-          <p className="about-pull">
-            Altrove isn&rsquo;t about travelling more. It&rsquo;s about
-            travelling better.
+          <p className="about-pull">Taste. Curation. Thoughtfulness.</p>
+          <p>
+            We care about independent places, personalisation, and travelling
+            well rather than travelling more. Neighbourhoods over circuits.
+            Meals that shape the day. Permission not to see everything.
           </p>
           <p>
-            We don&rsquo;t want to see everything. We want to remember what we
-            see — four days in one city over a rush through four countries.
-            Thoughtful hotels. Neighbourhood lunches. Atmosphere. Someone
-            else&rsquo;s taste, not endless options.
+            Altrove is opinionated on purpose. If a hotel is merely convenient,
+            or a restaurant is famous for being famous, it will not make the
+            edit.
           </p>
-          <p>That is how we travel. That is how Altrove is written.</p>
         </div>
       </section>
 
       <section className="about-chapter section-shell" id="how-it-works">
         <div className="about-prose about-prose-wide">
-          <p className="eyebrow">How Altrove works</p>
+          <p className="eyebrow">How it works today</p>
           <p>
-            The <Link href="/journal">journal</Link> shares destination stories
-            and practical notes.{" "}
-            <Link href="/guides">Premium guides</Link> go deeper when a place is
-            researched properly.{" "}
-            <Link href="/plan-a-trip">Personalised itinerary design</Link> helps
-            you shape a route around your dates and pace — Altrove recommends;
-            you book directly. Full travel booking is a future service, not what
-            is offered today.
+            The private beta is simple. You tell us where you&rsquo;re going.
+            Altrove personally designs the trip. You receive a curated travel
+            edit — hotels, restaurants, experiences, practical notes and a
+            suggested rhythm. You book everything directly. Afterwards, we ask
+            for candid feedback.
+          </p>
+          <p>
+            That is the early version of a future membership. It is
+            complimentary for now, and limited to a small group of travellers.
           </p>
         </div>
       </section>
 
-      <section className="about-chapter section-shell tinted" id="trust">
+      <section className="about-chapter section-shell tinted" id="invite">
         <div className="about-prose about-prose-wide">
           <p>
-            Every destination begins with a real journey. We write from places
-            we have visited, stayed in and returned to in thought long after the
-            trip ended. The collection grows slowly on purpose. We&rsquo;d
-            rather recommend less, and mean it.
+            The Journal shows how we think. The destinations we write about
+            first — Portugal, Italy, Spain — are the places we know well enough
+            to edit carefully. The beta can still take you elsewhere; we
+            research those trips by hand.
           </p>
           <p className="about-closing-link">
-            <Link className="text-link" href="/destinations">
-              Explore the destinations
+            <Link className="text-link" href="/apply">
+              Apply for the Private Beta
             </Link>
             <span aria-hidden="true"> · </span>
-            <Link className="text-link" href="/guides">
-              Browse the guides
+            <Link className="text-link" href="/membership">
+              What Altrove is becoming
             </Link>
             <span aria-hidden="true"> · </span>
-            <Link className="text-link" href="/plan-a-trip">
-              Plan a journey
+            <Link className="text-link" href="/journal">
+              Explore the Journal
             </Link>
           </p>
         </div>

@@ -35,22 +35,27 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/travel-consultations",
-        destination: "/plan-a-trip",
+        destination: "/apply",
         permanent: true,
       },
       {
         source: "/contact",
-        destination: "/plan-a-trip",
+        destination: "/apply",
         permanent: true,
       },
       {
         source: "/community",
-        destination: "/#letters",
+        destination: "/membership",
         permanent: true,
       },
       {
         source: "/club",
-        destination: "/#letters",
+        destination: "/membership",
+        permanent: true,
+      },
+      {
+        source: "/plan-a-trip",
+        destination: "/apply",
         permanent: true,
       },
     ];

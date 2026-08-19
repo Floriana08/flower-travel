@@ -77,8 +77,8 @@ export function WhatIdDoDifferently({ children }: { children: ReactNode }) {
 export function ComingSoonBlock({
   title,
   body,
-  href = "/club",
-  cta = "Join the Club",
+  href = "/apply",
+  cta = "Apply for the Private Beta",
 }: {
   title: string;
   body: string;

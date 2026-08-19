@@ -49,12 +49,11 @@ export default function RefundPolicyPage() {
             </section>
 
             <section>
-              <h2>Personalised itinerary design</h2>
+              <h2>Trip design</h2>
               <p>
-                Plan a journey pricing and any cancellation or refund
-                terms for that service will be confirmed with you directly
-                before work begins, and documented here once the service is
-                fully live.
+                The private beta is currently complimentary. Any future paid
+                planning or membership terms will be confirmed before work
+                begins, and documented here once that service is live.
               </p>
             </section>
 

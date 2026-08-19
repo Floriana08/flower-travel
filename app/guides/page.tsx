@@ -7,7 +7,7 @@ import { defaultImageSizes, unsplashSrcSet } from "../image-utils";
 export const metadata: Metadata = {
   title: "Guides",
   description:
-    "Premium downloadable destination guides from Altrove — starting with Campania: Naples and the Amalfi Coast.",
+    "Editorial destination research from Altrove. Paid guides are not on sale yet — the private beta is the way to travel with Altrove today.",
   alternates: {
     canonical: "https://altrove.studio/guides",
   },
@@ -19,14 +19,12 @@ export default function GuidesPage() {
   return (
     <main className="guides-index">
       <header className="section-shell page-top guides-index-hero">
-        <p className="eyebrow">Guides</p>
-        <h1 className="display-title">
-          Travel with an Altrove guide.
-        </h1>
+        <p className="eyebrow">Editorial research</p>
+        <h1 className="display-title">Guides in progress.</h1>
         <p className="destinations-index-lede">
-          Detailed, independent guides for the places we know well —
-          researched properly, priced fairly, and built to be used on the
-          ground, not skimmed once and forgotten.
+          These pages collect destination research. They are not for sale, and
+          they are not the current Altrove offer. Today, the way to travel with
+          Altrove is the private beta: we design the trip, and you book it.
         </p>
       </header>
 
@@ -42,13 +40,13 @@ export default function GuidesPage() {
             />
           </div>
           <div className="guides-flagship-copy">
-            <p className="eyebrow">Flagship guide</p>
+            <p className="eyebrow">In research</p>
             <h2>
               <Link href={`/guides/${flagship.slug}`}>{flagship.title}</Link>
             </h2>
             <p>{flagship.excerpt}</p>
-            <Link className="button dark" href={`/guides/${flagship.slug}`}>
-              See what&rsquo;s inside
+            <Link className="button dark" href="/apply">
+              Apply for the Private Beta
             </Link>
           </div>
         </section>
@@ -64,12 +62,9 @@ export default function GuidesPage() {
 
       <section className="section-shell tinted guides-note">
         <p>
-          None of these are available for purchase yet — each is being
-          researched properly before it&rsquo;s sold. Join the waitlist on
-          any guide and we&rsquo;ll email you the day it&rsquo;s ready. If
-          you&rsquo;d rather have a route shaped around your own dates now,{" "}
-          <Link className="text-link" href="/plan-a-trip">
-            plan with Altrove
+          If you want a trip designed around your own dates now,{" "}
+          <Link className="text-link" href="/apply">
+            apply for the private beta
           </Link>
           .
         </p>
