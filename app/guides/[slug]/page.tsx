@@ -141,7 +141,7 @@ export default async function GuideProductPage({ params }: PageProps) {
               </Link>
               {" · "}
               <Link className="text-link" href="/apply">
-                Apply for the Private Beta
+                Apply for Membership
               </Link>
             </p>
           ) : null}

@@ -78,7 +78,7 @@ export function ComingSoonBlock({
   title,
   body,
   href = "/apply",
-  cta = "Apply for the Private Beta",
+  cta = "Apply for Membership",
 }: {
   title: string;
   body: string;

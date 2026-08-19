@@ -30,6 +30,7 @@ export type SampleTrip = {
   restaurants: SampleRestaurant[];
   rhythm: SampleRhythm[];
   note: string;
+  glimpseNote: string;
 };
 
 export const lisbonSampleTrip: SampleTrip = {
@@ -105,6 +106,8 @@ export const lisbonSampleTrip: SampleTrip = {
     },
   ],
   note: "Skip the rooms that photograph Lisbon rather than feed it. Book Ramiro for opening, not for nine o’clock. Walk Chiado, Príncipe Real and Bairro Alto as a loop rather than taxiing between lists. Alfama is better visited than used as a first base unless you are packing lightly and like stairs.",
+  glimpseNote:
+    "Book Ramiro for opening, not for nine o’clock. Lisbon is better walked as a loop than taxied between lists.",
 };
 
 export const sampleTrips = [lisbonSampleTrip];

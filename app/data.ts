@@ -1,13 +1,14 @@
 export const site = {
   name: "Altrove",
-  fullName: "Altrove Travel Studio",
+  fullName: "Altrove",
   strapline: "travel, considered",
   studioLine:
-    "Altrove personally plans thoughtful trips. During the private beta, we design the journey and you book it.",
+    "Altrove is a private travel membership. Tell us about your trip and we'll design it around you.",
   email: "hello@altrove.studio",
 };
 
 export const navItems = [
+  { href: "/membership", label: "Membership" },
   { href: "/destinations", label: "Destinations" },
   { href: "/journal", label: "Journal" },
   { href: "/about", label: "About" },
@@ -2148,7 +2149,7 @@ export const guideProducts: GuideProduct[] = [
       },
       {
         q: "Will you book any of this for me?",
-        a: "No — the guide is independent research and recommendations. If you'd like a trip designed around your own dates, apply for the private beta.",
+        a: "No — the guide is independent research and recommendations. If you'd like a trip designed around your own dates, apply for Founding Membership.",
       },
     ],
     relatedArticleSlugs: ["train-travel-europe", "rome-food-walk"],

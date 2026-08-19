@@ -25,7 +25,7 @@ export default function DestinationsPage() {
         <p className="destinations-index-lede">
           Portugal, Italy and Spain first — not because the rest of the world
           is uninteresting, but because we would rather recommend less, and
-          mean it. The private beta can still take you elsewhere; those trips
+          mean it. Membership can still take you elsewhere; those trips
           we research by hand.
         </p>
       </header>

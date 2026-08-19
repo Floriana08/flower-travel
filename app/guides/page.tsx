@@ -7,7 +7,7 @@ import { defaultImageSizes, unsplashSrcSet } from "../image-utils";
 export const metadata: Metadata = {
   title: "Guides",
   description:
-    "Editorial destination research from Altrove. Paid guides are not on sale yet — the private beta is the way to travel with Altrove today.",
+    "Editorial destination research from Altrove. Paid guides are not on sale. Founding Membership is the way to travel with Altrove today.",
   alternates: {
     canonical: "https://altrove.studio/guides",
   },
@@ -24,7 +24,7 @@ export default function GuidesPage() {
         <p className="destinations-index-lede">
           These pages collect destination research. They are not for sale, and
           they are not the current Altrove offer. Today, the way to travel with
-          Altrove is the private beta: we design the trip, and you book it.
+          Altrove is Founding Membership: we design the trip, and you book it.
         </p>
       </header>
 
@@ -46,7 +46,7 @@ export default function GuidesPage() {
             </h2>
             <p>{flagship.excerpt}</p>
             <Link className="button dark" href="/apply">
-              Apply for the Private Beta
+              Apply for Membership
             </Link>
           </div>
         </section>
@@ -64,7 +64,7 @@ export default function GuidesPage() {
         <p>
           If you want a trip designed around your own dates now,{" "}
           <Link className="text-link" href="/apply">
-            apply for the private beta
+            apply for Founding Membership
           </Link>
           .
         </p>

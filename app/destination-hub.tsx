@@ -177,7 +177,7 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
             </p>
             <p className="country-mag-coast-links">
               <Link className="country-mag-link" href="/apply">
-                Apply for the Private Beta
+                Apply for Membership
               </Link>
             </p>
           </div>
@@ -240,7 +240,7 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
               </Link>
             ) : null}
             <Link className="country-mag-link" href="/apply">
-              Apply for the Private Beta
+              Apply for Membership
             </Link>
           </div>
         </section>
@@ -256,15 +256,14 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
           />
         </div>
         <div className="country-mag-plan-copy">
-          <p className="country-mag-kicker">Private Beta</p>
+          <p className="country-mag-kicker">Founding Membership</p>
           <h2>Planning something similar?</h2>
           <p>
             Altrove can personally design a trip around your dates, budget and
-            the way you like to travel. During the beta, you book everything
-            directly.
+            the way you like to travel. You book everything directly.
           </p>
           <Link className="button dark" href="/apply">
-            Apply for the Private Beta
+            Apply for Membership
           </Link>
         </div>
       </section>

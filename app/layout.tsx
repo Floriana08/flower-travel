@@ -9,21 +9,21 @@ export const metadata: Metadata = {
     template: "%s | Altrove",
   },
   description:
-    "Altrove is building a new kind of travel membership. Join the private beta and receive a personalised trip designed around how you actually like to travel.",
+    "Altrove is a private travel membership. Tell us about your trip and we'll design it around you. Founding Membership is currently complimentary and limited.",
   keywords: [
     "personal travel planning",
     "curated travel",
     "Portugal travel",
     "Italy travel",
     "Spain travel",
-    "private travel beta",
+    "travel membership",
     "editorial travel",
   ],
   metadataBase: new URL("https://altrove.studio"),
   openGraph: {
     title: "Altrove | Personal Travel Planning & Curated Travel Guides",
     description:
-      "Altrove is building a new kind of travel membership. Join the private beta and receive a personalised trip designed around how you actually like to travel.",
+      "Altrove is a private travel membership. Tell us about your trip and we'll design it around you. Founding Membership is currently complimentary and limited.",
     type: "website",
     siteName: "Altrove",
     images: [

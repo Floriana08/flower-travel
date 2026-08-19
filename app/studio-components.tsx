@@ -12,7 +12,7 @@ export function CountryTile({
   variant = "default",
 }: {
   country: StudioCountry;
-  variant?: "default" | "door";
+  variant?: "default" | "door" | "home";
 }) {
   const availableNow = country.collections.filter((c) => !c.status);
   const coming = country.collections.filter((c) => c.status);
@@ -21,10 +21,11 @@ export function CountryTile({
     : coming[0]
       ? `${coming[0].title} coming first`
       : country.short;
+  const isHome = variant === "home";
 
   return (
     <Link
-      className={`country-tile${variant === "door" ? " country-tile-door" : ""}`}
+      className={`country-tile${variant === "door" || isHome ? " country-tile-door" : ""}${isHome ? " country-tile-home" : ""}`}
       href={`/destinations/${country.slug}`}
       aria-label={`Explore ${country.title}`}
     >
@@ -36,11 +37,14 @@ export function CountryTile({
         loading="lazy"
       />
       <div className="country-tile-copy">
-        <p className="country-tile-kicker">{country.title}</p>
         <h3>{country.title}</h3>
-        <p>{country.short}</p>
-        <p className="country-tile-regions">{regionLine}</p>
-        <span className="country-tile-cta">Explore {country.title}</span>
+        {isHome ? null : (
+          <>
+            <p>{country.short}</p>
+            <p className="country-tile-regions">{regionLine}</p>
+            <span className="country-tile-cta">Explore {country.title}</span>
+          </>
+        )}
       </div>
     </Link>
   );
@@ -173,11 +177,11 @@ export function EditorialStoryCard({ guide }: { guide: Guide }) {
 }
 
 export function EnquiryCta({
-  eyebrow = "Private Beta",
+  eyebrow = "Founding Membership",
   title,
   children,
   href = "/apply",
-  cta = "Apply for the Private Beta",
+  cta = "Apply for Membership",
 }: {
   eyebrow?: string;
   title: string;

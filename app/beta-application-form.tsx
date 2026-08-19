@@ -73,7 +73,7 @@ export function BetaApplicationForm() {
     const notes = String(data.get("notes") || "").trim();
 
     const payload = {
-      source: "private-beta",
+      source: "founding-membership",
       name,
       email,
       based,
@@ -104,7 +104,7 @@ export function BetaApplicationForm() {
       form.reset();
     } catch {
       const mailBody = [
-        "Private beta application",
+        "Founding Membership application",
         `Name: ${name}`,
         `Email: ${email}`,
         `Based: ${based}`,
@@ -121,7 +121,7 @@ export function BetaApplicationForm() {
       ].join("\n");
 
       window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(
-        `Private beta application — ${destinations}`,
+        `Founding Membership application — ${destinations}`,
       )}&body=${encodeURIComponent(mailBody)}`;
 
       setStatus("success");
@@ -134,9 +134,9 @@ export function BetaApplicationForm() {
         <p className="eyebrow">Application received</p>
         <h2>Thank you. We&rsquo;re reading this carefully.</h2>
         <p>
-          Altrove is reviewing a small number of founding beta applications.
-          Places are limited, and we cannot accept everyone who applies. If your
-          trip is a good fit for this stage, we will be in touch.
+          Altrove is reviewing a small number of Founding Membership
+          applications. Places are limited, and we cannot accept everyone who
+          applies. If your trip is a good fit, we will be in touch.
         </p>
         <p>
           In the meantime, you are welcome to read the{" "}
@@ -267,13 +267,13 @@ export function BetaApplicationForm() {
       <label className="consent-check">
         <input name="consent" type="checkbox" required />
         <span>
-          I agree that Altrove may use these details to review my private beta
-          application. See the <Link href="/privacy">privacy policy</Link>.
+          I agree that Altrove may use these details to review my Founding
+          Membership application. See the <Link href="/privacy">privacy policy</Link>.
         </span>
       </label>
 
       <button className="button dark" type="submit" disabled={status === "loading"}>
-        {status === "loading" ? "Sending…" : "Apply for the Private Beta"}
+        {status === "loading" ? "Sending…" : "Apply for Founding Membership"}
       </button>
 
       {message ? (

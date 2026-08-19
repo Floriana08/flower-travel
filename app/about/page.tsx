@@ -70,17 +70,16 @@ export default function AboutPage() {
 
       <section className="about-chapter section-shell" id="how-it-works">
         <div className="about-prose about-prose-wide">
-          <p className="eyebrow">How it works today</p>
+          <p className="eyebrow">How it works</p>
           <p>
-            The private beta is simple. You tell us where you&rsquo;re going.
-            Altrove personally designs the trip. You receive a curated travel
-            edit — hotels, restaurants, experiences, practical notes and a
-            suggested rhythm. You book everything directly. Afterwards, we ask
-            for candid feedback.
+            Altrove is a private travel membership. You tell us where
+            you&rsquo;re going. We research the trip and send you a personal
+            Trip Edit — hotels, restaurants, experiences, practical notes and a
+            suggested rhythm. You book everything directly.
           </p>
           <p>
-            That is the early version of a future membership. It is
-            complimentary for now, and limited to a small group of travellers.
+            Founding Membership is currently complimentary, and offered to a
+            limited number of travellers.
           </p>
         </div>
       </section>
@@ -90,20 +89,20 @@ export default function AboutPage() {
           <p>
             The Journal shows how we think. The destinations we write about
             first — Portugal, Italy, Spain — are the places we know well enough
-            to edit carefully. The beta can still take you elsewhere; we
+            to edit carefully. Membership can still take you elsewhere; we
             research those trips by hand.
           </p>
           <p className="about-closing-link">
             <Link className="text-link" href="/apply">
-              Apply for the Private Beta
+              Apply for Membership
             </Link>
             <span aria-hidden="true"> · </span>
             <Link className="text-link" href="/membership">
-              What Altrove is becoming
+              How membership works
             </Link>
             <span aria-hidden="true"> · </span>
             <Link className="text-link" href="/journal">
-              Explore the Journal
+              Read the Journal
             </Link>
           </p>
         </div>

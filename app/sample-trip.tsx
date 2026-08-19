@@ -121,10 +121,62 @@ export function SampleTripEdit({
       {isPreview ? (
         <p className="trip-edit-cta">
           <Link className="button dark" href={`/trips/${trip.slug}`}>
-            See how Altrove plans a trip
+            Explore the Lisbon Edit
           </Link>
         </p>
       ) : null}
+    </article>
+  );
+}
+
+export function TripEditGlimpse({ trip }: { trip: SampleTrip }) {
+  const hotel = trip.hotels.find((item) => item.pick) ?? trip.hotels[0];
+  const restaurants = trip.restaurants.slice(0, 2);
+
+  return (
+    <article className="trip-glimpse">
+      <figure className="trip-glimpse-media">
+        <img
+          src={trip.heroImage}
+          srcSet={unsplashSrcSet(trip.heroImage)}
+          sizes="(max-width: 900px) 100vw, 48vw"
+          alt={trip.heroAlt}
+          loading="lazy"
+        />
+      </figure>
+      <div className="trip-glimpse-copy">
+        <p className="eyebrow">Altrove Trip Edit</p>
+        <h2 className="display-title">A weekend in Lisbon</h2>
+
+        <div className="trip-glimpse-block">
+          <p className="trip-edit-label">Stay</p>
+          <h3>{hotel.name}</h3>
+          <p>{hotel.neighbourhood}. Our pick for a first stay that still feels considered.</p>
+        </div>
+
+        <div className="trip-glimpse-block">
+          <p className="trip-edit-label">Eat</p>
+          <ul className="trip-glimpse-eat">
+            {restaurants.map((place) => (
+              <li key={place.name}>
+                <strong>{place.name}</strong>
+                <span>{place.neighbourhood}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <aside className="trip-glimpse-note" aria-label="Altrove note">
+          <p className="trip-edit-label">Altrove Note</p>
+          <p>{trip.glimpseNote}</p>
+        </aside>
+
+        <p className="trip-glimpse-cta">
+          <Link className="button dark" href={`/trips/${trip.slug}`}>
+            Explore the Lisbon Edit
+          </Link>
+        </p>
+      </div>
     </article>
   );
 }

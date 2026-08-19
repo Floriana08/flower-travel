@@ -43,15 +43,15 @@ export default function LisbonSampleTripPage() {
       </div>
 
       <section className="section-shell tinted sample-trip-close">
-        <p className="eyebrow">Private Beta</p>
+        <p className="eyebrow">Founding Membership</p>
         <h2 className="display-title">This is the kind of edit you receive.</h2>
         <p>
-          During the private beta, Altrove personally designs the trip and you
-          make the bookings. The edit is built around your dates, your budget
-          and the way you actually like to travel.
+          Altrove personally designs the trip and you make the bookings. The
+          edit is built around your dates, your budget and the way you actually
+          like to travel.
         </p>
         <Link className="button dark" href="/apply">
-          Apply for the Private Beta
+          Apply for Membership
         </Link>
       </section>
     </main>
