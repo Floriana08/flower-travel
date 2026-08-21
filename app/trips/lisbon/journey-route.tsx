@@ -18,21 +18,14 @@ import {
 
 type Point = { x: number; y: number };
 
-function prefersReducedMotion() {
-  if (typeof window === "undefined") return false;
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
-
 function buildPath(points: Point[]) {
-  if (points.length === 0) return "";
-  if (points.length === 1) return `M ${points[0].x} ${points[0].y}`;
-
-  let d = `M ${points[0].x} ${points[0].y}`;
+  if (points.length < 2) return "";
+  let d = `M ${points[0].x.toFixed(1)} ${points[0].y.toFixed(1)}`;
   for (let i = 1; i < points.length; i += 1) {
     const prev = points[i - 1];
     const curr = points[i];
     const midY = (prev.y + curr.y) / 2;
-    d += ` C ${prev.x} ${midY}, ${curr.x} ${midY}, ${curr.x} ${curr.y}`;
+    d += ` C ${prev.x.toFixed(1)} ${midY.toFixed(1)}, ${curr.x.toFixed(1)} ${midY.toFixed(1)}, ${curr.x.toFixed(1)} ${curr.y.toFixed(1)}`;
   }
   return d;
 }
@@ -43,18 +36,15 @@ function StopCard({
   visited,
   selected,
   onSelect,
-  cardRef,
 }: {
   stop: JourneyStop;
   active: boolean;
   visited: boolean;
   selected: boolean;
   onSelect: (id: string) => void;
-  cardRef: (el: HTMLElement | null) => void;
 }) {
   return (
     <article
-      ref={cardRef}
       className={[
         "trip-stop",
         `trip-stop--${stop.align}`,
@@ -96,7 +86,7 @@ function DetailPanel({
 
   useEffect(() => {
     if (stop) panelRef.current?.focus();
-  }, [stop?.id, stop]);
+  }, [stop]);
 
   const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "Escape") onClose();
@@ -205,151 +195,183 @@ function AfternoonBranch({
 
 export function LisbonJourneyRoute() {
   const trackRef = useRef<HTMLDivElement>(null);
-  const pathRef = useRef<SVGPathElement>(null);
-  const stopRefs = useRef(new Map<string, HTMLElement>());
-  const [refsVersion, setRefsVersion] = useState(0);
-  const [activeId, setActiveId] = useState<string | null>(null);
+  const drawPathRef = useRef<SVGPathElement>(null);
+  const pathLengthRef = useRef(0);
+  const reducedRef = useRef(false);
+  const rafRef = useRef(0);
+
+  const [pathD, setPathD] = useState("");
+  const [svgSize, setSvgSize] = useState({ w: 0, h: 0 });
+  const [activeId, setActiveId] = useState<string | null>(
+    journeyStops[0]?.id ?? null,
+  );
   const [visited, setVisited] = useState<Set<string>>(() => new Set());
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [branch, setBranch] = useState<BranchOption | null>(null);
-  const [pathD, setPathD] = useState("");
-  const [pathLength, setPathLength] = useState(0);
-  const [progress, setProgress] = useState(0);
-  const reduced = useRef(false);
-
-  const setStopRef = useCallback((id: string, el: HTMLElement | null) => {
-    const map = stopRefs.current;
-    if (el) {
-      if (map.get(id) !== el) {
-        map.set(id, el);
-        setRefsVersion((v) => v + 1);
-      }
-    } else if (map.has(id)) {
-      map.delete(id);
-      setRefsVersion((v) => v + 1);
-    }
-  }, []);
 
   const selectedStop =
     journeyStops.find((stop) => stop.id === selectedId) ?? null;
 
-  const updateGeometry = useCallback(() => {
+  const applyDrawProgress = useCallback((progress: number) => {
+    const path = drawPathRef.current;
+    const length = pathLengthRef.current;
+    if (!path || length <= 0) return;
+    const p = Math.min(1, Math.max(0, progress));
+    path.style.strokeDasharray = `${length}`;
+    path.style.strokeDashoffset = `${length * (1 - p)}`;
+  }, []);
+
+  const measureGeometry = useCallback(() => {
     const track = trackRef.current;
     if (!track) return;
 
     const trackRect = track.getBoundingClientRect();
+    const width = Math.max(track.clientWidth, 1);
+    const height = Math.max(track.scrollHeight || track.clientHeight, 1);
+    setSvgSize({ w: width, h: height });
+
+    const stopEls = Array.from(
+      track.querySelectorAll<HTMLElement>("[data-stop-id]"),
+    );
+    const byId = new Map(stopEls.map((el) => [el.dataset.stopId, el]));
     const points: Point[] = [];
 
     for (const stop of journeyStops) {
-      const el = stopRefs.current.get(stop.id);
+      const el = byId.get(stop.id);
       if (!el) continue;
-      const node = el.querySelector(".trip-stop-node") as HTMLElement | null;
+      const node = el.querySelector<HTMLElement>(".trip-stop-node");
       const target = node ?? el;
       const rect = target.getBoundingClientRect();
       points.push({
-        x: rect.left + rect.width / 2 - trackRect.left,
-        y: rect.top + rect.height / 2 - trackRect.top,
+        x: rect.left + rect.width / 2 - trackRect.left + track.scrollLeft,
+        y: rect.top + rect.height / 2 - trackRect.top + track.scrollTop,
       });
     }
 
-    if (points.length < 2) return;
     setPathD(buildPath(points));
   }, []);
 
-  const updateProgress = useCallback(() => {
+  const syncScrollState = useCallback(() => {
     const track = trackRef.current;
     if (!track) return;
 
-    const rect = track.getBoundingClientRect();
     const viewport = window.innerHeight || 1;
-    const start = viewport * 0.35;
-    const end = viewport * 0.65;
-    const usable = Math.max(rect.height - (end - start), 1);
-    const raw = (start - rect.top) / usable;
-    const next = Math.min(1, Math.max(0, raw));
-    setProgress(reduced.current ? 1 : next);
-  }, []);
+    const trackRect = track.getBoundingClientRect();
+    const activateY = viewport * 0.42;
 
-  useEffect(() => {
-    const path = pathRef.current;
-    if (!path || !pathD) return;
-    const length = path.getTotalLength();
-    setPathLength(length);
-  }, [pathD]);
+    let progress = 0;
+    if (reducedRef.current) {
+      progress = 1;
+    } else {
+      const distance = Math.max(trackRect.height, 1);
+      progress = (activateY - trackRect.top) / distance;
+      progress = Math.min(1, Math.max(0, progress));
+    }
+    applyDrawProgress(progress);
 
-  useEffect(() => {
-    reduced.current = prefersReducedMotion();
-    updateGeometry();
-    updateProgress();
-
-    const track = trackRef.current;
-    if (!track) return;
-
-    const resizeObserver = new ResizeObserver(() => {
-      updateGeometry();
-      updateProgress();
-    });
-    resizeObserver.observe(track);
-
-    const onScroll = () => updateProgress();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", updateGeometry);
-
-    const nodeObserver = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (
-            entry.isIntersecting &&
-            entry.target instanceof HTMLElement &&
-            entry.target.dataset.stopId
-          ) {
-            const id = entry.target.dataset.stopId;
-            setVisited((prev) => {
-              if (prev.has(id)) return prev;
-              const next = new Set(prev);
-              next.add(id);
-              return next;
-            });
-          }
-        }
-
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort(
-            (a, b) =>
-              Math.abs(a.boundingClientRect.top - window.innerHeight * 0.4) -
-              Math.abs(b.boundingClientRect.top - window.innerHeight * 0.4),
-          );
-
-        if (visible[0]?.target instanceof HTMLElement) {
-          const id = visible[0].target.dataset.stopId;
-          if (id) setActiveId(id);
-        }
-      },
-      {
-        root: null,
-        rootMargin: "-35% 0px -45% 0px",
-        threshold: [0, 0.25, 0.5, 0.75, 1],
-      },
+    const stopEls = Array.from(
+      track.querySelectorAll<HTMLElement>("[data-stop-id]"),
     );
+    if (stopEls.length === 0) return;
 
-    for (const stop of journeyStops) {
-      const el = stopRefs.current.get(stop.id);
-      if (el) nodeObserver.observe(el);
+    let bestId: string | null = null;
+    let bestDist = Number.POSITIVE_INFINITY;
+    const newlyVisited: string[] = [];
+
+    for (const el of stopEls) {
+      const id = el.dataset.stopId;
+      if (!id) continue;
+      const node = el.querySelector<HTMLElement>(".trip-stop-node");
+      const rect = (node ?? el).getBoundingClientRect();
+      const center = rect.top + rect.height / 2;
+      const dist = Math.abs(center - activateY);
+
+      if (center < viewport * 0.78) {
+        newlyVisited.push(id);
+      }
+
+      if (dist < bestDist) {
+        bestDist = dist;
+        bestId = id;
+      }
     }
 
-    if (reduced.current) {
-      setProgress(1);
-      setVisited(new Set(journeyStops.map((stop) => stop.id)));
+    if (bestId) {
+      setActiveId((prev) => (prev === bestId ? prev : bestId));
+    }
+
+    if (newlyVisited.length > 0) {
+      setVisited((prev) => {
+        let changed = false;
+        const next = new Set(prev);
+        for (const id of newlyVisited) {
+          if (!next.has(id)) {
+            next.add(id);
+            changed = true;
+          }
+        }
+        return changed ? next : prev;
+      });
+    }
+  }, [applyDrawProgress]);
+
+  // After path `d` paints, measure length and seed dashoffset
+  useEffect(() => {
+    const path = drawPathRef.current;
+    if (!path || !pathD) return;
+
+    const length = path.getTotalLength();
+    pathLengthRef.current = length;
+    path.style.strokeDasharray = `${length}`;
+    path.style.strokeDashoffset = reducedRef.current ? "0" : `${length}`;
+    syncScrollState();
+  }, [pathD, svgSize.w, svgSize.h, syncScrollState]);
+
+  useEffect(() => {
+    reducedRef.current = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    const track = trackRef.current;
+    if (!track) return;
+
+    const run = () => {
+      measureGeometry();
+      requestAnimationFrame(() => syncScrollState());
+    };
+
+    run();
+    const t = window.setTimeout(run, 150);
+
+    const onScroll = () => {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => syncScrollState());
+    };
+
+    const onResize = () => {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(run);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+
+    const resizeObserver = new ResizeObserver(() => onResize());
+    resizeObserver.observe(track);
+
+    if (reducedRef.current) {
+      setVisited(new Set(journeyStops.map((s) => s.id)));
+      setActiveId(journeyStops[journeyStops.length - 1]?.id ?? null);
     }
 
     return () => {
-      resizeObserver.disconnect();
-      nodeObserver.disconnect();
+      window.clearTimeout(t);
+      cancelAnimationFrame(rafRef.current);
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", updateGeometry);
+      window.removeEventListener("resize", onResize);
+      resizeObserver.disconnect();
     };
-  }, [updateGeometry, updateProgress, refsVersion]);
+  }, [measureGeometry, syncScrollState, branch]);
 
   useEffect(() => {
     if (!selectedId) return;
@@ -359,9 +381,6 @@ export function LisbonJourneyRoute() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [selectedId]);
-
-  const dashOffset =
-    pathLength > 0 ? pathLength * (1 - progress) : undefined;
 
   const beforeBranch: JourneyStop[] = [];
   const afterBranch: JourneyStop[] = [];
@@ -380,21 +399,27 @@ export function LisbonJourneyRoute() {
     <div className="trip-route">
       <div className="trip-route-layout">
         <div className="trip-route-track" ref={trackRef}>
-          <svg className="trip-route-svg" aria-hidden="true">
+          <svg
+            className="trip-route-svg"
+            width={svgSize.w || undefined}
+            height={svgSize.h || undefined}
+            viewBox={
+              svgSize.w && svgSize.h
+                ? `0 0 ${svgSize.w} ${svgSize.h}`
+                : undefined
+            }
+            aria-hidden="true"
+          >
             <path
               className="trip-route-path trip-route-path--base"
               d={pathD}
               fill="none"
             />
             <path
-              ref={pathRef}
+              ref={drawPathRef}
               className="trip-route-path trip-route-path--draw"
               d={pathD}
               fill="none"
-              style={{
-                strokeDasharray: pathLength || undefined,
-                strokeDashoffset: dashOffset,
-              }}
             />
           </svg>
 
@@ -407,7 +432,6 @@ export function LisbonJourneyRoute() {
                 visited={visited.has(stop.id)}
                 selected={selectedId === stop.id}
                 onSelect={toggleStop}
-                cardRef={(el) => setStopRef(stop.id, el)}
               />
             ))}
 
@@ -421,7 +445,6 @@ export function LisbonJourneyRoute() {
                 visited={visited.has(stop.id)}
                 selected={selectedId === stop.id}
                 onSelect={toggleStop}
-                cardRef={(el) => setStopRef(stop.id, el)}
               />
             ))}
           </div>
