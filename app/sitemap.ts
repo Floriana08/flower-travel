@@ -9,6 +9,7 @@ const routes = [
   "/journal",
   "/guides",
   "/plan-a-trip",
+  "/trips/lisbon",
   "/about",
   "/privacy",
   "/terms",
