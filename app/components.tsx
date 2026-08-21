@@ -138,8 +138,7 @@ export function SiteFooter() {
           <BrandLockup tone="light" />
         </Link>
         <p>
-          Altrove is a private travel membership. Tell us about your trip
-          and we&rsquo;ll design it around you.
+          {site.studioLine}
         </p>
       </div>
 
@@ -427,7 +426,7 @@ export function GuideProductCard({
 }
 
 export function NewsletterBand({
-  title = "Join the Altrove Club",
+  title = "Letters from Altrove",
   description = "Every month, receive one carefully planned route, one hotel worth remembering, one restaurant worth travelling for and personal travel notes that do not always make it onto the website.",
   placeholder = "Your email address",
   footnote = "No daily emails. Just thoughtful travel inspiration and practical ideas.",

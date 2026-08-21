@@ -140,10 +140,10 @@ export default function LisbonDestinationPage() {
 
       <section className="section-shell membership-now">
         <p className="eyebrow">Founding Membership</p>
-        <h2 className="display-title">Planning Lisbon?</h2>
-        <p>Let Altrove design your trip.</p>
+        <h2 className="display-title">Going to Lisbon?</h2>
+        <p>Let Altrove shape the trip around you.</p>
         <Link className="button dark" href="/apply">
-          Apply for Founding Membership
+          Become a Founding Member
         </Link>
       </section>
     </main>

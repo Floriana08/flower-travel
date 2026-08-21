@@ -230,10 +230,10 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
         </div>
         <div className="country-mag-plan-copy">
           <p className="country-mag-kicker">Founding Membership</p>
-          <h2>Planning {country.title}?</h2>
-          <p>Let Altrove design your trip.</p>
+          <h2>Going to {country.title}?</h2>
+          <p>Let Altrove shape the trip around you.</p>
           <Link className="button dark" href="/apply">
-            Apply for Founding Membership
+            Become a Founding Member
           </Link>
         </div>
       </section>

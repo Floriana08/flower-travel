@@ -7,10 +7,9 @@ export function FoundingApplicationPage() {
       <section className="section-shell page-top">
         <PageIntro eyebrow="Founding Membership" title="Become a Founding Member">
           <p>
-            Founding Membership is currently complimentary and offered to a
-            limited number of travellers.
+            Founding Membership is currently complimentary and limited. Tell us
+            a little about how you travel — we&rsquo;ll take it from there.
           </p>
-          <p>Tell us a little about how you travel and what you&rsquo;re planning next.</p>
         </PageIntro>
       </section>
 

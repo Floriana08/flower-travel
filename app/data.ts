@@ -3,7 +3,7 @@ export const site = {
   fullName: "Altrove",
   strapline: "travel, considered",
   studioLine:
-    "Altrove is a private travel membership. Tell us about your trip and we'll design it around you.",
+    "A private lifestyle travel concierge for people who care about where they stay, eat and spend their time.",
   email: "hello@altrove.studio",
 };
 
@@ -16,7 +16,7 @@ export const navItems = [
 
 export const navCta = {
   href: "/apply",
-  label: "Apply",
+  label: "Become a Founding Member",
 };
 
 export const legalLinks = [

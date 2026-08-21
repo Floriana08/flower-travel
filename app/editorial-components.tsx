@@ -78,7 +78,7 @@ export function ComingSoonBlock({
   title,
   body,
   href = "/apply",
-  cta = "Apply for Membership",
+  cta = "Become a Founding Member",
 }: {
   title: string;
   body: string;
@@ -126,7 +126,7 @@ export function ArticlePlanningCta({
       <h2>{heading}</h2>
       <p>{body}</p>
       <Link className="button dark" href="/apply">
-        Apply for Founding Membership
+        Become a Founding Member
       </Link>
     </section>
   );

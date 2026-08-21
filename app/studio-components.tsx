@@ -181,7 +181,7 @@ export function EnquiryCta({
   title,
   children,
   href = "/apply",
-  cta = "Apply for Membership",
+  cta = "Become a Founding Member",
 }: {
   eyebrow?: string;
   title: string;

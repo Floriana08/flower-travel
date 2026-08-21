@@ -859,11 +859,11 @@ export function getJournalPlanningCta(guide: (typeof guides)[number]): {
 } {
   const haystack = `${guide.slug} ${guide.destination} ${guide.title}`;
   const body =
-    "Altrove members can have their trip personally designed around their preferences, budget and travel style.";
+    "Going there? Let Altrove shape the trip around how you actually like to travel.";
 
   if (/lisbon/i.test(haystack)) {
     return {
-      heading: "Planning a trip to Lisbon?",
+      heading: "Going to Lisbon?",
       body,
       destinationHref: "/destinations/lisbon",
       destinationLabel: "Lisbon destination page",
@@ -871,7 +871,7 @@ export function getJournalPlanningCta(guide: (typeof guides)[number]): {
   }
   if (/rome/i.test(haystack)) {
     return {
-      heading: "Planning a trip to Rome?",
+      heading: "Going to Rome?",
       body,
       destinationHref: "/destinations/italy",
       destinationLabel: "Italy destination hub",
@@ -879,7 +879,7 @@ export function getJournalPlanningCta(guide: (typeof guides)[number]): {
   }
   if (/portugal|porto|madeira/i.test(haystack)) {
     return {
-      heading: "Planning a trip to Portugal?",
+      heading: "Going to Portugal?",
       body,
       destinationHref: "/destinations/portugal",
       destinationLabel: "Portugal destination hub",
@@ -887,7 +887,7 @@ export function getJournalPlanningCta(guide: (typeof guides)[number]): {
   }
   if (/italy|naples|amalfi|campania/i.test(haystack)) {
     return {
-      heading: "Planning a trip to Italy?",
+      heading: "Going to Italy?",
       body,
       destinationHref: "/destinations/italy",
       destinationLabel: "Italy destination hub",
@@ -895,23 +895,23 @@ export function getJournalPlanningCta(guide: (typeof guides)[number]): {
   }
   if (/spain|andalusia|barcelona|madrid/i.test(haystack)) {
     return {
-      heading: "Planning a trip to Spain?",
+      heading: "Going to Spain?",
       body,
       destinationHref: "/destinations/spain",
       destinationLabel: "Spain destination hub",
     };
   }
   if (/paris/i.test(haystack)) {
-    return { heading: "Planning a trip to Paris?", body };
+    return { heading: "Going to Paris?", body };
   }
 
   const generic = ["Any trip", "Everywhere", "Europe", "Europe and beyond"];
   if (generic.includes(guide.destination)) {
-    return { heading: "Planning a trip?", body };
+    return { heading: "Going somewhere?", body };
   }
 
   const place = guide.destination.split(",")[0].trim();
-  return { heading: `Planning a trip to ${place}?`, body };
+  return { heading: `Going to ${place}?`, body };
 }
 
 export function getJournalMood(slug: string) {

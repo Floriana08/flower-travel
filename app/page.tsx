@@ -1,23 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { guides, site } from "./data";
+import { site } from "./data";
 import { HeroOceanVideo } from "./hero-ocean-video";
-import { TripEditGlimpse } from "./sample-trip";
-import { lisbonSampleTrip } from "./sample-trips";
 import { CountryTile } from "./studio-components";
 import { studioCountries } from "./studio-structure";
 import { unsplashSrcSet } from "./image-utils";
 
 export const metadata: Metadata = {
   description:
-    "Altrove is a private travel membership. Tell us about your trip and we'll design it around you. Founding Membership is currently complimentary and limited.",
+    "A private lifestyle travel concierge for people who care about where they stay, eat and spend their time. Founding Membership is currently complimentary and limited.",
   alternates: {
     canonical: "https://altrove.studio/",
   },
   openGraph: {
-    title: "Altrove | Personal Travel Planning & Curated Travel Guides",
+    title: "Altrove | Lifestyle travel concierge",
     description:
-      "Altrove is a private travel membership. Tell us about your trip and we'll design it around you. Founding Membership is currently complimentary and limited.",
+      "Tell us where you're going. Altrove filters the noise and shapes the trip around you.",
     type: "website",
     images: [
       {
@@ -55,63 +53,66 @@ const structuredData = {
 
 const howItWorks = [
   {
-    title: "Tell us about your trip",
-    body: "Destination, dates, budget, who you’re travelling with and what matters to you.",
+    title: "Tell us",
+    body: "Where you’re going, who you’re travelling with, your budget and what you actually enjoy.",
   },
   {
-    title: "We design it",
-    body: "Altrove researches hotels, restaurants, experiences and how we’d structure the trip.",
+    title: "We curate",
+    body: "Altrove researches the hotels, restaurants, neighbourhoods and experiences that fit you.",
   },
   {
-    title: "You book it",
-    body: "We send you a personal Altrove Trip Edit and you make the bookings directly.",
+    title: "You travel",
+    body: "You receive your personal Altrove recommendations and make the bookings directly.",
   },
 ];
 
-const memberBenefits = [
+const tripPreview = [
+  { category: "Stay", name: "Verride" },
+  { category: "Eat", name: "O Velho Eurico" },
+  { category: "Wander", name: "Príncipe Real" },
+];
+
+const editPieces = [
   {
-    title: "Personal trip design",
-    body: "A trip built around your dates, your budget and the way you actually like to travel.",
+    href: "/journal/where-to-eat-lisbon",
+    title: "Where we’d eat in Lisbon",
+    image:
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80",
+    alt: "Restaurant table set for an evening meal",
   },
   {
-    title: "Curated destination recommendations",
-    body: "Hotels, restaurants and places Altrove would genuinely choose — not a list of everything.",
+    href: "/journal/where-to-stay-lisbon",
+    title: "The hotels worth checking into",
+    image:
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+    alt: "Elegant hotel interior with warm lighting",
   },
   {
-    title: "Direct travel advice",
-    body: "Practical notes on pacing, neighbourhoods and the decisions that change a trip.",
+    href: "/destinations/portugal",
+    title: "A weekend worth leaving Lisbon for",
+    image:
+      "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1200&q=80",
+    alt: "Lisbon rooftops in warm evening light",
   },
   {
-    title: "First access",
-    body: "First access to future Altrove experiences and member privileges, as they open.",
+    href: "/destinations/italy",
+    title: "Naples, without the checklist",
+    image:
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80",
+    alt: "Cliffside villages on the Amalfi Coast",
   },
 ];
 
-const journalFeatured = [
-  {
-    slug: "where-to-eat-lisbon",
-    title: "Where to Eat in Lisbon",
-  },
-  {
-    slug: "where-to-stay-lisbon",
-    title: "Where to Stay in Lisbon",
-  },
-  {
-    slug: "rome-food-walk",
-    title: "A First-Timer Food Walk Through Rome",
-  },
-]
-  .map((item) => {
-    const story = guides.find((guide) => guide.slug === item.slug);
-    return story ? { ...story, displayTitle: item.title } : null;
-  })
-  .filter((story): story is (typeof guides)[number] & { displayTitle: string } =>
-    Boolean(story),
-  );
+const foundingBenefits = [
+  "Personal travel curation",
+  "Direct travel advice",
+  "Private destination recommendations",
+  "First access to future Altrove experiences and member privileges",
+];
 
 export default function Home() {
   return (
-    <main className="home-edit">
+    <main className="home-edit home-concierge">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -122,25 +123,42 @@ export default function Home() {
         <div className="studio-hero-copy">
           <h1 className="studio-hero-display">Travel, considered.</h1>
           <p className="studio-hero-lede">
-            Altrove is a private travel membership for people who care about
-            where they stay, eat and spend their time. Tell us about your trip
-            and we&rsquo;ll design it around you.
+            A private lifestyle travel concierge for people who care about where
+            they stay, eat and spend their time.
+          </p>
+          <p className="studio-hero-support">
+            Tell us where you&rsquo;re going. Altrove filters the noise and
+            shapes the trip around you.
           </p>
           <div className="hero-actions">
             <Link className="button light" href="/apply">
-              Apply for Founding Membership
+              Become a Founding Member
             </Link>
-            <Link className="button ghost-on-dark" href="#how-it-works">
-              How it works
+            <Link className="button ghost-on-dark" href="#discover">
+              Discover Altrove
             </Link>
           </div>
+          <p className="studio-hero-note">
+            Founding Membership is currently complimentary and limited.
+          </p>
         </div>
+      </section>
+
+      <section className="section-shell home-problem" id="discover">
+        <h2 className="display-title">
+          The internet gives you everything. Altrove gives you what matters.
+        </h2>
+        <p>
+          Travel planning now means dozens of tabs, saved Instagram posts,
+          contradictory reviews and endless lists. Altrove does the filtering —
+          so you spend less time searching and more time travelling well.
+        </p>
       </section>
 
       <section className="section-shell home-how" id="how-it-works">
         <div className="home-section-head">
           <p className="eyebrow">How Altrove works</p>
-          <h2 className="display-title">Tell us. We design it. You book it.</h2>
+          <h2 className="display-title">Tell us. We curate. You travel.</h2>
         </div>
         <ol className="home-how-grid">
           {howItWorks.map((step, index) => (
@@ -155,33 +173,63 @@ export default function Home() {
         </ol>
       </section>
 
-      <section className="section-shell tinted home-benefits" id="membership-offer">
+      <section className="section-shell home-trip-tease" id="inside-a-trip">
         <div className="home-section-head">
-          <p className="eyebrow">Founding Membership</p>
-          <h2 className="display-title">What members receive.</h2>
+          <p className="eyebrow">Inside an Altrove trip</p>
+          <h2 className="display-title">Lisbon / 4 days</h2>
+          <p className="home-trip-profile">
+            Couple · Food-led · Slow pace · First visit
+          </p>
         </div>
-        <ul className="home-benefits-grid">
-          {memberBenefits.map((item) => (
-            <li key={item.title}>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
+        <ul className="home-trip-picks">
+          {tripPreview.map((pick) => (
+            <li key={pick.name}>
+              <span>{pick.category}</span>
+              <strong>{pick.name}</strong>
             </li>
           ))}
         </ul>
+        <aside className="home-trip-note">
+          <p className="eyebrow">Altrove note</p>
+          <p>
+            Book the important dinner. Leave one afternoon completely free.
+            Lisbon rewards people who stop trying to finish the city.
+          </p>
+        </aside>
+        <p className="home-section-link">
+          <Link className="text-link" href="/trips/lisbon">
+            See how we&rsquo;d shape Lisbon
+          </Link>
+        </p>
       </section>
 
-      <section className="section-shell home-product" id="the-edit">
+      <section className="section-shell tinted home-edit-section" id="the-edit">
         <div className="home-section-head">
-          <p className="eyebrow">A glimpse</p>
-          <h2 className="display-title">What an Altrove Trip Edit feels like.</h2>
+          <p className="eyebrow">Lifestyle</p>
+          <h2 className="display-title">The Altrove Edit</h2>
         </div>
-        <TripEditGlimpse trip={lisbonSampleTrip} />
+        <div className="home-edit-grid">
+          {editPieces.map((piece) => (
+            <article key={piece.href} className="home-edit-card">
+              <Link href={piece.href}>
+                <img
+                  src={piece.image}
+                  srcSet={unsplashSrcSet(piece.image)}
+                  sizes="(max-width: 900px) 100vw, 25vw"
+                  alt={piece.alt}
+                  loading="lazy"
+                />
+                <h3>{piece.title}</h3>
+              </Link>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="section-shell home-destinations" id="destinations">
         <div className="home-section-head">
           <p className="eyebrow">Destinations</p>
-          <h2 className="display-title">Portugal. Italy. Spain.</h2>
+          <h2 className="display-title">Places we know</h2>
         </div>
         <div className="destinations-index-grid home-destinations-grid home-destination-doors">
           {studioCountries.map((country) => (
@@ -190,49 +238,29 @@ export default function Home() {
         </div>
         <p className="home-section-link">
           <Link className="text-link" href="/destinations">
-            Explore Destinations
+            Explore destinations
           </Link>
         </p>
       </section>
 
-      <section className="section-shell home-journal-feature" id="journal">
-        <div className="home-section-head">
-          <p className="eyebrow">Journal</p>
-          <h2 className="display-title">Notes from the road.</h2>
-        </div>
-        <div className="home-journal-row">
-          {journalFeatured.map((story) => (
-            <article key={story.slug} className="home-journal-row-card">
-              <Link href={`/journal/${story.slug}`}>
-                <img
-                  src={story.image}
-                  srcSet={unsplashSrcSet(story.image)}
-                  sizes="(max-width: 900px) 100vw, 32vw"
-                  alt={story.alt}
-                  loading="lazy"
-                />
-                <p className="eyebrow">{story.destination}</p>
-                <h3>{story.displayTitle}</h3>
-              </Link>
-            </article>
-          ))}
-        </div>
-        <p className="home-section-link">
-          <Link className="text-link" href="/journal">
-            Read the Journal
-          </Link>
-        </p>
-      </section>
-
-      <section className="section-shell home-beta" id="founding-membership">
-        <p className="eyebrow">Founding Membership</p>
-        <h2 className="display-title">Become a Founding Member</h2>
+      <section
+        className="section-shell home-founding"
+        id="founding-membership"
+      >
+        <p className="eyebrow">Membership</p>
+        <h2 className="display-title">Founding Membership</h2>
         <p>
-          Founding Membership is currently complimentary and offered to a
-          limited number of travellers.
+          Altrove is opening a limited number of Founding Memberships for
+          travellers who want a more personal way to plan and experience travel.
         </p>
+        <p>Founding Membership is currently complimentary.</p>
+        <ul className="home-founding-list">
+          {foundingBenefits.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
         <Link className="button dark" href="/apply">
-          Apply for Membership
+          Become a Founding Member
         </Link>
       </section>
     </main>

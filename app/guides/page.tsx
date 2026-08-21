@@ -46,7 +46,7 @@ export default function GuidesPage() {
             </h2>
             <p>{flagship.excerpt}</p>
             <Link className="button dark" href="/apply">
-              Apply for Membership
+              Become a Founding Member
             </Link>
           </div>
         </section>

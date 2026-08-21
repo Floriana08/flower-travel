@@ -6,51 +6,12 @@ import { site } from "./data";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
-const tripPlannedOptions = ["Yes", "I have a few ideas", "Not yet"] as const;
-
 const travellingWithOptions = [
   "Solo",
   "Partner",
   "Friends",
   "Family",
   "Other",
-] as const;
-
-const tripLengthOptions = [
-  "A weekend",
-  "4–7 days",
-  "8–14 days",
-  "2–3 weeks",
-  "A month or more",
-  "Not sure yet",
-] as const;
-
-const budgetOptions = [
-  "Under €3,000",
-  "€3,000–€6,000",
-  "€6,000–€12,000",
-  "€12,000+",
-  "Prefer not to say",
-] as const;
-
-const hotelBudgetOptions = [
-  "Under €150",
-  "€150–€250",
-  "€250–€400",
-  "€400+",
-] as const;
-
-const interestOptions = [
-  "Food",
-  "Hotels",
-  "Culture",
-  "Beaches",
-  "Nature",
-  "Design",
-  "Nightlife",
-  "Wellness",
-  "Local places",
-  "Slow travel",
 ] as const;
 
 export function FoundingApplicationForm() {
@@ -65,27 +26,22 @@ export function FoundingApplicationForm() {
     const name = String(data.get("name") || "").trim();
     const email = String(data.get("email") || "").trim();
     const based = String(data.get("based") || "").trim();
-    const tripPlanned = String(data.get("tripPlanned") || "").trim();
     const destinations = String(data.get("destinations") || "").trim();
     const dates = String(data.get("dates") || "").trim();
     const travellingWith = String(data.get("travellingWith") || "").trim();
-    const tripLength = String(data.get("tripLength") || "").trim();
-    const budget = String(data.get("budget") || "").trim();
-    const frustrating = String(data.get("frustrating") || "").trim();
+    const interests = String(data.get("interests") || "").trim();
     const takeOffPlate = String(data.get("takeOffPlate") || "").trim();
+    const notes = String(data.get("notes") || "").trim();
     const consent = data.get("consent");
 
     if (
       !name ||
       !email ||
       !based ||
-      !tripPlanned ||
       !destinations ||
       !dates ||
       !travellingWith ||
-      !tripLength ||
-      !budget ||
-      !frustrating ||
+      !interests ||
       !takeOffPlate ||
       !consent
     ) {
@@ -97,24 +53,15 @@ export function FoundingApplicationForm() {
     setStatus("loading");
     setMessage("");
 
-    const hotelBudget = String(data.get("hotelBudget") || "").trim();
-    const interests = data.getAll("interests").join(", ");
-    const notes = String(data.get("notes") || "").trim();
-
     const payload = {
       source: "founding-membership",
       name,
       email,
       based,
-      tripPlanned,
       destinations,
       dates,
       travellingWith,
-      tripLength,
-      budget,
-      hotelBudget,
       interests,
-      frustrating,
       takeOffPlate,
       notes,
     };
@@ -138,16 +85,11 @@ export function FoundingApplicationForm() {
         `Name: ${name}`,
         `Email: ${email}`,
         `Based: ${based}`,
-        `Trip in the next 3 months: ${tripPlanned}`,
         `Going: ${destinations}`,
         `When: ${dates}`,
         `Travelling with: ${travellingWith}`,
-        `Trip length: ${tripLength}`,
-        `Budget: ${budget}`,
-        `Hotel budget: ${hotelBudget || "—"}`,
-        `What matters: ${interests || "—"}`,
-        `Most frustrating: ${frustrating}`,
-        `Take off their plate: ${takeOffPlate}`,
+        `What matters: ${interests}`,
+        `Wish someone would handle: ${takeOffPlate}`,
         `Notes: ${notes || "—"}`,
       ].join("\n");
 
@@ -165,22 +107,38 @@ export function FoundingApplicationForm() {
         <h2>Your application is with Altrove.</h2>
         <p>
           Founding Membership is intentionally limited. We&rsquo;ll be in touch
-          if Altrove is a good fit for the way you travel.
+          soon.
         </p>
       </div>
     );
   }
 
   return (
-    <form className="trip-enquiry-form apply-form" onSubmit={handleSubmit} noValidate>
+    <form
+      className="trip-enquiry-form apply-form apply-form-simple"
+      onSubmit={handleSubmit}
+      noValidate
+    >
       <div className="form-grid">
         <label>
           <span>Name</span>
-          <input name="name" type="text" autoComplete="name" required aria-required="true" />
+          <input
+            name="name"
+            type="text"
+            autoComplete="name"
+            required
+            aria-required="true"
+          />
         </label>
         <label>
           <span>Email</span>
-          <input name="email" type="email" autoComplete="email" required aria-required="true" />
+          <input
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            aria-required="true"
+          />
         </label>
         <label className="form-span-2">
           <span>Where are you based?</span>
@@ -193,32 +151,18 @@ export function FoundingApplicationForm() {
             aria-required="true"
           />
         </label>
-
-        <fieldset className="form-span-2 traveller-type-fieldset">
-          <legend>Do you have a trip planned in the next three months?</legend>
-          <div className="traveller-type-grid">
-            {tripPlannedOptions.map((option) => (
-              <label key={option} className="traveller-type-check">
-                <input name="tripPlanned" type="radio" value={option} required />
-                <span>{option}</span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
-
         <label className="form-span-2">
-          <span>Where are you thinking of going?</span>
+          <span>Where are you travelling next?</span>
           <textarea
             name="destinations"
-            rows={3}
+            rows={2}
             placeholder="A city, a country, or a few ideas"
             required
             aria-required="true"
           />
         </label>
-
         <label>
-          <span>When are you planning to travel?</span>
+          <span>When?</span>
           <input
             name="dates"
             type="text"
@@ -228,82 +172,42 @@ export function FoundingApplicationForm() {
           />
         </label>
         <label>
-          <span>How long is the trip?</span>
-          <select name="tripLength" defaultValue="" required aria-required="true">
+          <span>Who do you normally travel with?</span>
+          <select
+            name="travellingWith"
+            defaultValue=""
+            required
+            aria-required="true"
+          >
             <option value="" disabled>
-              Select a length
+              Select
             </option>
-            {tripLengthOptions.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        <fieldset className="form-span-2 traveller-type-fieldset">
-          <legend>Who are you travelling with?</legend>
-          <div className="traveller-type-grid">
             {travellingWithOptions.map((option) => (
-              <label key={option} className="traveller-type-check">
-                <input name="travellingWith" type="radio" value={option} required />
-                <span>{option}</span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
-
-        <label>
-          <span>Approximate total trip budget</span>
-          <select name="budget" defaultValue="" required aria-required="true">
-            <option value="" disabled>
-              Select a range
-            </option>
-            {budgetOptions.map((option) => (
               <option key={option} value={option}>
                 {option}
               </option>
             ))}
           </select>
         </label>
-        <label>
-          <span>Approximate hotel budget per night</span>
-          <select name="hotelBudget" defaultValue="">
-            <option value="">Optional</option>
-            {hotelBudgetOptions.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        <fieldset className="form-span-2 traveller-type-fieldset">
-          <legend>What matters most to you when you travel?</legend>
-          <div className="traveller-type-grid interest-grid">
-            {interestOptions.map((option) => (
-              <label key={option} className="traveller-type-check">
-                <input name="interests" type="checkbox" value={option} />
-                <span>{option}</span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
-
         <label className="form-span-2">
-          <span>What do you find most frustrating about planning a trip?</span>
-          <textarea name="frustrating" rows={4} required aria-required="true" />
+          <span>What matters most to you when travelling?</span>
+          <textarea
+            name="interests"
+            rows={3}
+            placeholder="Food, hotels, pace, neighbourhoods, design…"
+            required
+            aria-required="true"
+          />
         </label>
         <label className="form-span-2">
           <span>
-            If Altrove could take one thing off your plate when you travel, what
-            would it be?
+            What do you wish someone else would handle when planning a trip?
           </span>
-          <textarea name="takeOffPlate" rows={4} required aria-required="true" />
+          <textarea name="takeOffPlate" rows={3} required aria-required="true" />
         </label>
         <label className="form-span-2">
-          <span>Anything else we should know?</span>
-          <textarea name="notes" rows={3} placeholder="Optional" />
+          <span>Anything else Altrove should know?</span>
+          <textarea name="notes" rows={2} placeholder="Optional" />
         </label>
       </div>
 
@@ -311,12 +215,17 @@ export function FoundingApplicationForm() {
         <input name="consent" type="checkbox" required />
         <span>
           I agree that Altrove may use these details to review my Founding
-          Membership application. See the <Link href="/privacy">privacy policy</Link>.
+          Membership application. See the{" "}
+          <Link href="/privacy">privacy policy</Link>.
         </span>
       </label>
 
-      <button className="button dark" type="submit" disabled={status === "loading"}>
-        {status === "loading" ? "Sending…" : "Apply for Founding Membership"}
+      <button
+        className="button dark"
+        type="submit"
+        disabled={status === "loading"}
+      >
+        {status === "loading" ? "Sending…" : "Apply"}
       </button>
 
       {message ? (

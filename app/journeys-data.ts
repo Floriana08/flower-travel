@@ -69,7 +69,7 @@ export const journeys: Journey[] = [
     ],
     practicalNotes: [
       "Open the full day-by-day for pacing detail.",
-      "Ask us to shape this corridor around your dates via Plan a Trip.",
+      "Ask us to shape this corridor around your dates via Founding Membership.",
     ],
     signature: true,
     catalogue: true,
