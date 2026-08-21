@@ -12,7 +12,7 @@ type FormStatus = "idle" | "loading" | "success" | "error";
  */
 export function NewsletterForm({
   placeholder = "Your email address",
-  buttonLabel = "Join the Club",
+  buttonLabel = "Join our letters",
   consentLabel = `I agree to receive ${site.name} emails and understand that I can unsubscribe at any time.`,
   source = "newsletter",
 }: {

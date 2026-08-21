@@ -399,6 +399,7 @@ export const guideArticles: GuideArticle[] = [
         heading: "Where to stay",
         body: [
           "For a gentle first solo trip, stay in Saint-Germain, the northern Marais, or around the Luxembourg Garden. These areas offer strong walking routes, cafes where it feels natural to sit alone, and enough evening life without needing to manufacture nightlife.",
+          "Hôtel Relais Christine works if you want a quieter courtyard behind Saint-Germain. Hôtel Recamier is smaller, closer to the Luxembourg Garden, and easier if you would rather walk out into a park than a shopping street. In the Marais, choose a hotel on a residential street north of Rue de Rivoli, not one whose entire identity is a view of a landmark.",
           "Avoid choosing a hotel only because it is near one monument. Solo comfort usually comes from the street outside the door: lighting, food options, transit, and whether you will enjoy coming back there at 9 p.m."
         ],
       },
@@ -419,7 +420,7 @@ export const guideArticles: GuideArticle[] = [
         heading: "Solo dining without awkwardness",
         body: [
           "Paris is good for solo meals if you choose the format carefully. Counters, wine bars, museum cafes, neighborhood bistros, and terrace tables are easier than high-pressure tasting menus.",
-          "Lunch is often the kindest meal for a solo traveler: better light, softer energy, and less pressure than a late dinner reservation."
+          "Lunch is often the kindest meal for a solo traveler: better light, softer energy, and less pressure than a late dinner reservation. Le Comptoir du Relais is a useful Saint-Germain lunch if you can sit at the bar. In the 5th, a wine bar on Rue Mouffetard or around Rue des Fossés Saint-Jacques will do more for an evening than a famous café whose entire personality is the terrace photograph.",
         ],
       },
       {
@@ -481,6 +482,13 @@ export const guideArticles: GuideArticle[] = [
         body: [
           "Testaccio is the strongest food-neighborhood anchor for a first-timer because it connects market life, working-city history, and Roman cooking in one walkable area. It is also a useful counterweight to the more polished centro storico.",
           "Plan lunch around one real Roman plate rather than a tasting crawl. Carbonara, cacio e pepe, gricia, amatriciana, oxtail, tripe, and seasonal vegetables all make more sense when you are seated, not sprinting."
+        ],
+        listTitle: "Tables worth knowing",
+        bullets: [
+          "Felice a Testaccio — still the most useful sit-down lunch in the neighbourhood. Order cacio e pepe if that is the point of the day; the room is busy and the service is brisk, which is part of why it works.",
+          "Armando al Pantheon — a first-timer carbonara in the centro, if Testaccio feels too far on day one. Book. It is not a secret, and that is not a reason to skip it.",
+          "Roscioli Salumeria — more salumi counter than restaurant theatre. Useful when you want lunch without a long table, and a reminder that Rome still sells food to Romans.",
+          "Pasticceria Boccione — the Jewish Ghetto bakery window. Go early, take what they have, and do not treat it as a photo stop.",
         ],
       },
       {
@@ -615,6 +623,18 @@ export const guideArticles: GuideArticle[] = [
         body: [
           "A beautiful train day starts the night before: hotel near the station if the departure is early, tickets downloaded, snacks packed, and a route screenshot saved.",
           "If the journey is more than five hours, treat it as the day's main event. Plan a gentle dinner near the arrival station or hotel instead of pretending you will still want a full sightseeing list."
+        ],
+      },
+      {
+        heading: "Routes worth taking",
+        body: [
+          "The useful test is whether the train is replacing a flight or a stressful drive, not whether it looks romantic on a map. These are the legs we actually recommend in Southern Europe.",
+        ],
+        bullets: [
+          "Lisbon to Porto — Alfa Pendular or Intercidades, about three hours. Direct, frequent, and a better first Portuguese rail day than anything involving a change in Coimbra unless Coimbra is the point.",
+          "Rome to Naples — Frecciarossa, about seventy minutes. Close enough that it should not eat the day. Sit on the right heading south if you want the coast.",
+          "Madrid to Seville — AVE, about two and a half hours. A clean Spain rail day; do not add Córdoba as a same-day add-on unless you are staying the night.",
+          "Skip night trains when the daytime equivalent is under four hours. The romance is rarely worth the arrival.",
         ],
       },
       {

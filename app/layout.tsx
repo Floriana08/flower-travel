@@ -5,26 +5,25 @@ import { SiteFooter, SiteHeader } from "./components";
 
 export const metadata: Metadata = {
   title: {
-    default: "Altrove | Travelling better, not more",
+    default: "Altrove | Personal Travel Planning & Curated Travel Guides",
     template: "%s | Altrove",
   },
   description:
-    "A boutique travel studio for travellers who would rather remember a place than rush through it.",
+    "Altrove is a private travel membership. Tell us about your trip and we'll design it around you. Founding Membership is currently complimentary and limited.",
   keywords: [
-    "boutique travel studio",
-    "curated itineraries",
+    "personal travel planning",
+    "curated travel",
     "Portugal travel",
-    "Amalfi Coast",
-    "personalised travel planning",
-    "slow travel",
+    "Italy travel",
+    "Spain travel",
+    "travel membership",
     "editorial travel",
-    "Europe journeys",
   ],
   metadataBase: new URL("https://altrove.studio"),
   openGraph: {
-    title: "Altrove | Boutique travel studio",
+    title: "Altrove | Personal Travel Planning & Curated Travel Guides",
     description:
-      "Altrove isn’t about travelling more. It’s about travelling better.",
+      "Altrove is a private travel membership. Tell us about your trip and we'll design it around you. Founding Membership is currently complimentary and limited.",
     type: "website",
     siteName: "Altrove",
     images: [

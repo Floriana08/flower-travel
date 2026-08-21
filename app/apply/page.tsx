@@ -10,6 +10,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PlanATripPage() {
+export default function ApplyPage() {
   return <FoundingApplicationPage />;
 }

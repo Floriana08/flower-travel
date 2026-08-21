@@ -33,7 +33,7 @@ export default async function DestinationDetailPage({ params }: PageProps) {
     return <DestinationHub country={country} />;
   }
 
-  if (slug === "lisbon" || slug === "madeira" || slug === "porto") {
+  if (slug === "madeira" || slug === "porto") {
     redirect("/destinations/portugal");
   }
 

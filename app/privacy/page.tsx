@@ -34,8 +34,8 @@ export default function PrivacyPage() {
             <div className="article-panel">
               <h2>Current status</h2>
               <p>
-                Early-stage editorial site, newsletter forms, guide waitlists,
-                and trip enquiries.
+                Early-stage editorial site, newsletter forms, and Founding
+                Membership applications.
               </p>
             </div>
           </aside>
@@ -44,9 +44,9 @@ export default function PrivacyPage() {
             <section>
               <h2>What may be collected</h2>
               <p>
-                When you join Letters from Altrove, join a guide waitlist, or
-                send a trip enquiry, the site may receive the details you choose
-                to send: email address, name, travel interests, and your
+                When you join Letters from Altrove or apply for Founding
+                Membership, the site may receive the details you choose to send:
+                email address, name, travel plans, preferences, and your
                 message.
               </p>
             </section>
@@ -54,9 +54,10 @@ export default function PrivacyPage() {
             <section>
               <h2>How it may be used</h2>
               <p>
-                Your details may be used to reply to you, send editorial
-                letters, share guide availability, understand what readers want,
-                and shape future Altrove services.
+                Your details may be used to review a Founding Membership
+                application, reply to you, send editorial letters you have asked
+                for, understand how travellers like to plan, and shape future
+                Altrove services.
               </p>
             </section>
 

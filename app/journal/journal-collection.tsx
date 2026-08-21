@@ -32,7 +32,7 @@ export function JournalDestinationPage({ slug }: { slug: StudioCountrySlug }) {
             Journal
           </Link>
         </p>
-        <PageIntro eyebrow="Journal · Destination" title={country.title}>
+        <PageIntro eyebrow="Journal" title={country.title}>
           <p>{country.short}</p>
         </PageIntro>
       </section>
@@ -90,12 +90,12 @@ export function JournalDestinationPage({ slug }: { slug: StudioCountrySlug }) {
 
       <section className="section-shell">
         <EnquiryCta
-          title="If these notes feel like your kind of travel, ask us to plan yours."
-          cta="Plan My Trip"
+          title={`Planning a trip to ${country.title}?`}
+          cta="Apply for Founding Membership"
         >
           <p>
-            Personalised itinerary design around {country.title} — and the pacing
-            you prefer.
+            Altrove members can have their trip personally designed around their
+            preferences, budget and travel style.
           </p>
         </EnquiryCta>
       </section>
@@ -117,7 +117,7 @@ export function JournalMoodPage({ slug }: { slug: JournalMoodSlug }) {
             Journal
           </Link>
         </p>
-        <PageIntro eyebrow="Journal · Mood" title={mood.title}>
+        <PageIntro eyebrow="Journal" title={mood.title}>
           <p>{mood.description}</p>
         </PageIntro>
       </section>
@@ -142,10 +142,13 @@ export function JournalMoodPage({ slug }: { slug: JournalMoodSlug }) {
 
       <section className="section-shell">
         <EnquiryCta
-          title="Looking for something more personal?"
-          cta="Plan My Trip"
+          title="Planning a trip?"
+          cta="Apply for Founding Membership"
         >
-          <p>We’ll design a journey around the way you like to travel.</p>
+          <p>
+            Altrove members can have their trip personally designed around their
+            preferences, budget and travel style.
+          </p>
         </EnquiryCta>
       </section>
     </main>

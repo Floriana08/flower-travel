@@ -5,7 +5,8 @@ import { EditorialStoryCard, EnquiryCta, PageIntro } from "../../../studio-compo
 import {
   getGuidesForTopic,
   getJournalTopic,
-  journalTopicGroups,
+  journalCategories,
+  type JournalTopicSlug,
 } from "../../../studio-structure";
 
 type PageProps = {
@@ -13,7 +14,7 @@ type PageProps = {
 };
 
 export function generateStaticParams() {
-  return journalTopicGroups.map((topic) => ({ slug: topic.slug }));
+  return journalCategories.map((topic) => ({ slug: topic.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -23,6 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${topic.title} | Journal`,
+    description: topic.description,
     alternates: {
       canonical: `https://altrove.studio/journal/topic/${topic.slug}`,
     },
@@ -34,7 +36,7 @@ export default async function JournalTopicPage({ params }: PageProps) {
   const topic = getJournalTopic(slug);
   if (!topic) notFound();
 
-  const articles = getGuidesForTopic(topic.slug as never);
+  const articles = getGuidesForTopic(topic.slug as JournalTopicSlug);
 
   return (
     <main className="journal-magazine">
@@ -44,7 +46,9 @@ export default async function JournalTopicPage({ params }: PageProps) {
             Journal
           </Link>
         </p>
-        <PageIntro eyebrow="Journal · Topic" title={topic.title} />
+        <PageIntro eyebrow="Journal" title={topic.title}>
+          <p>{topic.description}</p>
+        </PageIntro>
       </section>
 
       <section className="section-shell tinted">
@@ -66,8 +70,14 @@ export default async function JournalTopicPage({ params }: PageProps) {
       </section>
 
       <section className="section-shell">
-        <EnquiryCta title="Looking for something more personal?" cta="Plan My Trip">
-          <p>We’ll design a journey around the way you like to travel.</p>
+        <EnquiryCta
+          title="If these notes feel like your kind of travel."
+          cta="Apply for Founding Membership"
+        >
+          <p>
+            Altrove members can have their trip personally designed around their
+            preferences, budget and travel style.
+          </p>
         </EnquiryCta>
       </section>
     </main>

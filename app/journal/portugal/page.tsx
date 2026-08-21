@@ -4,7 +4,7 @@ import { JournalDestinationPage } from "../journal-collection";
 export const metadata: Metadata = {
   title: "Portugal Journal",
   description:
-    "Curated Altrove journal notes on Portugal — Lisbon stays, restaurants and slow rail days.",
+    "Journal notes on Portugal — where to stay in Lisbon, where to eat, and how to take the train north.",
   alternates: {
     canonical: "https://altrove.studio/journal/portugal",
   },

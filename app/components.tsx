@@ -45,7 +45,7 @@ function BrandMark({
 }
 
 function BrandWordmark({
-  showDescriptor = true,
+  showDescriptor = false,
   className = "",
 }: {
   showDescriptor?: boolean;
@@ -55,7 +55,7 @@ function BrandWordmark({
     <span className={`brand-wordmark ${className}`.trim()}>
       <span className="brand-name">Altrove</span>
       {showDescriptor ? (
-        <span className="brand-descriptor">Travel Studio</span>
+        <span className="brand-descriptor">Travel, considered</span>
       ) : null}
     </span>
   );
@@ -77,7 +77,6 @@ export function BrandLockup({
     >
       <BrandMark className="brand-lockup-mark" tone={tone} />
       <span className="brand-lockup-name">Altrove</span>
-      <span className="brand-lockup-descriptor">Travel Studio</span>
       {showTagline ? (
         <>
           <span className="brand-lockup-rule" aria-hidden="true" />
@@ -139,9 +138,8 @@ export function SiteFooter() {
           <BrandLockup tone="light" />
         </Link>
         <p>
-          An editorial travel studio — stories, guides and personalised
-          itineraries for travellers who would rather remember a place than rush
-          through it.
+          Altrove is a private travel membership. Tell us about your trip
+          and we&rsquo;ll design it around you.
         </p>
       </div>
 
@@ -156,9 +154,10 @@ export function SiteFooter() {
       </div>
 
       <div className="footer-col">
-        <h2>Studio</h2>
+        <h2>Altrove</h2>
         <Link href="/about">About</Link>
-        <Link href="/#letters">Letters</Link>
+        <Link href="/membership">Membership</Link>
+        <Link href="/trips/lisbon">Lisbon Edit</Link>
         <a href={`mailto:${site.email}`}>{site.email}</a>
       </div>
 

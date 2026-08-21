@@ -6,11 +6,13 @@ import { journalMoods, journalTopicGroups, studioCountries } from "./studio-stru
 const routes = [
   "",
   "/destinations",
+  "/destinations/lisbon",
   "/journal",
   "/guides",
-  "/plan-a-trip",
-  "/trips/lisbon",
+  "/apply",
   "/about",
+  "/membership",
+  "/trips/lisbon",
   "/privacy",
   "/terms",
   "/digital-product-terms",
@@ -41,22 +43,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...guideProductRoutes,
   ].map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date("2026-08-07"),
+    lastModified: new Date("2026-08-19"),
     changeFrequency:
       route === "" ||
       route.startsWith("/destinations") ||
-      route.startsWith("/journal") ||
-      route.startsWith("/guides")
+      route.startsWith("/journal")
         ? "weekly"
         : "monthly",
     priority:
       route === ""
         ? 1
-        : route === "/destinations" || route === "/plan-a-trip"
+        : route === "/destinations" || route === "/apply" || route === "/journal"
           ? 0.95
-          : route.startsWith("/destinations/") ||
-              route.startsWith("/journal/") ||
-              route.startsWith("/guides/")
+          : route.startsWith("/destinations/") || route.startsWith("/journal/")
             ? 0.75
             : 0.8,
   }));
