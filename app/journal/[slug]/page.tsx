@@ -260,8 +260,8 @@ export default async function JournalArticlePage({ params }: PageProps) {
             </FlorNote>
 
             {article.sections.map((section, index) => (
-              <section key={section.heading}>
-                <h2>{section.heading}</h2>
+              <section key={section.heading ?? `section-${index}`}>
+                {section.heading ? <h2>{section.heading}</h2> : null}
                 {section.body.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
