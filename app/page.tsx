@@ -62,7 +62,7 @@ export default function Home() {
         <div className="studio-hero-copy">
           <p className="studio-hero-brand">Altrove</p>
           <h1 className="studio-hero-display">
-            A travel studio for people who care where they go.
+            Travel with better taste.
           </h1>
           <p className="studio-hero-lede">
             Curated places, thoughtful journeys and personal travel advice
