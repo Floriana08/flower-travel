@@ -1,0 +1,375 @@
+/* Membership studio evolution */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header-signin {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--soft-ink);
+}
+
+.header-signin:hover {
+  color: var(--ink);
+}
+
+.header-action {
+  white-space: normal;
+  text-align: center;
+  line-height: 1.25;
+  max-width: 11rem;
+  font-size: 0.62rem;
+}
+
+.studio-hero-brand {
+  margin: 0 0 12px;
+  color: rgba(255, 252, 247, 0.7);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.home-founding-card {
+  margin-top: 28px;
+  max-width: 40rem;
+  padding: clamp(28px, 4vw, 40px) 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.home-founding-price {
+  margin: 0 0 18px;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  letter-spacing: -0.03em;
+}
+
+.home-founding-list {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.home-founding-list li {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  color: var(--soft-ink);
+}
+
+.home-founding-limit {
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.membership-coming-soon {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sign-in-form,
+.members-ask-form {
+  display: grid;
+  gap: 16px;
+  max-width: 32rem;
+  margin-top: 28px;
+}
+
+.sign-in-form label,
+.members-ask-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.sign-in-form input,
+.members-ask-form input,
+.members-ask-form textarea,
+.members-map-toolbar select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.sign-in-foot {
+  margin-top: 28px;
+  color: var(--muted);
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.members-shell {
+  background: var(--paper);
+  min-height: 70vh;
+}
+
+.members-topbar {
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--warm-paper) 80%, white);
+}
+
+.members-topbar-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+}
+
+.members-brand {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.members-brand span {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-left: 6px;
+}
+
+.members-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  flex: 1;
+}
+
+.members-nav a,
+.members-top-actions a {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--soft-ink);
+}
+
+.members-top-actions {
+  display: flex;
+  gap: 14px;
+}
+
+.members-content {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(32px, 5vw, 56px) 24px clamp(64px, 10vw, 100px);
+}
+
+.members-hero {
+  margin-bottom: clamp(28px, 4vw, 48px);
+  max-width: 40rem;
+}
+
+.members-hero .display-title {
+  margin: 0 0 12px;
+}
+
+.members-hero .lede {
+  margin: 0;
+  color: var(--soft-ink);
+  font-size: 1.1rem;
+  line-height: 1.55;
+}
+
+.members-section {
+  margin-bottom: clamp(36px, 6vw, 64px);
+}
+
+.members-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.members-section h2 {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.members-trip-list,
+.members-place-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.members-trip-card,
+.members-explore-card,
+.members-guide-card,
+.members-place-card {
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+.members-explore-grid,
+.members-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 36px);
+}
+
+.members-explore-card h3,
+.members-guide-card h2,
+.members-place-card h2,
+.members-place-card h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.members-guide-card img,
+.members-place-card img,
+.members-guide-hero img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-bottom: 14px;
+}
+
+.members-place-card {
+  display: grid;
+  grid-template-columns: minmax(0, 140px) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.members-place-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin-top: 10px;
+}
+
+.members-save {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+}
+
+.members-map-toolbar {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.members-map-toolbar label {
+  display: grid;
+  gap: 8px;
+  max-width: 280px;
+}
+
+.members-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.members-filter {
+  border: 1px solid var(--line);
+  background: transparent;
+  padding: 8px 12px;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: var(--soft-ink);
+}
+
+.members-filter.is-active {
+  border-color: var(--ink);
+  color: var(--ink);
+  background: var(--porcelain);
+}
+
+.members-map-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.members-map-canvas {
+  min-height: 320px;
+  border: 1px solid var(--line);
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--warm-paper) 80%, white),
+    var(--paper)
+  );
+  display: grid;
+  place-content: center;
+  text-align: center;
+  color: var(--muted);
+  padding: 24px;
+}
+
+.members-trip-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 22px;
+  max-width: 36rem;
+}
+
+.members-trip-items li {
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.members-empty {
+  padding: 24px 0;
+  color: var(--muted);
+}
+
+.members-prose {
+  max-width: 38rem;
+  color: var(--soft-ink);
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .form-grid-2,
+  .members-explore-grid,
+  .members-guide-grid,
+  .members-map-layout,
+  .members-place-card {
+    grid-template-columns: 1fr;
+  }
+
+  .members-nav {
+    width: 100%;
+    order: 3;
+  }
+
+  .header-actions .header-signin {
+    display: none;
+  }
+}

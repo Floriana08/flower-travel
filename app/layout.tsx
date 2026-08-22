@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import "./fonts.css";
 import "./globals.css";
+import "./members-studio.css";
 import { SiteFooter, SiteHeader } from "./components";
+import { studioPositioning } from "./membership-config";
 
 export const metadata: Metadata = {
   title: {
-    default: "Altrove | Lifestyle travel concierge",
+    default: "Altrove | Travel studio",
     template: "%s | Altrove",
   },
-  description:
-    "A private lifestyle travel concierge. Tell us where you're going — Altrove filters the noise and shapes the trip around you. Founding Membership is currently complimentary and limited.",
+  description: studioPositioning.short,
   keywords: [
-    "lifestyle travel concierge",
+    "travel studio",
     "travel membership",
     "Founding Membership",
     "Portugal travel",
@@ -22,9 +23,8 @@ export const metadata: Metadata = {
   ],
   metadataBase: new URL("https://altrove.studio"),
   openGraph: {
-    title: "Altrove | Lifestyle travel concierge",
-    description:
-      "Tell us how you want to travel. We find what is worth your time. Founding Membership is currently complimentary and limited.",
+    title: "Altrove | A travel studio for people who care where they go",
+    description: studioPositioning.short,
     type: "website",
     siteName: "Altrove",
     images: [

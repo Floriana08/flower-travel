@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { defaultImageSizes, unsplashSrcSet } from "../image-utils";
+import { studioPositioning } from "../membership-config";
 
 const aboutHeroImage =
   "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1800&q=84";
@@ -8,7 +9,7 @@ const aboutHeroImage =
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Too much information. Not enough judgement. Altrove is a private lifestyle travel membership that filters — so you spend less time searching and more time travelling well.",
+    "Altrove is a travel studio for people who care where they go — curated places, thoughtful journeys and personal travel advice.",
   alternates: {
     canonical: "https://altrove.studio/about",
   },
@@ -43,13 +44,12 @@ export default function AboutPage() {
       <header className="about-hero section-shell">
         <div className="about-hero-copy">
           <p className="eyebrow">About Altrove</p>
-          <h1 className="display-title">
-            Too much information. Not enough judgement.
-          </h1>
+          <h1 className="display-title">{studioPositioning.headline}</h1>
           <p className="about-hero-lede">
-            Travel planning has become endless searching. Altrove exists to
-            filter.
+            Curated places, thoughtful journeys and personal travel advice —
+            without the noise of endless lists.
           </p>
+          <p className="membership-hero-note">{studioPositioning.notAgency}</p>
         </div>
         <figure className="about-hero-media">
           <img
@@ -77,15 +77,15 @@ export default function AboutPage() {
       </section>
 
       <section className="section-shell membership-now" id="membership">
-        <p className="eyebrow">Founding Membership</p>
-        <h2 className="display-title">A private lifestyle travel membership</h2>
+        <p className="eyebrow">Membership</p>
+        <h2 className="display-title">A private travel studio membership</h2>
         <p>
-          Altrove is building a private lifestyle travel membership combining
-          personal travel curation, destination knowledge and eventually member
-          experiences and privileges.
+          Altrove Membership combines curated destination knowledge, private
+          recommendations and personal travel advice — with preferential
+          itinerary planning when you want a trip shaped for you.
         </p>
-        <Link className="button dark" href="/apply">
-          Become a Founding Member
+        <Link className="button dark" href="/membership">
+          Join the Membership
         </Link>
       </section>
     </main>

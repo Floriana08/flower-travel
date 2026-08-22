@@ -3,20 +3,26 @@ export const site = {
   fullName: "Altrove",
   strapline: "travel, considered",
   studioLine:
-    "A private lifestyle travel concierge for people who care about where they stay, eat and spend their time.",
+    "A travel studio for people who care where they go — curated places, thoughtful journeys and personal travel advice.",
   email: "hello@altrove.studio",
 };
 
 export const navItems = [
-  { href: "/membership", label: "Membership" },
   { href: "/destinations", label: "Destinations" },
   { href: "/journal", label: "Journal" },
+  { href: "/membership", label: "Membership" },
+  { href: "/plan-a-trip", label: "Plan a Trip" },
   { href: "/about", label: "About" },
 ];
 
 export const navCta = {
-  href: "/apply",
-  label: "Become a Founding Member",
+  href: "/membership",
+  label: "Join the Membership",
+};
+
+export const navSignIn = {
+  href: "/sign-in",
+  label: "Sign In",
 };
 
 export const legalLinks = [
