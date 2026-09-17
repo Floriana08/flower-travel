@@ -1,20 +1,22 @@
 :root {
-  --paper: #f3eee4;
-  --warm-paper: #e7dccb;
-  --porcelain: #fffdf8;
-  --ink: #16120e;
-  --soft-ink: #3a342c;
-  --muted: #6a6156;
-  --line: #d2c4ae;
-  --charcoal: #16120e;
-  --olive: #2c2a24;
-  --blue: #16120e;
-  --clay: #16120e;
-  --gold: #c9a227;
-  --gold-deep: #8a6a12;
-  --field: #1c2a22;
+  --paper: #f2f3e8;
+  --warm-paper: #dfe8d4;
+  --porcelain: #fffdf6;
+  --ink: #142018;
+  --soft-ink: #334038;
+  --muted: #5d6a60;
+  --line: #c5d0b8;
+  --charcoal: #142018;
+  --olive: #1e3d2a;
+  --blue: #142018;
+  --clay: #142018;
+  --sun: #f5cc00;
+  --leaf: #1f6a3a;
+  --gold: var(--sun);
+  --gold-deep: var(--leaf);
+  --field: #123325;
   --rose: #c8c2b8;
-  --sea-glass: #e7dccb;
+  --sea-glass: #dfe8d4;
   --shadow: 0 16px 40px rgba(22, 18, 14, 0.1);
   --header-height: 76px;
   --max: 1240px;
@@ -62,8 +64,8 @@ body {
 }
 
 body::selection {
-  color: var(--paper);
-  background: var(--ink);
+  color: var(--ink);
+  background: var(--sun);
 }
 
 img {
@@ -144,7 +146,7 @@ p {
   z-index: 50;
   width: 100%;
   border-bottom: 1px solid var(--line);
-  background: rgba(243, 238, 228, 0.96);
+  background: rgba(242, 243, 232, 0.96);
   backdrop-filter: blur(14px);
 }
 
@@ -370,7 +372,7 @@ p {
 }
 
 .button.dark:focus-visible {
-  outline: 2px solid var(--charcoal);
+  outline: 2px solid var(--leaf);
   outline-offset: 3px;
   opacity: 1;
 }
@@ -386,16 +388,16 @@ p {
 
 .header-action:hover,
 .header-action:focus-visible {
-  background: var(--ink);
-  color: var(--gold);
-  border-color: var(--ink);
+  background: var(--leaf);
+  color: var(--sun);
+  border-color: var(--leaf);
 }
 
 .button.dark:hover,
 .button.dark:focus-visible {
-  background: var(--ink);
-  color: var(--gold);
-  border-color: var(--ink);
+  background: var(--leaf);
+  color: var(--sun);
+  border-color: var(--leaf);
   opacity: 1;
 }
 
@@ -1692,8 +1694,8 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: var(--gold-deep);
-  box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.22);
+  border-color: var(--leaf);
+  box-shadow: 0 0 0 3px rgba(31, 106, 58, 0.22);
 }
 
 .page-hero {
@@ -8098,8 +8100,9 @@ h1.studio-hero-lede {
 
 .studio-hero .button.light:hover,
 .studio-hero .button.light:focus-visible {
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--leaf);
+  color: var(--sun);
+  border-color: var(--leaf);
   opacity: 1;
 }
 
