@@ -8072,11 +8072,12 @@ h1.studio-hero-lede {
 
 .studio-hero-kicker {
   margin: 0;
-  color: var(--gold);
+  color: var(--sun);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
+  text-shadow: 0 1px 10px rgba(18, 51, 37, 0.55);
 }
 
 .studio-hero-brand {
