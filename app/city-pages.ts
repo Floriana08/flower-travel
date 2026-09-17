@@ -36,8 +36,8 @@ export const cityPages: CityHub[] = [
       "Lisbon city page: what not to miss, where to eat and stay, a note for yogis, and a weekend itinerary — written as a travel blog, not a checklist.",
     dispatch: "Lisbon · start with what not to miss",
     heroImage:
-      "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=2000&q=84",
-    heroAlt: "Lisbon rooftops and tiled buildings in warm evening light",
+      "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=2000&q=84",
+    heroAlt: "Lisbon’s yellow Tram 28 on a narrow tiled street",
     lede:
       "Lisbon rewards a good base more than an ambitious list. One neighbourhood, meals that set the pace, and hills you treat as part of the day — not a problem to taxi around.",
     intro: [
@@ -73,8 +73,8 @@ export const cityPages: CityHub[] = [
       excerpt:
         "One neighbourhood, a short list of tables, and a pace that leaves room to walk. Use it as a starting point — not a booking.",
       image:
-        "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1600&q=84",
-      alt: "Lisbon rooftops and tiled buildings in warm evening light",
+        "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=1600&q=84",
+      alt: "Lisbon’s yellow Tram 28 on a narrow tiled street",
     },
   },
   {

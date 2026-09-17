@@ -81,8 +81,8 @@ export const destinations = [
     season: "March to June, September to November",
     bestFor: "First-time Europe, food, tiled streets, soft city weekends",
     image:
-      "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1600&q=84",
-    alt: "Lisbon rooftops and tiled buildings in warm evening light",
+      "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=1600&q=84",
+    alt: "Lisbon’s yellow Tram 28 on a narrow tiled street",
     excerpt:
       "Viewpoints, azulejo streets, seafood lunches, boutique hotels, and slow tram-side wandering.",
     highlights: ["Alfama mornings", "Design-led stays", "Sintra day notes"],
@@ -1878,8 +1878,8 @@ export const guides = [
     date: "September 17, 2026",
     readTime: "9 min read",
     image:
-      "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1600&q=80",
-    alt: "Lisbon tram on a steep tiled street",
+      "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=1600&q=80",
+    alt: "Lisbon’s yellow Tram 28 on a narrow tiled street",
     excerpt:
       "A first-timer edit: one neighbourhood, one viewpoint, Belém once, a tasca lunch, and the refusals that keep the city from turning into a circuit.",
   },

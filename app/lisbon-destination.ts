@@ -8,8 +8,8 @@ export const lisbonDestination = {
   title: "Lisbon",
   kicker: "Portugal",
   heroImage:
-    "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=2000&q=84",
-  heroAlt: "Lisbon rooftops and tiled buildings in warm evening light",
+    "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=2000&q=84",
+  heroAlt: "Lisbon’s yellow Tram 28 on a narrow tiled street",
   intro:
     "Lisbon rewards a good base more than an ambitious checklist. We would give you one neighbourhood, let meals set the pace, and leave room to walk without finishing the city.",
   take: [

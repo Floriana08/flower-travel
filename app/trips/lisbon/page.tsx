@@ -16,7 +16,7 @@ export const metadata: Metadata = {
       "A public Lisbon itinerary — filtered moments, not an exhaustive checklist.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1600&q=80",
+        url: "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=1600&q=80",
         alt: "Lisbon rooftops under soft afternoon light",
       },
     ],
@@ -36,7 +36,7 @@ export default function LisbonTripPage() {
         </p>
         <div className="trip-hero-media">
           <img
-            src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1600&q=80"
+            src="https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=1600&q=80"
             alt="Lisbon rooftops and tiled facades in soft light"
             width={1600}
             height={1067}

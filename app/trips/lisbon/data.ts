@@ -72,8 +72,8 @@ export const journeyStops: JourneyStop[] = [
     why: "Alfama rewards a morning when the lanes are still local.",
     note: "Start high and drift downhill toward Mouraria for lunch.",
     image:
-      "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=900&q=80",
-    imageAlt: "Lisbon hillside neighbourhood in soft light",
+      "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=900&q=80",
+    imageAlt: "Lisbon’s yellow tram on a hillside street",
   },
   {
     id: "velho-eurico",

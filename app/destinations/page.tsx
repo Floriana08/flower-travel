@@ -22,7 +22,7 @@ export default function DestinationsPage() {
       <header className="city-index-hero">
         <p className="blog-meta">Destinations</p>
         <h1>
-          Places we write about — not the whole <em>world</em>
+          Lisbon. Napoli. Then the <em>countries</em>
         </h1>
         <p>
           Lisbon and Napoli are the city pages. Portugal, Italy and Spain are

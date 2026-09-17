@@ -266,8 +266,8 @@ export const studioCountries: StudioCountry[] = [
     title: "Portugal",
     short: "Rail days, tiled cities, and Atlantic pauses between them.",
     image:
-      "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=2000&q=84",
-    alt: "Lisbon tram climbing a steep tiled street",
+      "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=2000&q=84",
+    alt: "Lisbon’s yellow Tram 28 on a narrow tiled street",
     hubLede:
       "Portugal is where we feel most at home — Lisbon mornings, train light north, and time left over for the Atlantic. Fewer hotels. More attention.",
     featuredJourneySlug: "portugal-by-train",
@@ -393,8 +393,8 @@ export const studioCountries: StudioCountry[] = [
         name: "A Lisbon hill base",
         note: "Graça, Estrela or a calm corner of Príncipe Real.",
         image:
-          "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1800&q=84",
-        alt: "Lisbon tram climbing a steep tiled street",
+          "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=1800&q=84",
+        alt: "Lisbon’s yellow Tram 28 on a narrow tiled street",
       },
       {
         kind: "Restaurants",
