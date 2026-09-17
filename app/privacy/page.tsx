@@ -71,9 +71,11 @@ export default function PrivacyPage() {
               <h2>Future tools</h2>
               <p>
                 If Altrove later uses an email provider, analytics,
-                affiliate links, payment tools, downloadable guide checkout, or
-                reader accounts, this page should be updated to explain those
-                providers and purposes clearly.
+                affiliate links, advertising, payment tools, downloadable guide
+                checkout, or reader accounts, this page should be updated to
+                explain those providers and purposes clearly. Advertisement
+                slots on the site are reserved space only until a partner and
+                tracking tools are actually in use.
               </p>
             </section>
           </div>

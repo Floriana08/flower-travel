@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AdSlot } from "../ad-slot";
 import { NewsletterForm } from "../newsletter-form";
 import {
   EditorialStoryCard,
@@ -113,6 +114,8 @@ export default function JournalPage() {
           </div>
         </section>
       ) : null}
+
+      <AdSlot id="journal-index" format="banner" />
 
       <section className="section-shell" aria-label="Notes by destination">
         <div className="home-section-head">

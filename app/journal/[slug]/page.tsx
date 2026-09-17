@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { guideArticles, getGuideArticle } from "../../articles";
+import { AdSlot } from "../../ad-slot";
 import { NewsletterForm } from "../../newsletter-form";
 import {
   ArticleMeta,
@@ -212,7 +213,8 @@ export default async function JournalArticlePage({ params }: PageProps) {
         </header>
 
         <div className="article-layout">
-          <aside className="article-sidebar" aria-label="Article summary">
+          <aside className="article-sidebar" aria-label="Advertisement and article summary">
+            <AdSlot id={`journal-${guide.slug}-rail`} format="rectangle" />
             <div className="article-panel">
               <h2>Useful for</h2>
               <ul>
@@ -310,6 +312,9 @@ export default async function JournalArticlePage({ params }: PageProps) {
                     destination={guide.destination}
                     title={guide.title}
                   />
+                ) : null}
+                {index === 0 ? (
+                  <AdSlot id={`journal-${guide.slug}-inline`} format="inline" />
                 ) : null}
               </section>
             ))}

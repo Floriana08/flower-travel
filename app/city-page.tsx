@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AdSlot } from "./ad-slot";
 import { guides } from "./data";
 import { NewsletterForm } from "./newsletter-form";
 import { StudioNewsletter } from "./studio-components";
@@ -49,6 +50,8 @@ export function CityHubPage({ city }: { city: CityHub }) {
         ))}
       </section>
 
+      <AdSlot id={`${city.slug}-intro`} format="banner" />
+
       {featured ? (
         <article className="blog-feature">
           <Link
@@ -78,36 +81,43 @@ export function CityHubPage({ city }: { city: CityHub }) {
         </article>
       ) : null}
 
-      {morePosts.length ? (
-        <section className="blog-latest" aria-labelledby="city-posts">
+      <section className="city-with-ad" aria-labelledby="city-posts">
+        <div>
           <div className="blog-section-head">
             <h2 id="city-posts">More from {city.title}</h2>
             <Link className="text-link" href="/journal">
               All posts
             </Link>
           </div>
-          <div className="blog-post-grid">
-            {morePosts.map((post) => (
-              <article key={post.slug} className="blog-post-card">
-                <Link href={`/journal/${post.slug}`}>
-                  <img
-                    src={post.image}
-                    srcSet={unsplashSrcSet(post.image)}
-                    sizes={defaultImageSizes}
-                    alt={post.alt}
-                    loading="lazy"
-                  />
-                  <p className="blog-meta">
-                    {post.category} · {post.date}
-                  </p>
-                  <h3>{post.title}</h3>
-                  <p>{post.excerpt}</p>
-                </Link>
-              </article>
-            ))}
-          </div>
-        </section>
-      ) : null}
+          {morePosts.length ? (
+            <div className="blog-post-grid">
+              {morePosts.map((post) => (
+                <article key={post.slug} className="blog-post-card">
+                  <Link href={`/journal/${post.slug}`}>
+                    <img
+                      src={post.image}
+                      srcSet={unsplashSrcSet(post.image)}
+                      sizes={defaultImageSizes}
+                      alt={post.alt}
+                      loading="lazy"
+                    />
+                    <p className="blog-meta">
+                      {post.category} · {post.date}
+                    </p>
+                    <h3>{post.title}</h3>
+                    <p>{post.excerpt}</p>
+                  </Link>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <p className="blog-section-dek">
+              More posts for {city.title} will land here.
+            </p>
+          )}
+        </div>
+        <AdSlot id={`${city.slug}-rail`} format="rectangle" />
+      </section>
 
       <section className="city-short" aria-labelledby="city-take">
         <div>

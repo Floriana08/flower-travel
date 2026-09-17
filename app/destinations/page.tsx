@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AdSlot } from "../ad-slot";
 import { cityPages } from "../city-pages";
 import { CountryTile } from "../studio-components";
 import { studioCountries } from "../studio-structure";
@@ -55,6 +56,8 @@ export default function DestinationsPage() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="destinations-index" format="banner" />
 
       <section className="section-shell" aria-label="Countries">
         <div className="blog-section-head">

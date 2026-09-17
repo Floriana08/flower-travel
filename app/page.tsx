@@ -3,6 +3,7 @@ import Link from "next/link";
 import { guides, site } from "./data";
 import { NewsletterForm } from "./newsletter-form";
 import { studioPositioning } from "./membership-config";
+import { AdSlot } from "./ad-slot";
 import { cityPages } from "./city-pages";
 import { studioCountries } from "./studio-structure";
 import { StudioNewsletter } from "./studio-components";
@@ -104,6 +105,8 @@ export default function Home() {
         </article>
       ) : null}
 
+      <AdSlot id="home-after-feature" format="banner" />
+
       <section className="blog-latest" id="journal">
         <div className="blog-section-head">
           <h2>Latest posts</h2>
@@ -181,6 +184,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <AdSlot id="home-mid" format="banner" />
 
       <section className="blog-trip" id="itineraries">
         <Link className="blog-trip-card" href="/trips/lisbon">
