@@ -71,15 +71,15 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
               })}
             </div>
             <p className="country-mag-quiet-note">
-              Members can still request trips beyond these places.
+              The Journal and itineraries stay with these places — we write
+              where we have a clear point of view.
             </p>
           </>
         ) : (
           <p className="country-mag-quiet-note">
             We do not yet publish a finished city edit for {country.title}. The
-            notes below show how we think about travelling here. Members can
-            still request a trip anywhere in the country — we research those
-            by hand.
+            notes below show how we think about travelling here. More city
+            pages follow as the research is ready.
           </p>
         )}
       </section>
