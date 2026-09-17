@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { site } from "./data";
+import { guides, site } from "./data";
 import { HeroOceanVideo } from "./hero-ocean-video";
-import { membershipConfig, studioPositioning } from "./membership-config";
-import { CountryTile } from "./studio-components";
+import { TripEditGlimpse } from "./sample-trip";
+import { lisbonSampleTrip } from "./sample-trips";
+import { CountryTile, StudioNewsletter } from "./studio-components";
+import { NewsletterForm } from "./newsletter-form";
+import { studioPositioning } from "./membership-config";
 import { studioCountries } from "./studio-structure";
+import { unsplashSrcSet } from "./image-utils";
 
 export const metadata: Metadata = {
   description: studioPositioning.short,
@@ -12,7 +16,7 @@ export const metadata: Metadata = {
     canonical: "https://altrove.studio/",
   },
   openGraph: {
-    title: "Altrove | A travel studio for people who care where they go",
+    title: "Altrove | Travel Journal for Slower, Sustainable Trips",
     description: studioPositioning.short,
     type: "website",
     images: [
@@ -36,22 +40,59 @@ const structuredData = {
       description: site.studioLine,
       email: site.email,
     },
+    {
+      "@type": "Blog",
+      name: "Altrove Journal",
+      url: "https://altrove.studio/journal",
+      description: site.studioLine,
+    },
   ],
 };
 
-const foundingBenefits = [
-  "Access to all Altrove destination guides",
-  "Private maps and recommendations",
-  "Member-only hotel, restaurant and neighbourhood notes",
-  "Personal travel advice",
-  "Preferential pricing on bespoke itinerary planning",
-  "Early access to Altrove journeys and events",
-  "Founding Member status",
+const sustainNotes = [
+  {
+    title: "Fewer bases",
+    body: "One neighbourhood, then another region only when the first has had enough time. Hotel moves cost more than money.",
+  },
+  {
+    title: "Trains when they earn the day",
+    body: "A Lisbon–Porto rail day or Rome–Naples Frecciarossa is usually better than a short flight that eats the morning.",
+  },
+  {
+    title: "Eat where people already eat",
+    body: "A neighbourhood lunch does more for a place than a restaurant built for photographs.",
+  },
+  {
+    title: "Skip what doesn’t earn the morning",
+    body: "Not every attraction is worth the queue, the taxi, or the carbon. Taste is also a form of restraint.",
+  },
 ];
+
+const journalFeatured = [
+  {
+    slug: "where-to-eat-lisbon",
+    title: "Where to Eat in Lisbon",
+  },
+  {
+    slug: "where-to-stay-lisbon",
+    title: "Where to Stay in Lisbon",
+  },
+  {
+    slug: "sustainable-travel-basics",
+    title: "How to Travel More Sustainably",
+  },
+]
+  .map((item) => {
+    const story = guides.find((guide) => guide.slug === item.slug);
+    return story ? { ...story, displayTitle: item.title } : null;
+  })
+  .filter((story): story is (typeof guides)[number] & { displayTitle: string } =>
+    Boolean(story),
+  );
 
 export default function Home() {
   return (
-    <main className="home-edit home-studio">
+    <main className="home-edit">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -61,44 +102,41 @@ export default function Home() {
         <HeroOceanVideo />
         <div className="studio-hero-copy">
           <p className="studio-hero-brand">Altrove</p>
-          <h1 className="studio-hero-display">
-            Travel with better taste.
-          </h1>
+          <h1 className="studio-hero-display">Travel, considered.</h1>
           <p className="studio-hero-lede">
-            Curated places, thoughtful journeys and personal travel advice
-            across Europe.
+            A travel journal for people who care where they stay, eat and spend
+            their time — and how lightly they move through a place.
           </p>
           <div className="hero-actions">
-            <Link className="button light" href="#discover">
-              Explore Altrove
+            <Link className="button light" href="/journal">
+              Read the Journal
             </Link>
-            <Link className="button ghost-on-dark" href="/membership">
-              Join the Membership
+            <Link className="button ghost-on-dark" href="/community#letters">
+              Join the letters
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="section-shell home-problem" id="discover">
-        <p className="eyebrow">The Altrove way</p>
-        <h2 className="display-title">Travel less randomly.</h2>
-        <p>
-          Altrove is built around the belief that a great trip isn&rsquo;t about
-          fitting everything in. It&rsquo;s about choosing the right
-          neighbourhood, finding the restaurant worth crossing town for,
-          staying somewhere with character, and leaving enough room for the
-          unexpected.
-        </p>
+      <section className="section-shell home-product" id="itineraries">
+        <div className="home-section-head">
+          <p className="eyebrow">Itineraries</p>
+          <h2 className="display-title">How we would spend the days.</h2>
+        </div>
+        <TripEditGlimpse
+          trip={lisbonSampleTrip}
+          ctaLabel="Read the Lisbon itinerary"
+        />
         <p className="home-section-link">
-          <Link className="text-link" href="/about">
-            Our approach
+          <Link className="text-link" href="/itineraries">
+            All itineraries
           </Link>
         </p>
       </section>
 
       <section className="section-shell home-destinations" id="destinations">
         <div className="home-section-head">
-          <p className="eyebrow">Featured destinations</p>
+          <p className="eyebrow">Destinations</p>
           <h2 className="display-title">Portugal. Italy. Spain.</h2>
         </div>
         <div className="destinations-index-grid home-destinations-grid home-destination-doors">
@@ -108,46 +146,72 @@ export default function Home() {
         </div>
         <p className="home-section-link">
           <Link className="text-link" href="/destinations">
-            Explore destinations
+            Explore Destinations
           </Link>
         </p>
       </section>
 
-      <section
-        className="section-shell home-founding"
-        id="founding-membership"
-      >
-        <p className="eyebrow">Membership</p>
-        <h2 className="display-title">Join Altrove</h2>
-        <p>
-          Membership gives travellers access to Altrove&rsquo;s private
-          collection of recommendations, destination guides, maps and personal
-          travel advice.
+      <section className="section-shell home-journal-feature" id="journal">
+        <div className="home-section-head">
+          <p className="eyebrow">Journal</p>
+          <h2 className="display-title">Notes from the road.</h2>
+        </div>
+        <div className="home-journal-row">
+          {journalFeatured.map((story) => (
+            <article key={story.slug} className="home-journal-row-card">
+              <Link href={`/journal/${story.slug}`}>
+                <img
+                  src={story.image}
+                  srcSet={unsplashSrcSet(story.image)}
+                  sizes="(max-width: 900px) 100vw, 32vw"
+                  alt={story.alt}
+                  loading="lazy"
+                />
+                <p className="eyebrow">{story.destination}</p>
+                <h3>{story.displayTitle}</h3>
+              </Link>
+            </article>
+          ))}
+        </div>
+        <p className="home-section-link">
+          <Link className="text-link" href="/journal">
+            Read the Journal
+          </Link>
         </p>
-
-        <article className="home-founding-card">
-          <p className="eyebrow">Founding Membership</p>
-          <p className="home-founding-price">
-            {membershipConfig.founding.priceLabel}
-          </p>
-          <ul className="home-founding-list">
-            {foundingBenefits.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <p className="home-founding-limit">
-            {membershipConfig.founding.limitNote}
-          </p>
-          <div className="hero-actions">
-            <Link className="button dark" href="/membership#join">
-              Become a Founding Member
-            </Link>
-            <Link className="button ghost" href="/membership">
-              Discover Membership
-            </Link>
-          </div>
-        </article>
       </section>
+
+      <section className="section-shell tinted home-benefits" id="sustainable">
+        <div className="home-section-head">
+          <p className="eyebrow">How we travel</p>
+          <h2 className="display-title">Sustainable, without the sermon.</h2>
+          <p className="home-section-dek">
+            The useful levers are usually the shape of the trip: fewer flights,
+            longer stays, trains where they make sense, meals that belong to
+            the neighbourhood.
+          </p>
+        </div>
+        <ul className="home-benefits-grid">
+          {sustainNotes.map((item) => (
+            <li key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </li>
+          ))}
+        </ul>
+        <p className="home-section-link">
+          <Link className="text-link" href="/journal/sustainable-travel-basics">
+            How to travel more sustainably
+          </Link>
+        </p>
+      </section>
+
+      <StudioNewsletter
+        id="letters"
+        title="Letters from Altrove"
+        description="New itineraries, hotel notes, and practical advice on travelling more lightly — sent when there is something worth writing."
+      >
+        <NewsletterForm buttonLabel="Join the letters" />
+      </StudioNewsletter>
     </main>
   );
 }

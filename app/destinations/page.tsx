@@ -19,8 +19,8 @@ export default function DestinationsPage() {
         <h1 className="display-title">Places we know well.</h1>
         <p className="destinations-index-lede">
           Altrove starts with destinations where we have strong knowledge,
-          trusted recommendations and a clear point of view. Members can still
-          request trips beyond these places.
+          trusted recommendations and a clear point of view. The Journal and
+          itineraries are how we share that publicly.
         </p>
       </header>
 

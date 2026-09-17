@@ -4,18 +4,13 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/itineraries",
-        destination: "/destinations",
-        permanent: true,
-      },
-      {
         source: "/routes",
-        destination: "/destinations",
+        destination: "/itineraries",
         permanent: true,
       },
       {
         source: "/journeys",
-        destination: "/destinations",
+        destination: "/itineraries",
         permanent: true,
       },
       {
@@ -35,22 +30,27 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/travel-consultations",
-        destination: "/apply",
+        destination: "/community",
         permanent: true,
       },
       {
         source: "/contact",
-        destination: "/apply",
-        permanent: true,
-      },
-      {
-        source: "/community",
-        destination: "/membership",
+        destination: "/community",
         permanent: true,
       },
       {
         source: "/club",
-        destination: "/membership",
+        destination: "/community",
+        permanent: true,
+      },
+      {
+        source: "/apply",
+        destination: "/community",
+        permanent: true,
+      },
+      {
+        source: "/plan-a-trip",
+        destination: "/community",
         permanent: true,
       },
       {

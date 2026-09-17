@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { NewsletterForm } from "../newsletter-form";
 import { defaultImageSizes, unsplashSrcSet } from "../image-utils";
-import { studioPositioning } from "../membership-config";
+import { StudioNewsletter } from "../studio-components";
 
 const aboutHeroImage =
   "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1800&q=84";
@@ -9,32 +10,40 @@ const aboutHeroImage =
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Altrove is a travel studio for people who care where they go — curated places, thoughtful journeys and personal travel advice.",
+    "Altrove is a travel journal for slower, more sustainable trips. We write itineraries and recommendations, and we teach how to travel with a lighter footprint.",
   alternates: {
     canonical: "https://altrove.studio/about",
   },
 };
 
+const weWrite = [
+  "Itineraries you can actually follow",
+  "Where to stay, and where not to",
+  "Where to eat, without a checklist",
+  "What is worth doing — and what to skip",
+  "How to travel more sustainably",
+];
+
 const principles = [
   {
-    title: "Fewer, better recommendations.",
-    body: "A short list with a point of view beats another page of everything.",
+    title: "Fewer, better recommendations",
+    body: "A small number of strong recommendations over huge lists. If a hotel is merely convenient, or a restaurant is famous for being famous, it will not make the edit.",
   },
   {
-    title: "A trip needs rhythm, not a checklist.",
-    body: "Meals, walking, rest and the odd unplanned hour belong in the design.",
+    title: "Travel should have rhythm",
+    body: "A trip should not feel like a checklist. Meals, walking, rest and the odd unplanned hour belong in the design.",
   },
   {
-    title: "Where you stay and eat matters.",
-    body: "Neighbourhoods, rooms and tables are not decoration. They are the days you remember.",
+    title: "Taste matters",
+    body: "Where you stay, eat and spend time shapes the trip. Neighbourhoods, rooms and tables are not decoration.",
   },
   {
-    title: "Personal beats generic.",
-    body: "The same trip does not work for everyone. A good edit starts with how you actually like to travel.",
+    title: "Lighter on the place",
+    body: "Fewer hotel moves, trains when they earn the day, meals that belong to the neighbourhood. Sustainable travel is mostly the shape of the trip.",
   },
   {
-    title: "Leave room for the unexpected.",
-    body: "The best afternoons are often the ones nobody scheduled.",
+    title: "Research with judgement",
+    body: "Altrove combines personal knowledge, careful research and trusted sources. Not every recommendation is a first-hand visit. The value is the filter.",
   },
 ];
 
@@ -44,12 +53,12 @@ export default function AboutPage() {
       <header className="about-hero section-shell">
         <div className="about-hero-copy">
           <p className="eyebrow">About Altrove</p>
-          <h1 className="display-title">{studioPositioning.headline}</h1>
+          <h1 className="display-title">A journal for travelling well.</h1>
           <p className="about-hero-lede">
-            Curated places, thoughtful journeys and personal travel advice —
-            without the noise of endless lists.
+            Altrove writes itineraries, recommendations and practical notes for
+            people who want slower, more sustainable trips — and who are tired
+            of lists that all look the same.
           </p>
-          <p className="membership-hero-note">{studioPositioning.notAgency}</p>
         </div>
         <figure className="about-hero-media">
           <img
@@ -61,10 +70,30 @@ export default function AboutPage() {
         </figure>
       </header>
 
-      <section className="about-chapter section-shell" id="principles">
+      <section className="about-chapter section-shell" id="why">
+        <div className="about-chapter-label">
+          <p className="eyebrow">Why Altrove</p>
+          <h2>Judgement, not more information.</h2>
+        </div>
+        <div className="about-prose">
+          <p>
+            The problem is not a lack of information. It is too much of it,
+            without judgement. Rankings, reviews and saved lists multiply until
+            every option looks plausible and none of them feel chosen.
+          </p>
+          <p>We write so you can decide:</p>
+          <ul className="about-decide-list">
+            {weWrite.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="about-chapter section-shell tinted" id="principles">
         <div className="about-chapter-label">
           <p className="eyebrow">Principles</p>
-          <h2>How we think about travel.</h2>
+          <h2>How we approach travel.</h2>
         </div>
         <div className="about-principles">
           {principles.map((principle) => (
@@ -76,17 +105,28 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section-shell membership-now" id="membership">
-        <p className="eyebrow">Membership</p>
-        <h2 className="display-title">A private travel studio membership</h2>
-        <p>
-          Altrove Membership combines curated destination knowledge, private
-          recommendations and personal travel advice — with preferential
-          itinerary planning when you want a trip shaped for you.
+      <StudioNewsletter
+        id="letters"
+        title="The community is the letters"
+        description="Join readers who want slower trips and clearer recommendations. A membership may come later. This year, the work is the writing."
+      >
+        <NewsletterForm buttonLabel="Join the letters" source="about" />
+      </StudioNewsletter>
+
+      <section className="section-shell" id="later">
+        <p className="about-closing-link">
+          <Link className="text-link" href="/journal">
+            Read the Journal
+          </Link>
+          <span aria-hidden="true"> · </span>
+          <Link className="text-link" href="/itineraries">
+            Browse itineraries
+          </Link>
+          <span aria-hidden="true"> · </span>
+          <Link className="text-link" href="/community">
+            Community
+          </Link>
         </p>
-        <Link className="button dark" href="/membership">
-          Join the Membership
-        </Link>
       </section>
     </main>
   );

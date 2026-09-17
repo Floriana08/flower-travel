@@ -4,16 +4,16 @@ import { LisbonJourneyRoute } from "./journey-route";
 import { tripProfile } from "./data";
 
 export const metadata: Metadata = {
-  title: "Inside an Altrove trip — Lisbon",
+  title: "Lisbon / 4 days — an Altrove itinerary",
   description:
-    "How Altrove would shape four days in Lisbon: stay, eat, wander — rhythm rather than a day-by-day checklist.",
+    "How Altrove would spend four days in Lisbon: a considered base, a short list of tables, a loose rhythm, and the notes we would actually give a friend.",
   alternates: {
     canonical: "https://altrove.studio/trips/lisbon",
   },
   openGraph: {
-    title: "Inside an Altrove trip — Lisbon | Altrove",
+    title: "Lisbon / 4 days — an Altrove itinerary | Altrove",
     description:
-      "A sample Altrove trip through Lisbon — filtered moments, not an exhaustive itinerary.",
+      "A public Lisbon itinerary — filtered moments, not an exhaustive checklist.",
     images: [
       {
         url: "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1600&q=80",
@@ -27,12 +27,12 @@ export default function LisbonTripPage() {
   return (
     <main className="trip-lisbon">
       <section className="trip-hero section-shell">
-        <p className="trip-kicker">Inside an Altrove trip</p>
+        <p className="trip-kicker">An Altrove itinerary</p>
         <h1>Lisbon / 4 days</h1>
         <p className="trip-profile">{tripProfile}</p>
         <p className="trip-sample-note">
-          Every Altrove trip is designed around the traveller. This is one
-          example of how Lisbon could flow — not a rigid itinerary.
+          How we would spend four days in Lisbon: one considered base, a short
+          list of tables, and a rhythm rather than a checklist.
         </p>
         <div className="trip-hero-media">
           <img
@@ -101,18 +101,17 @@ export default function LisbonTripPage() {
         className="trip-yours section-shell"
         aria-labelledby="trip-yours-title"
       >
-        <h2 id="trip-yours-title">Yours would look different.</h2>
-        <p>That&apos;s the point.</p>
+        <h2 id="trip-yours-title">More itineraries like this.</h2>
         <p>
-          Tell Altrove how you like to travel and we&apos;ll shape the trip
-          around you.
+          Altrove publishes trips you can use — stays, tables, pacing, and
+          what to skip. New ones go out in the letters.
         </p>
         <div className="trip-yours-actions">
-          <Link className="button dark" href="/apply">
-            Become a Founding Member
+          <Link className="button dark" href="/community#letters">
+            Join the letters
           </Link>
-          <Link className="button ghost" href="/membership">
-            Explore Membership
+          <Link className="button ghost" href="/itineraries">
+            All itineraries
           </Link>
         </div>
       </section>

@@ -18,11 +18,11 @@ export const membershipConfig = {
 } as const;
 
 export const studioPositioning = {
-  headline: "A travel studio for people who care where they go.",
+  headline: "A journal for travelling well.",
   short:
-    "Curated places, thoughtful journeys and personal travel advice across Europe.",
+    "Itineraries, recommendations, and notes on how to travel more sustainably — Portugal, Italy, Spain and the routes between them.",
   notAgency:
-    "Altrove helps you decide where to stay, eat and spend your time. You book directly with hotels, restaurants and providers.",
+    "Altrove is a travel journal. We recommend where to stay, eat and spend time. You book directly.",
 } as const;
 
 export const placeCategories = [

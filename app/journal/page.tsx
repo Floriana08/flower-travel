@@ -17,13 +17,14 @@ import { defaultImageSizes, unsplashSrcSet } from "../image-utils";
 export const metadata: Metadata = {
   title: "Journal",
   description:
-    "Where to stay, eat and spend a weekend — opinionated travel notes from Altrove on Lisbon, Rome and the routes between them.",
+    "Where to stay, eat and spend a weekend — and how to travel more sustainably. Opinionated notes from Altrove on Lisbon, Rome and the routes between them.",
   keywords: [
     "Lisbon hotels",
     "where to stay in Lisbon",
     "where to eat in Lisbon",
     "Rome food",
     "Europe train travel",
+    "sustainable travel",
     "city guides",
     "travel notes",
   ],
@@ -36,8 +37,8 @@ const featuredSlugs = [
   "where-to-stay-lisbon",
   "where-to-eat-lisbon",
   "rome-food-walk",
+  "sustainable-travel-basics",
   "train-travel-europe",
-  "solo-paris-weekend",
 ] as const;
 
 export default function JournalPage() {
@@ -53,7 +54,7 @@ export default function JournalPage() {
           <p>
             Useful notes on where to stay, eat and spend a weekend — written
             with a point of view, not a checklist. Specific recommendations,
-            practical caveats, and the judgement we would give a friend.
+            how to travel more lightly, and the judgement we would give a friend.
           </p>
         </PageIntro>
       </section>
@@ -155,9 +156,9 @@ export default function JournalPage() {
       <StudioNewsletter
         id="letters"
         title="Letters from Altrove"
-        description="New notes on hotels, restaurants and routes — sent occasionally, without noise."
+        description="New itineraries, hotel notes, and practical advice on travelling more lightly — sent when there is something worth writing."
       >
-        <NewsletterForm buttonLabel="Join our letters" />
+        <NewsletterForm buttonLabel="Join the letters" />
       </StudioNewsletter>
     </main>
   );

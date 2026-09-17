@@ -4048,6 +4048,10 @@ h1.studio-hero-lede {
   padding-bottom: clamp(48px, 8vw, 96px);
 }
 
+.community-page {
+  padding-bottom: clamp(48px, 8vw, 96px);
+}
+
 .about-hero {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);

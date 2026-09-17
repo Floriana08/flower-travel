@@ -68,8 +68,8 @@ export const journeys: Journey[] = [
       "Cascais Atlantic pause",
     ],
     practicalNotes: [
-      "Open the full day-by-day for pacing detail.",
-      "Ask us to shape this corridor around your dates via Founding Membership.",
+      "Rail is the point of this route — skip the short Lisbon–Porto flight.",
+      "Two city bases are enough. Do not add a third hotel for one night.",
     ],
     signature: true,
     catalogue: true,
@@ -116,7 +116,7 @@ export const journeys: Journey[] = [
       "One design or azulejo museum, not three",
     ],
     practicalNotes: [
-      "This journey is still being curated. Enquire if you are planning Lisbon dates.",
+      "This journey is still being curated. Join the letters to hear when it is published.",
       "Trams and walking cover most of the city; skip driving in the centre.",
     ],
     catalogue: true,
@@ -202,7 +202,7 @@ export const journeys: Journey[] = [
     ],
     experiences: ["Regional food focus", "Landscape days", "One slower town pause"],
     practicalNotes: [
-      "Join the list to hear when this journey is ready.",
+      "Join the letters to hear when this journey is ready.",
     ],
     catalogue: false,
   },

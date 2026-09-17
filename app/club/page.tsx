@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function ClubRedirect() {
-  redirect("/membership");
+  redirect("/community");
 }

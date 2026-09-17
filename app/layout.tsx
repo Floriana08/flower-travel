@@ -7,23 +7,23 @@ import { studioPositioning } from "./membership-config";
 
 export const metadata: Metadata = {
   title: {
-    default: "Altrove | Travel studio",
+    default: "Altrove | Travel Journal for Slower, Sustainable Trips",
     template: "%s | Altrove",
   },
   description: studioPositioning.short,
   keywords: [
-    "travel studio",
-    "travel membership",
-    "Founding Membership",
+    "sustainable travel",
+    "travel itineraries",
+    "travel journal",
     "Portugal travel",
     "Italy travel",
     "Spain travel",
-    "curated travel",
+    "slow travel",
     "editorial travel",
   ],
   metadataBase: new URL("https://altrove.studio"),
   openGraph: {
-    title: "Altrove | A travel studio for people who care where they go",
+    title: "Altrove | Travel Journal for Slower, Sustainable Trips",
     description: studioPositioning.short,
     type: "website",
     siteName: "Altrove",
