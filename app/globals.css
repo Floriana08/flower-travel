@@ -8418,6 +8418,169 @@ h1.studio-hero-lede {
   margin-top: 8px;
 }
 
+.city-place-row {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 28px;
+}
+
+.blog-place-row-countries {
+  margin-top: 12px;
+}
+
+.blog-place p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.city-index-hero {
+  width: min(100% - 40px, var(--max));
+  margin: clamp(36px, 6vw, 72px) auto 0;
+  display: grid;
+  gap: 16px;
+  justify-items: start;
+}
+
+.city-index-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.5vw, 4.1rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+
+.city-index-hero h1 em {
+  font-style: italic;
+  font-weight: 700;
+  background: linear-gradient(transparent 62%, var(--sun) 62%);
+}
+
+.city-index-hero p:last-child {
+  max-width: 36rem;
+  font-size: 1.08rem;
+}
+
+.city-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+  width: min(100% - 40px, var(--max));
+  margin: clamp(36px, 6vw, 72px) auto;
+}
+
+.city-hero-media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.city-hero-copy {
+  display: grid;
+  gap: 16px;
+  justify-items: start;
+}
+
+.city-hero-copy h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+}
+
+.city-hero-copy h1 em {
+  font-style: italic;
+  font-weight: 700;
+  background: linear-gradient(transparent 62%, var(--sun) 62%);
+}
+
+.city-hero-copy p {
+  max-width: 34rem;
+  font-size: 1.08rem;
+}
+
+.city-hero-copy .blog-meta a {
+  color: inherit;
+}
+
+.city-intro {
+  width: min(100% - 40px, 42rem);
+  margin: 0 auto;
+  display: grid;
+  gap: 14px;
+  font-size: 1.05rem;
+}
+
+.blog-feature-copy h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.blog-feature-copy h2 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.city-short {
+  width: min(100% - 40px, var(--max));
+  margin: 0 auto;
+  padding: clamp(40px, 7vw, 80px) 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 5vw, 64px);
+}
+
+.city-short h2 {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.city-short ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.city-short li {
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.city-short li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.destinations-index .destinations-family-grid {
+  padding-bottom: clamp(48px, 8vw, 96px);
+}
+
+.destinations-index .blog-section-head h2 {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 800px) {
+  .city-hero,
+  .city-short,
+  .city-place-row {
+    grid-template-columns: 1fr;
+  }
+
+  .city-hero-media img {
+    aspect-ratio: 4 / 3;
+  }
+}
+
 @media (max-width: 800px) {
   .blog-feature,
   .blog-trip-card,

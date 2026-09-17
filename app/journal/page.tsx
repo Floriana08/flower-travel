@@ -17,11 +17,14 @@ import { defaultImageSizes, unsplashSrcSet } from "../image-utils";
 export const metadata: Metadata = {
   title: "Journal",
   description:
-    "Where to stay, eat and spend a weekend — and how to travel more sustainably. Opinionated notes from Altrove on Lisbon, Rome and the routes between them.",
+    "Where to stay, eat and spend a weekend — and how to travel more sustainably. Opinionated notes from Altrove on Lisbon, Napoli and the routes between them.",
   keywords: [
     "Lisbon hotels",
-    "where to stay in Lisbon",
+    "what not to miss in Lisbon",
     "where to eat in Lisbon",
+    "Napoli pizza",
+    "what not to miss in Naples",
+    "yoga in Lisbon",
     "Rome food",
     "Europe train travel",
     "sustainable travel",
@@ -34,11 +37,11 @@ export const metadata: Metadata = {
 };
 
 const featuredSlugs = [
-  "where-to-stay-lisbon",
+  "what-not-to-miss-in-lisbon",
+  "are-you-a-yogi",
+  "what-not-to-miss-in-naples",
+  "where-to-eat-naples",
   "where-to-eat-lisbon",
-  "rome-food-walk",
-  "sustainable-travel-basics",
-  "train-travel-europe",
 ] as const;
 
 export default function JournalPage() {

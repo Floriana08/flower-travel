@@ -91,7 +91,7 @@ function DestinationContext({
       <WorthKnowing>
         <p>
           For the shortlist we would actually use, see the{" "}
-          <Link href="/destinations/lisbon">Lisbon destination page</Link>
+          <Link href="/destinations/lisbon">Lisbon city page</Link>
           {" "}and the{" "}
           <Link href="/destinations/portugal">Portugal destination hub</Link>.
         </p>
@@ -99,19 +99,17 @@ function DestinationContext({
     );
   }
 
-  if (/italy|rome|naples|amalfi|campania/i.test(haystack)) {
-    const showCampania = /naples|amalfi|campania/i.test(haystack);
+  if (/italy|rome|naples|napoli|amalfi|campania/i.test(haystack)) {
+    const showNapoli = /naples|napoli|amalfi|campania/i.test(haystack);
     return (
       <WorthKnowing>
         <p>
           For how we approach the country, see the{" "}
           <Link href="/destinations/italy">Italy destination hub</Link>
-          {showCampania ? (
+          {showNapoli ? (
             <>
               {" "}and the{" "}
-              <Link href="/journeys/naples-amalfi">
-                Naples and the Amalfi Coast journey
-              </Link>
+              <Link href="/destinations/naples">Napoli city page</Link>
             </>
           ) : null}
           .

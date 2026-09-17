@@ -1013,6 +1013,344 @@ export const guideArticles: GuideArticle[] = [
       },
     ],
   },
+  {
+    slug: "what-not-to-miss-in-lisbon",
+    dek:
+      "Lisbon is easy to over-plan and hard to over-walk. The useful first visit is one neighbourhood, one hill, one pastry stop west of the centre, and lunches that still belong to the people who live upstairs.",
+    lastReviewed: "September 17, 2026",
+    facts: [
+      "Four days is enough if you stay central and stop collecting viewpoints.",
+      "Belém is worth a morning, not a hotel.",
+      "Tram 28 is public transport that happens to be pretty — not a ride you need to queue for as a sight.",
+    ],
+    sections: [
+      {
+        heading: "Start with a base, not a list",
+        body: [
+          "The mistake is arriving with seven neighbourhoods and a sunrise at every miradouro. Lisbon is a hill city. Distances that look polite on a map become a suitcase problem, then a taxi habit, then a trip that never sits down.",
+          "Choose Chiado, Príncipe Real, or the quieter edge of Baixa. Sleep there. Walk out. Come back before dinner if you want to. The city will still be there in the morning.",
+          "If you only read one other Lisbon post, make it the neighbourhoods and hotels note. The rest of this page assumes you have already picked a bed you can actually reach.",
+        ],
+      },
+      {
+        heading: "The walk that explains the city",
+        body: [
+          "Give the first full day to a loop, not a circuit of monuments. Chiado down toward the river, along to Cais do Sodré, up through Bairro Alto or Príncipe Real, and home. Stop when a café looks right. That is the trip.",
+          "The grid of Baixa is useful orientation. The tiled streets above it are the texture. You do not need to name every street. You need to feel how the city tilts.",
+        ],
+        listTitle: "Worth putting on the day",
+        bullets: [
+          "One viewpoint near your hotel — Santa Catarina if you are west of Chiado, Graça if you are already on that hill. Not both, and not a taxi between them.",
+          "A neighbourhood bica and a savoury pastry. Hotel breakfast is optional.",
+          "Time in a square that is not a viewpoint: Praça Luís de Camões, Praça das Flores, Jardim da Estrela if you want trees.",
+        ],
+      },
+      {
+        heading: "Belém, once",
+        body: [
+          "Go west one morning: Jerónimos, the river, Pastéis de Belém if you can face the queue, or a nata at Manteigaria in the centre if you cannot. Then come back. Belém as a base makes every evening a commute.",
+          "The monastery and the water are the point. The rest of the western museums can wait for a longer stay. A first visit does not need to finish Lisbon’s cultural homework.",
+        ],
+      },
+      {
+        heading: "Eat like the day has a middle",
+        body: [
+          "Lunch is still the most useful meal. A tasca in Mouraria, a cervejaria if you want shellfish, a booked dinner only for the one room that actually requires it.",
+          "Bacalhau à Brás will tell you more about the kitchen than a tasting menu designed for visitors. Read the eating post for tables. The rule here is simpler: sit down at 13:30, and do not treat restaurants as attractions you collect.",
+        ],
+      },
+      {
+        heading: "What you can skip without regret",
+        body: [
+          "You will not fail Lisbon by missing a tram selfie, a fado room aimed at coach groups, or a market hall you already saw on arrival day.",
+        ],
+        bullets: [
+          "Tram 28 as a sightseeing product. Use trams to move. If the boarding stop is a queue of people filming the doors, walk.",
+          "Time Out Market after day one. Useful when you land hungry. A poor substitute for a neighbourhood lunch.",
+          "Alfama as a first hotel with proper luggage. Visit it. Sleep somewhere a car can reach.",
+          "A different viewpoint every morning. Hills are not a collection.",
+        ],
+      },
+      {
+        heading: "If you have a fourth day",
+        body: [
+          "Sintra is the usual extra, and it is worth it only if you start early and choose one palace or park, not three. Cascais is the gentler extra: Atlantic air, a swim if the season allows, back to the same Lisbon bed.",
+          "A yogi-minded morning — garden, stretch, quieter neighbourhood — is also a fourth day. The city does not have to accelerate because you have an extra breakfast.",
+        ],
+      },
+    ],
+    goodFor: [
+      "First Lisbon trips",
+      "Four-day city breaks",
+      "Travellers who over-plan",
+      "Friends who asked what to actually do",
+    ],
+    sources: [
+      {
+        label: "Visit Lisboa",
+        url: "https://visitlisboa.com/en",
+      },
+      {
+        label: "Jerónimos Monastery",
+        url: "https://en.wikipedia.org/wiki/Jer%C3%B3nimos_Monastery",
+      },
+      {
+        label: "Tourism in Lisbon",
+        url: "https://en.wikipedia.org/wiki/Tourism_in_Lisbon",
+      },
+    ],
+  },
+  {
+    slug: "are-you-a-yogi",
+    dek:
+      "You do not need a retreat booking to travel like a yogi. Lisbon is already a practice if you pick a quieter bed, walk the hills as they are, and keep one morning that does not start with a queue.",
+    lastReviewed: "September 17, 2026",
+    facts: [
+      "Lisbon’s hills will work your legs whether or not you unroll a mat.",
+      "Jardim da Estrela and Príncipe Real’s garden are the easiest public places to start a morning slowly.",
+      "Drop-in classes cluster around Príncipe Real, Santos and Alcântara — studios change; the neighbourhoods stay useful.",
+    ],
+    sections: [
+      {
+        heading: "If the answer is yes",
+        body: [
+          "Then Lisbon can meet you halfway. Not as a wellness circuit with five studios and a juice list, but as a city that rewards early light, long walks, and a bed you are happy to return to before the bars start.",
+          "A yogi trip is mostly editing. Sleep in Estrela, Lapa or Príncipe Real rather than on top of Bairro Alto. Eat a proper lunch. Leave one morning unclaimed. Stretch because the calçada asked you to, not because the itinerary said namaste at sunrise.",
+        ],
+      },
+      {
+        heading: "The city is already the practice",
+        body: [
+          "You will walk more than you think. Cobbles, tram tracks, sudden staircases, viewpoints that are really just the street tipping into the river. That is not a bug in the plan. It is the plan, if you let it be.",
+          "Carry shoes you can actually walk in. Drink water. Stop in the shade. The people who look exhausted in Lisbon in July are often the ones who treated the hills as an inconvenience between attractions.",
+        ],
+      },
+      {
+        heading: "Mornings that stay soft",
+        body: [
+          "Jardim da Estrela is the kindest public garden in the centre: trees, a pond, paths you can loop without performing. Príncipe Real’s garden is smaller and more central — useful if your hotel is already on that hill. The river at Belém or along Santos is the longer exhale, once the day has started.",
+          "If you want to unroll a mat, do it in the garden early, or on a quiet rooftop if your stay has one. Do not turn a viewpoint into a photoshoot. Other people came for the light too.",
+        ],
+        listTitle: "A simple yogi morning",
+        bullets: [
+          "Walk to the nearest garden. Twenty quiet minutes. No soundtrack required.",
+          "Coffee and a savoury pastry — not a green juice quest unless that is genuinely your breakfast.",
+          "One neighbourhood loop before anyone asks you to be anywhere.",
+        ],
+      },
+      {
+        heading: "A class, if you want one",
+        body: [
+          "Lisbon has a real drop-in scene, especially around Príncipe Real, Santos and the western edge toward Alcântara. Studios open, move and rename; treat a class as a neighbourhood hour, not a pilgrimage.",
+          "Look up current drop-in times the evening before. Go to the 8 or 9 a.m. if you can. Then spend the rest of the day as a traveller, not a person collecting practices.",
+          "We are not going to print a studio ranking. Rooms change. Teachers change. The useful advice is geographic: stay where a class is a walk, not a taxi across the city before breakfast.",
+        ],
+      },
+      {
+        heading: "Where to sleep if this is your pace",
+        body: [
+          "Príncipe Real if you still want restaurants and a garden. Estrela and Lapa if you want the city to go quiet at night. Chiado if it is a first visit and you need the centre to be simple.",
+          "Skip a first-stay in the loudest grid of Bairro Alto. You can walk through it after dinner. You do not need to hear it in the pillow.",
+        ],
+      },
+      {
+        heading: "What a yogi can skip",
+        body: [
+          "You do not need a sunset yoga boat, a branded retreat day-pass, or a schedule that sandwiches a heated class between Belém and Sintra. That is a different trip, and it is usually a worse Lisbon.",
+        ],
+        bullets: [
+          "Stacking wellness onto a sightseeing binge. Pick one.",
+          "Eating as a purity project. Lisbon’s kitchen is olive oil, fish, eggs and pastry. Join it.",
+          "Performing the practice in the most public viewpoint you can find.",
+        ],
+      },
+    ],
+    goodFor: [
+      "Travellers who keep a practice on the road",
+      "Quieter Lisbon mornings",
+      "First visits that should not become a circuit",
+      "Anyone who answered yes",
+    ],
+    sources: [
+      {
+        label: "Visit Lisboa",
+        url: "https://visitlisboa.com/en",
+      },
+      {
+        label: "Jardim da Estrela",
+        url: "https://en.wikipedia.org/wiki/Estrela_Garden",
+      },
+      {
+        label: "Príncipe Real, Lisbon",
+        url: "https://en.wikipedia.org/wiki/Pr%C3%ADncipe_Real,_Lisbon",
+      },
+    ],
+  },
+  {
+    slug: "what-not-to-miss-in-naples",
+    dek:
+      "Napoli is the trip. Give it a neighbourhood, a street you walk twice, one pizza sitting down, and one clean escape — Pompeii or Herculaneum, not a stack of famous names that flatten the week.",
+    lastReviewed: "September 17, 2026",
+    facts: [
+      "The centro storico is a UNESCO-listed street plan you understand on foot, not from a taxi window.",
+      "MANN (the archaeological museum) holds a large part of what was taken from Pompeii and Herculaneum.",
+      "Ferries and the Circumvesuviana exist so you do not have to drive the thing you came to look at.",
+    ],
+    sections: [
+      {
+        heading: "Do not treat it as a gateway",
+        body: [
+          "The usual mistake is one night by the station, a pizza you barely sit for, then a transfer to the coast. You will remember the noise and the luggage. You will not remember Napoli.",
+          "Stay two or three nights. Sleep in Chiaia or Vomero if you want the evening to soften. Walk the centro in the day. The city is intense. That is the point. Intensity is not the same as a stopover.",
+        ],
+      },
+      {
+        heading: "The street is the sight",
+        body: [
+          "Spaccanapoli cuts the old city in a straight line. Via dei Tribunali runs parallel, slightly hungrier. Walk one, eat on the other, and let the churches, courtyards and frying shops happen without a scavenger list.",
+          "San Gregorio Armeno is a street of workshops. It is also a street of souvenir density. Go through; do not make it the day’s purpose.",
+        ],
+        listTitle: "A first full day",
+        bullets: [
+          "Morning espresso standing at the bar — small cup, quick, then out.",
+          "The centro on foot until lunch. No museum yet.",
+          "Pizza sitting down. Then the lungomare later, when the light drops.",
+        ],
+      },
+      {
+        heading: "One museum",
+        body: [
+          "MANN is the practical choice if Pompeii is on the trip: mosaics, frescoes, the objects that make the ruins more than a floor plan. Capodimonte is the quieter, higher choice — Bourbon collection, a park, a view — if you would rather one grand palace day than archaeology.",
+          "Do not do both plus a ruin plus a ferry. That is how Napoli becomes a corridor.",
+        ],
+      },
+      {
+        heading: "The water at the end of the day",
+        body: [
+          "Walk from Castel dell’Ovo along the lungomare toward Mergellina. This is when the city exhales. Vesuvius sits where it has always sat. You do not need a boat to understand the bay on a first visit.",
+          "Chiaia after that is for aperitivo and a slower dinner. The centro can wait until morning.",
+        ],
+      },
+      {
+        heading: "One day trip, not a stack",
+        body: [
+          "Pompeii is the famous ruin and it is large; start early or you will see the same three streets as everyone else. Herculaneum is smaller, often clearer, and kinder if you only have a half day. Pick one.",
+          "Capri is a different trip. So is the Amalfi strip. They are beautiful. They are also how people erase Napoli in a weekend. If you have a week, the Campania journey is the place for a coastal bed. If you have three days, stay in the city.",
+        ],
+      },
+      {
+        heading: "What you can skip",
+        body: [
+          "You will not fail Napoli by missing a jewellery shop, a restaurant with Vesuvius printed on the paper mat, or a three-island day that looks efficient in a brochure.",
+        ],
+        bullets: [
+          "Driving. Walk, metro, funicular, train, ferry.",
+          "A pizza crawl. One room, properly. The eating post has names.",
+          "Using the station neighbourhood as a hotel because it is convenient on a map.",
+          "Pompeii and Capri on the same clock. Choose.",
+        ],
+      },
+    ],
+    goodFor: [
+      "First Napoli trips",
+      "Travellers who were told to skip the city",
+      "Campania trips that need a proper urban start",
+      "Food-led long weekends",
+    ],
+    sources: [
+      {
+        label: "Naples tourism — Comune di Napoli",
+        url: "https://www.comune.napoli.it/",
+      },
+      {
+        label: "Naples historic centre",
+        url: "https://en.wikipedia.org/wiki/Historic_Centre_of_Naples",
+      },
+      {
+        label: "Naples National Archaeological Museum",
+        url: "https://en.wikipedia.org/wiki/Naples_National_Archaeological_Museum",
+      },
+    ],
+  },
+  {
+    slug: "where-to-eat-naples",
+    dek:
+      "Napoli is easiest at the table if you sit down. Pizza is the headline, not a sport. Add pastry in the morning, a fried thing when the street offers it, and one longer meal that is not dough.",
+    lastReviewed: "September 17, 2026",
+    facts: [
+      "True Neapolitan pizza is a protected tradition; the city’s best rooms still treat it as lunch and dinner food, not a tasting.",
+      "Fried pizza (pizza fritta) is a parallel classic, not a lesser version.",
+      "Espresso is drunk standing, quickly, and often. That is not a tourist performance — it is how the bar works.",
+    ],
+    sections: [
+      {
+        heading: "How to eat here",
+        body: [
+          "Plan one pizza meal a day, maximum. The rest of Napoli’s kitchen is fried street food, seafood, ragù, vegetables that actually taste of something, and pastry that should be eaten warm.",
+          "Queues form at the famous doors. A queue is information, not a commandment. If you have limited time, a slightly less photographed room in Materdei or the Sanità will often feed you better than a pilgrimage to a counter you only see through phones.",
+        ],
+      },
+      {
+        heading: "Pizza, without the crawl",
+        body: [
+          "Sit down. Order a marinara or a margherita first if you want to understand the oven. Soft centre, blistered rim, tomato that tastes of tomato. If the room is rushing you toward a souvenir photo, you are in the wrong room.",
+        ],
+        listTitle: "Tables worth knowing",
+        bullets: [
+          "Starita a Materdei — fried pizza and baked pizza in a neighbourhood that still feels like one. Go for lunch. Materdei is a walk or a metro, not a detour.",
+          "Concettina ai Tre Santi — Sanità, uphill, worth the climb. Book if you can. This is the contemporary Neapolitan room people mean when they say the city is still serious about dough.",
+          "Da Attilio — small, centro, still a family room. Useful when you want pizza without a television crew outside.",
+          "50 Kalò — modern, precise, and popular for a reason. Easier if you are already near the water.",
+          "Da Michele and Sorbillo — famous, crowded, still part of the city’s story. Go if you want the story. Do not go if a queue will eat your morning.",
+        ],
+      },
+      {
+        heading: "Morning: espresso and pastry",
+        body: [
+          "Stand at the bar. Order a caffè. Eat a sfogliatella riccia if you want shatter and citrus, frolla if you want something kinder. A morning spent hunting the ‘best’ pastry is a morning you could have spent walking.",
+          "Gambrinus is the grand café on the piazza — theatrical, useful once, not a daily habit. Neighbourhood bars will do more for the rest of the stay.",
+        ],
+        bullets: [
+          "Sfogliatella in the morning, not as a dessert after pizza.",
+          "If you want a second pastry stop, make it babà or a fried piece from a friggitoria, not another replica of the first.",
+        ],
+      },
+      {
+        heading: "When it is not pizza",
+        body: [
+          "Chiaia and the rooms around Borgo Marinari are where fish and a longer lunch make sense. The centro has trattorie that still put ragù on the table at a pace that is not a tour.",
+          "Cuoppo — fried street food in a paper cone — is a walk snack, not a dinner. Eat it standing, then keep walking.",
+        ],
+      },
+      {
+        heading: "What we would skip",
+        body: [
+          "Menus in four languages with photographs of twenty pizzas. Rooms facing a monument whose whole personality is the view. A day planned as Michele at 11, Sorbillo at 13, and a third ‘just to compare’.",
+          "You will not understand Napoli’s kitchen by ranking crusts. You will understand it by sitting still in one good room, then eating something else the next day.",
+        ],
+      },
+    ],
+    goodFor: [
+      "First Napoli trips",
+      "Pizza without a scavenger hunt",
+      "Travellers who want pastry and a bar counter",
+      "Campania trips that start in the city",
+    ],
+    sources: [
+      {
+        label: "Neapolitan pizza",
+        url: "https://en.wikipedia.org/wiki/Neapolitan_pizza",
+      },
+      {
+        label: "Sfogliatella",
+        url: "https://en.wikipedia.org/wiki/Sfogliatella",
+      },
+      {
+        label: "Associazione Verace Pizza Napoletana",
+        url: "https://www.pizzanapoletana.org/",
+      },
+    ],
+  },
 ];
 
 export function getGuideArticle(slug: string) {

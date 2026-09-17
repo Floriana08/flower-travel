@@ -7,6 +7,7 @@ const routes = [
   "",
   "/destinations",
   "/destinations/lisbon",
+  "/destinations/naples",
   "/journal",
   "/itineraries",
   "/community",

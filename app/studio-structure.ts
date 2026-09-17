@@ -95,8 +95,16 @@ export const studioCountries: StudioCountry[] = [
     featuredJourneySlug: "naples-amalfi",
     collections: [
       {
-        title: "Campania",
-        note: "Naples energy, then ferry light and one coastal bed.",
+        title: "Napoli",
+        note: "Pizza, the centro, and a city that is the trip — not a gateway.",
+        image:
+          "https://images.unsplash.com/photo-1775188693558-31c7f14790f5?auto=format&fit=crop&w=1400&q=80",
+        alt: "Naples bay with Mount Vesuvius in the distance",
+        href: "/destinations/naples",
+      },
+      {
+        title: "Amalfi Coast",
+        note: "One coastal bed, ferry light, height when the shore is loud.",
         image:
           "https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=1400&q=80",
         alt: "Colourful boats in a harbour on the Amalfi Coast",
@@ -240,7 +248,7 @@ export const studioCountries: StudioCountry[] = [
     exampleImageAlt: "Positano stacked above the Mediterranean on the Amalfi Coast",
     planImage:
       "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1400&q=84",
-    journalSlugs: ["rome-food-walk", "train-travel-europe", "choosing-a-honeymoon-route"],
+    journalSlugs: ["what-not-to-miss-in-naples", "where-to-eat-naples", "rome-food-walk"],
     example: {
       title: "Naples and the Amalfi Coast",
       duration: "7–9 days",
@@ -410,7 +418,7 @@ export const studioCountries: StudioCountry[] = [
     exampleImageAlt: "Ribeira waterfront houses along the Douro in Porto",
     planImage:
       "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=1400&q=80",
-    journalSlugs: ["where-to-stay-lisbon", "where-to-eat-lisbon", "train-travel-europe"],
+    journalSlugs: ["what-not-to-miss-in-lisbon", "are-you-a-yogi", "where-to-eat-lisbon"],
     example: {
       title: "Portugal by Train",
       duration: "10 days",
@@ -614,7 +622,11 @@ export const journalMoods: {
     slug: "city-breaks",
     title: "City Breaks",
     description: "Neighbourhood bases, walkable days, and cities taken at human pace.",
-    articleSlugs: ["rome-food-walk", "where-to-stay-lisbon"],
+    articleSlugs: [
+      "what-not-to-miss-in-lisbon",
+      "what-not-to-miss-in-naples",
+      "rome-food-walk",
+    ],
   },
   {
     slug: "slow-travel",
@@ -636,7 +648,7 @@ export const journalMoods: {
     slug: "food-and-wine",
     title: "Food & Wine",
     description: "Markets, long lunches, and the meals worth planning a day around.",
-    articleSlugs: ["rome-food-walk", "where-to-eat-lisbon"],
+    articleSlugs: ["where-to-eat-naples", "where-to-eat-lisbon", "rome-food-walk"],
   },
   {
     slug: "road-trips",
@@ -648,12 +660,12 @@ export const journalMoods: {
     slug: "weekend-getaways",
     title: "Weekend Getaways",
     description: "Short trips that still feel complete — one city, one rhythm.",
-    articleSlugs: ["where-to-stay-lisbon", "rome-food-walk"],
+    articleSlugs: ["what-not-to-miss-in-lisbon", "what-not-to-miss-in-naples"],
   },
 ];
 
 const countryGuideMatch: Record<StudioCountrySlug, string[]> = {
-  italy: ["Rome", "Italy", "Naples", "Amalfi", "Milan", "Sicily"],
+  italy: ["Rome", "Italy", "Naples", "Napoli", "Amalfi", "Milan", "Sicily"],
   portugal: ["Lisbon", "Porto", "Portugal", "Madeira", "Algarve"],
   spain: ["Spain", "Andalusia", "Barcelona", "Madrid", "Basque"],
 };
@@ -671,11 +683,11 @@ export function getDestinationHubHref(slug?: string) {
   if (!slug) return "/destinations";
   if (isStudioCountrySlug(slug)) return `/destinations/${slug}`;
   if (slug === "lisbon") return "/destinations/lisbon";
+  if (slug === "naples" || slug === "napoli") return "/destinations/naples";
   if (slug === "madeira" || slug === "porto") {
     return "/destinations/portugal";
   }
   if (
-    slug === "naples" ||
     slug === "amalfi-coast" ||
     slug === "rome" ||
     slug === "milan" ||
@@ -866,7 +878,15 @@ export function getJournalPlanningCta(guide: (typeof guides)[number]): {
       heading: "Going to Lisbon?",
       body,
       destinationHref: "/destinations/lisbon",
-      destinationLabel: "Lisbon destination page",
+      destinationLabel: "Lisbon city page",
+    };
+  }
+  if (/naples|napoli/i.test(haystack)) {
+    return {
+      heading: "Going to Napoli?",
+      body,
+      destinationHref: "/destinations/naples",
+      destinationLabel: "Napoli city page",
     };
   }
   if (/rome/i.test(haystack)) {
@@ -885,7 +905,7 @@ export function getJournalPlanningCta(guide: (typeof guides)[number]): {
       destinationLabel: "Portugal destination hub",
     };
   }
-  if (/italy|naples|amalfi|campania/i.test(haystack)) {
+  if (/italy|amalfi|campania/i.test(haystack)) {
     return {
       heading: "Going to Italy?",
       body,

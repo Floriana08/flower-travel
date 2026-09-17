@@ -37,8 +37,11 @@ export default async function DestinationDetailPage({ params }: PageProps) {
     redirect("/destinations/portugal");
   }
 
+  if (slug === "napoli") {
+    redirect("/destinations/naples");
+  }
+
   if (
-    slug === "naples" ||
     slug === "amalfi-coast" ||
     slug === "rome" ||
     slug === "milan" ||

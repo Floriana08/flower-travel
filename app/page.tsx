@@ -3,6 +3,7 @@ import Link from "next/link";
 import { guides, site } from "./data";
 import { NewsletterForm } from "./newsletter-form";
 import { studioPositioning } from "./membership-config";
+import { cityPages } from "./city-pages";
 import { studioCountries } from "./studio-structure";
 import { StudioNewsletter } from "./studio-components";
 import { lisbonSampleTrip } from "./sample-trips";
@@ -48,11 +49,11 @@ const structuredData = {
 };
 
 const latestSlugs = [
+  "what-not-to-miss-in-lisbon",
+  "are-you-a-yogi",
+  "what-not-to-miss-in-naples",
+  "where-to-eat-naples",
   "where-to-eat-lisbon",
-  "where-to-stay-lisbon",
-  "sustainable-travel-basics",
-  "rome-food-walk",
-  "train-travel-europe",
 ] as const;
 
 const latestPosts = latestSlugs
@@ -70,7 +71,7 @@ export default function Home() {
       />
 
       <p className="blog-dispatch">
-        New this week: where to eat in Lisbon — skip the obvious list
+        New this week: what not to miss in Lisbon — and a note for yogis
       </p>
 
       {featuredPost ? (
@@ -93,7 +94,7 @@ export default function Home() {
               {featuredPost.date}
             </p>
             <h1>
-              Where to eat in <em>Lisbon</em>
+              What not to miss in <em>Lisbon</em>
             </h1>
             <p>{featuredPost.excerpt}</p>
             <Link className="button dark" href={`/journal/${featuredPost.slug}`}>
@@ -134,16 +135,34 @@ export default function Home() {
 
       <section className="blog-places" id="destinations">
         <div className="blog-section-head">
-          <h2>Where we write</h2>
+          <h2>City pages</h2>
           <Link className="text-link" href="/destinations">
             All places
           </Link>
         </div>
         <p className="blog-section-dek">
-          Portugal, Italy and Spain — not the whole world. The posts get
-          better when we stay with a place.
+          Lisbon and Napoli first — then the countries around them. The posts
+          get better when we stay with a place.
         </p>
-        <div className="blog-place-row">
+        <div className="blog-place-row city-place-row">
+          {cityPages.map((city) => (
+            <Link
+              key={city.slug}
+              className="blog-place"
+              href={`/destinations/${city.slug}`}
+            >
+              <img
+                src={city.heroImage}
+                srcSet={unsplashSrcSet(city.heroImage)}
+                sizes="(max-width: 900px) 100vw, 48vw"
+                alt={city.heroAlt}
+                loading="lazy"
+              />
+              <h3>{city.title}</h3>
+            </Link>
+          ))}
+        </div>
+        <div className="blog-place-row blog-place-row-countries">
           {studioCountries.map((country) => (
             <Link
               key={country.slug}

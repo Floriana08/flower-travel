@@ -1870,6 +1870,62 @@ export const routeDetails = [
 
 export const guides = [
   {
+    slug: "what-not-to-miss-in-lisbon",
+    section: "destinations",
+    title: "What Not to Miss in Lisbon",
+    category: "City Guides",
+    destination: "Lisbon",
+    date: "September 17, 2026",
+    readTime: "9 min read",
+    image:
+      "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1600&q=80",
+    alt: "Lisbon tram on a steep tiled street",
+    excerpt:
+      "A first-timer edit: one neighbourhood, one viewpoint, Belém once, a tasca lunch, and the refusals that keep the city from turning into a circuit.",
+  },
+  {
+    slug: "are-you-a-yogi",
+    section: "journal",
+    title: "Are You a Yogi?",
+    category: "Travel Notes",
+    destination: "Lisbon",
+    date: "September 17, 2026",
+    readTime: "7 min read",
+    image:
+      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1600&q=80",
+    alt: "A quiet outdoor yoga practice at sunrise",
+    excerpt:
+      "How to keep a practice in Lisbon without turning the trip into a wellness circuit — gardens, hills, a quieter bed, and one drop-in class if you want it.",
+  },
+  {
+    slug: "what-not-to-miss-in-naples",
+    section: "destinations",
+    title: "What Not to Miss in Napoli",
+    category: "City Guides",
+    destination: "Napoli",
+    date: "September 17, 2026",
+    readTime: "8 min read",
+    image:
+      "https://images.unsplash.com/photo-1775188693558-31c7f14790f5?auto=format&fit=crop&w=1600&q=80",
+    alt: "Naples bay with Mount Vesuvius in the distance",
+    excerpt:
+      "Spaccanapoli on foot, one pizza sitting down, one museum, the lungomare at dusk — and why Napoli is the trip, not a night before the coast.",
+  },
+  {
+    slug: "where-to-eat-naples",
+    section: "destinations",
+    title: "Where to Eat in Napoli: Pizza, Pastry and the Rest",
+    category: "Eat",
+    destination: "Napoli",
+    date: "September 17, 2026",
+    readTime: "10 min read",
+    image:
+      "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1600&q=80",
+    alt: "Wood-fired pizza on a simple table",
+    excerpt:
+      "Fried pizza in Materdei, a Sanità address worth the climb, espresso standing up, and why a crawl is the fastest way to miss the point.",
+  },
+  {
     slug: "where-to-stay-lisbon",
     section: "destinations",
     title: "Where to Stay in Lisbon: The Best Areas and Hotels",
