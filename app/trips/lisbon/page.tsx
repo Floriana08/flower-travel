@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=1600&q=80",
-        alt: "Lisbon rooftops under soft afternoon light",
+        alt: "Lisbon’s yellow Tram 28 on a narrow tiled street",
       },
     ],
   },
@@ -37,7 +37,7 @@ export default function LisbonTripPage() {
         <div className="trip-hero-media">
           <img
             src="https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=1600&q=80"
-            alt="Lisbon rooftops and tiled facades in soft light"
+            alt="Lisbon’s yellow Tram 28 on a narrow tiled street"
             width={1600}
             height={1067}
           />
