@@ -90,6 +90,8 @@ const journalFeatured = [
     Boolean(story),
   );
 
+const [journalLead, ...journalSupporting] = journalFeatured;
+
 export default function Home() {
   return (
     <main className="home-edit">
@@ -101,11 +103,13 @@ export default function Home() {
       <section className="studio-hero">
         <HeroOceanVideo />
         <div className="studio-hero-copy">
-          <p className="studio-hero-brand">Altrove</p>
+          <p className="studio-hero-kicker">
+            A travel journal · Portugal, Italy, Spain
+          </p>
           <h1 className="studio-hero-display">Travel, considered.</h1>
           <p className="studio-hero-lede">
-            A travel journal for people who care where they stay, eat and spend
-            their time — and how lightly they move through a place.
+            Itineraries, recommendations, and how to travel more lightly —
+            written like a field guide, not a checklist.
           </p>
           <div className="hero-actions">
             <Link className="button light" href="/journal">
@@ -115,6 +119,9 @@ export default function Home() {
               Join the letters
             </Link>
           </div>
+          <p className="studio-hero-caption">
+            Stories from the road, photographed for the page.
+          </p>
         </div>
       </section>
 
@@ -153,26 +160,46 @@ export default function Home() {
 
       <section className="section-shell home-journal-feature" id="journal">
         <div className="home-section-head">
-          <p className="eyebrow">Journal</p>
+          <p className="eyebrow">Features</p>
           <h2 className="display-title">Notes from the road.</h2>
         </div>
-        <div className="home-journal-row">
-          {journalFeatured.map((story) => (
-            <article key={story.slug} className="home-journal-row-card">
-              <Link href={`/journal/${story.slug}`}>
-                <img
-                  src={story.image}
-                  srcSet={unsplashSrcSet(story.image)}
-                  sizes="(max-width: 900px) 100vw, 32vw"
-                  alt={story.alt}
-                  loading="lazy"
-                />
-                <p className="eyebrow">{story.destination}</p>
-                <h3>{story.displayTitle}</h3>
-              </Link>
-            </article>
-          ))}
-        </div>
+        {journalLead ? (
+            <div className="home-journal-editorial">
+              <article className="home-journal-lead">
+                <Link href={`/journal/${journalLead.slug}`}>
+                  <img
+                    src={journalLead.image}
+                    srcSet={unsplashSrcSet(journalLead.image)}
+                    sizes="(max-width: 900px) 100vw, 58vw"
+                    alt={journalLead.alt}
+                    loading="lazy"
+                  />
+                  <div className="home-journal-lead-copy">
+                    <p className="eyebrow">{journalLead.destination}</p>
+                    <h3>{journalLead.displayTitle}</h3>
+                    <p>{journalLead.excerpt}</p>
+                  </div>
+                </Link>
+              </article>
+              <div className="home-journal-side">
+                {journalSupporting.map((story) => (
+                  <article key={story.slug} className="home-journal-side-card">
+                    <Link href={`/journal/${story.slug}`}>
+                      <img
+                        src={story.image}
+                        srcSet={unsplashSrcSet(story.image)}
+                        sizes="(max-width: 900px) 100vw, 32vw"
+                        alt={story.alt}
+                        loading="lazy"
+                      />
+                      <p className="eyebrow">{story.destination}</p>
+                      <h3>{story.displayTitle}</h3>
+                    </Link>
+                  </article>
+                ))}
+              </div>
+            </div>
+        ) : null}
         <p className="home-section-link">
           <Link className="text-link" href="/journal">
             Read the Journal

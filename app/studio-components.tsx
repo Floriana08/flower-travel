@@ -37,6 +37,7 @@ export function CountryTile({
         loading="lazy"
       />
       <div className="country-tile-copy">
+        <p className="country-tile-kicker">Destination</p>
         <h3>{country.title}</h3>
         {isHome ? null : (
           <>
@@ -218,7 +219,7 @@ export function StudioNewsletter({
     <section id={id} className="studio-newsletter section-shell">
       <div className="studio-newsletter-inner">
         <div>
-          <p className="eyebrow">Correspondence</p>
+          <p className="eyebrow">Subscribe</p>
           <h2 className="display-title">{title}</h2>
           <p>{description}</p>
         </div>
