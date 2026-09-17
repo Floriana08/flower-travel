@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { AdSlot } from "../ad-slot";
+import { cityPages } from "../city-pages";
 import { CountryTile } from "../studio-components";
 import { studioCountries } from "../studio-structure";
+import { unsplashSrcSet } from "../image-utils";
 
 export const metadata: Metadata = {
   title: "Destinations",
   description:
-    "Altrove starts with Portugal, Italy and Spain — destinations where we have strong knowledge, trusted recommendations and a clear point of view.",
+    "Lisbon and Napoli city pages — then Portugal, Italy and Spain. Posts, not a fake global map.",
   alternates: {
     canonical: "https://altrove.studio/destinations",
   },
@@ -13,21 +17,57 @@ export const metadata: Metadata = {
 
 export default function DestinationsPage() {
   return (
-    <main className="destinations-index">
-      <header className="section-shell page-top destinations-index-hero">
-        <p className="eyebrow">Destinations</p>
-        <h1 className="display-title">Places we know well.</h1>
-        <p className="destinations-index-lede">
-          Altrove starts with destinations where we have strong knowledge,
-          trusted recommendations and a clear point of view. Members can still
-          request trips beyond these places.
+    <main className="home-blog destinations-index">
+      <p className="blog-dispatch">City pages first. Countries around them.</p>
+
+      <header className="city-index-hero">
+        <p className="blog-meta">Destinations</p>
+        <h1>
+          Lisbon. Napoli. Then the <em>countries</em>
+        </h1>
+        <p>
+          Lisbon and Napoli are the city pages. Portugal, Italy and Spain are
+          the families around them. We add articles as we have something
+          useful to say.
         </p>
       </header>
 
-      <section className="section-shell destinations-family-grid" aria-label="Destination families">
-        {studioCountries.map((country) => (
-          <CountryTile key={country.slug} country={country} variant="home" />
-        ))}
+      <section className="blog-places" aria-label="City pages">
+        <div className="blog-section-head">
+          <h2>City pages</h2>
+        </div>
+        <div className="blog-place-row city-place-row">
+          {cityPages.map((city) => (
+            <Link
+              key={city.slug}
+              className="blog-place"
+              href={`/destinations/${city.slug}`}
+            >
+              <img
+                src={city.heroImage}
+                srcSet={unsplashSrcSet(city.heroImage)}
+                sizes="(max-width: 900px) 100vw, 48vw"
+                alt={city.heroAlt}
+              />
+              <p className="blog-meta">{city.country}</p>
+              <h3>{city.title}</h3>
+              <p>{city.lede}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <AdSlot id="destinations-index" format="banner" />
+
+      <section className="section-shell" aria-label="Countries">
+        <div className="blog-section-head">
+          <h2>Countries</h2>
+        </div>
+        <div className="destinations-family-grid">
+          {studioCountries.map((country) => (
+            <CountryTile key={country.slug} country={country} variant="home" />
+          ))}
+        </div>
       </section>
     </main>
   );

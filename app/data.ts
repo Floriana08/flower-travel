@@ -3,21 +3,21 @@ export const site = {
   fullName: "Altrove",
   strapline: "travel, considered",
   studioLine:
-    "A travel studio for people who care where they go — curated places, thoughtful journeys and personal travel advice.",
+    "Altrove is a travel journal for slower, more sustainable trips — itineraries, recommendations, and notes on how to travel well.",
   email: "hello@altrove.studio",
 };
 
 export const navItems = [
-  { href: "/destinations", label: "Destinations" },
   { href: "/journal", label: "Journal" },
-  { href: "/membership", label: "Membership" },
-  { href: "/plan-a-trip", label: "Plan a Trip" },
+  { href: "/itineraries", label: "Itineraries" },
+  { href: "/destinations", label: "Destinations" },
+  { href: "/community", label: "Community" },
   { href: "/about", label: "About" },
 ];
 
 export const navCta = {
-  href: "/membership",
-  label: "Join the Membership",
+  href: "/community#letters",
+  label: "Get new posts",
 };
 
 export const navSignIn = {
@@ -46,25 +46,25 @@ export const travellerTypes = [
 export const clubBenefits = [
   {
     id: "early-access",
-    title: "New destination stories",
+    title: "New stories first",
     description:
-      "Read carefully edited guides and route notes as they are published.",
+      "Journal notes and itineraries as they are published — hotels, tables, routes and the ones we would skip.",
   },
   {
     id: "itineraries",
-    title: "Practical planning advice",
+    title: "How to pace a trip",
     description:
-      "Season timing, pacing notes and small decisions that change a trip.",
+      "Season timing, train days, and the small decisions that keep a week from turning into a checklist.",
   },
   {
     id: "recommendations",
-    title: "Hotel and restaurant finds",
+    title: "Fewer, better recommendations",
     description:
-      "Boutique stays and tables worth planning around, chosen with care.",
+      "Stays and restaurants worth planning around, chosen with care — not another endless list.",
   },
   {
     id: "email",
-    title: "One thoughtful note",
+    title: "One letter, when it matters",
     description:
       "Occasional emails. No clutter. Easy to unsubscribe whenever you like.",
   },
@@ -81,8 +81,8 @@ export const destinations = [
     season: "March to June, September to November",
     bestFor: "First-time Europe, food, tiled streets, soft city weekends",
     image:
-      "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1600&q=84",
-    alt: "Lisbon rooftops and tiled buildings in warm evening light",
+      "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=1600&q=84",
+    alt: "Lisbon’s yellow Tram 28 on a narrow tiled street",
     excerpt:
       "Viewpoints, azulejo streets, seafood lunches, boutique hotels, and slow tram-side wandering.",
     highlights: ["Alfama mornings", "Design-led stays", "Sintra day notes"],
@@ -1870,6 +1870,62 @@ export const routeDetails = [
 
 export const guides = [
   {
+    slug: "what-not-to-miss-in-lisbon",
+    section: "destinations",
+    title: "What Not to Miss in Lisbon",
+    category: "City Guides",
+    destination: "Lisbon",
+    date: "September 17, 2026",
+    readTime: "9 min read",
+    image:
+      "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=1600&q=80",
+    alt: "Lisbon’s yellow Tram 28 on a narrow tiled street",
+    excerpt:
+      "A first-timer edit: one neighbourhood, one viewpoint, Belém once, a tasca lunch, and the refusals that keep the city from turning into a circuit.",
+  },
+  {
+    slug: "are-you-a-yogi",
+    section: "journal",
+    title: "Are You a Yogi?",
+    category: "Travel Notes",
+    destination: "Lisbon",
+    date: "September 17, 2026",
+    readTime: "7 min read",
+    image:
+      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1600&q=80",
+    alt: "A quiet outdoor yoga practice at sunrise",
+    excerpt:
+      "How to keep a practice in Lisbon without turning the trip into a wellness circuit — gardens, hills, a quieter bed, and one drop-in class if you want it.",
+  },
+  {
+    slug: "what-not-to-miss-in-naples",
+    section: "destinations",
+    title: "What Not to Miss in Napoli",
+    category: "City Guides",
+    destination: "Napoli",
+    date: "September 17, 2026",
+    readTime: "8 min read",
+    image:
+      "https://images.unsplash.com/photo-1775188693558-31c7f14790f5?auto=format&fit=crop&w=1600&q=80",
+    alt: "Naples bay with Mount Vesuvius in the distance",
+    excerpt:
+      "Spaccanapoli on foot, one pizza sitting down, one museum, the lungomare at dusk — and why Napoli is the trip, not a night before the coast.",
+  },
+  {
+    slug: "where-to-eat-naples",
+    section: "destinations",
+    title: "Where to Eat in Napoli: Pizza, Pastry and the Rest",
+    category: "Eat",
+    destination: "Napoli",
+    date: "September 17, 2026",
+    readTime: "10 min read",
+    image:
+      "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1600&q=80",
+    alt: "Wood-fired pizza on a simple table",
+    excerpt:
+      "Fried pizza in Materdei, a Sanità address worth the climb, espresso standing up, and why a crawl is the fastest way to miss the point.",
+  },
+  {
     slug: "where-to-stay-lisbon",
     section: "destinations",
     title: "Where to Stay in Lisbon: The Best Areas and Hotels",
@@ -2155,7 +2211,7 @@ export const guideProducts: GuideProduct[] = [
       },
       {
         q: "Will you book any of this for me?",
-        a: "No — the guide is independent research and recommendations. If you'd like a trip designed around your own dates, apply for Founding Membership.",
+        a: "No — the guide is independent research and recommendations. For more notes like this, read the Journal or join the Altrove letters.",
       },
     ],
     relatedArticleSlugs: ["train-travel-europe", "rome-food-walk"],

@@ -39,8 +39,8 @@ export const lisbonSampleTrip: SampleTrip = {
   title: "Lisbon",
   duration: "4 days",
   heroImage:
-    "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=2000&q=84",
-  heroAlt: "Lisbon rooftops and tiled buildings in warm evening light",
+    "https://images.unsplash.com/photo-1754151630904-da4334bddfbf?auto=format&fit=crop&w=2000&q=84",
+  heroAlt: "Lisbon’s yellow Tram 28 on a narrow tiled street",
   take: [
     "Lisbon is better taken from one well-chosen base than as a circuit of viewpoints. We would give you Chiado, let meals set the pace, and leave room to walk without finishing the city.",
     "Four days is enough if you stop collecting neighbourhoods. One tasca lunch. One seafood evening. One dinner booked because the room actually matters. The rest can stay loose.",

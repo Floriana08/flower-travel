@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { guideArticles, getGuideArticle } from "../../articles";
+import { AdSlot } from "../../ad-slot";
 import { NewsletterForm } from "../../newsletter-form";
 import {
   ArticleMeta,
@@ -91,7 +92,7 @@ function DestinationContext({
       <WorthKnowing>
         <p>
           For the shortlist we would actually use, see the{" "}
-          <Link href="/destinations/lisbon">Lisbon destination page</Link>
+          <Link href="/destinations/lisbon">Lisbon city page</Link>
           {" "}and the{" "}
           <Link href="/destinations/portugal">Portugal destination hub</Link>.
         </p>
@@ -99,19 +100,17 @@ function DestinationContext({
     );
   }
 
-  if (/italy|rome|naples|amalfi|campania/i.test(haystack)) {
-    const showCampania = /naples|amalfi|campania/i.test(haystack);
+  if (/italy|rome|naples|napoli|amalfi|campania/i.test(haystack)) {
+    const showNapoli = /naples|napoli|amalfi|campania/i.test(haystack);
     return (
       <WorthKnowing>
         <p>
           For how we approach the country, see the{" "}
           <Link href="/destinations/italy">Italy destination hub</Link>
-          {showCampania ? (
+          {showNapoli ? (
             <>
               {" "}and the{" "}
-              <Link href="/journeys/naples-amalfi">
-                Naples and the Amalfi Coast journey
-              </Link>
+              <Link href="/destinations/naples">Napoli city page</Link>
             </>
           ) : null}
           .
@@ -214,7 +213,8 @@ export default async function JournalArticlePage({ params }: PageProps) {
         </header>
 
         <div className="article-layout">
-          <aside className="article-sidebar" aria-label="Article summary">
+          <aside className="article-sidebar" aria-label="Advertisement and article summary">
+            <AdSlot id={`journal-${guide.slug}-rail`} format="rectangle" />
             <div className="article-panel">
               <h2>Useful for</h2>
               <ul>
@@ -312,6 +312,9 @@ export default async function JournalArticlePage({ params }: PageProps) {
                     destination={guide.destination}
                     title={guide.title}
                   />
+                ) : null}
+                {index === 0 ? (
+                  <AdSlot id={`journal-${guide.slug}-inline`} format="inline" />
                 ) : null}
               </section>
             ))}

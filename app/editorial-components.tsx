@@ -77,8 +77,8 @@ export function WhatIdDoDifferently({ children }: { children: ReactNode }) {
 export function ComingSoonBlock({
   title,
   body,
-  href = "/apply",
-  cta = "Become a Founding Member",
+  href = "/community#letters",
+  cta = "Join the letters",
 }: {
   title: string;
   body: string;
@@ -122,11 +122,11 @@ export function ArticlePlanningCta({
   body: string;
 }) {
   return (
-    <section className="article-planning-cta" aria-label="Founding Membership">
+    <section className="article-planning-cta" aria-label="Altrove letters">
       <h2>{heading}</h2>
       <p>{body}</p>
-      <Link className="button dark" href="/apply">
-        Become a Founding Member
+      <Link className="button dark" href="/community#letters">
+        Join the letters
       </Link>
     </section>
   );

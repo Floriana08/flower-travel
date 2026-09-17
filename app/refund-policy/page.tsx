@@ -51,9 +51,9 @@ export default function RefundPolicyPage() {
             <section>
               <h2>Trip design</h2>
               <p>
-                Founding Membership is currently complimentary. Any future paid
-                planning or membership terms will be confirmed before work
-                begins, and documented here once that service is live.
+                There is no paid membership or trip-design service on sale
+                today. Any future paid planning terms will be confirmed before
+                work begins, and documented here once that service is live.
               </p>
             </section>
 

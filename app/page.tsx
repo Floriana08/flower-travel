@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { site } from "./data";
-import { HeroOceanVideo } from "./hero-ocean-video";
-import { membershipConfig, studioPositioning } from "./membership-config";
-import { CountryTile } from "./studio-components";
+import { guides, site } from "./data";
+import { NewsletterForm } from "./newsletter-form";
+import { studioPositioning } from "./membership-config";
+import { AdSlot } from "./ad-slot";
+import { cityPages } from "./city-pages";
 import { studioCountries } from "./studio-structure";
+import { StudioNewsletter } from "./studio-components";
+import { lisbonSampleTrip } from "./sample-trips";
+import { unsplashSrcSet } from "./image-utils";
 
 export const metadata: Metadata = {
   description: studioPositioning.short,
@@ -12,7 +16,7 @@ export const metadata: Metadata = {
     canonical: "https://altrove.studio/",
   },
   openGraph: {
-    title: "Altrove | A travel studio for people who care where they go",
+    title: "Altrove | Travel blog for slower, sustainable trips",
     description: studioPositioning.short,
     type: "website",
     images: [
@@ -36,118 +40,206 @@ const structuredData = {
       description: site.studioLine,
       email: site.email,
     },
+    {
+      "@type": "Blog",
+      name: "Altrove",
+      url: "https://altrove.studio/",
+      description: site.studioLine,
+    },
   ],
 };
 
-const foundingBenefits = [
-  "Access to all Altrove destination guides",
-  "Private maps and recommendations",
-  "Member-only hotel, restaurant and neighbourhood notes",
-  "Personal travel advice",
-  "Preferential pricing on bespoke itinerary planning",
-  "Early access to Altrove journeys and events",
-  "Founding Member status",
-];
+const latestSlugs = [
+  "what-not-to-miss-in-lisbon",
+  "are-you-a-yogi",
+  "what-not-to-miss-in-naples",
+  "where-to-eat-naples",
+  "where-to-eat-lisbon",
+] as const;
+
+const latestPosts = latestSlugs
+  .map((slug) => guides.find((guide) => guide.slug === slug))
+  .filter((post): post is (typeof guides)[number] => Boolean(post));
+
+const [featuredPost, ...morePosts] = latestPosts;
 
 export default function Home() {
   return (
-    <main className="home-edit home-studio">
+    <main className="home-blog">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <section className="studio-hero">
-        <HeroOceanVideo />
-        <div className="studio-hero-copy">
-          <p className="studio-hero-brand">Altrove</p>
-          <h1 className="studio-hero-display">
-            Travel with better taste.
-          </h1>
-          <p className="studio-hero-lede">
-            Curated places, thoughtful journeys and personal travel advice
-            across Europe.
-          </p>
-          <div className="hero-actions">
-            <Link className="button light" href="#discover">
-              Explore Altrove
-            </Link>
-            <Link className="button ghost-on-dark" href="/membership">
-              Join the Membership
-            </Link>
-          </div>
-        </div>
-      </section>
+      <p className="blog-dispatch">
+        New this week: what not to miss in Lisbon — and a note for yogis
+      </p>
 
-      <section className="section-shell home-problem" id="discover">
-        <p className="eyebrow">The Altrove way</p>
-        <h2 className="display-title">Travel less randomly.</h2>
-        <p>
-          Altrove is built around the belief that a great trip isn&rsquo;t about
-          fitting everything in. It&rsquo;s about choosing the right
-          neighbourhood, finding the restaurant worth crossing town for,
-          staying somewhere with character, and leaving enough room for the
-          unexpected.
-        </p>
-        <p className="home-section-link">
-          <Link className="text-link" href="/about">
-            Our approach
+      {featuredPost ? (
+        <article className="blog-feature">
+          <Link
+            className="blog-feature-media"
+            href={`/journal/${featuredPost.slug}`}
+            aria-label={featuredPost.title}
+          >
+            <img
+              src={featuredPost.image}
+              srcSet={unsplashSrcSet(featuredPost.image)}
+              sizes="(max-width: 900px) 100vw, 52vw"
+              alt={featuredPost.alt}
+            />
           </Link>
-        </p>
-      </section>
-
-      <section className="section-shell home-destinations" id="destinations">
-        <div className="home-section-head">
-          <p className="eyebrow">Featured destinations</p>
-          <h2 className="display-title">Portugal. Italy. Spain.</h2>
-        </div>
-        <div className="destinations-index-grid home-destinations-grid home-destination-doors">
-          {studioCountries.map((country) => (
-            <CountryTile key={country.slug} country={country} variant="home" />
-          ))}
-        </div>
-        <p className="home-section-link">
-          <Link className="text-link" href="/destinations">
-            Explore destinations
-          </Link>
-        </p>
-      </section>
-
-      <section
-        className="section-shell home-founding"
-        id="founding-membership"
-      >
-        <p className="eyebrow">Membership</p>
-        <h2 className="display-title">Join Altrove</h2>
-        <p>
-          Membership gives travellers access to Altrove&rsquo;s private
-          collection of recommendations, destination guides, maps and personal
-          travel advice.
-        </p>
-
-        <article className="home-founding-card">
-          <p className="eyebrow">Founding Membership</p>
-          <p className="home-founding-price">
-            {membershipConfig.founding.priceLabel}
-          </p>
-          <ul className="home-founding-list">
-            {foundingBenefits.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <p className="home-founding-limit">
-            {membershipConfig.founding.limitNote}
-          </p>
-          <div className="hero-actions">
-            <Link className="button dark" href="/membership#join">
-              Become a Founding Member
-            </Link>
-            <Link className="button ghost" href="/membership">
-              Discover Membership
+          <div className="blog-feature-copy">
+            <p className="blog-meta">
+              {featuredPost.category} · {featuredPost.destination} ·{" "}
+              {featuredPost.date}
+            </p>
+            <h1>
+              What not to miss in <em>Lisbon</em>
+            </h1>
+            <p>{featuredPost.excerpt}</p>
+            <Link className="button dark" href={`/journal/${featuredPost.slug}`}>
+              Read the post
             </Link>
           </div>
         </article>
+      ) : null}
+
+      <AdSlot id="home-after-feature" format="banner" />
+
+      <section className="blog-latest" id="journal">
+        <div className="blog-section-head">
+          <h2>Latest posts</h2>
+          <Link className="text-link" href="/journal">
+            All posts
+          </Link>
+        </div>
+        <div className="blog-post-grid">
+          {morePosts.map((post) => (
+            <article key={post.slug} className="blog-post-card">
+              <Link href={`/journal/${post.slug}`}>
+                <img
+                  src={post.image}
+                  srcSet={unsplashSrcSet(post.image)}
+                  sizes="(max-width: 900px) 100vw, 30vw"
+                  alt={post.alt}
+                  loading="lazy"
+                />
+                <p className="blog-meta">
+                  {post.category} · {post.date}
+                </p>
+                <h3>{post.title}</h3>
+                <p>{post.excerpt}</p>
+              </Link>
+            </article>
+          ))}
+        </div>
       </section>
+
+      <section className="blog-places" id="destinations">
+        <div className="blog-section-head">
+          <h2>City pages</h2>
+          <Link className="text-link" href="/destinations">
+            All places
+          </Link>
+        </div>
+        <p className="blog-section-dek">
+          Lisbon and Napoli first — then the countries around them. The posts
+          get better when we stay with a place.
+        </p>
+        <div className="blog-place-row city-place-row">
+          {cityPages.map((city) => (
+            <Link
+              key={city.slug}
+              className="blog-place"
+              href={`/destinations/${city.slug}`}
+            >
+              <img
+                src={city.heroImage}
+                srcSet={unsplashSrcSet(city.heroImage)}
+                sizes="(max-width: 900px) 100vw, 48vw"
+                alt={city.heroAlt}
+                loading="lazy"
+              />
+              <h3>{city.title}</h3>
+            </Link>
+          ))}
+        </div>
+        <div className="blog-place-row blog-place-row-countries">
+          {studioCountries.map((country) => (
+            <Link
+              key={country.slug}
+              className="blog-place"
+              href={`/destinations/${country.slug}`}
+            >
+              <img
+                src={country.image}
+                srcSet={unsplashSrcSet(country.image)}
+                sizes="(max-width: 900px) 100vw, 32vw"
+                alt={country.alt}
+                loading="lazy"
+              />
+              <h3>{country.title}</h3>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <AdSlot id="home-mid" format="banner" />
+
+      <section className="blog-trip" id="itineraries">
+        <Link className="blog-trip-card" href="/trips/lisbon">
+          <img
+            src={lisbonSampleTrip.heroImage}
+            srcSet={unsplashSrcSet(lisbonSampleTrip.heroImage)}
+            sizes="(max-width: 900px) 100vw, 48vw"
+            alt={lisbonSampleTrip.heroAlt}
+            loading="lazy"
+          />
+          <div>
+            <p className="blog-meta">Itinerary · 4 days · Lisbon</p>
+            <h2>
+              A weekend in <em>Lisbon</em>
+            </h2>
+            <p>
+              One neighbourhood, a short list of tables, and a pace that leaves
+              room to walk. Use it as a starting point — not a booking.
+            </p>
+            <span className="text-link">Read the itinerary</span>
+          </div>
+        </Link>
+        <p className="blog-section-link">
+          <Link className="text-link" href="/itineraries">
+            More itineraries
+          </Link>
+        </p>
+      </section>
+
+      <section className="blog-note" id="sustainable">
+        <p className="blog-meta">How we travel</p>
+        <h2>
+          Trains when they earn the day. Fewer hotel moves. Lunch that belongs
+          to the neighbourhood.
+        </h2>
+        <p>
+          Sustainable travel, for us, is mostly the shape of the trip — not a
+          lecture. We write the practical version.
+        </p>
+        <Link
+          className="text-link"
+          href="/journal/sustainable-travel-basics"
+        >
+          How to travel more sustainably
+        </Link>
+      </section>
+
+      <StudioNewsletter
+        id="letters"
+        title="New posts, in your inbox"
+        description="When a new itinerary or a hotel note is ready, it goes out as a letter. Occasional. Easy to leave."
+      >
+        <NewsletterForm buttonLabel="Send me new posts" />
+      </StudioNewsletter>
     </main>
   );
 }

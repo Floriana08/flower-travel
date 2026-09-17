@@ -21,9 +21,9 @@ export default function SignInPage() {
       </p>
       <SignInForm />
       <p className="sign-in-foot">
-        Not a member yet?{" "}
-        <Link className="text-link" href="/membership">
-          Join Founding Membership
+        Looking for the letters?{" "}
+        <Link className="text-link" href="/community#letters">
+          Join the letters
         </Link>
       </p>
     </main>

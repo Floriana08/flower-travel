@@ -71,15 +71,15 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
               })}
             </div>
             <p className="country-mag-quiet-note">
-              Members can still request trips beyond these places.
+              The Journal and itineraries stay with these places — we write
+              where we have a clear point of view.
             </p>
           </>
         ) : (
           <p className="country-mag-quiet-note">
             We do not yet publish a finished city edit for {country.title}. The
-            notes below show how we think about travelling here. Members can
-            still request a trip anywhere in the country — we research those
-            by hand.
+            notes below show how we think about travelling here. More city
+            pages follow as the research is ready.
           </p>
         )}
       </section>
@@ -140,10 +140,10 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
       ) : null}
 
       {showExample && featured ? (
-        <section className="country-mag-coast country-mag-pad" aria-label="Example Trip Edit">
+        <section className="country-mag-coast country-mag-pad" aria-label="Example itinerary">
           <div className="country-mag-coast-head">
             <div className="country-mag-coast-copy">
-              <p className="country-mag-kicker">Example Trip Edit</p>
+              <p className="country-mag-kicker">Example itinerary</p>
               <h2>
                 <Link href={country.slug === "portugal" ? "/trips/lisbon" : `/journeys/${featured.slug}`}>
                   {country.slug === "portugal" ? "A weekend in Lisbon" : featured.title}
@@ -154,13 +154,13 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
               </p>
               <p className="country-mag-deck">
                 {country.slug === "portugal"
-                  ? "A compact Altrove edit: one considered base, a short list of tables, and a loose rhythm for the weekend."
+                  ? "A compact itinerary: one considered base, a short list of tables, and a loose rhythm for the weekend."
                   : featured.summary}
               </p>
               <div className="country-mag-coast-links">
                 {country.slug === "portugal" ? (
                   <Link className="country-mag-link" href="/trips/lisbon">
-                    See the Lisbon Trip Edit
+                    Read the Lisbon itinerary
                   </Link>
                 ) : (
                   <Link className="country-mag-link" href={`/journeys/${featured.slug}`}>
@@ -212,14 +212,13 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
           </>
         ) : (
           <p className="country-mag-quiet-note">
-            Journal notes for {country.title} are still being gathered. The
-            public Journal is not the full edit — members receive tighter
-            recommendations when we design a trip.
+            Journal notes for {country.title} are still being gathered. Tighter
+            notes follow as we spend more time with the place.
           </p>
         )}
       </section>
 
-      <section className="country-mag-plan country-mag-pad" aria-label="Founding Membership">
+      <section className="country-mag-plan country-mag-pad" aria-label="Altrove letters">
         <div className="country-mag-plan-media" aria-hidden="true">
           <img
             src={country.planImage}
@@ -229,11 +228,14 @@ export function DestinationHub({ country }: { country: StudioCountry }) {
           />
         </div>
         <div className="country-mag-plan-copy">
-          <p className="country-mag-kicker">Founding Membership</p>
+          <p className="country-mag-kicker">Letters from Altrove</p>
           <h2>Going to {country.title}?</h2>
-          <p>Let Altrove shape the trip around you.</p>
-          <Link className="button dark" href="/apply">
-            Become a Founding Member
+          <p>
+            Read the itineraries and Journal notes, then join the letters for
+            new recommendations as they are published.
+          </p>
+          <Link className="button dark" href="/community#letters">
+            Join the letters
           </Link>
         </div>
       </section>

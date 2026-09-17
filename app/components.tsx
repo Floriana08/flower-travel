@@ -8,7 +8,6 @@ import {
   legalLinks,
   navCta,
   navItems,
-  navSignIn,
   site,
 } from "./data";
 import { NewsletterForm } from "./newsletter-form";
@@ -106,9 +105,6 @@ export function SiteHeader() {
         </nav>
 
         <div className="header-actions">
-          <Link className="header-signin" href={navSignIn.href}>
-            {navSignIn.label}
-          </Link>
           <Link className="header-action" href={navCta.href}>
             {navCta.label}
           </Link>
@@ -126,7 +122,6 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <Link href={navSignIn.href}>{navSignIn.label}</Link>
             <Link className="mobile-cta" href={navCta.href}>
               {navCta.label}
             </Link>
@@ -157,15 +152,14 @@ export function SiteFooter() {
           </Link>
         ))}
         <Link href={navCta.href}>{navCta.label}</Link>
-        <Link href={navSignIn.href}>{navSignIn.label}</Link>
       </div>
 
       <div className="footer-col">
         <h2>Altrove</h2>
         <Link href="/about">About</Link>
-        <Link href="/membership">Membership</Link>
-        <Link href="/members">Member area</Link>
-        <Link href="/trips/lisbon">Lisbon Edit</Link>
+        <Link href="/community">Community</Link>
+        <Link href="/itineraries">Itineraries</Link>
+        <Link href="/trips/lisbon">Lisbon itinerary</Link>
         <a href={`mailto:${site.email}`}>{site.email}</a>
       </div>
 

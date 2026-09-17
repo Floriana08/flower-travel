@@ -7,7 +7,7 @@ import { defaultImageSizes, unsplashSrcSet } from "../image-utils";
 export const metadata: Metadata = {
   title: "Guides",
   description:
-    "Editorial destination research from Altrove. Paid guides are not on sale. Founding Membership is the way to travel with Altrove today.",
+    "Editorial destination research from Altrove. The Journal and itineraries are the public writing; these pages collect longer research in progress.",
   alternates: {
     canonical: "https://altrove.studio/guides",
   },
@@ -22,9 +22,9 @@ export default function GuidesPage() {
         <p className="eyebrow">Editorial research</p>
         <h1 className="display-title">Guides in progress.</h1>
         <p className="destinations-index-lede">
-          These pages collect destination research. They are not for sale, and
-          they are not the current Altrove offer. Today, the way to travel with
-          Altrove is Founding Membership: we design the trip, and you book it.
+          These pages collect destination research as it is written. The public
+          Altrove is the Journal and the itineraries — recommendations you can
+          use now, without a membership.
         </p>
       </header>
 
@@ -45,8 +45,8 @@ export default function GuidesPage() {
               <Link href={`/guides/${flagship.slug}`}>{flagship.title}</Link>
             </h2>
             <p>{flagship.excerpt}</p>
-            <Link className="button dark" href="/apply">
-              Become a Founding Member
+            <Link className="button dark" href="/journal">
+              Read the Journal
             </Link>
           </div>
         </section>
@@ -62,9 +62,13 @@ export default function GuidesPage() {
 
       <section className="section-shell tinted guides-note">
         <p>
-          If you want a trip designed around your own dates now,{" "}
-          <Link className="text-link" href="/apply">
-            apply for Founding Membership
+          For notes you can use this week, start with the{" "}
+          <Link className="text-link" href="/journal">
+            Journal
+          </Link>{" "}
+          or{" "}
+          <Link className="text-link" href="/community#letters">
+            join the letters
           </Link>
           .
         </p>
