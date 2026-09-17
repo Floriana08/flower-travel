@@ -17,7 +17,7 @@ export const navItems = [
 
 export const navCta = {
   href: "/community#letters",
-  label: "Join the letters",
+  label: "Get new posts",
 };
 
 export const navSignIn = {

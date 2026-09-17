@@ -219,7 +219,7 @@ export function StudioNewsletter({
     <section id={id} className="studio-newsletter section-shell">
       <div className="studio-newsletter-inner">
         <div>
-          <p className="eyebrow">Subscribe</p>
+          <p className="eyebrow">From the inbox</p>
           <h2 className="display-title">{title}</h2>
           <p>{description}</p>
         </div>

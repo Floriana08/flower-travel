@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { guides, site } from "./data";
-import { HeroOceanVideo } from "./hero-ocean-video";
-import { TripEditGlimpse } from "./sample-trip";
-import { lisbonSampleTrip } from "./sample-trips";
-import { CountryTile, StudioNewsletter } from "./studio-components";
 import { NewsletterForm } from "./newsletter-form";
 import { studioPositioning } from "./membership-config";
 import { studioCountries } from "./studio-structure";
+import { StudioNewsletter } from "./studio-components";
+import { lisbonSampleTrip } from "./sample-trips";
 import { unsplashSrcSet } from "./image-utils";
 
 export const metadata: Metadata = {
@@ -16,7 +14,7 @@ export const metadata: Metadata = {
     canonical: "https://altrove.studio/",
   },
   openGraph: {
-    title: "Altrove | Travel Journal for Slower, Sustainable Trips",
+    title: "Altrove | Travel blog for slower, sustainable trips",
     description: studioPositioning.short,
     type: "website",
     images: [
@@ -42,202 +40,181 @@ const structuredData = {
     },
     {
       "@type": "Blog",
-      name: "Altrove Journal",
-      url: "https://altrove.studio/journal",
+      name: "Altrove",
+      url: "https://altrove.studio/",
       description: site.studioLine,
     },
   ],
 };
 
-const sustainNotes = [
-  {
-    title: "Fewer bases",
-    body: "One neighbourhood, then another region only when the first has had enough time. Hotel moves cost more than money.",
-  },
-  {
-    title: "Trains when they earn the day",
-    body: "A Lisbon–Porto rail day or Rome–Naples Frecciarossa is usually better than a short flight that eats the morning.",
-  },
-  {
-    title: "Eat where people already eat",
-    body: "A neighbourhood lunch does more for a place than a restaurant built for photographs.",
-  },
-  {
-    title: "Skip what doesn’t earn the morning",
-    body: "Not every attraction is worth the queue, the taxi, or the carbon. Taste is also a form of restraint.",
-  },
-];
+const latestSlugs = [
+  "where-to-eat-lisbon",
+  "where-to-stay-lisbon",
+  "sustainable-travel-basics",
+  "rome-food-walk",
+  "train-travel-europe",
+] as const;
 
-const journalFeatured = [
-  {
-    slug: "where-to-eat-lisbon",
-    title: "Where to Eat in Lisbon",
-  },
-  {
-    slug: "where-to-stay-lisbon",
-    title: "Where to Stay in Lisbon",
-  },
-  {
-    slug: "sustainable-travel-basics",
-    title: "How to Travel More Sustainably",
-  },
-]
-  .map((item) => {
-    const story = guides.find((guide) => guide.slug === item.slug);
-    return story ? { ...story, displayTitle: item.title } : null;
-  })
-  .filter((story): story is (typeof guides)[number] & { displayTitle: string } =>
-    Boolean(story),
-  );
+const latestPosts = latestSlugs
+  .map((slug) => guides.find((guide) => guide.slug === slug))
+  .filter((post): post is (typeof guides)[number] => Boolean(post));
 
-const [journalLead, ...journalSupporting] = journalFeatured;
+const [featuredPost, ...morePosts] = latestPosts;
 
 export default function Home() {
   return (
-    <main className="home-edit">
+    <main className="home-blog">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <section className="studio-hero">
-        <HeroOceanVideo />
-        <div className="studio-hero-copy">
-          <p className="studio-hero-kicker">
-            A travel journal · Portugal, Italy, Spain
-          </p>
-          <h1 className="studio-hero-display">Travel, considered.</h1>
-          <p className="studio-hero-lede">
-            Itineraries, recommendations, and how to travel more lightly —
-            written like a field guide, not a checklist.
-          </p>
-          <div className="hero-actions">
-            <Link className="button light" href="/journal">
-              Read the Journal
-            </Link>
-            <Link className="button ghost-on-dark" href="/community#letters">
-              Join the letters
+      <p className="blog-dispatch">
+        New this week: where to eat in Lisbon — skip the obvious list
+      </p>
+
+      {featuredPost ? (
+        <article className="blog-feature">
+          <Link
+            className="blog-feature-media"
+            href={`/journal/${featuredPost.slug}`}
+            aria-label={featuredPost.title}
+          >
+            <img
+              src={featuredPost.image}
+              srcSet={unsplashSrcSet(featuredPost.image)}
+              sizes="(max-width: 900px) 100vw, 52vw"
+              alt={featuredPost.alt}
+            />
+          </Link>
+          <div className="blog-feature-copy">
+            <p className="blog-meta">
+              {featuredPost.category} · {featuredPost.destination} ·{" "}
+              {featuredPost.date}
+            </p>
+            <h1>
+              Where to eat in <em>Lisbon</em>
+            </h1>
+            <p>{featuredPost.excerpt}</p>
+            <Link className="button dark" href={`/journal/${featuredPost.slug}`}>
+              Read the post
             </Link>
           </div>
-          <p className="studio-hero-caption">
-            Stories from the road, photographed for the page.
-          </p>
-        </div>
-      </section>
+        </article>
+      ) : null}
 
-      <section className="section-shell home-product" id="itineraries">
-        <div className="home-section-head">
-          <p className="eyebrow">Itineraries</p>
-          <h2 className="display-title">How we would spend the days.</h2>
-        </div>
-        <TripEditGlimpse
-          trip={lisbonSampleTrip}
-          ctaLabel="Read the Lisbon itinerary"
-        />
-        <p className="home-section-link">
-          <Link className="text-link" href="/itineraries">
-            All itineraries
-          </Link>
-        </p>
-      </section>
-
-      <section className="section-shell home-destinations" id="destinations">
-        <div className="home-section-head">
-          <p className="eyebrow">Destinations</p>
-          <h2 className="display-title">Portugal. Italy. Spain.</h2>
-        </div>
-        <div className="destinations-index-grid home-destinations-grid home-destination-doors">
-          {studioCountries.map((country) => (
-            <CountryTile key={country.slug} country={country} variant="home" />
-          ))}
-        </div>
-        <p className="home-section-link">
-          <Link className="text-link" href="/destinations">
-            Explore Destinations
-          </Link>
-        </p>
-      </section>
-
-      <section className="section-shell home-journal-feature" id="journal">
-        <div className="home-section-head">
-          <p className="eyebrow">Features</p>
-          <h2 className="display-title">Notes from the road.</h2>
-        </div>
-        {journalLead ? (
-            <div className="home-journal-editorial">
-              <article className="home-journal-lead">
-                <Link href={`/journal/${journalLead.slug}`}>
-                  <img
-                    src={journalLead.image}
-                    srcSet={unsplashSrcSet(journalLead.image)}
-                    sizes="(max-width: 900px) 100vw, 58vw"
-                    alt={journalLead.alt}
-                    loading="lazy"
-                  />
-                  <div className="home-journal-lead-copy">
-                    <p className="eyebrow">{journalLead.destination}</p>
-                    <h3>{journalLead.displayTitle}</h3>
-                    <p>{journalLead.excerpt}</p>
-                  </div>
-                </Link>
-              </article>
-              <div className="home-journal-side">
-                {journalSupporting.map((story) => (
-                  <article key={story.slug} className="home-journal-side-card">
-                    <Link href={`/journal/${story.slug}`}>
-                      <img
-                        src={story.image}
-                        srcSet={unsplashSrcSet(story.image)}
-                        sizes="(max-width: 900px) 100vw, 32vw"
-                        alt={story.alt}
-                        loading="lazy"
-                      />
-                      <p className="eyebrow">{story.destination}</p>
-                      <h3>{story.displayTitle}</h3>
-                    </Link>
-                  </article>
-                ))}
-              </div>
-            </div>
-        ) : null}
-        <p className="home-section-link">
+      <section className="blog-latest" id="journal">
+        <div className="blog-section-head">
+          <h2>Latest posts</h2>
           <Link className="text-link" href="/journal">
-            Read the Journal
+            All posts
+          </Link>
+        </div>
+        <div className="blog-post-grid">
+          {morePosts.map((post) => (
+            <article key={post.slug} className="blog-post-card">
+              <Link href={`/journal/${post.slug}`}>
+                <img
+                  src={post.image}
+                  srcSet={unsplashSrcSet(post.image)}
+                  sizes="(max-width: 900px) 100vw, 30vw"
+                  alt={post.alt}
+                  loading="lazy"
+                />
+                <p className="blog-meta">
+                  {post.category} · {post.date}
+                </p>
+                <h3>{post.title}</h3>
+                <p>{post.excerpt}</p>
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="blog-places" id="destinations">
+        <div className="blog-section-head">
+          <h2>Where we write</h2>
+          <Link className="text-link" href="/destinations">
+            All places
+          </Link>
+        </div>
+        <p className="blog-section-dek">
+          Portugal, Italy and Spain — not the whole world. The posts get
+          better when we stay with a place.
+        </p>
+        <div className="blog-place-row">
+          {studioCountries.map((country) => (
+            <Link
+              key={country.slug}
+              className="blog-place"
+              href={`/destinations/${country.slug}`}
+            >
+              <img
+                src={country.image}
+                srcSet={unsplashSrcSet(country.image)}
+                sizes="(max-width: 900px) 100vw, 32vw"
+                alt={country.alt}
+                loading="lazy"
+              />
+              <h3>{country.title}</h3>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="blog-trip" id="itineraries">
+        <Link className="blog-trip-card" href="/trips/lisbon">
+          <img
+            src={lisbonSampleTrip.heroImage}
+            srcSet={unsplashSrcSet(lisbonSampleTrip.heroImage)}
+            sizes="(max-width: 900px) 100vw, 48vw"
+            alt={lisbonSampleTrip.heroAlt}
+            loading="lazy"
+          />
+          <div>
+            <p className="blog-meta">Itinerary · 4 days · Lisbon</p>
+            <h2>
+              A weekend in <em>Lisbon</em>
+            </h2>
+            <p>
+              One neighbourhood, a short list of tables, and a pace that leaves
+              room to walk. Use it as a starting point — not a booking.
+            </p>
+            <span className="text-link">Read the itinerary</span>
+          </div>
+        </Link>
+        <p className="blog-section-link">
+          <Link className="text-link" href="/itineraries">
+            More itineraries
           </Link>
         </p>
       </section>
 
-      <section className="section-shell tinted home-benefits" id="sustainable">
-        <div className="home-section-head">
-          <p className="eyebrow">How we travel</p>
-          <h2 className="display-title">Sustainable, without the sermon.</h2>
-          <p className="home-section-dek">
-            The useful levers are usually the shape of the trip: fewer flights,
-            longer stays, trains where they make sense, meals that belong to
-            the neighbourhood.
-          </p>
-        </div>
-        <ul className="home-benefits-grid">
-          {sustainNotes.map((item) => (
-            <li key={item.title}>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-            </li>
-          ))}
-        </ul>
-        <p className="home-section-link">
-          <Link className="text-link" href="/journal/sustainable-travel-basics">
-            How to travel more sustainably
-          </Link>
+      <section className="blog-note" id="sustainable">
+        <p className="blog-meta">How we travel</p>
+        <h2>
+          Trains when they earn the day. Fewer hotel moves. Lunch that belongs
+          to the neighbourhood.
+        </h2>
+        <p>
+          Sustainable travel, for us, is mostly the shape of the trip — not a
+          lecture. We write the practical version.
         </p>
+        <Link
+          className="text-link"
+          href="/journal/sustainable-travel-basics"
+        >
+          How to travel more sustainably
+        </Link>
       </section>
 
       <StudioNewsletter
         id="letters"
-        title="Letters from Altrove"
-        description="New itineraries, hotel notes, and practical advice on travelling more lightly — sent when there is something worth writing."
+        title="New posts, in your inbox"
+        description="When a new itinerary or a hotel note is ready, it goes out as a letter. Occasional. Easy to leave."
       >
-        <NewsletterForm buttonLabel="Join the letters" />
+        <NewsletterForm buttonLabel="Send me new posts" />
       </StudioNewsletter>
     </main>
   );
