@@ -8,9 +8,9 @@ import { unsplashSrcSet } from "../../image-utils";
 const trip = getSampleTrip("lisbon");
 
 export const metadata: Metadata = {
-  title: "Lisbon / 4 days — a sample Altrove travel edit",
+  title: "Lisbon / 4 days — an Altrove itinerary",
   description:
-    "How Altrove would approach four days in Lisbon: a considered base, a short list of tables, a loose rhythm, and the notes we would actually give a friend.",
+    "How Altrove would spend four days in Lisbon: a considered base, a short list of tables, a loose rhythm, and the notes we would actually give a friend.",
   alternates: {
     canonical: "https://altrove.studio/trips/lisbon",
   },
@@ -43,15 +43,15 @@ export default function LisbonSampleTripPage() {
       </div>
 
       <section className="section-shell tinted sample-trip-close">
-        <p className="eyebrow">Founding Membership</p>
-        <h2 className="display-title">This is the kind of edit you receive.</h2>
+        <p className="eyebrow">Itineraries</p>
+        <h2 className="display-title">This is how Altrove writes a trip.</h2>
         <p>
-          Altrove personally designs the trip and you make the bookings. The
-          edit is built around your dates, your budget and the way you actually
-          like to travel.
+          A considered base, a short list of tables, and a rhythm that leaves
+          room to walk. More itineraries live in the journal — and in the
+          letters.
         </p>
-        <Link className="button dark" href="/apply">
-          Apply for Membership
+        <Link className="button dark" href="/community#letters">
+          Join the letters
         </Link>
       </section>
     </main>

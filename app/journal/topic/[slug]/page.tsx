@@ -72,11 +72,11 @@ export default async function JournalTopicPage({ params }: PageProps) {
       <section className="section-shell">
         <EnquiryCta
           title="If these notes feel like your kind of travel."
-          cta="Apply for Founding Membership"
+          cta="Join the letters"
         >
           <p>
-            Altrove members can have their trip personally designed around their
-            preferences, budget and travel style.
+            New itineraries, hotel notes and practical advice on travelling more
+            lightly — sent when there is something worth writing.
           </p>
         </EnquiryCta>
       </section>

@@ -3,20 +3,21 @@ export const site = {
   fullName: "Altrove",
   strapline: "travel, considered",
   studioLine:
-    "Altrove is a private travel membership. Tell us about your trip and we'll design it around you.",
+    "Altrove is a travel journal for slower, more sustainable trips — itineraries, recommendations, and notes on how to travel well.",
   email: "hello@altrove.studio",
 };
 
 export const navItems = [
-  { href: "/membership", label: "Membership" },
-  { href: "/destinations", label: "Destinations" },
   { href: "/journal", label: "Journal" },
+  { href: "/itineraries", label: "Itineraries" },
+  { href: "/destinations", label: "Destinations" },
+  { href: "/community", label: "Community" },
   { href: "/about", label: "About" },
 ];
 
 export const navCta = {
-  href: "/apply",
-  label: "Apply",
+  href: "/community#letters",
+  label: "Join the letters",
 };
 
 export const legalLinks = [
@@ -40,25 +41,25 @@ export const travellerTypes = [
 export const clubBenefits = [
   {
     id: "early-access",
-    title: "New destination stories",
+    title: "New stories first",
     description:
-      "Read carefully edited guides and route notes as they are published.",
+      "Journal notes and itineraries as they are published — hotels, tables, routes and the ones we would skip.",
   },
   {
     id: "itineraries",
-    title: "Practical planning advice",
+    title: "How to pace a trip",
     description:
-      "Season timing, pacing notes and small decisions that change a trip.",
+      "Season timing, train days, and the small decisions that keep a week from turning into a checklist.",
   },
   {
     id: "recommendations",
-    title: "Hotel and restaurant finds",
+    title: "Fewer, better recommendations",
     description:
-      "Boutique stays and tables worth planning around, chosen with care.",
+      "Stays and restaurants worth planning around, chosen with care — not another endless list.",
   },
   {
     id: "email",
-    title: "One thoughtful note",
+    title: "One letter, when it matters",
     description:
       "Occasional emails. No clutter. Easy to unsubscribe whenever you like.",
   },
@@ -2149,7 +2150,7 @@ export const guideProducts: GuideProduct[] = [
       },
       {
         q: "Will you book any of this for me?",
-        a: "No — the guide is independent research and recommendations. If you'd like a trip designed around your own dates, apply for Founding Membership.",
+        a: "No — the guide is independent research and recommendations. For more notes like this, read the Journal or join the Altrove letters.",
       },
     ],
     relatedArticleSlugs: ["train-travel-europe", "rome-food-walk"],

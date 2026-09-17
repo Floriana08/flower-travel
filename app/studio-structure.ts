@@ -859,7 +859,7 @@ export function getJournalPlanningCta(guide: (typeof guides)[number]): {
 } {
   const haystack = `${guide.slug} ${guide.destination} ${guide.title}`;
   const body =
-    "Altrove members can have their trip personally designed around their preferences, budget and travel style.";
+    "The Journal is how we share recommendations publicly. Join the Altrove letters for new itineraries, hotel notes, and practical advice on travelling more lightly.";
 
   if (/lisbon/i.test(haystack)) {
     return {

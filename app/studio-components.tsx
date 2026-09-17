@@ -177,11 +177,11 @@ export function EditorialStoryCard({ guide }: { guide: Guide }) {
 }
 
 export function EnquiryCta({
-  eyebrow = "Founding Membership",
+  eyebrow = "Letters from Altrove",
   title,
   children,
-  href = "/apply",
-  cta = "Apply for Membership",
+  href = "/community#letters",
+  cta = "Join the letters",
 }: {
   eyebrow?: string;
   title: string;

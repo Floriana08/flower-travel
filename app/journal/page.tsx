@@ -36,8 +36,8 @@ const featuredSlugs = [
   "where-to-stay-lisbon",
   "where-to-eat-lisbon",
   "rome-food-walk",
+  "sustainable-travel-basics",
   "train-travel-europe",
-  "solo-paris-weekend",
 ] as const;
 
 export default function JournalPage() {
@@ -155,7 +155,7 @@ export default function JournalPage() {
       <StudioNewsletter
         id="letters"
         title="Letters from Altrove"
-        description="New notes on hotels, restaurants and routes — sent occasionally, without noise."
+        description="New itineraries, hotel notes, and practical advice on travelling more lightly — sent when there is something worth writing."
       >
         <NewsletterForm buttonLabel="Join our letters" />
       </StudioNewsletter>

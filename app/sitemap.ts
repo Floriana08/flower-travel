@@ -8,10 +8,10 @@ const routes = [
   "/destinations",
   "/destinations/lisbon",
   "/journal",
+  "/itineraries",
+  "/community",
   "/guides",
-  "/apply",
   "/about",
-  "/membership",
   "/trips/lisbon",
   "/privacy",
   "/terms",
@@ -43,19 +43,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...guideProductRoutes,
   ].map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date("2026-08-19"),
+    lastModified: new Date("2026-09-17"),
     changeFrequency:
       route === "" ||
       route.startsWith("/destinations") ||
-      route.startsWith("/journal")
+      route.startsWith("/journal") ||
+      route === "/itineraries" ||
+      route === "/community"
         ? "weekly"
         : "monthly",
     priority:
       route === ""
         ? 1
-        : route === "/destinations" || route === "/apply" || route === "/journal"
+        : route === "/journal" ||
+            route === "/itineraries" ||
+            route === "/community" ||
+            route === "/destinations"
           ? 0.95
-          : route.startsWith("/destinations/") || route.startsWith("/journal/")
+          : route.startsWith("/destinations/") ||
+              route.startsWith("/journal/") ||
+              route.startsWith("/journeys/") ||
+              route.startsWith("/trips/")
             ? 0.75
             : 0.8,
   }));

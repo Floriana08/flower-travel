@@ -34,8 +34,8 @@ export function SampleTripEdit({
           </p>
           {isPreview ? (
             <p className="trip-edit-dek">
-              An example of how Altrove thinks about a trip — not a template to
-              copy, and not a booking.
+              A public itinerary — how Altrove would spend the days. Use it as
+              a starting point, not a booking.
             </p>
           ) : null}
         </div>
@@ -131,7 +131,7 @@ export function SampleTripEdit({
 
 export function TripEditGlimpse({
   trip,
-  ctaLabel = "Explore the Lisbon Edit",
+  ctaLabel = "Read the Lisbon itinerary",
 }: {
   trip: SampleTrip;
   ctaLabel?: string;
@@ -151,7 +151,7 @@ export function TripEditGlimpse({
         />
       </figure>
       <div className="trip-glimpse-copy">
-        <p className="eyebrow">Altrove Trip Edit</p>
+        <p className="eyebrow">Itinerary</p>
         <h2 className="display-title">A weekend in Lisbon</h2>
 
         <div className="trip-glimpse-block">

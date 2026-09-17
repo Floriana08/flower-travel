@@ -102,12 +102,12 @@ export default function LisbonDestinationPage() {
 
       <section className="section-shell lisbon-example" aria-labelledby="lisbon-example">
         <div className="home-section-head">
-          <p className="eyebrow">Example Trip</p>
+          <p className="eyebrow">Example itinerary</p>
           <h2 id="lisbon-example" className="display-title">
-            A Lisbon Trip Edit.
+            A Lisbon itinerary.
           </h2>
         </div>
-        <TripEditGlimpse trip={lisbonSampleTrip} ctaLabel="See the full Lisbon Trip Edit" />
+        <TripEditGlimpse trip={lisbonSampleTrip} ctaLabel="Read the Lisbon itinerary" />
       </section>
 
       {journalStories.length ? (
@@ -139,11 +139,14 @@ export default function LisbonDestinationPage() {
       ) : null}
 
       <section className="section-shell membership-now">
-        <p className="eyebrow">Founding Membership</p>
+        <p className="eyebrow">Letters from Altrove</p>
         <h2 className="display-title">Planning Lisbon?</h2>
-        <p>Let Altrove design your trip.</p>
-        <Link className="button dark" href="/apply">
-          Apply for Founding Membership
+        <p>
+          Read the itinerary, then join the letters for new notes as they are
+          published.
+        </p>
+        <Link className="button dark" href="/community#letters">
+          Join the letters
         </Link>
       </section>
     </main>

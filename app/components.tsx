@@ -138,8 +138,8 @@ export function SiteFooter() {
           <BrandLockup tone="light" />
         </Link>
         <p>
-          Altrove is a private travel membership. Tell us about your trip
-          and we&rsquo;ll design it around you.
+          Altrove is a travel journal for slower, more sustainable trips —
+          itineraries, recommendations, and notes on how to travel well.
         </p>
       </div>
 
@@ -156,8 +156,9 @@ export function SiteFooter() {
       <div className="footer-col">
         <h2>Altrove</h2>
         <Link href="/about">About</Link>
-        <Link href="/membership">Membership</Link>
-        <Link href="/trips/lisbon">Lisbon Edit</Link>
+        <Link href="/community">Community</Link>
+        <Link href="/itineraries">Itineraries</Link>
+        <Link href="/trips/lisbon">Lisbon itinerary</Link>
         <a href={`mailto:${site.email}`}>{site.email}</a>
       </div>
 
@@ -427,8 +428,8 @@ export function GuideProductCard({
 }
 
 export function NewsletterBand({
-  title = "Join the Altrove Club",
-  description = "Every month, receive one carefully planned route, one hotel worth remembering, one restaurant worth travelling for and personal travel notes that do not always make it onto the website.",
+  title = "Join the Altrove letters",
+  description = "Occasional notes on itineraries, hotels and how to travel more lightly. No clutter.",
   placeholder = "Your email address",
   footnote = "No daily emails. Just thoughtful travel inspiration and practical ideas.",
 }: {

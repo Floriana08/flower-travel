@@ -91,11 +91,11 @@ export function JournalDestinationPage({ slug }: { slug: StudioCountrySlug }) {
       <section className="section-shell">
         <EnquiryCta
           title={`Planning a trip to ${country.title}?`}
-          cta="Apply for Founding Membership"
+          cta="Join the letters"
         >
           <p>
-            Altrove members can have their trip personally designed around their
-            preferences, budget and travel style.
+            New itineraries and recommendations go out in the Altrove letters —
+            occasional, without noise.
           </p>
         </EnquiryCta>
       </section>
@@ -143,11 +143,11 @@ export function JournalMoodPage({ slug }: { slug: JournalMoodSlug }) {
       <section className="section-shell">
         <EnquiryCta
           title="Planning a trip?"
-          cta="Apply for Founding Membership"
+          cta="Join the letters"
         >
           <p>
-            Altrove members can have their trip personally designed around their
-            preferences, budget and travel style.
+            New itineraries and recommendations go out in the Altrove letters —
+            occasional, without noise.
           </p>
         </EnquiryCta>
       </section>
